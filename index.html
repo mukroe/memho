@@ -1,0 +1,47 @@
+
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MemHo – Capture Memories</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">MemHo</div>
+    <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false">☰<span class="visually-hidden">Menu</span></button>
+    <nav id="main-nav" class="desktop-nav collapsed">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="grid-container">
+    <section class="hero">
+      <h1 class="hero-title">Capture Memories, One Watercolor at a Time</h1>
+      <button class="cta">View Gallery</button>
+    </section>
+    <!-- Add further content sections here -->
+  </main>
+
+  <script>
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('main-nav');
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('expanded');
+      nav.classList.toggle('collapsed');
+    });
+  </script>
+</body>
+</html>
+```
+
+---
