@@ -1,19 +1,34 @@
-
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-exports.handler = async function(event, context) {
+exports.handler = async (event) => {
   try {
-    const data = JSON.parse(event.body);
+    // Parse request body
+    const data = JSON.parse(event.body || '{}');
+    const amount = data.amount;
+
+    if (!amount) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Missing required param: amount' }),
+      };
+    }
+
+    // Create a PaymentIntent
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: data.amount,
-      currency: 'usd',
-      automatic_payment_methods: {enabled: true},
+      amount,          // in cents, e.g., 1000 = $10.00
+      currency: 'usd', // change if needed
     });
+
     return {
       statusCode: 200,
       body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
     };
+
   } catch (error) {
-    return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+    console.error('Stripe Function Error:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }),
+    };
   }
 };
