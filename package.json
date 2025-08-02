@@ -1,0 +1,9 @@
+{
+  "name": "memho",
+  "version": "1.0.0",
+  "description": "MemHo website with Netlify functions for Stripe payments",
+  "main": "index.js",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}
