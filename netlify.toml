@@ -1,7 +1,7 @@
 [build]
-  command = ""           # Skip the build step
-  publish = "/"          # Root directory for your static files
-  functions = "netlify/functions"
+command = "echo Skip build"
+publish = "/"
+functions = "netlify/functions"
 
 [functions]
-  node_bundler = "esbuild"  # Ensures your serverless function runs smoothly
+node_bundler = "esbuild"
