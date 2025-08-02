@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Stripe Function</title>
+</head>
+<body>
+  <h1>Stripe Function Test</h1>
+  <button id="testButton">Send Test Request</button>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById('testButton').addEventListener('click', async () => {
+      const output = document.getElementById('output');
+      output.textContent = "Sending request...";
+
+      try {
+        const response = await fetch("/.netlify/functions/create-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ test: true })  // Send dummy JSON
+        });
+
+        const text = await response.text(); // We use text first in case JSON fails
+        output.textContent = text;
+
+        // Try to parse as JSON
+        try {
+          const data = JSON.parse(text);
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          // If it's not JSON, just leave the text
+        }
+      } catch (error) {
+        output.textContent = "Error: " + error;
+      }
+    });
+  </script>
+</body>
+</html>
