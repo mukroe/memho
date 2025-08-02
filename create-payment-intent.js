@@ -1,5 +1,5 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); 
-// Make sure STRIPE_SECRET_KEY in Netlify is your **LIVE sk_live_ key**
+// Make sure STRIPE_SECRET_KEY is your **LIVE sk_live_ key**
 
 exports.handler = async (event) => {
   try {
