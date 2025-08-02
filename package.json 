@@ -1,0 +1,7 @@
+{
+  "name": "thememoryhouse-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "echo 'Netlify build step triggered'"
+  }
+}

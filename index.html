@@ -1,47 +1,8 @@
-
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MemHo – Capture Memories</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <div class="logo">MemHo</div>
-    <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false">☰<span class="visually-hidden">Menu</span></button>
-    <nav id="main-nav" class="desktop-nav collapsed">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/gallery">Gallery</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="grid-container">
-    <section class="hero">
-      <h1 class="hero-title">Capture Memories, One Watercolor at a Time</h1>
-      <button class="cta">View Gallery</button>
-    </section>
-    <!-- Add further content sections here -->
-  </main>
-
-  <script>
-    const btn = document.querySelector('.nav-toggle');
-    const nav = document.getElementById('main-nav');
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      nav.classList.toggle('expanded');
-      nav.classList.toggle('collapsed');
-    });
-  </script>
-</body>
-</html>
-```
-
----
+<!DOCTYPE html><html lang="en"><head><style> .hamburger, #navMenu { display: none; } @media (max-width: 768px) { .hamburger { display: block; font-size: 28px; cursor: pointer; padding: 20px; text-align: center; } #navMenu { display: none; list-style: none; padding: 0; margin: 0; text-align: center; } #navMenu.active { display: block; } #navMenu li { margin: 12px 0; } #navMenu li::marker { content: ''; } header nav { display: none; } } </style><meta content="width=device-width, initial-scale=1" name="viewport"/><link as_="image" href="images/landing.jpg" rel="preload" type="image/jpeg"/><meta charset="utf-8"/><link href="style.css" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/><script type="application/ld+json"> { "@context": "https://schema.org", "@type": "LocalBusiness", "name": "The Memory House", "image": "https://thememoryhouse.art/images/gallery1.jpg", "description": "Bespoke watercolor portraits of homes – handmade from your photos. Perfect as heartfelt gifts or realtor closing gifts.", "address": { "@type": "PostalAddress", "streetAddress": "6352 Silas Burke St", "addressLocality": "Burke", "addressRegion": "VA", "postalCode": "22015", "addressCountry": "US" }, "telephone": "+1-571-365-6041", "url": "https://thememoryhouse.art"
+} </script><script type="application/ld+json"> { "@context": "https://schema.org", "@type": "LocalBusiness", "name": "The Memory House", "image": "https://thememoryhouse.art/images/landing.jpg", "url": "https://thememoryhouse.art", "telephone": "+15713656041", "address": { "@type": "PostalAddress", "addressLocality": "Burke", "addressRegion": "VA", "postalCode": "22015", "addressCountry": "US" }, "description": "Bespoke, hand-painted portraits of your beloved home. Nationwide delivery.", "sameAs": [ "https://www.facebook.com/thememoryhouse.art", "https://www.instagram.com/thememoryhouse.art", "https://www.linkedin.com/company/thememoryhouse-art" ]
+} </script><style> @media (max-width: 600px) { .banner-line { font-size: 1em; padding: 18px 10px; }
+} .scarcity-line { font-style: italic; font-weight: 600; color: white; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); margin-top: 12px; font-size: 16px; text-align: center; z-index: 5; position: relative;
+} </style><title> The Memory House | Handcrafted Watercolor House Portraits </title><meta content="Capture the heart of your home with a custom watercolor portrait. Each painting is made with care to preserve your memories forever." name="description"/><link href="https://thememoryhouse.art/index.html" rel="canonical"/><style>
+@media (max-width: 768px) { .hero-cta-container { display: none; }
+}
+</style></head><body><div id="mobile-nav-container"><nav class="main-nav"><div class="nav-wrapper"><div class="hamburger" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;"> ☰ </div></div><ul class="menu" id="navMenu"><li><a href="index.html"> Home </a></li><li><a href="about.html"> About </a></li><li><a href="gallery.html"> Gallery </a></li><li><a href="order.html"> Order </a></li><li><a href="blog.html"> Blog </a></li><li><a href="contact.html"> Contact </a></li></ul></nav></div><script> function toggleMenu() { var menu = document.getElementById('navMenu'); menu.classList.toggle('active'); document.body.classList.toggle('menu-open'); } </script><header><img alt="The Memory House Logo" class="logo" loading="lazy" src="logo5xJ.png"/><h1 class="site-title"> The Memory House </h1><nav style="font-size: 1.1em; letter-spacing: 0.03em;"><ul class="menu"><li><a href="index.html" style="padding: 0 10px;"> Home </a> | <a href="about.html" style="padding: 0 10px;"> About </a> | <a href="gallery.html" style="padding: 0 10px;"> Gallery </a> | <a href="order.html" style="padding: 0.4em 1em; font-size: 0.9em;"> Order </a> | <a href="blog.html" style="padding: 0 10px;"> Blog </a> | <a href="contact.html" style="padding: 0 10px;"> Contact </a></li></ul></nav><div class="banner-line" style="background-color: #f5f0eb; text-align: center; padding: 28px 10px; font-size: 1.15em; font-weight: 500; font-style: italic; color: #3B2A28;"> Custom, hand-painted house portraits — for the home you’ll never forget </div></header><main><div class="hero"><div class="hero-cta-container"><a href="order.html"><img alt="Reserve My Painting" class="img-cta-button" loading="lazy" src="images/button--reserve me painting.png"/></a></div><img alt="Handcrafted House Artwork" loading="lazy" src="landing.jpg"/></div><section style="text-align: center; margin: 24px auto 24px auto;"></section><section class="testimonial-section"><h3 class="testimonial-title"> What our customers say... </h3><div class="testimonial-box"><div class="testimonial-container"><div class="testimonial-flex"><div class="testimonial-image"><img alt="Sarah T." class="testimonial-img" loading="lazy" src="images/sarah-circle.png"/></div><div class="testimonial-text"><blockquote class="testimonial-quote"> “The portrait holds 42 years of memories. It’s <strong> the most meaningful gift </strong> I’ve ever received.” </blockquote><cite class="testimonial-cite right-aligned"> — Sarah T., Virginia </cite></div></div></div><p class="trust-line"><span style="font-weight: 600;"> Chosen again and again by families, realtors, and collectors across the country. <div style="max-width: 640px; margin: 0 auto; text-align: center; padding-top: 20px; font-size: 1.1rem;"><p><strong> Proof within 3 days. </strong></p><p> Once we’ve received your photos, we’ll send you a digital proof of your portrait within 3 business days. You’ll review and approve the artwork before we print and ship it. </p></div></span><div style="text-align:center; font-size:30px; margin: 30px 0;"> 🏠 🎨 🫶 🔑 </div></p><hr style="width: 150px; margin: 20px auto; border: 0; border-top: 1px solid #ccc;"/><h4 class="gallery-heading"> Here are 3 homes we’ve celebrated this month… </h4><div class="mini-gallery"><img alt="Home Portrait 1" class="mini-gallery-img" loading="lazy" src="images/gallery_thumb_1.jpg"/><img alt="Home Portrait 2" class="mini-gallery-img" loading="lazy" src="images/gallery_thumb_2.jpg"/><img alt="Home Portrait 3" class="mini-gallery-img" loading="lazy" src="images/gallery_thumb_3.jpg"/></div><hr style="width: 150px; margin: 20px auto; border: 0; border-top: 1px solid #ccc;"/></div></section><section class="footer-section"><h2 style="text-align: center; font-size: 1.6rem; font-weight: 600; margin: 10px auto 20px; max-width: 800px;"> Your home is more than walls and windows. Let us help you remember its magic forever. </h2><p class="seo-paragraph"> We turn your favorite house photos into bespoke watercolor portraits. <br/> Each one is handmade with care to reflect the warmth and beauty of your home. </p><p class="seo-paragraph"> Whether you're moving, gifting, or commemorating— <br/> our artwork helps preserve your home's story in a timeless and pers <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;"><h2 style="font-family: Georgia, serif; font-size: 1.75em; font-weight: bold; margin-bottom: 10px;"> See the Art in Motion </h2><p style="font-family: Georgia, serif; font-style: italic; color: #333; font-size: 1.25em; line-height: 1.4; margin-bottom: 30px;"> A glimpse into the hand-painted process that captures the places where our most meaningful moments unfold. </p><video controls="" preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;"><source src="Memho vid 1.mp4" type="video/mp4"/> Your browser does not support the video tag. </video></section><div class="studio-button-wrapper" style="text-align: center; margin: 60px auto;"><a href="https://thememoryhouse.art/blog" style="text-decoration: none;"><div style="background-color: #bcc8be; padding: 18px 32px; border-radius: 12px; display: inline-block; transition: background-color 0.3s ease;"><div style="font-family: Georgia, serif; font-weight: bold; font-size: 20px; color: #1c1c1c;"> Visit the Studio </div><div style="font-family: Palatino, serif; font-style: italic; font-size: 16px; color: #6a4e35; margin-top: 6px;"> Stories, behind-the-scenes, and more </div></div></a></div></p></section></main><div class="sticky-cta"><a class="cta-sticky-button" href="order.html"> ORDER MY PORTRAIT </a></div><div style="height: 50px;"></div><div style="height: 50px;"></div></body></html><footer><p><p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; margin-bottom: 10px;"></p><p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;"> Memories start with home — and end in .art </p> © 2025 The Memory House </p><p style="text-align: center; margin-top: 40px; color: #333; line-height: 1.4;"><a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a><a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank"><i class="fab fa-instagram fa-lg"></i></a><a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a></p></footer><div class="sticky-cta"><a class="cta-sticky-button" href="order.html"> ORDER MY PORTRAIT </a></div><div style="height: 50px;"></div><div style="height: 50px;"></div>
