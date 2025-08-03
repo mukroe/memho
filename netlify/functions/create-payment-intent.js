@@ -1,23 +1,31 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// netlify/functions/create-payment-intent.js
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_LIVE);
 
 exports.handler = async (event) => {
   try {
-    const body = JSON.parse(event.body || '{}');
+    const { product } = JSON.parse(event.body);
 
-    // Expect amount in cents from frontend
-    const amount = body.amount;
+    // Domestic pricing map in cents
+    const priceMap = {
+      "8x10": 12000,   // $120
+      "12x18": 20000,  // $200
+      "18x24": 30000,  // $300
+      "18x24_rush": 35000  // Example rush if you offer it
+    };
 
-    if (!amount || amount < 50) {
+    const amount = priceMap[product];
+    if (!amount) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid amount' }),
+        body: JSON.stringify({ error: 'Invalid product selection' }),
       };
     }
 
-    // Create the PaymentIntent with the real selected amount
+    // Create the PaymentIntent (Stripe automatically supports Apple Pay/Google Pay/Venmo)
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount,      // amount comes from frontend dynamic pricing
+      amount,
       currency: 'usd',
+      payment_method_types: ['card'], // Wallets work through this type
     });
 
     return {
@@ -26,6 +34,10 @@ exports.handler = async (event) => {
     };
 
   } catch (error) {
-    return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+    console.error(error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }),
+    };
   }
 };
