@@ -1,7 +1,6 @@
 [build]
-command = "echo Skip build"
-publish = "/"
-functions = "netlify/functions"
+  functions = "netlify/functions"
+  publish = "."
 
 [functions]
-node_bundler = "esbuild"
+  node_bundler = "esbuild"
