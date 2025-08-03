@@ -1,13 +1,12 @@
-exports.handler = async function() {
+// netlify/functions/debug-key.js
+
+exports.handler = async () => {
+  const keyStatus = process.env.STRIPE_SECRET_KEY
+    ? `Key is loaded. Length: ${process.env.STRIPE_SECRET_KEY.length} chars`
+    : "Key is missing!";
+
   return {
     statusCode: 200,
-    body: JSON.stringify({
-      stripeKeyMode: process.env.STRIPE_SECRET_KEY?.startsWith("sk_live_") 
-        ? "LIVE KEY DETECTED" 
-        : process.env.STRIPE_SECRET_KEY?.startsWith("sk_test_") 
-          ? "TEST KEY DETECTED" 
-          : "NO VALID KEY FOUND",
-      keyPrefix: process.env.STRIPE_SECRET_KEY?.slice(0, 8) || "NONE"
-    })
+    body: JSON.stringify({ status: keyStatus }),
   };
 };
