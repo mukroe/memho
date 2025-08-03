@@ -1,12 +1,16 @@
-// netlify/functions/debug-key.js
-
-exports.handler = async () => {
-  const keyStatus = process.env.STRIPE_SECRET_KEY
-    ? `Key is loaded. Length: ${process.env.STRIPE_SECRET_KEY.length} chars`
-    : "Key is missing!";
+exports.handler = async (event, context) => {
+  const isKeyPresent = !!process.env.STRIPE_SECRET_KEY;
+  const keyType = process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY.startsWith('sk_live')
+    ? 'LIVE MODE'
+    : process.env.STRIPE_SECRET_KEY && process.env.STRIPE_SECRET_KEY.startsWith('sk_test')
+    ? 'TEST MODE'
+    : 'UNKNOWN / NOT SET';
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ status: keyStatus }),
+    body: JSON.stringify({
+      keyPresent: isKeyPresent,
+      keyType: keyType,
+    }),
   };
 };
