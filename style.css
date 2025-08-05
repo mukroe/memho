@@ -27,6 +27,9 @@ body{font-family:'Georgia',serif;margin:0;background-color:#fdf9f4;text-align:ce
   .testimonial-quote {
     font-size: 1.25em !important;
     line-height: 1.4 !important;
+
+    /* v2025-08-05 mobile spacing fix */
+
   }
 }
 
