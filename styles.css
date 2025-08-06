@@ -1,1 +1,42 @@
 #scarcity-line{text-align:center;color:white;font-family:'Exigent',sans-serif;font-size:18px;font-weight:500;text-shadow:2px 2px 6px rgba(0,0,0,0.9);margin-top:15px;} /* v2025-08-05 mobile spacing fix */
+
+
+/* Realtor Access button standard styling */
+.realtor-btn {
+    display:inline-block;
+    font-size:0.9em;
+    color:#1c1c1c;
+    background-color:#e6dcc7;
+    padding:8px 18px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.realtor-btn:hover {
+    background-color:#B9975B;
+    color:white;
+    transform:scale(1.05);
+}
+
+
+
+/* Realtor Access button corrected styling with full override */
+.realtor-btn {
+    display:inline-block;
+    font-size:0.9em;
+    color:#1c1c1c !important;
+    background-color:#e6dcc7 !important;
+    padding:8px 18px;
+    border-radius:8px;
+    text-decoration:none !important;
+    transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.realtor-btn:hover {
+    background-color:#B9975B !important;
+    color:white !important;
+    transform:scale(1.05);
+    text-decoration:none !important;
+}
+

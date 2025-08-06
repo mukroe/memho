@@ -33,3 +33,53 @@ body{font-family:'Georgia',serif;margin:0;background-color:#fdf9f4;text-align:ce
   }
 }
 
+
+
+/* === Realtor Access Button Hover Effect (v20) === */
+.cta-sticky-button:hover {
+    background-color: #c6b08d !important; /* darker beige hover */
+    transition: background-color 0.2s ease-in-out;
+}
+
+
+/* === Realtor Access Button Hover Test (v21) === */
+.cta-sticky-button:hover {
+    background-color: red !important; /* Highly visible test color */
+    color: white !important; /* Ensure text is readable */
+    transition: background-color 0.2s ease-in-out;
+}
+
+
+/* === Realtor Access Button Hover Effect (v22) === */
+.cta-sticky-button:hover {
+    background-color: #b4956b !important; /* darker beige hover for visibility */
+    color: white !important; /* text clearly visible on hover */
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+
+/* === Realtor Access Button Global Hover (Muted Gold) === */
+footer a[href="realtor-exclusive.html"]:hover,
+div[style*="text-align:center;"] a[href="realtor-exclusive.html"]:hover {
+    background-color: #B9975B !important;
+    color: white !important;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* === Realtor Access Button Global Hover (Muted Gold) Final === */
+footer a[href="realtor-exclusive.html"]:hover,
+div[style*="text-align:center;"] a[href="realtor-exclusive.html"]:hover {
+    background-color: #B9975B !important;
+    color: white !important;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Realtor Access Button Hover Style */
+a[href="realtor-exclusive.html"]:hover {
+    background-color: #B9975B !important;
+    color: white !important;
+    transform: scale(1.05);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
