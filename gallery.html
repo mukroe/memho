@@ -246,6 +246,36 @@ nav {
 }
 </style>
 
+
+<style>
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-items: center;
+  margin: 40px auto;
+  max-width: 1100px;
+}
+.testimonial-grid .testimonial-item {
+  max-width: 320px;
+  text-align: center;
+}
+.testimonial-grid .testimonial-item img {
+  width: 100%;
+  border-radius: 8px;
+}
+@media (max-width: 900px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
 </head>
 <body><div class="page-tag">Explore Our Gallery</div>
 <!-- Mobile Hamburger Navigation -->
@@ -396,8 +426,10 @@ nav {
 <h2 style="font-size: 2.25em; font-weight: bold; text-align: center; margin: 60px 0 30px 0; font-family: Georgia, serif;">
    What Our Clients Are Saying
   </h2>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px;">
-<div class="testimonial-row upper-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px;; margin-bottom: 30px;">
+
+<div class="testimonial-wrapper">
+  <div class="testimonial-row top-row" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 40px auto;">
+    <div class="testimonial-item">
 <div style="max-width: 320px; text-align: center;">
 <a data-fancybox="gallery" href="assets/gallery/the 12 gallery/brian-c-testimonial.jpg">
 <img alt="Brian C. holding a custom watercolor house portrait, gifted to his wife in Alexandria, VA." loading="lazy" src="assets/gallery/the 12 gallery/brian-house-portrait-alexandria-va.jpg" style="width: 100%; border-radius: 8px;"/>
@@ -409,6 +441,8 @@ nav {
       – Brian C., Alexandria, VA
      </p>
 </div>
+  </div>
+<div class="testimonial-item">
 <div style="max-width: 320px; text-align: center;">
 <a data-fancybox="gallery" href="assets/gallery/the 12 gallery/elaine-r-testimonial.jpg">
 <img alt="Elaine R.'s childhood home painted as a watercolor portrait, located in Santa Rosa, CA." loading="lazy" src="assets/gallery/the 12 gallery/elaine-watercolor-home-santa-rosa-ca.jpg" style="width: 100%; border-radius: 8px;"/>
@@ -422,6 +456,8 @@ nav {
       – Elaine R., Santa Rosa, CA
      </p>
 </div>
+  </div>
+<div class="testimonial-item">
 <div style="max-width: 320px; text-align: center;">
 <a data-fancybox="gallery" href="assets/gallery/the 12 gallery/cliff-k-testimonial.jpg">
 <img alt="Cliff K.'s anniversary gift: a watercolor house portrait, treasured by his wife." loading="lazy" src="assets/gallery/the 12 gallery/cliff-anniversary-house-gift.jpg" style="width: 100%; border-radius: 8px;"/>
@@ -433,8 +469,10 @@ nav {
       – Cliff K.
      </p>
 </div>
-</div>
-<div class="testimonial-row lower-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 30px;">
+  </div>
+  </div>
+  <div class="testimonial-row bottom-row" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 40px auto;">
+    <div class="testimonial-item">
 <div style="max-width: 320px; text-align: center;">
 <a data-fancybox="gallery" href="assets/gallery/the 12 gallery/testimonial_anita.jpg">
 <img alt="Anita Patel and her family of eight pictured with their watercolor house portrait in Baton Rouge, LA." loading="lazy" src="assets/gallery/the 12 gallery/anita-family-portrait-baton-rouge.jpg" style="width: 100%; border-radius: 8px;"/>
@@ -446,6 +484,8 @@ nav {
       – Anita Patel, Baton Rouge, LA
      </p>
 </div>
+  </div>
+<div class="testimonial-item">
 <div style="max-width: 320px; text-align: center;">
 <a data-fancybox="gallery" href="assets/gallery/the 12 gallery/testimonial_rachel.webp">
 <img alt="Rachel N. gifted this custom house portrait to her elderly parents after they moved from their long-time home in Evanston, IL." loading="lazy" src="assets/gallery/the 12 gallery/rachel-elderly-parents-home-evanston-il.webp" style="width: 100%; border-radius: 8px;"/>
@@ -457,8 +497,10 @@ nav {
       – Rachel N., Evanston, IL
      </p>
 </div>
+  </div>
+  </div>
 </div>
-</div>
+
 <div style="margin-bottom: 80px;">
 </div>
 <div class="social-icons" style="text-align: center; margin-top: 10px;">

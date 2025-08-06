@@ -1,269 +1,177 @@
-<!DOCTYPE html>
-<html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <link href="styles.css" rel="stylesheet"/>
-  <title>
-   Realtor Portrait Orders | The Memory House
-  </title>
-  <meta content="Exclusive ordering page for real estate professionals. Order a custom watercolor portrait as a unique and lasting gift for your clients." name="description"/>
-  <link href="https://thememoryhouse.art/realtor-order.html" rel="canonical"/>
- </head>
- <body style="background-color: #FAF4E8; font-family: Georgia, serif;">
-  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-   <div class="main-content" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
-    <h1 style="text-align: center;">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Realtor Portrait Orders | The Memory House</title><style>
+    body {
+      background-color: #FAF4E8;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+    }
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    .main-content {
+      width: 100%;
+      max-width: 800px;
+    }
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+    form {
+      width: 100%;
+    }
+    .loyalty-box, .order-form-section, .main-content div {
+      box-sizing: border-box;
+    }
+  
+  /* Stripe Payment Section Mobile Optimization */
+  #payment-request-button, #card-element {
+    width: 100%;
+    max-width: 100%;
+  }
+  #card-errors {
+    font-size: 0.9rem;
+    color: red;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  .stripe-payment-wrapper {
+    width: 100%;
+    max-width: 380px;
+    margin: 1rem auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+</style><style>
+  input[type=text], input[type=email], input[type=url], input[type=file], textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  input[type=radio], input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+  }
+  button {
+    touch-action: manipulation;
+  }
+
+  /* Stripe Payment Section Mobile Optimization */
+  #payment-request-button, #card-element {
+    width: 100%;
+    max-width: 100%;
+  }
+  #card-errors {
+    font-size: 0.9rem;
+    color: red;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  .stripe-payment-wrapper {
+    width: 100%;
+    max-width: 380px;
+    margin: 1rem auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1rem;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+</style></head><body><div class="page-wrapper"><div class="main-content"><div style="display: flex; flex-direction: column; align-items: center; text-align: center;"><div class="main-content" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;"><h1 style="text-align: center;">
      Welcome to the Realtor Inner Circle
-    </h1>
-    <p style="text-align: center; font-style: italic;">
+    </h1><p style="text-align: center; font-style: italic;">
      You're not just ordering a portrait — you're joining a loyalty program built to reward you every step of the way.
-    </p>
-    <!DOCTYPE html>
-    <html lang="en">
-     <head>
-      <meta charset="utf-8"/>
-      <title>
-       Loyalty Path Box - lux_warm_glow
-      </title>
-      <style>
-       body {
-      background: #fdf8ee;
-      font-family: 'Georgia', serif;
-      margin: 3rem;
-      color: #2c2c2c;
-    }
-    .loyalty-box {
-      max-width: 50ch;
-      margin: 0 auto;
-      padding: 2rem;
-      border: 3px solid #a98b5d;
-      border-radius: 12px;
-      background: #fefbf7;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    h2 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 0.3em;
-    }
-    .subtitle {
-      font-style: italic;
-      text-align: center;
-      font-family: 'Palatino Linotype', Palatino, serif;
-      font-size: 1rem;
-      margin-bottom: 1.5em;
-    }
-    .tier {
-      margin-bottom: 1.5rem;
-    }
-    .separator {
-      border-bottom: 1px solid #d2b48c;
-      width: 60%;
-      margin: 1rem auto;
-    }
-    .tier-title {
-      font-weight: bold;
-      font-family: 'Georgia', serif;
-      margin-bottom: 0.2em;
-    }
-      </style>
-     </head>
-     <body>
-      <div class="loyalty-box" style="padding: 1em 1em; border-radius: 8px;">
-       <h3 style="font-size: 1.5em; font-family: Georgia, serif;">
+    </p><div class="loyalty-box" style="padding: 1em 1em; border-radius: 8px;"><h3 style="font-size: 1.5em; font-family: Georgia, serif;">
         The Loyalty Tiers
-       </h3>
-       <p>
+       </h3><p>
         🎁
         <strong>
          Bronze: First Order
-        </strong>
-        <br/>
+        </strong><br/>
         Enjoy $75 off your first portrait — our welcome gift to new realtors.
-       </p>
-       <p>
+       </p><p>
         🌿
         <strong>
          Silver: 3–5 Orders
-        </strong>
-        <br/>
+        </strong><br/>
         Receive upgraded gift packaging, seasonal portrait options, and early access to promotions.
-       </p>
-       <p>
+       </p><p>
         🏆
         <strong>
          Gold: 6+ Orders
-        </strong>
-        <br/>
+        </strong><br/>
         We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait.
-       </p>
-      </div>
-      <div style="background-color: #f8f4ef; padding: 1em; margin-top: 1.5em; border-radius: 8px; font-size: 0.95em; color: #666; font-style: italic; max-width: 680px; margin-left: auto; margin-right: auto;">
+       </p></div><div style="background-color: #f8f4ef; padding: 1em; margin-top: 1.5em; border-radius: 8px; font-size: 0.95em; color: #666; font-style: italic; max-width: 680px; margin-left: auto; margin-right: auto;">
        No tracking. No codes. Just consistent care. We keep record of every gift you send — and we’ll reach out personally as you level up.
-      </div>
-     </body>
-    </html>
-    <section class="order-form-section" id="realtor-order-form">
-     <h2>
+      </div><section class="order-form-section" id="realtor-order-form"><h2>
       Turn Gratitude Into Growth
-     </h2>
-     <p style="font-style: italic; font-size: 1.05rem; margin-bottom: 0.25rem;">
+     </h2><p style="font-style: italic; font-size: 1.05rem; margin-bottom: 0.25rem;">
       “Our clients were blown away. They’ve already referred us to two new buyers.”
-     </p>
-     <p style="font-size: 0.95rem; font-weight: 500; color: #444; margin-bottom: 1.5rem;">
+     </p><p style="font-size: 0.95rem; font-weight: 500; color: #444; margin-bottom: 1.5rem;">
       — Amanda S., Compass
-     </p>
-     <p style="font-size: 1.05rem; font-weight: 400; font-style: italic; margin-bottom: 1.25rem;">
+     </p><p style="font-size: 1.05rem; font-weight: 400; font-style: italic; margin-bottom: 1.25rem;">
       When you pair your name with something handmade and heartfelt,
-      <br/>
-      <span style="font-weight: 500;">
+      <br/><span style="font-weight: 500;">
        this is what your client remembers.
-      </span>
-     </p>
-     <p style="font-size: 1.1rem; font-weight: 600; color: #2f2f2f;">
-      <p style="font-size: 1.1rem; font-weight: 600; color: #2f2f2f;">
+      </span></p><p style="font-size: 1.1rem; font-weight: 600; color: #2f2f2f;"><p style="font-size: 1.1rem; font-weight: 600; color: #2f2f2f;">
        Start your client’s portrait order below — and start your next referral chain.
-       <br/>
-       <span style="font-size: 0.95rem; font-weight: 400;">
+       <br/><span style="font-size: 0.95rem; font-weight: 400;">
         Every order includes your personalized message, carefully packaged to impress.
-       </span>
-      </p>
-      <div style="text-align: center; margin: 2rem 0;">
-       <img alt="Happy couple with house painting" loading="lazy" src="images/happy-couple-with-house-painting.webp" style="width: 80%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"/>
-       <p style="text-align: center; font-style: italic; font-size: 1.05rem; margin-top: 0.5em;">
+       </span></p><div style="text-align: center; margin: 2rem 0;"><img alt="Happy couple with house painting" loading="lazy" src="images/happy-couple-with-house-painting.webp" style="width: 80%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"/><p style="text-align: center; font-style: italic; font-size: 1.05rem; margin-top: 0.5em;">
         This is the moment they’ll remember — and share. You made their day. They’ll tell someone.
-       </p>
-      </div>
-      <div style="background-color: #fefaf3; padding: 40px 20px; border-radius: 8px;">
-       <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
-        <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
-         <!-- Friction-reducing line added -->
-         <p style="font-family: Georgia, serif; font-size: 1rem; color: #333; margin-bottom: 20px;">
+       </p></div><div style="background-color: #fefaf3; padding: 40px 20px; border-radius: 8px;"><div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;"><div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;"><!-- Friction-reducing line added --><p style="font-family: Georgia, serif; font-size: 1rem; color: #333; margin-bottom: 20px;">
           Just fill in a few details below — we’ll take care of everything else.
-         </p>
-         <!-- Form section -->
-         <form action="#" enctype="multipart/form-data" method="post">
-          <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">
+         </p><!-- Form section --><form action="#" enctype="multipart/form-data" method="post"><h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">
            🧑‍💼 Realtor Info
-          </h3>
-          <label>
+          </h3><label>
            Realtor’s Full Name:
-          </label>
-          <br/>
-          <label>
+          </label><br/><label>
            Your Email Address:
-           <br/>
-           <input name="agent_email" required="" type="email"/>
-          </label>
-          <br/>
-          <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
+           <br/><input name="agent_email" required="" type="email"/></label><br/><h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
            🏡 Client &amp; Delivery Details
-          </h3>
-          <label>
+          </h3><label>
            Client’s Full Name:
-           <br/>
-           <input name="client_name" required="" type="text"/>
-          </label>
-          <br/>
-          <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
+           <br/><input name="client_name" required="" type="text"/></label><br/><h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
            🎁 Portrait Customization
-          </h3>
-          <label>
+          </h3><label>
            Client’s Address (optional):
-           <br/>
-           <input name="client_address" type="text"/>
-          </label>
-          <br/>
-          <p>
-           <strong>
+           <br/><input name="client_address" type="text"/></label><br/><p><strong>
             Delivery Preference:
-           </strong>
-          </p>
-          <label>
-           <input name="delivery" required="" type="radio" value="to_client"/>
+           </strong></p><label><input name="delivery" required="" type="radio" value="to_client"/>
            Send directly to client
-          </label>
-          <br/>
-          <label>
-           <input name="delivery" type="radio" value="to_agent"/>
+          </label><br/><label><input name="delivery" type="radio" value="to_agent"/>
            Send to me for in-person gifting
-          </label>
-          <br/>
-          <p>
-           <strong>
+          </label><br/><p><strong>
             Choose Your Gift Style:
-           </strong>
-          </p>
-          <label>
-           <input name="gift_type" required="" type="radio" value="full"/>
+           </strong></p><label><input name="gift_type" required="" type="radio" value="full"/>
            Full Gift Package
-          </label>
-          <br/>
-          <label>
-           <input name="gift_type" type="radio" value="artwork_only"/>
+          </label><br/><label><input name="gift_type" type="radio" value="artwork_only"/>
            Artwork Only
-          </label>
-          <br/>
-          <p>
-           <strong>
+          </label><br/><p><strong>
             Home Reference:
-           </strong>
-          </p>
-          <label>
-           <input name="reference_type" required="" type="radio" value="upload"/>
+           </strong></p><label><input name="reference_type" required="" type="radio" value="upload"/>
            Upload a photo of the home
-          </label>
-          <br/>
-          <label>
-           <input name="reference_type" type="radio" value="mls"/>
+          </label><br/><label><input name="reference_type" type="radio" value="mls"/>
            Paste MLS link below
-          </label>
-          <br/>
-          <label>
+          </label><br/><label>
            Upload Home Photo:
-           <br/>
-           <input accept="image/*" name="home_photo" type="file"/>
-          </label>
-          <br/>
-          <label>
+           <br/><input accept="image/*" name="home_photo" type="file"/></label><br/><label>
            MLS Link:
-           <br/>
-           <input name="mls_link" type="url"/>
-          </label>
-          <br/>
-          <label>
+           <br/><input name="mls_link" type="url"/></label><br/><label>
            Your Message to the Client:
-           <br/>
-           <textarea maxlength="250" name="custom_message" placeholder="Your message will be printed with the portrait." rows="4"></textarea>
-          </label>
-          <br/>
-          <label>
+           <br/><textarea maxlength="250" name="custom_message" placeholder="Your message will be printed with the portrait." rows="4"></textarea></label><br/><label>
            Special Instructions:
-           <br/>
-           <textarea name="special_notes" rows="3"></textarea>
-          </label>
-          <br/>
-          <div style="display:flex; justify-content:center; margin: 1rem 0;">
-           <div style="
-        max-width: 380px; 
-        width: 100%;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        padding: 12px;
-        background-color: #fff;
-      ">
-            <div id="payment-request-button" style="margin: 1rem 0;">
-            </div>
-            <div id="card-element">
-            </div>
-           </div>
-          </div>
-          <div id="card-errors" role="alert" style="color:red; font-size:0.9rem; text-align:center; margin-top:0.3rem;">
-          </div>
-          <div id="card-errors" role="alert" style="color:red; font-size:0.9rem; margin-top:0.3rem;">
-          </div>
-          <div style="
+           <br/><textarea name="special_notes" rows="3"></textarea></label><br/><div class="stripe-payment-wrapper"><div id="payment-request-button" style="margin: 1rem 0;"></div><div id="card-element"></div></div></form></div><div id="card-errors" role="alert" style="color:red; font-size:0.9rem; text-align:center; margin-top:0.3rem;"></div><div id="card-errors" role="alert" style="color:red; font-size:0.9rem; margin-top:0.3rem;"></div><div style="
     margin-top: 1.5rem; 
     margin-bottom: 1.5rem; 
     padding: 0.75rem 1rem;
@@ -274,21 +182,13 @@
     flex-direction: column;
     align-items: center;
     font-family: Georgia, serif;
-">
-           <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; justify-content: center;">
-            <input id="rush-delivery" name="rush_delivery" style="width: 18px; height: 18px; accent-color: #B89F69; cursor: pointer;" type="checkbox" value="rush"/>
-            <span style="font-size: 1.05rem; color: #333; text-align: center;">
+"><label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; justify-content: center;"><input id="rush-delivery" name="rush_delivery" style="width: 18px; height: 18px; accent-color: #B89F69; cursor: pointer;" type="checkbox" value="rush"/><span style="font-size: 1.05rem; color: #333; text-align: center;">
              ⏱ Need it faster?
              <strong>
               Rush Delivery (+$50)
-             </strong>
-            </span>
-           </label>
-           <div style="font-size: 0.85rem; color: #6A7A89; margin-top: 0.4rem; text-align: center;">
+             </strong></span></label><div style="font-size: 0.85rem; color: #6A7A89; margin-top: 0.4rem; text-align: center;">
             Most portraits arrive in 10–14 days. Rush delivery guarantees within 5–7 days.
-           </div>
-          </div>
-          <script>
+           </div></div><script>
            const ctaButton = document.querySelector('button[type="submit"]');
         ctaButton.addEventListener('mouseover', function(){
           this.style.transform = 'translateY(-2px)';
@@ -298,16 +198,9 @@
           this.style.transform = 'translateY(0)';
           this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
         });
-          </script>
-          <p>
-          </p>
-          <p>
-           <small>
+          </script><p></p><p><small>
             You’ll be billed only after we review and confirm your order.
-           </small>
-          </p>
-          <!-- Primary CTA for first-time orders -->
-          <button style="
+           </small></p><!-- Primary CTA for first-time orders --><button style="
         width: 90%;
         max-width: 400px;
         display: block;
@@ -323,17 +216,14 @@
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     " type="submit">
            🎁 First-Time Order — Includes $75 Welcome Gift
-          </button>
-          <div style="
+          </button><div style="
         font-size: 0.8rem;
         color: #6A7A89;
         text-align: center;
         margin-top: 0.3rem;
     ">
            Only for new Realtor Inner Circle orders.
-          </div>
-          <!-- Secondary CTA for repeat orders -->
-          <button style="
+          </div><!-- Secondary CTA for repeat orders --><button style="
         width: 75%;
         max-width: 340px;
         display: block;
@@ -348,77 +238,34 @@
         cursor: pointer;
     " type="button">
            Place Another Gift Order
-          </button>
-          <div style="
+          </button><div style="
         font-size: 0.75rem;
         color: #7a7a7a;
         text-align: center;
         margin-top: 0.25rem;
     ">
            For repeat orders — standard pricing applies.
-          </div>
-         </form>
-        </div>
-       </div>
-      </div>
-     </p>
-    </section>
-   </div>
-   <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;">
-    <h2 style="font-family: Georgia, serif; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+          </div></div></div></p></section></div></div><section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;"><h2 style="font-family: Georgia, serif; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
      Painted by Hand. Remembered for a Lifetime.
-    </h2>
-    <p style="font-family: Garamond, serif; font-style: italic; color: #6a4e35; font-size: 1.15em; margin-bottom: 30px;">
+    </h2><p style="font-family: Garamond, serif; font-style: italic; color: #6a4e35; font-size: 1.15em; margin-bottom: 30px;">
      Watch how each one-of-a-kind portrait is lovingly created — the kind of closing gift your clients will never forget.
-    </p>
-    <video controls="" preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;">
-     <source src="Memho vid 1.mp4" type="video/mp4"/>
+    </p><video controls="" preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;"><source src="Memho vid 1.mp4" type="video/mp4"/>
      Your browser does not support the video tag.
-    </video>
-   </section>
-   <h3>
+    </video></section><h3>
     What Happens After You Order
-   </h3>
-   <div>
-    <p>
+   </h3><div><p>
      Within 24 hours, we’ll personally review your request and send a confirmation.
      <br/>
      From there, your portrait begins — hand-painted with care, wrapped with intention, and shipped with love.
      <p style="margin-top: 6px;">
       Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
-     </p>
-    </p>
-    <p style="font-size: 1.15rem; font-weight: bold;">
-     <span style="font-size: 1.35rem;">
+     </p></p><p style="font-size: 1.15rem; font-weight: bold;"><span style="font-size: 1.35rem;">
       You’ll look like a hero. And they’ll never forget it.
-     </span>
-    </p>
-   </div>
-  </div>
-  <section class="loyalty-section" id="realtor-loyalty-program" style="margin-top: 4rem;">
-  </section>
-  <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+     </span></p></div></div><section class="loyalty-section" id="realtor-loyalty-program" style="margin-top: 4rem;"></section><p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
    Memories start with home — and end in .art
-  </p>
-  <p style="text-align:center;">
+  </p><p style="text-align:center;">
    © 2025 The Memory House
-   <br/>
-   <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
-    <i class="fab fa-facebook-f fa-lg">
-    </i>
-   </a>
-   <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
-    <i class="fab fa-instagram fa-lg">
-    </i>
-   </a>
-   <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
-    <i class="fab fa-linkedin-in fa-lg">
-    </i>
-   </a>
-  </p>
-  <script src="https://js.stripe.com/v3/">
-  </script>
-  <script>
+   <br/><a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a><a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank"><i class="fab fa-instagram fa-lg"></i></a><a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a></p><script src="https://js.stripe.com/v3/"></script><script>
    const stripe = Stripe('pk_live_REPLACE_WITH_YOUR_KEY');
 const elements = stripe.elements({
   style: {
@@ -499,6 +346,4 @@ form.addEventListener('submit', async (e) => {
     }
   }
 });
-  </script>
- </body>
-</html>
+  </script></div></body></html>
