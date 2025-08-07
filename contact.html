@@ -1,288 +1,295 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <style>
-.sticky-cta {
-position: fixed;
-bottom: 20px;
-left: 50%;
-transform: translateX(-50%);
-z-index: 999;
+   .sticky-cta {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
 }
 .cta-sticky-button {
-background-color: #B89F69;
-color: #FAF4E8;
-font-weight: bold;
-font-size: 18px;
-font-family: 'Georgia', serif;
-text-decoration: none;
-padding: 10px 24px;
-border-radius: 10px;
-box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-display: inline-block;
-border: 1px solid #2C2C2C;
-transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #B89F69;
+    color: #FAF4E8;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    display: inline-block;
+    border: 1px solid #2C2C2C;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .cta-sticky-button:hover {
-background-color: #D8A48F;
-color: #2C2C2C;
+    background-color: #D8A48F;
+    color: #2C2C2C;
 }
-</style>
+  </style>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <style>
-body {
-font-family: 'Georgia', serif;
-background-color: #fefcf8;
-color: #333;
-margin: 0;
-padding: 0;
-text-align: center;
-}
-header {
-background-color: #fff;
-padding: 20px;
-}
-nav {
-margin-top: 10px;
-}
-nav a {
-margin: 0 10px;
-text-decoration: none;
-color: #333;
-}
-main {
-padding: 40px 20px;
-}
-main p {
-max-width: 600px;
-margin: 0 auto 20px auto;
-}
-form {
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 10px;
-margin-top: 20px;
-}
-input, textarea {
-width: 80%;
-max-width: 500px;
-padding: 10px;
-font-size: 1rem;
-}
-button {
-padding: 10px 20px;
-background-color: #444;
-color: #fff;
-border: none;
-cursor: pointer;
-font-size: 1rem;
-}
-footer {
-padding: 20px;
-font-size: 0.9rem;
-background-color: #fff;
-}
+   body {
+      font-family: 'Georgia', serif;
+      background-color: #fefcf8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #fff;
+      padding: 20px;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    main {
+      padding: 40px 20px;
+    }
+    main p {
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 80%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    footer {
+      padding: 20px;
+      font-size: 0.9rem;
+      background-color: #fff;
+    }
+  
 .social-icons {
-margin-top: 10px;
-text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 10px auto 6px auto;
-display: block;
+  width: 82px;
+  margin: 10px auto 6px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 6px auto 2px auto;
-display: block;
+  width: 82px;
+  margin: 6px auto 2px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 6px 0;
+  margin: 0 0 6px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 6px auto 2px auto;
-display: block;
+  width: 82px;
+  margin: 6px auto 2px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 6px 0;
+  margin: 0 0 6px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
+  
 .container {
-padding-top: 0;
-margin-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 nav {
-margin-top: 0 !important;
-padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 13px auto 7px auto;
-display: block;
+  width: 82px;
+  margin: 13px auto 7px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 7px 0;
+  margin: 0 0 7px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
-</style>
-<title>
-Contact The Memory House | Start Your Custom Portrait
-</title>
-<meta content="Have questions or ready to begin your watercolor portrait? Reach out to The Memory House team today — we’re happy to help." name="description"/>
+  </style>
+<title>Contact Us – The Memory House</title>
+<meta content="Get in touch with The Memory House team for custom requests, delivery questions, or business inquiries." name="description"/>
 <link href="https://thememoryhouse.art/contact.html" rel="canonical"/>
 <style>
-.hamburger, #navMenu {
-display: none;
-}
-@media (max-width: 768px) {
-.hamburger {
-display: block;
-font-size: 28px;
-cursor: pointer;
-padding: 20px;
-text-align: center;
-}
-#navMenu {
-display: none;
-list-style: none;
-padding: 0;
-margin: 0;
-text-align: center;
-}
-#navMenu.active {
-display: block;
-}
-#navMenu li {
-margin: 12px 0;
-}
-#navMenu li::marker {
-content: '';
-}
-nav.site-desktop {
-display: none;
-}
-}
-</style>
+   .hamburger, #navMenu {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+    #navMenu {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    #navMenu.active {
+      display: block;
+    }
+    #navMenu li {
+      margin: 12px 0;
+    }
+    #navMenu li::marker {
+      content: '';
+    }
+    nav.site-desktop {
+      display: none;
+    }
+  }
+  </style>
 <style>
 .realtor-btn {
-display:inline-block;
-font-size:0.9em;
-color:#1c1c1c !important;
-background-color:#e6dcc7 !important;
-padding:8px 18px;
-border-radius:8px;
-text-decoration:none !important;
-transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+    display:inline-block;
+    font-size:0.9em;
+    color:#1c1c1c !important;
+    background-color:#e6dcc7 !important;
+    padding:8px 18px;
+    border-radius:8px;
+    text-decoration:none !important;
+    transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
 }
 .realtor-btn:hover {
-background-color:#B9975B !important;
-color:white !important;
-transform:scale(1.05);
-text-decoration:none !important;
+    background-color:#B9975B !important;
+    color:white !important;
+    transform:scale(1.05);
+    text-decoration:none !important;
 }
 </style>
 </head>
 <body><div class="page-tag">Get in Touch</div>
+<!-- Mobile Hamburger Navigation -->
 <div id="mobile-nav-container">
 <nav class="main-nav">
 <div class="nav-wrapper">
 <div class="hamburger" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;">
-☰
-</div>
+      ☰
+     </div>
 </div>
 <ul class="menu" id="navMenu">
 <li>
 <a href="index.html">
-Home
-</a>
+       Home
+      </a>
 </li>
 <li>
 <a href="about.html">
-About
-</a>
+       About
+      </a>
 </li>
 <li>
 <a href="gallery.html">
-Gallery
-</a>
+       Gallery
+      </a>
 </li>
 <li>
 <a href="order.html">
-Order
-</a>
+       Order
+      </a>
 </li>
 <li>
 <a href="blog.html">
-Blog
-</a>
+       Blog
+      </a>
 </li>
 <li>
 <a href="contact.html">
-Contact
-</a>
+       Contact
+      </a>
 </li>
 </ul>
 </nav>
 </div>
 <script>
-function toggleMenu() {
-var menu = document.getElementById('navMenu');
-menu.classList.toggle('active');
-document.body.classList.toggle('menu-open');
-}
-</script>
+   function toggleMenu() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  }
+  </script>
 <img class="logo-header" loading="lazy" src="images/logo5xJ.png" style="width: 82px; margin: 13px auto 7px auto; display: block;"/>
 <h1 class="site-title" style="margin: 0 0 7px 0;">
-The Memory House
-</h1>
+   The Memory House
+  </h1>
 <nav class="site-desktop">
 <a href="index.html">
-Home
-</a>
-|
-<a href="about.html">
-About
-</a>
-|
-<a href="gallery.html">
-Gallery
-</a>
-|
-<a href="order.html">
-Order
-</a>
-|
-<a href="blog.html">
-Blog
-</a>
-|
-<a href="contact.html">
-Contact
-</a>
+    Home
+   </a>
+   |
+   <a href="about.html">
+    About
+   </a>
+   |
+   <a href="gallery.html">
+    Gallery
+   </a>
+   |
+   <a href="order.html">
+    Order
+   </a>
+   |
+   <a href="blog.html">
+    Blog
+   </a>
+   |
+   <a href="contact.html">
+    Contact
+   </a>
 </nav>
 <main>
 <h2>
-Get in Touch
-</h2>
+    Get in Touch
+   </h2>
 <p>
-Have questions, or want to talk about a custom request? Reach out via email or use the form below. We’re here to help you preserve your most cherished memories.
-</p>
+    Have questions, or want to talk about a custom request? Reach out via email or use the form below. We’re here to help you preserve your most cherished memories.
+   </p>
 <form action="https://formspree.io/f/xwkgnzpo" method="POST" style="max-width: 600px; margin: 0 auto;">
 <br/>
 <input id="name" name="name" required="" style="width: 100%; margin-bottom: 1rem;" type="text"/>
@@ -294,26 +301,26 @@ Have questions, or want to talk about a custom request? Reach out via email or u
 <textarea id="message" name="message" required="" rows="5" style="width: 100%; margin-bottom: 1rem;"></textarea>
 <br/>
 <button type="submit">
-Send Message
-</button>
+     Send Message
+    </button>
 </form>
 <p style="text-align: center; font-size: 0.9rem; color: #555;">
-We'll respond within 24–48 hours. Thank you!
-</p>
+    We'll respond within 24–48 hours. Thank you!
+   </p>
 </main>
 <footer>
 <p>
 <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; margin-bottom: 10px;">
 </p>
 <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
-Memories start with home — and end in .art
-</p>
-© 2025 The Memory House
-</p>
+     Memories start with home — and end in .art
+    </p>
+    © 2025 The Memory House
+   </p>
 <div style="margin-top: 15px; text-align:center;">
-<a href="realtor-exclusive.html" class="realtor-btn">
-Realtor Access
-</a>
+<a class="realtor-btn" href="realtor-exclusive.html">
+    Realtor Access
+  </a>
 </div>
 </footer>
 <div class="social-icons">
@@ -343,8 +350,8 @@ Realtor Access
 </div>
 <div class="sticky-cta">
 <a class="cta-sticky-button" href="order.html">
-ORDER MY PORTRAIT
-</a>
+    ORDER MY PORTRAIT
+   </a>
 </div>
 <div style="height: 50px;">
 </div>

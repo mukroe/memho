@@ -1,487 +1,495 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <style>
-.sticky-cta {
-position: fixed;
-bottom: 20px;
-left: 50%;
-transform: translateX(-50%);
-z-index: 999;
+   .sticky-cta {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
 }
 .cta-sticky-button {
-background-color: #B89F69;
-color: #FAF4E8;
-font-weight: bold;
-font-size: 18px;
-font-family: 'Georgia', serif;
-text-decoration: none;
-padding: 10px 24px;
-border-radius: 10px;
-box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-display: inline-block;
-border: 1px solid #2C2C2C;
-transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #B89F69;
+    color: #FAF4E8;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    display: inline-block;
+    border: 1px solid #2C2C2C;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .cta-sticky-button:hover {
-background-color: #D8A48F;
-color: #2C2C2C;
+    background-color: #D8A48F;
+    color: #2C2C2C;
 }
-</style>
+  </style>
 <meta charset="utf-8"/>
 <style>
-body {
-font-family: Georgia, serif;
-background-color: #fdfbf7;
-margin: 0;
-padding: 0;
-text-align: center;
-}
-nav {
-padding: 20px;
-}
-nav a {
-margin: 0 10px;
-color: #333;
-text-decoration: none;
-}
-.container {
-max-width: 680px;
-margin: 40px auto;
-background-color: white;
-padding: 40px 30px;
-border-radius: 12px;
-box-shadow: 0 0 4px rgba(0, 0, 0, 0.04);
-}
-.tight-block {
-margin: 0;
-padding: 0;
-line-height: 1.5;
-margin-bottom: 16px;
-}
-img.logo {
-width: 110px;
-margin-bottom: 18px;
-}
-footer {
-text-align: center;
-margin-top: 40px;
-padding-bottom: 30px;
-color: #444;
-font-size: 0.9em;
-}
+   body {
+    font-family: Georgia, serif;
+    background-color: #fdfbf7;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  nav {
+    padding: 20px;
+  }
+  nav a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+  }
+  .container {
+    max-width: 680px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.04);
+  }
+  .tight-block {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  img.logo {
+    width: 110px;
+    margin-bottom: 18px;
+  }
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 30px;
+    color: #444;
+    font-size: 0.9em;
+  }
+  
 .social-icons {
-margin-top: 10px;
-text-align: center;
+  margin-top: 10px;
+  text-align: center;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 10px auto 6px auto;
-display: block;
+  width: 82px;
+  margin: 10px auto 6px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 6px auto 2px auto;
-display: block;
+  width: 82px;
+  margin: 6px auto 2px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 6px 0;
+  margin: 0 0 6px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 6px auto 2px auto;
-display: block;
+  width: 82px;
+  margin: 6px auto 2px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 6px 0;
+  margin: 0 0 6px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
+  
 .container {
-padding-top: 0;
-margin-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 nav {
-margin-top: 0 !important;
-padding-top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
+  
 img.logo-header {
-width: 82px;
-margin: 13px auto 7px auto;
-display: block;
+  width: 82px;
+  margin: 13px auto 7px auto;
+  display: block;
 }
 h1.site-title {
-margin: 0 0 7px 0;
+  margin: 0 0 7px 0;
 }
 nav {
-margin-top: 0;
+  margin-top: 0;
 }
-</style>
-<title>
-Stories Behind the Art | The Memory House Blog
-</title>
-<meta content="Explore the heartfelt stories behind our portraits. Discover how custom house paintings reconnect people to the places they’ve loved." name="description"/>
+  </style>
+<title>Studio Notes – The Memory House Blog</title>
+<meta content="Stories behind our paintings, client moments, and reflections from the studio." name="description"/>
 <link href="https://thememoryhouse.art/blog.html" rel="canonical"/>
 <style>
-.hamburger, #navMenu {
-display: none;
-}
-@media (max-width: 768px) {
-.hamburger {
-display: block;
-font-size: 28px;
-cursor: pointer;
-padding: 20px;
-text-align: center;
-}
-#navMenu {
-display: none;
-list-style: none;
-padding: 0;
-margin: 0;
-text-align: center;
-}
-#navMenu.active {
-display: block;
-}
-#navMenu li {
-margin: 12px 0;
-}
-#navMenu li::marker {
-content: '';
-}
-nav.site-desktop {
-display: none;
-}
-}
-</style>
+   .hamburger, #navMenu {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+    #navMenu {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    #navMenu.active {
+      display: block;
+    }
+    #navMenu li {
+      margin: 12px 0;
+    }
+    #navMenu li::marker {
+      content: '';
+    }
+    nav.site-desktop {
+      display: none;
+    }
+  }
+  </style>
 <style>
 .realtor-btn {
-display:inline-block;
-font-size:0.9em;
-color:#1c1c1c !important;
-background-color:#e6dcc7 !important;
-padding:8px 18px;
-border-radius:8px;
-text-decoration:none !important;
-transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+    display:inline-block;
+    font-size:0.9em;
+    color:#1c1c1c !important;
+    background-color:#e6dcc7 !important;
+    padding:8px 18px;
+    border-radius:8px;
+    text-decoration:none !important;
+    transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
 }
 .realtor-btn:hover {
-background-color:#B9975B !important;
-color:white !important;
-transform:scale(1.05);
-text-decoration:none !important;
+    background-color:#B9975B !important;
+    color:white !important;
+    transform:scale(1.05);
+    text-decoration:none !important;
 }
 </style>
 </head>
 <body><div class="page-tag">Visit the Studio</div>
+<!-- Mobile Hamburger Navigation -->
 <div id="mobile-nav-container">
 <nav class="main-nav">
 <div class="nav-wrapper">
 <div class="hamburger" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;">
-☰
-</div>
+      ☰
+     </div>
 </div>
 <ul class="menu" id="navMenu">
 <li>
 <a href="index.html">
-Home
-</a>
+       Home
+      </a>
 </li>
 <li>
 <a href="about.html">
-About
-</a>
+       About
+      </a>
 </li>
 <li>
 <a href="gallery.html">
-Gallery
-</a>
+       Gallery
+      </a>
 </li>
 <li>
 <a href="order.html">
-Order
-</a>
+       Order
+      </a>
 </li>
 <li>
 <a href="blog.html">
-Blog
-</a>
+       Blog
+      </a>
 </li>
 <li>
 <a href="contact.html">
-Contact
-</a>
+       Contact
+      </a>
 </li>
 </ul>
 </nav>
 </div>
 <script>
-function toggleMenu() {
-var menu = document.getElementById('navMenu');
-menu.classList.toggle('active');
-document.body.classList.toggle('menu-open');
-}
-</script>
+   function toggleMenu() {
+    var menu = document.getElementById('navMenu');
+    menu.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  }
+  </script>
 <img class="logo-header" loading="lazy" src="images/logo5xJ.png" style="width: 82px; margin: 13px auto 7px auto; display: block;"/>
 <h1 class="site-title" style="margin: 0 0 7px 0;">
-The Memory House
-</h1>
+   The Memory House
+  </h1>
 <nav class="site-desktop">
 <a href="index.html">
-Home
-</a>
-|
-<a href="about.html">
-About
-</a>
-|
-<a href="gallery.html">
-Gallery
-</a>
-|
-<a href="order.html">
-Order
-</a>
-|
-<a href="blog.html">
-Blog
-</a>
-|
-<a href="contact.html">
-Contact
-</a>
+    Home
+   </a>
+   |
+   <a href="about.html">
+    About
+   </a>
+   |
+   <a href="gallery.html">
+    Gallery
+   </a>
+   |
+   <a href="order.html">
+    Order
+   </a>
+   |
+   <a href="blog.html">
+    Blog
+   </a>
+   |
+   <a href="contact.html">
+    Contact
+   </a>
 </nav>
 <div class="container">
 <div class="tight-block">
 <h2>
-Welcome to the Studio—where stories live
-</h2>
+     Welcome to the Studio—where stories live
+    </h2>
 <p style="text-align: center;">
 <em>
-(This is where stories, updates, and thoughts from The Memory House will appear.)
-</em>
+      (This is where stories, updates, and thoughts from The Memory House will appear.)
+     </em>
 </p>
 <p style="text-align: center; font-size: 2rem;">
-* * *
-</p>
+     * * *
+    </p>
 <div class="tight-block">
 <div class="tight-block">
 <h3>
-The Treasure — A Portrait of What Once Was
-</h3>
+       The Treasure — A Portrait of What Once Was
+      </h3>
 <div style="text-align: center; margin: 1.5em 0;">
 <img alt="Michael painting the portrait" loading="lazy" src="images/treasure.jpg" style="display:block;margin:30px auto;border-radius:12px;max-width:90%;height:auto;"/>
 </div>
 <p>
-One of my recent house portrait clients — a friendly man named Jack — asked me to recreate a cabin where he had spent every summer as a child. It had burned down when he was just thirteen.
-</p>
+       One of my recent house portrait clients — a friendly man named Jack — asked me to recreate a cabin where he had spent every summer as a child. It had burned down when he was just thirteen.
+      </p>
 <p>
-Jack shared how the cabin had become something mythical in his mind, especially after his father passed away ten months ago at age 73. The two of them had shared countless summer nights on the porch, laughing and eating homemade peanut brittle as the sun went down.
-</p>
+       Jack shared how the cabin had become something mythical in his mind, especially after his father passed away ten months ago at age 73. The two of them had shared countless summer nights on the porch, laughing and eating homemade peanut brittle as the sun went down.
+      </p>
 <p>
-There were no good photos of the place. Just fragments, memories, and a deep feeling. So Jack described it all to me — right down to the angle of the roof, the stairs leading up, and the kind of sunset that always seemed to show up at just the right moment.
-</p>
+       There were no good photos of the place. Just fragments, memories, and a deep feeling. So Jack described it all to me — right down to the angle of the roof, the stairs leading up, and the kind of sunset that always seemed to show up at just the right moment.
+      </p>
 <p>
-When Jack received the finished portrait, he said it was
-<em>
-like finding a long-lost treasure.
-</em>
-He told me he could not be more grateful.
-<img alt="Finished painting of the cabin" loading="lazy" src="images/the_treasure_cabin.jpg" style="display:block;margin:30px auto;border-radius:12px;max-width:90%;height:auto;"/>
+       When Jack received the finished portrait, he said it was
+       <em>
+        like finding a long-lost treasure.
+       </em>
+       He told me he could not be more grateful.
+       <img alt="Finished painting of the cabin" loading="lazy" src="images/the_treasure_cabin.jpg" style="display:block;margin:30px auto;border-radius:12px;max-width:90%;height:auto;"/>
 <p style="text-align: center;">
 <strong>
-Do you have a friend or relative with a place they still carry in their heart?
-</strong>
+         Do you have a friend or relative with a place they still carry in their heart?
+        </strong>
 <br/>
-Let’s recreate it — and make their memories visible again.
-</p>
+        Let’s recreate it — and make their memories visible again.
+       </p>
 </p>
 <div style="text-align: center; margin: 1.5em 0;">
 </div>
 </div>
 <p style="text-align: center; font-size: 2rem;">
-* * *
-</p>
+      * * *
+     </p>
 <h3>
-What a Realtor Told Me
-</h3>
+      What a Realtor Told Me
+     </h3>
 <div style="text-align: center; margin: 1.5em 0;">
 <img alt="Framed custom house portrait given as a realtor closing gift" loading="lazy" src="images/realtor-closing-gift.jpg" style="max-width: 100%; height: auto; border-radius: 8px;"/>
 </div>
 <p>
-One of my early commissions came from a realtor I had never worked with before.
-<br/>
-She had just closed a deal and said:
-<br/>
+      One of my early commissions came from a realtor I had never worked with before.
+      <br/>
+      She had just closed a deal and said:
+      <br/>
 <em>
-"I want to give them something better than a bottle of wine."
-</em>
+       "I want to give them something better than a bottle of wine."
+      </em>
 </p>
 <p>
-I asked about the house.
-<br/>
-She sent me reference photos, closing details, and even a few notes from the walk-through.
-<br/>
-It was a modest home—but it was their first.
-<br/>
-A place they had saved for, dreamed about, and finally owned.
-</p>
+      I asked about the house.
+      <br/>
+      She sent me reference photos, closing details, and even a few notes from the walk-through.
+      <br/>
+      It was a modest home—but it was their first.
+      <br/>
+      A place they had saved for, dreamed about, and finally owned.
+     </p>
 <p>
-When I delivered the portrait, the realtor was stunned.
-<br/>
-She told me:
-<br/>
+      When I delivered the portrait, the realtor was stunned.
+      <br/>
+      She told me:
+      <br/>
 <em>
-"I’ve given a lot of gifts in this business. But none have ever felt this meaningful to my clients."
-</em>
+       "I’ve given a lot of gifts in this business. But none have ever felt this meaningful to my clients."
+      </em>
 </p>
 <p>
-That stuck with me. Because it wasn’t about the gift itself.
-<br/>
-It was about what the gift
-<em>
-remembered
-</em>
-.
-</p>
+      That stuck with me. Because it wasn’t about the gift itself.
+      <br/>
+      It was about what the gift
+      <em>
+       remembered
+      </em>
+      .
+     </p>
 <p>
-A housewarming present fades.
-<br/>
-But a painting that honors someone’s
-<em>
-first home
-</em>
-—that stays.
-<br/>
-It hangs on the wall. It holds a moment. It becomes part of the story.
-</p>
+      A housewarming present fades.
+      <br/>
+      But a painting that honors someone’s
+      <em>
+       first home
+      </em>
+      —that stays.
+      <br/>
+      It hangs on the wall. It holds a moment. It becomes part of the story.
+     </p>
 <p>
-And here’s what’s even more remarkable:
-<br/>
-Every time that artwork is noticed or mentioned by a friend, family member, or guest,
-<br/>
-the story of the house is shared—
-<br/>
+      And here’s what’s even more remarkable:
+      <br/>
+      Every time that artwork is noticed or mentioned by a friend, family member, or guest,
+      <br/>
+      the story of the house is shared—
+      <br/>
 <strong>
-and so is the name of the person who gave the gift.
-</strong>
+       and so is the name of the person who gave the gift.
+      </strong>
 </p>
 <p>
-That realtor’s gesture became a part of the home’s legacy.
-<br/>
-Not tucked in a drawer. Not forgotten in a box.
-<br/>
-But displayed. Admired. Remembered.
-</p>
+      That realtor’s gesture became a part of the home’s legacy.
+      <br/>
+      Not tucked in a drawer. Not forgotten in a box.
+      <br/>
+      But displayed. Admired. Remembered.
+     </p>
 <p>
-Because when a gift is personal, it becomes permanent.
-<br/>
-And in this case, it became a kind of perpetual calling card for that realtor—framed, emotional, and unforgettable.
-</p>
+      Because when a gift is personal, it becomes permanent.
+      <br/>
+      And in this case, it became a kind of perpetual calling card for that realtor—framed, emotional, and unforgettable.
+     </p>
 </div>
 <p style="text-align: center; font-size: 2rem;">
-* * *
-</p>
+     * * *
+    </p>
 <div class="tight-block">
 <h3>
-That Little Tree in the Corner
-</h3>
+      That Little Tree in the Corner
+     </h3>
 <div style="text-align: center; margin: 1.5em 0;">
 <img alt="Custom house portrait featuring a daughter's planted maple tree" loading="lazy" src="images/japanese-maple.jpg" style="max-width: 100%; height: auto; border-radius: 8px;"/>
 </div>
 <p>
-There’s a tree I painted once—a small, crooked maple barely taller than the mailbox.
-</p>
+      There’s a tree I painted once—a small, crooked maple barely taller than the mailbox.
+     </p>
 <p>
-Wasn’t prominent in the photo the client sent. In fact, it would've been easy to overlook. But when I asked about it, her reply was immediate:
-<br/>
+      Wasn’t prominent in the photo the client sent. In fact, it would've been easy to overlook. But when I asked about it, her reply was immediate:
+      <br/>
 <em>
-"Oh—please don’t forget that tree. My daughter planted it the day we moved in. She was six."
-</em>
+       "Oh—please don’t forget that tree. My daughter planted it the day we moved in. She was six."
+      </em>
 </p>
 <p>
-Suddenly, that little tree wasn’t just landscaping—it was memory. A quiet footprint of time. It made the portrait personal. Intimate. Alive.
-</p>
+      Suddenly, that little tree wasn’t just landscaping—it was memory. A quiet footprint of time. It made the portrait personal. Intimate. Alive.
+     </p>
 <p>
-These are the kinds of things I look for. A flower bed planted by a grandmother. A wind chime bought on a honeymoon. A porch swing that held hours of conversation.
-</p>
+      These are the kinds of things I look for. A flower bed planted by a grandmother. A wind chime bought on a honeymoon. A porch swing that held hours of conversation.
+     </p>
 <p>
-Because when someone commissions a portrait of their home, it’s not just about the architecture. It’s about
-<em>
-what happened there
-</em>
-—and the tiny details that hold those stories.
-</p>
+      Because when someone commissions a portrait of their home, it’s not just about the architecture. It’s about
+      <em>
+       what happened there
+      </em>
+      —and the tiny details that hold those stories.
+     </p>
 <p>
-That little tree is why I ask questions.
-<br/>
-It’s why I listen before I paint.
-<br/>
-And it’s why no two pieces I make are ever the same.
-</p>
+      That little tree is why I ask questions.
+      <br/>
+      It’s why I listen before I paint.
+      <br/>
+      And it’s why no two pieces I make are ever the same.
+     </p>
 </div>
 <p style="text-align: center; font-size: 2rem;">
-* * *
-</p>
+     * * *
+    </p>
 <div class="tight-block">
 <h3>
-It Started With a Goodbye
-</h3>
+      It Started With a Goodbye
+     </h3>
 <div style="text-align: center; margin: 1em 0;">
 <img alt="Custom house portrait gifted to longtime homeowners as a farewell memory" loading="lazy" src="images/10-willys.jpg" style="max-width: 100%; height: auto; border-radius: 8px;"/>
 </div>
 <p>
-The first house portrait I ever made wasn’t meant to start a business.
-</p>
+      The first house portrait I ever made wasn’t meant to start a business.
+     </p>
 <p>
-It was a gift—a parting gesture for good friends of mine who had lived in their home for over 25 years. The house had seen them through births, graduations, holidays, and quiet mornings on the porch. When it came time to say goodbye, I could tell they didn’t want a photo, but something more. Something that felt like memory.
-</p>
+      It was a gift—a parting gesture for good friends of mine who had lived in their home for over 25 years. The house had seen them through births, graduations, holidays, and quiet mornings on the porch. When it came time to say goodbye, I could tell they didn’t want a photo, but something more. Something that felt like memory.
+     </p>
 <p>
-So I painted it.
-</p>
+      So I painted it.
+     </p>
 <p>
-Not just the walls and windows, but the light in the kitchen where they always sat for coffee. The oak tree in the yard they planted the year their daughter was born. The way the shadows fell in the afternoon.
-</p>
+      Not just the walls and windows, but the light in the kitchen where they always sat for coffee. The oak tree in the yard they planted the year their daughter was born. The way the shadows fell in the afternoon.
+     </p>
 <p>
-When I gave them the piece, they were both overcome with emotion. That moment stuck with me. It still does.
-</p>
+      When I gave them the piece, they were both overcome with emotion. That moment stuck with me. It still does.
+     </p>
 <p>
-That’s when I realized: this isn’t just art.
-</p>
+      That’s when I realized: this isn’t just art.
+     </p>
 <p>
-It’s remembrance. Tribute. Closure. Celebration.
-</p>
+      It’s remembrance. Tribute. Closure. Celebration.
+     </p>
 <p>
-It’s a way of honoring the homes that shaped us.
-</p>
+      It’s a way of honoring the homes that shaped us.
+     </p>
 <p>
-And that’s how The Memory House began.
-</p>
+      And that’s how The Memory House began.
+     </p>
 </div>
 </div>
 <footer>
 <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; margin-bottom: 10px;">
 </p>
 <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
-Memories start with home — and end in .art
-</p>
-© 2025 The Memory House
+     Memories start with home — and end in .art
+    </p>
+    © 2025 The Memory House
+  
 <div style="margin-top: 15px; text-align:center;">
-<a href="realtor-exclusive.html" class="realtor-btn">
-Realtor Access
-</a>
+<a class="realtor-btn" href="realtor-exclusive.html">
+    Realtor Access
+  </a>
 </div>
 </footer>
 <div class="social-icons">
@@ -511,8 +519,8 @@ Realtor Access
 </div>
 <div class="sticky-cta">
 <a class="cta-sticky-button" href="order.html">
-ORDER MY PORTRAIT
-</a>
+     ORDER MY PORTRAIT
+    </a>
 </div>
 <div style="height: 50px;">
 </div>
