@@ -1,645 +1,626 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <style>
 #card-element {
-  border: 1px solid #ccc;
-  padding: 12px;
-  border-radius: 6px;
-  width: 100%;
-  max-width: 400px;
-  background: white;
-  margin-top: 10px;
+border: 1px solid #ccc;
+padding: 12px;
+border-radius: 6px;
+width: 100%;
+max-width: 400px;
+background: white;
+margin-top: 10px;
 }
 #card-errors {
-  color: red;
-  margin-top: 8px;
+color: red;
+margin-top: 8px;
 }
 </style>
-
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta charset="utf-8"/>
 <style>
-   body {
-      font-family: Georgia, serif;
-      background: #fdfbf7;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    nav {
-      padding: 20px;
-    }
-    nav a {
-      margin: 0 10px;
-      color: #333;
-      text-decoration: none;
-    }
-    .container {
-      max-width: 720px;
-      margin: 40px auto;
-      background: white;
-      padding: 40px 30px;
-      border-radius: 10px;
-      white-space: normal;
-      line-height: 1.6;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin: 20px 0 10px 0;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0 10px;
-    }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    h1, h2 {
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 15px;
-      margin-top: 30px;
-      text-align: left;
-    }
-    label {
-      font-weight: bold;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      align-self: center;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #b88a44;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-  
-.social-icons {
-  margin-top: 10px;
-  text-align: center;
-}
-  
-img.logo-header {
-  width: 82px;
-  margin: 10px auto 6px auto;
-  display: block;
-}
-h1.site-title {
-  margin: 0 0 10px 0;
+body {
+font-family: Georgia, serif;
+background: #fdfbf7;
+text-align: center;
+margin: 0;
+padding: 0;
 }
 nav {
-  margin-top: 0;
+padding: 20px;
 }
-  
-img.logo-header {
-  width: 82px;
-  margin: 6px auto 2px auto;
-  display: block;
+nav a {
+margin: 0 10px;
+color: #333;
+text-decoration: none;
 }
-h1.site-title {
-  margin: 0 0 6px 0;
-}
-nav {
-  margin-top: 0;
-}
-  
-img.logo-header {
-  width: 82px;
-  margin: 6px auto 2px auto;
-  display: block;
-}
-h1.site-title {
-  margin: 0 0 6px 0;
-}
-nav {
-  margin-top: 0;
-}
-  
 .container {
-  padding-top: 0;
-  margin-top: 0;
+max-width: 720px;
+margin: 40px auto;
+background: white;
+padding: 40px 30px;
+border-radius: 10px;
+white-space: normal;
+line-height: 1.6;
 }
-nav {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+img {
+max-width: 100%;
+height: auto;
+margin: 20px 0 10px 0;
 }
-  
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0 10px;
+}
+th, td {
+padding: 10px;
+border-bottom: 1px solid #ddd;
+}
+th {
+background-color: #f2f2f2;
+}
+h1, h2 {
+margin-top: 30px;
+margin-bottom: 10px;
+}
+form {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 15px;
+margin-top: 30px;
+text-align: left;
+}
+label {
+font-weight: bold;
+}
+input, textarea, select {
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+button {
+align-self: center;
+padding: 10px 20px;
+font-size: 16px;
+background-color: #b88a44;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+.social-icons {
+margin-top: 10px;
+text-align: center;
+}
 img.logo-header {
-  width: 82px;
-  margin: 13px auto 7px auto;
-  display: block;
+width: 82px;
+margin: 10px auto 6px auto;
+display: block;
 }
 h1.site-title {
-  margin: 0 0 7px 0;
+margin: 0 0 10px 0;
 }
 nav {
-  margin-top: 0;
+margin-top: 0;
 }
-  
+img.logo-header {
+width: 82px;
+margin: 6px auto 2px auto;
+display: block;
+}
+h1.site-title {
+margin: 0 0 6px 0;
+}
+nav {
+margin-top: 0;
+}
+img.logo-header {
+width: 82px;
+margin: 6px auto 2px auto;
+display: block;
+}
+h1.site-title {
+margin: 0 0 6px 0;
+}
+nav {
+margin-top: 0;
+}
+.container {
+padding-top: 0;
+margin-top: 0;
+}
+nav {
+margin-top: 0 !important;
+padding-top: 0 !important;
+}
+img.logo-header {
+width: 82px;
+margin: 13px auto 7px auto;
+display: block;
+}
+h1.site-title {
+margin: 0 0 7px 0;
+}
+nav {
+margin-top: 0;
+}
 form label {
-  display: block;
-  margin-bottom: 4px;
-  margin-top: 12px;
+display: block;
+margin-bottom: 4px;
+margin-top: 12px;
 }
 form input, form textarea, form select {
-  margin-bottom: 8px;
+margin-bottom: 8px;
 }
-  
 form label {
-  display: block;
-  margin-bottom: 2px;
-  margin-top: 4px;
-  font-weight: bold;
+display: block;
+margin-bottom: 2px;
+margin-top: 4px;
+font-weight: bold;
 }
 form input, form textarea, form select {
-  margin-bottom: 4px;
-  padding: 6px;
+margin-bottom: 4px;
+padding: 6px;
 }
-  </style>
+</style>
 <title>
-   Order Your Custom House Portrait | The Memory House
-  </title>
+Order Your Custom House Portrait | The Memory House
+</title>
 <meta content="Start your custom house portrait order here. Choose your size, upload your photos, and reserve a handcrafted painting that captures your home’s story." name="description"/>
 <link href="https://thememoryhouse.art/order.html" rel="canonical"/>
 <style>
-   .hamburger, #navMenu {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-      font-size: 28px;
-      cursor: pointer;
-      padding: 20px;
-      text-align: center;
-    }
-    #navMenu {
-      display: none;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-    }
-    #navMenu.active {
-      display: block;
-    }
-    #navMenu li {
-      margin: 12px 0;
-    }
-    #navMenu li::marker {
-      content: '';
-    }
-    nav.site-desktop {
-      display: none;
-    }
-  }
-  </style>
-<style>
-   @media (max-width: 768px) {
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .table-responsive table {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: collapse;
-  }
+.hamburger, #navMenu {
+display: none;
 }
-  </style>
-<style>
-   @media (max-width: 768px) {
-  .table-responsive {
-    display: none;
-  }
-
-  .mobile-pricing-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    margin-top: 20px;
-  }
-
-  .pricing-card {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 16px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  }
-
-  .pricing-card .card-label {
-    font-weight: bold;
-    margin-top: 10px;
-  }
-
-  .pricing-card .card-label:first-child {
-    margin-top: 0;
-  }
+@media (max-width: 768px) {
+.hamburger {
+display: block;
+font-size: 28px;
+cursor: pointer;
+padding: 20px;
+text-align: center;
 }
-
+#navMenu {
+display: none;
+list-style: none;
+padding: 0;
+margin: 0;
+text-align: center;
+}
+#navMenu.active {
+display: block;
+}
+#navMenu li {
+margin: 12px 0;
+}
+#navMenu li::marker {
+content: '';
+}
+nav.site-desktop {
+display: none;
+}
+}
+</style>
+<style>
+@media (max-width: 768px) {
+.table-responsive {
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+}
+.table-responsive table {
+width: 100%;
+min-width: 600px;
+border-collapse: collapse;
+}
+}
+</style>
+<style>
+@media (max-width: 768px) {
+.table-responsive {
+display: none;
+}
+.mobile-pricing-cards {
+display: flex;
+flex-direction: column;
+gap: 24px;
+margin-top: 20px;
+}
+.pricing-card {
+border: 1px solid #ccc;
+border-radius: 6px;
+padding: 16px;
+background: #fff;
+box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.pricing-card .card-label {
+font-weight: bold;
+margin-top: 10px;
+}
+.pricing-card .card-label:first-child {
+margin-top: 0;
+}
+}
 @media (min-width: 769px) {
-  .mobile-pricing-cards {
-    display: none;
-  }
+.mobile-pricing-cards {
+display: none;
 }
-  </style>
+}
+</style>
 </head>
 <body><div class="page-tag">Place Your Order</div>
-
-<!-- Mobile Hamburger Navigation -->
 <div id="mobile-nav-container">
 <nav class="main-nav">
 <div class="nav-wrapper">
 <div class="hamburger" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;">
-      ☰
-     </div>
+☰
+</div>
 </div>
 <ul class="menu" id="navMenu">
 <li>
 <a href="index.html">
-       Home
-      </a>
+Home
+</a>
 </li>
 <li>
 <a href="about.html">
-       About
-      </a>
+About
+</a>
 </li>
 <li>
 <a href="gallery.html">
-       Gallery
-      </a>
+Gallery
+</a>
 </li>
 <li>
 <a href="order.html">
-       Order
-      </a>
+Order
+</a>
 </li>
 <li>
 <a href="blog.html">
-       Blog
-      </a>
+Blog
+</a>
 </li>
 <li>
 <a href="contact.html">
-       Contact
-      </a>
+Contact
+</a>
 </li>
 </ul>
 </nav>
 </div>
 <script>
-   function toggleMenu() {
-    var menu = document.getElementById('navMenu');
-    menu.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-  }
-  </script>
+function toggleMenu() {
+var menu = document.getElementById('navMenu');
+menu.classList.toggle('active');
+document.body.classList.toggle('menu-open');
+}
+</script>
 <img 13px="" 7px="" 82px;="" auto="" auto;="" block;="" class="logo-header" display:="" loading="lazy" margin:="" src="images/logo5xJ.png" style="width:"/>
 <h1 0="" 0;="" 7px="" class="site-title" style="margin:">
-   The Memory House
-  </h1>
+The Memory House
+</h1>
 <nav class="site-desktop">
 <a href="index.html">
-    Home
-   </a>
-   |
-   <a href="about.html">
-    About
-   </a>
-   |
-   <a href="gallery.html">
-    Gallery
-   </a>
-   |
-   <a href="order.html">
-    Order
-   </a>
-   |
-   <a href="blog.html">
-    Blog
-   </a>
-   |
-   <a href="contact.html">
-    Contact
-   </a>
+Home
+</a>
+|
+<a href="about.html">
+About
+</a>
+|
+<a href="gallery.html">
+Gallery
+</a>
+|
+<a href="order.html">
+Order
+</a>
+|
+<a href="blog.html">
+Blog
+</a>
+|
+<a href="contact.html">
+Contact
+</a>
 </nav>
 <div class="container">
 <p>
 <strong>
-     A timeless gift for homeowners — and standout client thank-you for realtors.
-    </strong>
+A timeless gift for homeowners — and standout client thank-you for realtors.
+</strong>
 </p>
 <p>
 <em>
-     Each portrait is hand-painted with care and printed on gallery-grade wrap-around canvas.
-    </em>
+Each portrait is hand-painted with care and printed on gallery-grade wrap-around canvas.
+</em>
 </p>
 <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
 <img alt="Happy couple holding house portrait" loading="lazy" src="images/happy-couple.webp" style="width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"/>
 <p style="font-style: italic; color: #6b4f36; font-family: Georgia, serif; margin-top: 10px;">
-     “It now hangs in the heart of our home. Quiet, beautiful, and full of meaning.”
-     <br/>
-     — Mark &amp; Alissa B., Asheville NC
-    </p>
+“It now hangs in the heart of our home. Quiet, beautiful, and full of meaning.”
+<br/>
+— Mark &amp; Alissa B., Asheville NC
+</p>
 </div>
 <h2>
-    Size Options &amp; Pricing:
-   </h2>
+Size Options &amp; Pricing:
+</h2>
 <div class="table-responsive">
 <table>
 <tr>
 <th>
-       Size
-      </th>
+Size
+</th>
 <th>
-       Best For
-      </th>
+Best For
+</th>
 <th>
-       Price
-      </th>
+Price
+</th>
 </tr>
 <tr>
 <td>
 <strong>
-        Premium Gift Package
-        <span style="color:#b88a44;">
-         (Best Value)
-        </span>
+Premium Gift Package
+<span style="color:#b88a44;">
+(Best Value)
+</span>
 </strong>
 </td>
 <td>
-       Includes 18×24 portrait, satin wrap, handwritten card, branded seal, framed Certificate of Memory
-      </td>
+Includes 18×24 portrait, satin wrap, handwritten card, branded seal, framed Certificate of Memory
+</td>
 <td>
 <strong>
-        $440
-       </strong>
+$440
+</strong>
 </td>
 </tr>
 <tr>
 <td>
 <strong>
-        18×24
-       </strong>
+18×24
+</strong>
 </td>
 <td>
-       Heirloom masterpiece — bold &amp; lasting
-      </td>
+Heirloom masterpiece — bold &amp; lasting
+</td>
 <td>
-       $390
-      </td>
+$390
+</td>
 </tr>
 <tr>
 <td>
 <strong>
-        12×18
-       </strong>
+12×18
+</strong>
 </td>
 <td>
-       Great for gifting — not as prominent on wall
-      </td>
+Great for gifting — not as prominent on wall
+</td>
 <td>
-       $290
-      </td>
+$290
+</td>
 </tr>
 <tr>
 <td>
 <strong>
-        8×10
-       </strong>
+8×10
+</strong>
 </td>
 <td>
-       Thoughtful gift or small keepsake
-      </td>
+Thoughtful gift or small keepsake
+</td>
 <td>
-       $190
-      </td>
+$190
+</td>
 </tr>
 </table>
 </div>
 <div class="mobile-pricing-cards">
 <div class="pricing-card">
 <div class="card-label">
-      Size:
-     </div>
+Size:
+</div>
 <div class="card-value">
 <td>
 <strong>
-        Premium Gift Package
-        <span style="color:#b88a44;">
-         (Best Value)
-        </span>
+Premium Gift Package
+<span style="color:#b88a44;">
+(Best Value)
+</span>
 </strong>
 </td>
 </div>
 <div class="card-label">
-      Best For:
-     </div>
+Best For:
+</div>
 <div class="card-value">
 <td>
-       Includes 18×24 portrait, satin wrap, handwritten card, branded seal, framed Certificate of Memory
-      </td>
+Includes 18×24 portrait, satin wrap, handwritten card, branded seal, framed Certificate of Memory
+</td>
 </div>
 <div class="card-label">
-      Price:
-     </div>
+Price:
+</div>
 <div class="card-value">
 <td>
 <strong>
-        $440
-       </strong>
+$440
+</strong>
 </td>
 </div>
 </div>
 <div class="pricing-card">
 <div class="card-label">
-      Size:
-     </div>
+Size:
+</div>
 <div class="card-value">
 <td>
 <strong>
-        18×24
-       </strong>
+18×24
+</strong>
 </td>
 </div>
 <div class="card-label">
-      Best For:
-     </div>
+Best For:
+</div>
 <div class="card-value">
 <td>
-       Heirloom masterpiece — bold &amp; lasting
-      </td>
+Heirloom masterpiece — bold &amp; lasting
+</td>
 </div>
 <div class="card-label">
-      Price:
-     </div>
+Price:
+</div>
 <div class="card-value">
 <td>
-       $390
-      </td>
+$390
+</td>
 </div>
 </div>
 <div class="pricing-card">
 <div class="card-label">
-      Size:
-     </div>
+Size:
+</div>
 <div class="card-value">
 <td>
 <strong>
-        12×18
-       </strong>
+12×18
+</strong>
 </td>
 </div>
 <div class="card-label">
-      Best For:
-     </div>
+Best For:
+</div>
 <div class="card-value">
 <td>
-       Great for gifting — not as prominent on wall
-      </td>
+Great for gifting — not as prominent on wall
+</td>
 </div>
 <div class="card-label">
-      Price:
-     </div>
+Price:
+</div>
 <div class="card-value">
 <td>
-       $290
-      </td>
+$290
+</td>
 </div>
 </div>
 <div class="pricing-card">
 <div class="card-label">
-      Size:
-     </div>
+Size:
+</div>
 <div class="card-value">
 <td>
 <strong>
-        8×10
-       </strong>
+8×10
+</strong>
 </td>
 </div>
 <div class="card-label">
-      Best For:
-     </div>
+Best For:
+</div>
 <div class="card-value">
 <td>
-       Thoughtful gift or small keepsake
-      </td>
+Thoughtful gift or small keepsake
+</td>
 </div>
 <div class="card-label">
-      Price:
-     </div>
+Price:
+</div>
 <div class="card-value">
 <td>
-       $190
-      </td>
+$190
+</td>
 </div>
 </div>
 </div>
 <p>
 <strong>
-     Free shipping within the continental U.S. • Local pickup in Burke, VA available
-    </strong>
+Free shipping within the continental U.S. • Local pickup in Burke, VA available
+</strong>
 </p>
 <img alt="Premium" gift="" loading="lazy" package="" src="images/PremiumGiftPackage_Final.jpg/"/>
 <h2>
-    Ready to Turn Your Home into a Piece of Heart?
-   </h2>
+Ready to Turn Your Home into a Piece of Heart?
+</h2>
 <form id="payment-form" action="https://formsubmit.co/info@thememoryhouse.art" method="POST">
 <label for="name">
 <strong>
-      Your Name:
-     </strong>
+Your Name:
+</strong>
 </label>
 <input id="name" name="name" required="" type="text"/>
 <label for="email">
 <strong>
-      Your Email:
-     </strong>
+Your Email:
+</strong>
 </label>
 <input id="email" name="email" required="" type="email"/>
 <label for="address">
 <strong>
-      Mailing Address:
-     </strong>
+Mailing Address:
+</strong>
 </label>
 <textarea id="address" name="address" required="" rows="3"></textarea>
 <label for="size">
 <strong>
-      Portrait Size:
-     </strong>
+Portrait Size:
+</strong>
 </label>
 <select id="size" name="size" required="">
 <option value="Premium Gift Package">
-      Premium Gift Package (Best Value)
-     </option>
+Premium Gift Package (Best Value)
+</option>
 <option value="18×24">
-      18×24
-     </option>
+18×24
+</option>
 <option value="12×18">
-      12×18
-     </option>
+12×18
+</option>
 <option value="8×10">
-      8×10
-     </option>
+8×10
+</option>
 </select>
 <label for="notes">
 <strong>
-      Any Special Notes or Requests:
-     </strong>
+Any Special Notes or Requests:
+</strong>
 </label>
 <textarea id="notes" name="notes" placeholder="e.g., remove tree, include pet, change season, etc." rows="4"></textarea>
 <div id="card-element" style="margin:20px 0;"></div>
 <div id="card-errors" role="alert" style="color:red;"></div>
 <button type="submit">
-     Submit Order
-    </button>
+Submit Order
+</button>
 <p style="margin-bottom:0; padding-bottom:0; text-align:center;">
-     You'll receive a confirmation email shortly. We’re excited to begin creating your custom portrait.
-     <br/>
-<strong>
-      Simply reply to that email with 1–3 clear photos of your home.
-     </strong>
+You'll receive a confirmation email shortly. We’re excited to begin creating your custom portrait.
 <br/>
-     We’ll follow up if we need anything else.
-    </p>
+<strong>
+Simply reply to that email with 1–3 clear photos of your home.
+</strong>
+<br/>
+We’ll follow up if we need anything else.
+</p>
 </form>
 <p>
-    ✉️ Orders will be reviewed and processed via email. After submitting, you'll receive confirmation and payment instructions.
-   </p>
+✉️ Orders will be reviewed and processed via email. After submitting, you'll receive confirmation and payment instructions.
+</p>
 <div style="border: 1px solid #ccc; background-color: #f9f6f1; padding: 16px; margin-top: 30px; font-size: 1rem; text-align: center;">
 <p style="margin: 0;">
 <strong>
-      Proof within 3 days.
-     </strong>
+Proof within 3 days.
+</strong>
 </p>
 <p style="margin-top: 6px;">
-     After receiving your photos, we’ll send you a digital proof of your artwork within 3 business days. You can request changes or approve the final version before anything is printed or shipped.
-    </p>
+After receiving your photos, we’ll send you a digital proof of your artwork within 3 business days. You can request changes or approve the final version before anything is printed or shipped.
+</p>
 </div>
 </div>
 <div 10px;="" center;="" class="social-icons" margin-top:="" style="text-align:">
@@ -658,11 +639,11 @@ form input, form textarea, form select {
 <div style="height: 50px;">
 </div>
 <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
-   Memories start with home — and end in .art
-  </p>
+Memories start with home — and end in .art
+</p>
 <p style="text-align:center;">
-   © 2025 The Memory House
-   <br/>
+© 2025 The Memory House
+<br/>
 <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
 <i class="fab fa-facebook-f fa-lg">
 </i>
@@ -676,59 +657,45 @@ form input, form textarea, form select {
 </i>
 </a>
 </p>
-
-
-<!-- Stripe Integration with Dynamic Pricing -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ'); // Replace with your live publishable key
-  const elements = stripe.elements();
-  
-  const card = elements.create('card');
-  card.mount('#card-element');
-
-  // Map portrait sizes to prices in cents
-  const priceMap = {
-    "Premium Gift Package": 44000,
-    "18×24": 39000,
-    "12×18": 29000,
-    "8×10": 19000
-  };
-
-  document.getElementById('payment-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const size = document.getElementById('size').value;
-    const amount = priceMap[size];
-
-    // Create PaymentIntent via Netlify Function with dynamic amount
-    const response = await fetch('/.netlify/functions/create-payment-intent', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: amount })
-    });
-
-    const { clientSecret } = await response.json();
-
-    const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: { card: card }
-    });
-
-    if (error) {
-      alert(error.message);
-    } else if (paymentIntent.status === 'succeeded') {
-      alert('Payment successful! Your order has been submitted.');
-      e.target.submit(); // Submit form to FormSubmit after successful payment
-    }
-  });
-
-  // Optional: Update a displayed price dynamically on the page if needed
-  document.getElementById('size').addEventListener('change', function() {
-    const selected = this.value;
-    console.log('Selected size:', selected, 'Price:', priceMap[selected]/100);
-  });
+const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ'); // Replace with your live publishable key
+const elements = stripe.elements();
+const card = elements.create('card');
+card.mount('#card-element');
+// Map portrait sizes to prices in cents
+const priceMap = {
+"Premium Gift Package": 44000,
+"18×24": 39000,
+"12×18": 29000,
+"8×10": 19000
+};
+document.getElementById('payment-form').addEventListener('submit', async function(e) {
+e.preventDefault();
+const size = document.getElementById('size').value;
+const amount = priceMap[size];
+// Create PaymentIntent via Netlify Function with dynamic amount
+const response = await fetch('/.netlify/functions/create-payment-intent', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ amount: amount })
+});
+const { clientSecret } = await response.json();
+const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
+payment_method: { card: card }
+});
+if (error) {
+alert(error.message);
+} else if (paymentIntent.status === 'succeeded') {
+alert('Payment successful! Your order has been submitted.');
+e.target.submit(); // Submit form to FormSubmit after successful payment
+}
+});
+// Optional: Update a displayed price dynamically on the page if needed
+document.getElementById('size').addEventListener('change', function() {
+const selected = this.value;
+console.log('Selected size:', selected, 'Price:', priceMap[selected]/100);
+});
 </script>
-
 <div id="card-element" style="margin:20px 0;"></div>
-
 <script src="order-stripe.js"></script>
