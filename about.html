@@ -41,13 +41,7 @@
 </style>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <style>
-.sticky-cta {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-}
+.sticky-cta {}
 .cta-sticky-button {
     background-color: #B89F69;
     color: #FAF4E8;
@@ -172,7 +166,31 @@ nav {
   margin-top: 0;
 }
   </style>
-<title>About The Memory House – Art with Meaning</title><meta content="Learn the story behind The Memory House and how we turn homes into heirloom-quality works of art." name="description"/><link href="https://thememoryhouse.art/about.html" rel="canonical"/><link href="style-consolidated.css" rel="stylesheet"/></head>
+<title>About The Memory House – Art with Meaning</title><meta content="Learn the story behind The Memory House and how we turn homes into heirloom-quality works of art." name="description"/><link href="https://thememoryhouse.art/about.html" rel="canonical"/><link href="style-consolidated.css" rel="stylesheet"/>
+<style>
+  /* Sticky CTA: center reliably */
+  .sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .sticky-cta .cta-sticky-button {
+    display: inline-block;
+  }
+  @media (max-width: 768px) {
+    footer { margin-bottom: 80px; }
+  }
+</style>
+
+</head>
 <body><div class="page-tag">About The Artist</div>
 <!-- Mobile Hamburger Navigation -->
 <div id="mobile-nav-container">
@@ -272,17 +290,9 @@ Memories start with home — and end in .art
 </div>
 <div style="position:fixed; bottom:40px; left:50%; transform:translateX(-50%); z-index:1000;">
 </div>
-<div style="height: 50px;"></div>
-<div style="height: 50px;"></div>
-<div style="height: 50px;"></div>
-<div style="height: 50px;"></div>
-<div style="height: 50px;"></div>
-<div style="height: 50px;"></div>
 <div class="sticky-cta">
 <a class="cta-sticky-button" href="order.html">ORDER MY PORTRAIT</a>
 </div>
-<div style="height: 50px;"></div>
-<div style="height: 50px;"></div>
 <style>
 footer a[href="realtor-exclusive.html"]:hover {
     background-color: #B9975B !important; /* Elegant muted gold */
