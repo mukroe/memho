@@ -126,3 +126,35 @@ a[href="realtor-exclusive.html"]:hover {
     transform:scale(1.05);
     text-decoration:none !important;
 }
+
+/* === Mobile footer tagline break (site-wide) === */
+/* Forces the footer tagline to wrap into two lines comfortably on phones,
+   approximating a break after "and" without needing HTML changes. */
+@media (max-width: 767.98px) {
+  .footer-tagline {
+    display: block !important;
+    max-width: 26ch !important;   /* ~forces wrap near "and" */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    text-align: center !important;
+    text-wrap: balance;           /* nicer line breaking when supported */
+    line-height: 1.35 !important;
+  }
+}
+
+/* Force footer line break after 'and' on mobile */
+@media (max-width: 600px) {
+  footer p {
+    display: inline-block;
+    max-width: 90%;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+  }
+  footer p:after {
+    content: "";
+    display: block;
+  }
+}
