@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <title>The Memory House – Handcrafted Watercolor Home Portraits</title>
@@ -10,10 +10,10 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://thememoryhouse.art/index.html"/>
 
-  <!-- Preload (kept from target) -->
+  <!-- Preload -->
   <link rel="preload" as="image" href="images/landing.jpg" type="image/jpeg"/>
 
-  <!-- Styles and Fonts (kept from target) -->
+  <!-- Styles -->
   <link href="style.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
 
@@ -30,7 +30,7 @@
   <meta name="twitter:description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes."/>
   <meta name="twitter:image" content="https://thememoryhouse.art/images/landing.jpg"/>
 
-  <!-- Consolidated Schema.org (single LocalBusiness + WebSite) -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -71,7 +71,7 @@
   }
   </script>
 
-  <!-- Mobile nav & hero CSS (kept from target) -->
+  <!-- Mobile nav & hero CSS -->
   <style>
     .realtor-btn {
       display:inline-block; font-size:0.9em; color:#1c1c1c !important;
@@ -112,11 +112,28 @@
       margin-top: 12px; font-size: 16px; text-align: center; z-index: 5; position: relative;
     }
 
-    /* ✅ Added: extra space below footer on mobile */
+    /* extra space below footer on mobile */
     @media (max-width: 768px) {
       footer { margin-bottom: 80px; }
     }
   </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '750632044348955');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <!-- Mobile Nav -->
@@ -179,8 +196,6 @@
       </div>
       <img src="landing.jpg" alt="Handcrafted House Artwork" loading="lazy"/>
     </div>
-
-    <section style="text-align: center; margin: 24px auto 24px auto;"></section>
 
     <!-- Testimonials / Gallery -->
     <section class="testimonial-section">
@@ -246,7 +261,7 @@
       </a>
     </div>
 
-    <!-- Sticky CTA (single) -->
+    <!-- Sticky CTA -->
     <div class="sticky-cta">
       <a class="cta-sticky-button" href="order.html"> ORDER MY PORTRAIT </a>
     </div>
