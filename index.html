@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- PAGE: index.html (Homepage) -->
+
   <!-- Charset MUST be first to avoid tofu in some browsers -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -15,21 +17,28 @@
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
   <!-- Styles -->
-  <link href="style.css" rel="stylesheet">
+  <link href="style.css?v=fix-font-hotfix-1" rel="stylesheet">
   <!-- Removed: <link href="memho_safe_restore.css" rel="stylesheet"> -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Protect against Font Awesome leaking onto body text -->
-  <style>
-    html, body {
-      font-family: Georgia, "Times New Roman", Times, serif;
+  <!-- HARD HOT-FIX: prevent icon font leaking onto real text -->
+  <style id="font-hotfix">
+    /* Force a real text font on all elements; exclude actual FA icon classes */
+    body, body *:not(i):not(.fa):not(.fas):not(.far):not(.fab)
+             :not([class^="fa-"]):not([class*=" fa-"]) {
+      font-family: Georgia, "Times New Roman", Times, serif !important;
     }
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
+    /* Keep Font Awesome icons rendering correctly */
+    i.fa, .fa, .fas, .far, .fab,
     [class^="fa-"], [class*=" fa-"] {
       font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+      font-style: normal;
+      font-weight: 400;
     }
+  </style>
 
-    /* Mobile nav & hero CSS (kept from your original) */
+  <!-- Mobile nav & hero CSS (kept from your original) -->
+  <style>
     .realtor-btn {
       display:inline-block; font-size:0.9em; color:#1c1c1c !important;
       background-color:#e6dcc7 !important; padding:8px 18px; border-radius:8px;
