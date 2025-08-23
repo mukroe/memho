@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿```html
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <style id="emergency-override-fonts">*,*::before,*::after{font-family:Arial,Helvetica,sans-serif!important}</style>
@@ -23,6 +24,35 @@
 
   <!-- Perf -->
   <link rel="preload" as="image" href="https://thememoryhouse.art/images/realtor_exclusive_header.jpg" />
+
+  <!-- Mobile sticky CTA styles (added) -->
+  <style>
+    /* Make top CTA stick to bottom on mobile for higher conversions */
+    @media (max-width: 767px) {
+      .cta-sticky-button {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #B89F69;
+        color: #FAF4E8;
+        text-align: center;
+        padding: 16px;
+        font-family: Georgia, serif;
+        font-size: 1.2em;
+        text-decoration: none;
+        z-index: 9999;
+        border-radius: 0;
+        display: inline-block;
+      }
+      .cta-sticky-button:hover {
+        background-color: #D8A48F;
+        color: #2C2C2C;
+      }
+      /* add a little bottom padding to content so sticky button doesn't cover text */
+      main.page-content { padding-bottom: 80px; }
+    }
+  </style>
 
   <!-- Open Graph -->
   <meta property="og:title" content="Realtor Inner Circle | The Memory House"/>
@@ -357,3 +387,4 @@
 </p>
 </body>
 </html>
+```
