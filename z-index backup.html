@@ -11,25 +11,71 @@
   <!-- Canonical -->
   <link rel="canonical" href="https://thememoryhouse.art/index.html">
 
-  <!-- Preload (match the desktop hero image path) -->
-  <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
+  <!-- Preload -->
+  <link rel="preload" as="image" href="images/landing.jpg" type="image/jpeg">
 
   <!-- Styles -->
   <link href="style.css" rel="stylesheet">
-  <!-- Removed: <link href="memho_safe_restore.css" rel="stylesheet"> -->
+  <!-- LAYERED FIX: loads after your main CSS, can be removed by deleting this line -->
+  <link href="memho_safe_restore.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- Protect against Font Awesome leaking onto body text -->
-  <style>
-    html, body {
-      font-family: Georgia, "Times New Roman", Times, serif;
-    }
-    .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
-    [class^="fa-"], [class*=" fa-"] {
-      font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
-    }
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Memory House – Handcrafted Watercolor Home Portraits">
+  <meta property="og:description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes.">
+  <meta property="og:image" content="https://thememoryhouse.art/images/landing.jpg">
+  <meta property="og:url" content="https://thememoryhouse.art/index.html">
+  <meta property="og:type" content="website">
 
-    /* Mobile nav & hero CSS (kept from your original) */
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Memory House – Handcrafted Watercolor Home Portraits">
+  <meta name="twitter:description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes.">
+  <meta name="twitter:image" content="https://thememoryhouse.art/images/landing.jpg">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The Memory House",
+    "image": "https://thememoryhouse.art/images/gallery1.jpg",
+    "url": "https://thememoryhouse.art",
+    "email": "info@thememoryhouse.art",
+    "telephone": "+1-571-365-6041",
+    "description": "Bespoke watercolor portraits of homes – handmade from your photos. Perfect as heartfelt gifts or realtor closing gifts.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6352 Silas Burke St",
+      "addressLocality": "Burke",
+      "addressRegion": "VA",
+      "postalCode": "22015",
+      "addressCountry": "US"
+    },
+    "areaServed": { "@type": "Country", "name": "United States" },
+    "sameAs": [
+      "https://www.facebook.com/thememoryhouseart",
+      "https://www.instagram.com/thememoryhouseart",
+      "https://www.linkedin.com/company/thememoryhouseart"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://thememoryhouse.art",
+    "name": "The Memory House",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://thememoryhouse.art/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Mobile nav & hero CSS (kept from your original) -->
+  <style>
     .realtor-btn {
       display:inline-block; font-size:0.9em; color:#1c1c1c !important;
       background-color:#e6dcc7 !important; padding:8px 18px; border-radius:8px;
@@ -69,7 +115,7 @@
       margin-top: 12px; font-size: 16px; text-align: center; z-index: 5; position: relative;
     }
 
-    /* extra space below footer on mobile so sticky CTA doesn't overlap */
+    /* extra space below footer on mobile */
     @media (max-width: 768px) {
       footer { margin-bottom: 80px; }
     }
@@ -235,13 +281,13 @@
     </div>
 
     <p style="text-align: center; margin-top: 40px; color: #333; line-height: 1.4;">
-      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener">
         <i class="fab fa-facebook-f fa-lg"></i>
       </a>
-      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener">
         <i class="fab fa-instagram fa-lg"></i>
       </a>
-      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener">
         <i class="fab fa-linkedin-in fa-lg"></i>
       </a>
     </p>
