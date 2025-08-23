@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PAGE: index.html (Homepage) — DEBUG build WITHOUT Font Awesome -->
+  <!-- PAGE: index.html (Homepage) — Noto Serif hard-override build -->
 
-  <!-- Charset MUST be first -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <title>The Memory House – Handcrafted Watercolor Home Portraits</title>
   <meta name="description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes.">
 
-  <!-- Canonical -->
   <link rel="canonical" href="https://thememoryhouse.art/index.html">
 
-  <!-- Preload (match the desktop hero image path) -->
+  <!-- Preload the desktop hero image actually used -->
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
-  <!-- Styles -->
-  <link href="style.css?v=debug-no-fa-1" rel="stylesheet">
-  <!-- REMOVED: memho_safe_restore.css (bad MIME) -->
-  <!-- REMOVED: Font Awesome include for this debug build -->
+  <!-- Your site stylesheet (cache-busted) -->
+  <link href="style.css?v=noto-override-1" rel="stylesheet">
 
-  <!-- HARD OVERRIDE: force readable fonts everywhere -->
-  <style id="font-debug">
-    /* Use a standard text stack for all elements */
-    html, body, body * {
-      font-family: Georgia, "Times New Roman", Times, serif !important;
-      font-style: normal;
-      font-weight: 400;
+  <!-- DO NOT include memho_safe_restore.css (bad MIME) -->
+  <!-- DO NOT include Font Awesome for this test -->
+
+  <!-- 1) Known-good text font with a unique family name -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- 2) Global override: apply Noto Serif to every real-text node -->
+  <style id="font-lock">
+    /* Apply to everything except explicit icon classes (none used here) */
+    html, body, body *:not(i):not(.fa):not(.fas):not(.far):not(.fab)
+                  :not([class^="fa-"]):not([class*=" fa-"]) {
+      font-family: "Noto Serif", serif !important;
+      font-style: normal !important;
+      font-weight: 400 !important;
+      font-variant: normal !important;
+      font-feature-settings: "liga" 1, "kern" 1 !important;
     }
-    /* If any pseudo-elements were inserting icon codepoints, neutralize them */
+    /* Safety: neutralize pseudo-element icon tricks */
     *::before, *::after { unicode-bidi: normal; }
-  </style>
 
-  <!-- Mobile nav & hero CSS (from your original) -->
-  <style>
+    /* Keep your existing mobile/hero tweaks from earlier replies */
     .realtor-btn {
       display:inline-block; font-size:0.9em; color:#1c1c1c !important;
       background-color:#e6dcc7 !important; padding:8px 18px; border-radius:8px;
@@ -63,7 +66,7 @@
       .hero-mobile .hero-text h1 { color: #fff; font-weight: 800; font-size: 2rem; line-height: 1.2; text-align: center; text-shadow: 2px 2px 8px rgba(0,0,0,.6); }
       .hero-mobile .hero-text h1 .highlight { color: #b0004d; }
       .hero-mobile .hero-text .subheadline { color: #fff; font-weight: 600; font-size: 1rem; margin-top: .5em; text-align: center; text-shadow: 2px 2px 6px rgba(0,0,0,.7); }
-      .hero-mobile .scarcity-line { color: #fff; font-family: Georgia, serif; font-size: .9rem; text-align: center; margin-top: .5em; text-shadow: 2px 2px 6px rgba(0,0,0,.8); }
+      .hero-mobile .scarcity-line { color: #fff; font-size: .9rem; text-align: center; margin-top: .5em; text-shadow: 2px 2px 6px rgba(0,0,0,.8); }
     }
 
     @media (max-width: 600px) {
@@ -74,13 +77,12 @@
       margin-top: 12px; font-size: 16px; text-align: center; z-index: 5; position: relative;
     }
 
-    /* extra space below footer on mobile so sticky CTA doesn't overlap */
     @media (max-width: 768px) {
       footer { margin-bottom: 80px; }
     }
   </style>
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel (unchanged) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -95,7 +97,6 @@
   </script>
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"></noscript>
-  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <!-- Mobile Nav -->
@@ -203,8 +204,8 @@
 
     <!-- Video block -->
     <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;">
-      <h2 style="font-family: Georgia, serif; font-size: 1.75em; font-weight: bold; margin-bottom: 10px;"> See the Art in Motion </h2>
-      <p style="font-family: Georgia, serif; font-style: italic; color: #333; font-size: 1.25em; line-height: 1.4; margin-bottom: 30px;">
+      <h2 style="font-family: inherit; font-size: 1.75em; font-weight: 700; margin-bottom: 10px;"> See the Art in Motion </h2>
+      <p style="font-family: inherit; font-style: italic; color: #333; font-size: 1.25em; line-height: 1.4; margin-bottom: 30px;">
         A glimpse into the hand-painted process that captures the places where our most meaningful moments unfold.
       </p>
       <video controls preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;">
@@ -217,8 +218,8 @@
     <div class="studio-button-wrapper" style="text-align: center; margin: 60px auto;">
       <a href="https://thememoryhouse.art/blog" style="text-decoration: none;">
         <div style="background-color: #bcc8be; padding: 18px 32px; border-radius: 12px; display: inline-block; transition: background-color 0.3s ease;">
-          <div style="font-family: Georgia, serif; font-weight: bold; font-size: 20px; color: #1c1c1c;"> Visit the Studio </div>
-          <div style="font-family: Palatino, serif; font-style: italic; font-size: 16px; color: #6a4e35; margin-top: 6px;"> Stories, behind-the-scenes, and more </div>
+          <div style="font-weight: 700; font-size: 20px; color: #1c1c1c;"> Visit the Studio </div>
+          <div style="font-style: italic; font-size: 16px; color: #6a4e35; margin-top: 6px;"> Stories, behind-the-scenes, and more </div>
         </div>
       </a>
     </div>
@@ -230,7 +231,7 @@
   </main>
 
   <footer>
-    <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+    <p style="text-align:center; font-style:italic; font-family: inherit; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
       Memories start with home — and end in .art
     </p>
     <p style="text-align:center;"> © 2025 The Memory House </p>
@@ -239,7 +240,7 @@
       <a class="realtor-btn" href="realtor-exclusive.html">Realtor Access</a>
     </div>
 
-    <!-- Icons temporarily replaced with text labels for this debug build -->
+    <!-- Icons temporarily plain text during this test -->
     <p style="text-align: center; margin-top: 40px; color: #333; line-height: 1.4;">
       <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">Facebook</a>
       <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">Instagram</a>
