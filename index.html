@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PAGE: index.html (Homepage) -->
+  <!-- PAGE: index.html (Homepage) — DEBUG build WITHOUT Font Awesome -->
 
-  <!-- Charset MUST be first to avoid tofu in some browsers -->
+  <!-- Charset MUST be first -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -17,27 +17,23 @@
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
   <!-- Styles -->
-  <link href="style.css?v=fix-font-hotfix-1" rel="stylesheet">
-  <!-- Removed: <link href="memho_safe_restore.css" rel="stylesheet"> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="style.css?v=debug-no-fa-1" rel="stylesheet">
+  <!-- REMOVED: memho_safe_restore.css (bad MIME) -->
+  <!-- REMOVED: Font Awesome include for this debug build -->
 
-  <!-- HARD HOT-FIX: prevent icon font leaking onto real text -->
-  <style id="font-hotfix">
-    /* Force a real text font on all elements; exclude actual FA icon classes */
-    body, body *:not(i):not(.fa):not(.fas):not(.far):not(.fab)
-             :not([class^="fa-"]):not([class*=" fa-"]) {
+  <!-- HARD OVERRIDE: force readable fonts everywhere -->
+  <style id="font-debug">
+    /* Use a standard text stack for all elements */
+    html, body, body * {
       font-family: Georgia, "Times New Roman", Times, serif !important;
-    }
-    /* Keep Font Awesome icons rendering correctly */
-    i.fa, .fa, .fas, .far, .fab,
-    [class^="fa-"], [class*=" fa-"] {
-      font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
       font-style: normal;
       font-weight: 400;
     }
+    /* If any pseudo-elements were inserting icon codepoints, neutralize them */
+    *::before, *::after { unicode-bidi: normal; }
   </style>
 
-  <!-- Mobile nav & hero CSS (kept from your original) -->
+  <!-- Mobile nav & hero CSS (from your original) -->
   <style>
     .realtor-btn {
       display:inline-block; font-size:0.9em; color:#1c1c1c !important;
@@ -243,16 +239,11 @@
       <a class="realtor-btn" href="realtor-exclusive.html">Realtor Access</a>
     </div>
 
+    <!-- Icons temporarily replaced with text labels for this debug build -->
     <p style="text-align: center; margin-top: 40px; color: #333; line-height: 1.4;">
-      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-facebook-f fa-lg"></i>
-      </a>
-      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram fa-lg"></i>
-      </a>
-      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin-in fa-lg"></i>
-      </a>
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </p>
   </footer>
 </body>
