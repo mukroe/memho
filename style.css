@@ -39,13 +39,13 @@ html, body {
   font-kerning: normal;
   font-variant-ligatures: common-ligatures;
   line-height: 1.45;
+  background:#fdf9f4;
+  color:#2C2C2C;
+  text-align:center;
 }
 
 /* Guardrails so Chrome never fakes or swaps weight/style */
-* {
-  font-synthesis-weight: none;
-  font-synthesis-style: none;
-}
+* { font-synthesis-weight: none; font-synthesis-style: none; }
 
 /* Scope Font Awesome strictly to icon classes */
 .fa, .fas, .far, .fab,
@@ -54,116 +54,103 @@ html, body {
   font-family: "Font Awesome 6 Free","Font Awesome 6 Brands" !important;
 }
 
-/* ======= Site styles (kept) ======= */
-body{font-family:var(--serif);margin:0;background-color:#fdf9f4;text-align:center;}
+/* ======= Header / Nav ======= */
 .logo{width:80px;margin-top:15px;}
 .site-title{margin:0;font-size:28px;}
 .menu{list-style:none;padding:0;margin:10px 0 20px;display:flex;justify-content:center;gap:20px;}
 .menu li a{text-decoration:none;color:#333;}
+
+/* ======= Hero ======= */
 .hero{position:relative;}
 .hero img{width:100%;display:block;}
-.cta-button{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);background-color:#4B2E2E;color:white;padding:8px 16px;font-weight:bold;text-decoration:none;border-radius:4px;}
+
+/* Desktop hero CTA — restored */
+.hero-cta-container{
+  position:absolute;
+  left:50%;
+  bottom:60px;                 /* <- back to classic placement */
+  transform:translateX(-50%);
+  z-index:10;
+}
+.img-cta-button{
+  display:block;
+  height:auto;
+  /* Use intrinsic look, but cap so it can't get silly-large on big screens */
+  max-width:560px;             /* tweak to taste if you want it a bit larger/smaller */
+  margin:0 auto;
+}
+
+/* Hide desktop CTA on phones (mobile has its own layout) */
+@media (max-width:768px){
+  .hero-cta-container{ display:none !important; }
+}
+
+/* ======= Sticky CTA ======= */
+.sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;}
+.cta-sticky-button{
+  background-color:#B89F69;color:#FAF4E8;border:1px solid #2C2C2C;
+  font-weight:bold;font-size:18px;font-family:var(--serif);
+  text-decoration:none;padding:10px 24px;border-radius:10px;
+  box-shadow:2px 2px 6px rgba(0,0,0,0.2);display:inline-block;
+  transition:background-color 0.25s ease,color 0.25s ease;
+}
+.cta-sticky-button:hover{background-color:#b4956b;color:#fff;}
+
+/* ======= Testimonials / Content ======= */
 .footer-section{padding:40px 20px;}
 footer p{margin:10px 0;}
 
-.seo-paragraph{max-width:700px;margin:10px auto;font-size:1.1rem;line-height:1.6;text-align:center;}
-.seo-paragraph{max-width:700px;margin:10px auto 25px auto;font-size:1.1rem;line-height:1.6;text-align:center;}
-.seo-paragraph{max-width:850px;}
-
-.sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;}
-.cta-sticky-button{background-color:#741D40;color:#fff;font-weight:bold;font-size:18px;font-family:var(--serif);text-decoration:none;padding:10px 24px;border-radius:10px;box-shadow:2px 2px 6px rgba(0,0,0,0.2);display:inline-block;}
-.cta-sticky-button:hover{background-color:#5f1734;}
-
-.hero-cta-fixed{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background-color:#801847;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;padding:16px 36px;text-decoration:none;border:none;box-shadow:0 4px 8px rgba(0,0,0,0.25);z-index:10;}
-.hero-cta-fixed{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background-color:#801847;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-weight:900;font-size:30px;text-transform:uppercase;padding:5px 15px;text-decoration:none;border:none;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.4);z-index:10;letter-spacing:0.5px;display:inline-flex;align-items:center;justify-content:center;line-height:1.2;white-space:nowrap;height:auto;}
-.hero-cta-fixed:hover{text-decoration:none;}
+.seo-paragraph{max-width:850px;margin:10px auto 25px;font-size:1.1rem;line-height:1.6;text-align:center;}
 
 .testimonial-section{background:#f8f5f0;padding:60px 20px;text-align:center;}
 .testimonial-container{max-width:800px;margin:0 auto;}
-.testimonial-img{width:100px;height:100px;border-radius:50%;margin-bottom:20px;}
-.testimonial-quote{font-size:1.4em;font-style:italic;color:#333;margin-bottom:10px;}
-.testimonial-cite{display:block;font-weight:bold;color:#4B2E2E;margin-bottom:40px;}
-.trust-line{font-size:1.1em;color:#555;margin-top:10px;}
-
-.testimonial-flex{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap;text-align:left;}
+.testimonial-flex{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:left;}
 .testimonial-image{flex-shrink:0;}
-.testimonial-img{width:120px;height:120px;border-radius:50%;}
+.testimonial-img{width:140px;height:140px;border-radius:50%;margin-bottom:0;}
 .testimonial-text{max-width:500px;}
-.testimonial-quote{font-size:1.4em;font-style:italic;color:#333;margin-bottom:10px;}
-.testimonial-cite{display:block;font-weight:bold;color:#4B2E2E;margin-bottom:20px;}
+.testimonial-title{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:#4B2E2E;}
+.testimonial-quote{font-size:1.4em;font-style:italic;color:#333;margin:0 0 5px;}
+.testimonial-cite{display:block;font-weight:bold;color:#4B2E2E;margin:0;}
+.trust-line{font-size:1.1em;color:#555;margin:5px 0;}
+hr{margin:5px 0;}
 
-.testimonial-section{padding-top:30px;padding-bottom:30px;}
-.testimonial-quote{margin-top:0;}
-.testimonial-cite{margin-bottom:10px;}
-.trust-line{margin-top:5px;margin-bottom:5px;}
-hr{margin-top:10px;margin-bottom:10px;}
+.gallery-heading{text-align:center;font-size:1.3rem;font-weight:500;margin:2rem 0 1rem;color:#4B2E2E;}
+.mini-gallery{display:flex;justify-content:center;gap:1.5rem;margin-bottom:3rem;flex-wrap:wrap;}
+.mini-gallery-img{width:300px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
 
-.testimonial-section{padding-top:10px !important;padding-bottom:10px !important;}
-.testimonial-img{margin-bottom:0 !important;}
-.testimonial-quote{margin-top:0 !important;margin-bottom:5px !important;}
-.testimonial-cite{margin:0 !important;}
-.trust-line{margin-top:5px !important;margin-bottom:5px !important;}
-hr{margin-top:5px !important;margin-bottom:5px !important;}
+/* ======= Utilities / Misc ======= */
+#scarcity-line{
+  text-align:center;color:white;font-family:'Exigent',sans-serif;
+  font-size:18px;font-weight:500;text-shadow:2px 2px 6px rgba(0,0,0,0.9);margin-top:15px;
+}
 
-.testimonial-leadin{text-align:center;font-size:1.1em;color:#4B2E2E;font-weight:500;margin-bottom:10px;}
-.right-aligned{display:block;text-align:right;}
-.testimonial-flex{gap:20px !important;}
-.testimonial-flex{gap:10px !important;}
-.testimonial-img{width:150px !important;height:150px !important;}
-.testimonial-img{width:140px !important;height:140px !important;}
-.testimonial-flex{gap:0px !important;}
-.testimonial-flex{gap:-10px !important;}
-
-/* --- Consolidated from styles.css --- */
-#scarcity-line{text-align:center;color:white;font-family:'Exigent',sans-serif;font-size:18px;font-weight:500;text-shadow:2px 2px 6px rgba(0,0,0,0.9);margin-top:15px;}
-
-/* Realtor Access button standard styling */
+/* ======= Realtor Access Button ======= */
 .realtor-btn {
-  display:inline-block;
-  font-size:0.9em;
-  color:#1c1c1c;
-  background-color:#e6dcc7;
-  padding:8px 18px;
-  border-radius:8px;
-  text-decoration:none;
+  display:inline-block;font-size:0.9em;color:#1c1c1c;background-color:#e6dcc7;
+  padding:8px 18px;border-radius:8px;text-decoration:none;
   transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
 }
-.realtor-btn:hover { background-color:#B9975B; color:white; transform:scale(1.05); }
+.realtor-btn:hover{background-color:#B9975B;color:#fff;transform:scale(1.05);}
+.realtor-btn{color:#1c1c1c !important;background-color:#e6dcc7 !important;text-decoration:none !important;}
+.realtor-btn:hover{background-color:#B9975B !important;color:#fff !important;text-decoration:none !important;}
 
-/* Realtor Access button corrected styling with full override */
-.realtor-btn {
-  display:inline-block;
-  font-size:0.9em;
-  color:#1c1c1c !important;
-  background-color:#e6dcc7 !important;
-  padding:8px 18px;
-  border-radius:8px;
-  text-decoration:none !important;
-  transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
-}
-.realtor-btn:hover {
-  background-color:#B9975B !important;
-  color:white !important;
-  transform:scale(1.05);
-  text-decoration:none !important;
+/* ======= Mobile adjustments ======= */
+@media (max-width:768px){
+  .testimonial-text{ text-align:center; }
+  .testimonial-cite{ text-align:center; padding-bottom:20px; }
+  .testimonial-quote{ font-size:1.25em; line-height:1.4; }
 }
 
-/* CTA hover refinements */
-.cta-sticky-button{background-color:#B89F69;color:#FAF4E8;border:1px solid #2C2C2C;transition:background-color 0.3s ease,color 0.3s ease;}
-.cta-sticky-button:hover{background-color:#b4956b !important;color:white !important;transition:background-color 0.25s ease-in-out, color 0.25s ease-in-out;}
+/* --- Hero visibility (single source of truth) --- */
+.hero-desktop { display:block !important; }
+.hero-mobile  { display:none  !important; }
 
-/* (Removed: old "v18 Mobile Hero Cleanup" block to avoid conflicts) */
-
-/* --- Hero visibility fix (v23) — single source of truth --- */
-.hero-desktop { display: block !important; }
-.hero-mobile  { display: none  !important; }
-
-@media (max-width: 768px) {
-  .hero-desktop, .hero { display: none !important; } /* hide desktop on phones */
-  .hero-mobile { display: block !important; }        /* show mobile on phones */
+@media (max-width:768px){
+  .hero-desktop, .hero { display:none !important; } /* hide desktop hero on phones */
+  .hero-mobile { display:block !important; }        /* show mobile hero on phones */
 }
 
-@media (min-width: 769px) {
-  .hero-mobile { display: none !important; }         /* hide mobile on desktop */
-  .hero-desktop { display: block !important; }
+@media (min-width:769px){
+  .hero-mobile { display:none !important; }         /* hide mobile hero on desktop */
+  .hero-desktop { display:block !important; }
 }
