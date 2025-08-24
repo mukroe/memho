@@ -1,3 +1,63 @@
+/* ===========================
+   MemHo Serif (Lora) — self-hosted WOFF2
+   Files expected in /assets/fonts/
+   =========================== */
+@font-face {
+  font-family: "MemHoSerif";
+  src: url("/assets/fonts/Lora-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MemHoSerif";
+  src: url("/assets/fonts/Lora-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MemHoSerif";
+  src: url("/assets/fonts/Lora-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MemHoSerif";
+  src: url("/assets/fonts/Lora-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Locked stack for the whole site */
+:root { --serif: "MemHoSerif", Georgia, "Times New Roman", serif; }
+
+/* Global base */
+html, body {
+  font-family: var(--serif);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  line-height: 1.45;
+}
+
+/* Guardrails so Chrome never fakes or swaps weight/style */
+* {
+  font-synthesis-weight: none;
+  font-synthesis-style: none;
+}
+
+/* Scope Font Awesome strictly to icon classes */
+.fa, .fas, .far, .fab,
+.fa-solid, .fa-regular, .fa-brands,
+[class^="fa-"], [class*=" fa-"] {
+  font-family: "Font Awesome 6 Free","Font Awesome 6 Brands" !important;
+}
+
+/* ======= existing site styles (kept) ======= */
 body{font-family:'Georgia',serif;margin:0;background-color:#fdf9f4;text-align:center;}
 .logo{width:80px;margin-top:15px;}
 .site-title{margin:0;font-size:28px;}

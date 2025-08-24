@@ -1,88 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PAGE: index.html (Homepage) — Noto Serif hard-override build -->
+  <!-- PAGE: /index.html (Homepage) — Self-hosted serif + FA scoped -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <title>The Memory House – Handcrafted Watercolor Home Portraits</title>
   <meta name="description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes.">
-
   <link rel="canonical" href="https://thememoryhouse.art/index.html">
 
-  <!-- Preload the desktop hero image actually used -->
+  <!-- Preload the desktop hero actually used -->
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
-  <!-- Your site stylesheet (cache-busted) -->
-  <link href="style.css?v=noto-override-1" rel="stylesheet">
+  <!-- PRELOAD self-hosted serif (safe, elegant). Files go in /assets/fonts/ -->
+  <link rel="preload" href="/assets/fonts/Lora-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Lora-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Lora-Italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/Lora-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- DO NOT include memho_safe_restore.css (bad MIME) -->
-  <!-- DO NOT include Font Awesome for this test -->
+  <!-- Site CSS (cache-busted) -->
+  <link href="style.css?v=memho-fonts-1" rel="stylesheet">
 
-  <!-- 1) Known-good text font with a unique family name -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (OPTIONAL). Scoped in style.css so it can’t hijack text. -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <!-- 2) Global override: apply Noto Serif to every real-text node -->
-  <style id="font-lock">
-    /* Apply to everything except explicit icon classes (none used here) */
-    html, body, body *:not(i):not(.fa):not(.fas):not(.far):not(.fab)
-                  :not([class^="fa-"]):not([class*=" fa-"]) {
-      font-family: "Noto Serif", serif !important;
-      font-style: normal !important;
-      font-weight: 400 !important;
-      font-variant: normal !important;
-      font-feature-settings: "liga" 1, "kern" 1 !important;
-    }
-    /* Safety: neutralize pseudo-element icon tricks */
-    *::before, *::after { unicode-bidi: normal; }
-
-    /* Keep your existing mobile/hero tweaks from earlier replies */
-    .realtor-btn {
-      display:inline-block; font-size:0.9em; color:#1c1c1c !important;
-      background-color:#e6dcc7 !important; padding:8px 18px; border-radius:8px;
-      text-decoration:none !important; transition:background-color .3s ease, transform .2s ease, color .2s ease;
-    }
-    .realtor-btn:hover { background-color:#B9975B !important; color:#fff !important; transform:scale(1.05); text-decoration:none !important; }
-
-    .hamburger, #navMenu { display: none; }
-    @media (max-width: 768px) {
-      .hamburger { display: block; font-size: 28px; cursor: pointer; padding: 20px; text-align: center; }
-      #navMenu { display: none; list-style: none; padding: 0; margin: 0; text-align: center; }
-      #navMenu.active { display: block; }
-      #navMenu li { margin: 12px 0; }
-      #navMenu li::marker { content: ''; }
-      header nav { display: none; }
-      .hero-cta-container { display: none; }
-    }
-
-    .hero-desktop { display: block; }
-    .hero-mobile { display: none; }
-    @media (max-width: 768px) {
-      .hero-desktop { display: none; }
-      .hero-mobile { display: block; position: relative; text-align: center; }
-      .hero-mobile img { width: 100%; display: block; }
-      .hero-mobile .hero-text { position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 90%; }
-      .hero-mobile .hero-text h1 { color: #fff; font-weight: 800; font-size: 2rem; line-height: 1.2; text-align: center; text-shadow: 2px 2px 8px rgba(0,0,0,.6); }
-      .hero-mobile .hero-text h1 .highlight { color: #b0004d; }
-      .hero-mobile .hero-text .subheadline { color: #fff; font-weight: 600; font-size: 1rem; margin-top: .5em; text-align: center; text-shadow: 2px 2px 6px rgba(0,0,0,.7); }
-      .hero-mobile .scarcity-line { color: #fff; font-size: .9rem; text-align: center; margin-top: .5em; text-shadow: 2px 2px 6px rgba(0,0,0,.8); }
-    }
-
-    @media (max-width: 600px) {
-      .banner-line { font-size: 1em; padding: 18px 10px; }
-    }
-    .scarcity-line {
-      font-style: italic; font-weight: 600; color: white; text-shadow: 1px 1px 4px rgba(0,0,0,.8);
-      margin-top: 12px; font-size: 16px; text-align: center; z-index: 5; position: relative;
-    }
-
-    @media (max-width: 768px) {
-      footer { margin-bottom: 80px; }
-    }
-  </style>
-
-  <!-- Meta Pixel (unchanged) -->
+  <!-- Meta Pixel Code (unchanged) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -231,7 +174,7 @@
   </main>
 
   <footer>
-    <p style="text-align:center; font-style:italic; font-family: inherit; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+    <p style="text-align:center; font-style:italic; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
       Memories start with home — and end in .art
     </p>
     <p style="text-align:center;"> © 2025 The Memory House </p>
@@ -240,11 +183,16 @@
       <a class="realtor-btn" href="realtor-exclusive.html">Realtor Access</a>
     </div>
 
-    <!-- Icons temporarily plain text during this test -->
     <p style="text-align: center; margin-top: 40px; color: #333; line-height: 1.4;">
-      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook-f fa-lg"></i>
+      </a>
+      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram fa-lg"></i>
+      </a>
+      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin-in fa-lg"></i>
+      </a>
     </p>
   </footer>
 </body>
