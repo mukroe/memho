@@ -1,7 +1,7 @@
 /* ===========================
    MemHo Serif (Cormorant Garamond) — self-hosted
    WOFF2 primary + TTF fallback
-   Files expected in /assets/fonts/
+   expects files in /assets/fonts/
    =========================== */
 @font-face{
   font-family:"MemHoSerif";
@@ -28,48 +28,77 @@
   font-weight:700; font-style:italic; font-display:swap;
 }
 
-/* Locked stack for the whole site */
-:root { --serif: "MemHoSerif", Georgia, "Times New Roman", serif; }
-
 /* Global base */
-html, body {
-  font-family: var(--serif);
-  -webkit-text-size-adjust: 100%;
-  text-rendering: optimizeLegibility;
-  font-kerning: normal;
-  font-variant-ligatures: common-ligatures;
-  line-height: 1.45;
+:root { --serif: "MemHoSerif", Georgia, "Times New Roman", serif; }
+html,body{
+  font-family:var(--serif);
+  -webkit-text-size-adjust:100%;
+  text-rendering:optimizeLegibility;
+  font-kerning:normal;
+  font-variant-ligatures:common-ligatures;
+  line-height:1.45;
+  margin:0;
   background:#fdf9f4;
   color:#2C2C2C;
   text-align:center;
 }
-
-/* Guardrails */
-* { font-synthesis-weight: none; font-synthesis-style: none; }
-
-/* Scope Font Awesome strictly to icons */
-.fa, .fas, .far, .fab,
-.fa-solid, .fa-regular, .fa-brands,
-[class^="fa-"], [class*=" fa-"] {
-  font-family: "Font Awesome 6 Free","Font Awesome 6 Brands" !important;
+/* Chrome guardrails */
+*{font-synthesis-weight:none;font-synthesis-style:none;}
+/* Scope FA to icons only */
+.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands,[class^="fa-"],[class*=" fa-"]{
+  font-family:"Font Awesome 6 Free","Font Awesome 6 Brands" !important;
 }
 
-/* ======= Header / Nav ======= */
+/* ===========================
+   HEADER / NAV
+   =========================== */
+header{padding:10px 0;}
 .logo{width:80px;margin-top:15px;}
-.site-title{margin:0;font-size:28px;}
-.menu{list-style:none;padding:0;margin:10px 0 20px;display:flex;justify-content:center;gap:20px;}
-.menu li a{text-decoration:none;color:#333;}
+.site-title{margin:10px 0 6px 0;font-size:28px;}
 
-/* ======= Hero ======= */
-.hero{ position:relative; }
-.hero img{ width:100%; display:block; }
+header > nav{display:block;}              /* desktop nav by default */
+#mobile-nav-container{display:none;}      /* hide mobile nav by default */
+.hamburger{display:none;}                 /* burger only on mobile */
 
-/* === Legacy desktop CTA placement (restored exactly) === */
+.menu{list-style:none;margin:10px 0 20px;padding:0;display:flex;gap:22px;justify-content:center;}
+.menu a{text-decoration:none;color:#333}
+
+/* Banner line under the masthead */
+.banner-line{
+  background:#f5f0eb;
+  text-align:center;
+  padding:28px 10px;
+  font-weight:500;
+  font-style:italic;
+  color:#3B2A28;
+}
+
+/* MOBILE NAV: visible only on small screens */
+@media (max-width:600px){
+  header > nav{display:none !important;}         /* hide desktop nav on phones */
+  #mobile-nav-container{display:block !important;}
+  .hamburger{display:block !important;}
+  /* collapsed by default; your JS toggles .active */
+  #navMenu{display:none;}
+  #navMenu.active{display:block;}
+  #mobile-nav-container .menu{
+    display:block; padding:10px 0; margin:0;
+  }
+  #mobile-nav-container .menu li{margin:8px 0;}
+}
+
+/* ===========================
+   HERO + CTA
+   =========================== */
+.hero{position:relative;}
+.hero img{width:100%;display:block;}
+
+/* Legacy desktop CTA (as before) */
 .hero-cta-container{
   position:absolute;
-  bottom:-83px;                 /* pull the CTA up over the image */
+  bottom:-83px;
   left:50%;
-  transform:translateX(-52%);   /* your original centering offset */
+  transform:translateX(-52%);
   z-index:10;
 }
 .img-cta-button{
@@ -80,77 +109,55 @@ html, body {
   margin:0 auto;
 }
 
-/* Hide the desktop CTA on phones; desktop keeps legacy behavior */
+/* Hide desktop CTA on phones; mobile hero handles its own CTA/layout */
 @media (max-width:600px){
-  .hero-cta-container{ display:none !important; }
+  .hero-cta-container{display:none !important;}
 }
 
-/* ======= Sticky CTA ======= */
+/* Show only one hero at a time */
+.hero-desktop{display:block !important;}
+.hero-mobile{display:none !important;}
+@media (max-width:600px){
+  .hero-desktop,.hero{display:none !important;}
+  .hero-mobile{display:block !important;}
+}
+@media (min-width:601px){
+  .hero-mobile{display:none !important;}
+  .hero-desktop{display:block !important;}
+}
+
+/* ===========================
+   CONTENT (kept light)
+   =========================== */
+footer p{margin:10px 0;}
 .sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;}
 .cta-sticky-button{
-  background-color:#B89F69;color:#FAF4E8;border:1px solid #2C2C2C;
+  background:#B89F69;color:#FAF4E8;border:1px solid #2C2C2C;
   font-weight:bold;font-size:18px;font-family:var(--serif);
   text-decoration:none;padding:10px 24px;border-radius:10px;
   box-shadow:2px 2px 6px rgba(0,0,0,0.2);display:inline-block;
-  transition:background-color 0.25s ease,color 0.25s ease;
+  transition:background-color .25s,color .25s;
 }
-.cta-sticky-button:hover{background-color:#b4956b;color:#fff;}
-
-/* ======= Testimonials / Content ======= */
-.footer-section{padding:40px 20px;}
-footer p{margin:10px 0;}
-
-.seo-paragraph{max-width:850px;margin:10px auto 25px;font-size:1.1rem;line-height:1.6;text-align:center;}
+.cta-sticky-button:hover{background:#b4956b;color:#fff;}
 
 .testimonial-section{background:#f8f5f0;padding:60px 20px;text-align:center;}
 .testimonial-container{max-width:800px;margin:0 auto;}
-.testimonial-flex{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;text-align:left;}
+.testimonial-flex{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;text-align:left;}
 .testimonial-image{flex-shrink:0;}
-.testimonial-img{width:140px;height:140px;border-radius:50%;margin-bottom:0;}
+.testimonial-img{width:140px;height:140px;border-radius:50%;margin:0;}
 .testimonial-text{max-width:500px;}
 .testimonial-title{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:#4B2E2E;}
 .testimonial-quote{font-size:1.4em;font-style:italic;color:#333;margin:0 0 5px;}
 .testimonial-cite{display:block;font-weight:bold;color:#4B2E2E;margin:0;}
-.trust-line{font-size:1.1em;color:#555;margin:5px 0;}
-hr{margin:5px 0;}
-
-.gallery-heading{text-align:center;font-size:1.3rem;font-weight:500;margin:2rem 0 1rem;color:#4B2E2E;}
-.mini-gallery{display:flex;justify-content:center;gap:1.5rem;margin-bottom:3rem;flex-wrap:wrap;}
-.mini-gallery-img{width:300px;height:auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-
-/* ======= Utilities / Misc ======= */
-#scarcity-line{
-  text-align:center;color:white;font-family:'Exigent',sans-serif;
-  font-size:18px;font-weight:500;text-shadow:2px 2px 6px rgba(0,0,0,0.9);margin-top:15px;
+@media (max-width:600px){
+  .testimonial-text,.testimonial-cite{text-align:center;}
 }
 
-/* ======= Realtor Access Button ======= */
-.realtor-btn {
-  display:inline-block;font-size:0.9em;color:#1c1c1c;background-color:#e6dcc7;
+.realtor-btn{
+  display:inline-block;font-size:.9em;color:#1c1c1c;background:#e6dcc7;
   padding:8px 18px;border-radius:8px;text-decoration:none;
-  transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
+  transition:background-color .3s,transform .2s,color .2s;
 }
-.realtor-btn:hover{background-color:#B9975B;color:#fff;transform:scale(1.05);}
-.realtor-btn{color:#1c1c1c !important;background-color:#e6dcc7 !important;text-decoration:none !important;}
-.realtor-btn:hover{background-color:#B9975B !important;color:#fff !important;text-decoration:none !important;}
-
-/* ======= Mobile tweaks ======= */
-@media (max-width:600px){
-  .testimonial-text{ text-align:center; }
-  .testimonial-cite{ text-align:center; padding-bottom:20px; }
-  .testimonial-quote{ font-size:1.25em; line-height:1.4; }
-}
-
-/* --- Hero visibility (single source of truth; breakpoint lowered to avoid zoom flips) --- */
-.hero-desktop { display:block !important; }
-.hero-mobile  { display:none  !important; }
-
-@media (max-width:600px){
-  .hero-desktop, .hero { display:none !important; } /* hide desktop hero on small screens */
-  .hero-mobile { display:block !important; }        /* show mobile hero on small screens */
-}
-
-@media (min-width:601px){
-  .hero-mobile { display:none !important; }
-  .hero-desktop { display:block !important; }
-}
+.realtor-btn:hover{background:#B9975B;color:#fff;transform:scale(1.05);}
+.realtor-btn{color:#1c1c1c !important;background:#e6dcc7 !important;text-decoration:none !important;}
+.realtor-btn:hover{background:#B9975B !important;color:#fff !important;text-decoration:none !important;}
