@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PAGE: /index.html (Homepage) — Self-hosted serif + FA scoped -->
+  <!-- PAGE: /index.html — Cormorant Garamond (WOFF2 primary + TTF fallback) -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -13,14 +13,14 @@
   <!-- Preload the desktop hero actually used -->
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
-  <!-- PRELOAD self-hosted serif (safe, elegant). Files go in /assets/fonts/ -->
-  <link rel="preload" href="/assets/fonts/Lora-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/Lora-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/Lora-Italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/Lora-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- PRELOAD self-hosted serif (WOFF2 only; TTF loads as fallback if needed) -->
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Site CSS (cache-busted) -->
-  <link href="style.css?v=memho-fonts-1" rel="stylesheet">
+  <link href="style.css?v=memho-cormorant-woff2-ttf-1" rel="stylesheet">
 
   <!-- Font Awesome (OPTIONAL). Scoped in style.css so it can’t hijack text. -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">

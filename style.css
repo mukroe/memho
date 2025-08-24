@@ -1,34 +1,31 @@
 /* ===========================
-   MemHo Serif (Lora) — self-hosted WOFF2
+   MemHo Serif (Cormorant Garamond) — self-hosted
+   WOFF2 primary + TTF fallback
    Files expected in /assets/fonts/
    =========================== */
-@font-face {
-  font-family: "MemHoSerif";
-  src: url("/assets/fonts/Lora-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+@font-face{
+  font-family:"MemHoSerif";
+  src:url("/assets/fonts/CormorantGaramond-Regular.woff2") format("woff2"),
+      url("/assets/fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-weight:400; font-style:normal; font-display:swap;
 }
-@font-face {
-  font-family: "MemHoSerif";
-  src: url("/assets/fonts/Lora-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
+@font-face{
+  font-family:"MemHoSerif";
+  src:url("/assets/fonts/CormorantGaramond-Italic.woff2") format("woff2"),
+      url("/assets/fonts/CormorantGaramond-Italic.ttf") format("truetype");
+  font-weight:400; font-style:italic; font-display:swap;
 }
-@font-face {
-  font-family: "MemHoSerif";
-  src: url("/assets/fonts/Lora-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+@font-face{
+  font-family:"MemHoSerif";
+  src:url("/assets/fonts/CormorantGaramond-Bold.woff2") format("woff2"),
+      url("/assets/fonts/CormorantGaramond-Bold.ttf") format("truetype");
+  font-weight:700; font-style:normal; font-display:swap;
 }
-@font-face {
-  font-family: "MemHoSerif";
-  src: url("/assets/fonts/Lora-BoldItalic.woff2") format("woff2");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
+@font-face{
+  font-family:"MemHoSerif";
+  src:url("/assets/fonts/CormorantGaramond-BoldItalic.woff2") format("woff2"),
+      url("/assets/fonts/CormorantGaramond-BoldItalic.ttf") format("truetype");
+  font-weight:700; font-style:italic; font-display:swap;
 }
 
 /* Locked stack for the whole site */
@@ -58,7 +55,7 @@ html, body {
 }
 
 /* ======= existing site styles (kept) ======= */
-body{font-family:'Georgia',serif;margin:0;background-color:#fdf9f4;text-align:center;}
+body{font-family:var(--serif);margin:0;background-color:#fdf9f4;text-align:center;}
 .logo{width:80px;margin-top:15px;}
 .site-title{margin:0;font-size:28px;}
 .menu{list-style:none;padding:0;margin:10px 0 20px;display:flex;justify-content:center;gap:20px;}
@@ -72,7 +69,7 @@ footer p{margin:10px 0;}
 .seo-paragraph{max-width:700px;margin:10px auto 25px auto;font-size:1.1rem;line-height:1.6;text-align:center;}
 .seo-paragraph{max-width:850px;}
 .sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;}
-.cta-sticky-button{background-color:#741D40;color:#fff;font-weight:bold;font-size:18px;font-family:'Georgia',serif;text-decoration:none;padding:10px 24px;border-radius:10px;box-shadow:2px 2px 6px rgba(0,0,0,0.2);display:inline-block;}
+.cta-sticky-button{background-color:#741D40;color:#fff;font-weight:bold;font-size:18px;font-family:var(--serif);text-decoration:none;padding:10px 24px;border-radius:10px;box-shadow:2px 2px 6px rgba(0,0,0,0.2);display:inline-block;}
 .cta-sticky-button:hover{background-color:#5f1734;}
 .hero-cta-fixed{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background-color:#801847;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;padding:16px 36px;text-decoration:none;border:none;box-shadow:0 4px 8px rgba(0,0,0,0.25);z-index:10;}
 .hero-cta-fixed{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background-color:#801847;color:#FFFFFF;font-family:'Montserrat',sans-serif;font-weight:900;font-size:30px;text-transform:uppercase;padding:5px 15px;text-decoration:none;border:none;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,0.4);z-index:10;letter-spacing:0.5px;display:inline-flex;align-items:center;justify-content:center;line-height:1.2;white-space:nowrap;height:auto;}
@@ -125,11 +122,11 @@ footer{color:#2C2C2C;}
 /* removed stray extra brace that caused CSS parsing issues */
 
 .fixed-cta-container{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);z-index:10000;}
-.fixed-cta-button{display:inline-block;background-color:#4d2f1f;color:#d4af37;font-family:Georgia,serif;font-size:1.25rem;padding:12px 32px;border-radius:12px 0px 12px 0px;border:2px solid #d4af37;text-decoration:none;text-transform:uppercase;box-shadow:2px 2px 8px rgba(0,0,0,0.4);transition:background-color 0.3s ease;}
+.fixed-cta-button{display:inline-block;background-color:#4d2f1f;color:#d4af37;font-family:var(--serif);font-size:1.25rem;padding:12px 32px;border-radius:12px 0px 12px 0px;border:2px solid #d4af37;text-decoration:none;text-transform:uppercase;box-shadow:2px 2px 8px rgba(0,0,0,0.4);transition:background-color 0.3s ease;}
 .fixed-cta-button:hover{background-color:#5a3c2a;}
 @media (max-width:600px){.fixed-cta-button{font-size:1rem;padding:10px 24px;}}
 .hero-cta-container{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);z-index:10;}
-.hero-cta-button{display:inline-block;font-family:Georgia,serif;font-size:1.5rem;font-weight:bold;text-transform:uppercase;background-color:#4d2f1f;color:#d4af37;padding:16px 40px;text-decoration:none;border:2px solid #d4af37;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:3px 3px 10px rgba(0,0,0,0.4);transition:background-color 0.3s ease;}
+.hero-cta-button{display:inline-block;font-family:var(--serif);font-size:1.5rem;font-weight:bold;text-transform:uppercase;background-color:#4d2f1f;color:#d4af37;padding:16px 40px;text-decoration:none;border:2px solid #d4af37;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:3px 3px 10px rgba(0,0,0,0.4);transition:background-color 0.3s ease;}
 .hero-cta-button:hover{background-color:#5a3c2a;}
 @media (max-width:600px){.hero-cta-button{font-size:1.1rem;padding:12px 28px;}}
 .hero-cta-container{position:absolute;bottom:-83px;left:50%;transform:translateX(-52%);z-index:10;}
@@ -165,32 +162,31 @@ footer{color:#2C2C2C;}
   .testimonial-cite.right-aligned {
     text-align: center !important;
     display: block !important;
-    padding-bottom: 20px !important; /* Guaranteed visible space */
+    padding-bottom: 20px !important;
   }
   .testimonial-quote {
     font-size: 1.25em !important;
     line-height: 1.4 !important;
-    /* v2025-08-05 mobile spacing fix */
   }
 }
 
 /* === Realtor Access Button Hover Effect (v20) === */
 .cta-sticky-button:hover {
-    background-color: #c6b08d !important; /* darker beige hover */
+    background-color: #c6b08d !important;
     transition: background-color 0.2s ease-in-out;
 }
 
 /* === Realtor Access Button Hover Test (v21) === */
 .cta-sticky-button:hover {
-    background-color: red !important; /* Highly visible test color */
-    color: white !important; /* Ensure text is readable */
+    background-color: red !important;
+    color: white !important;
     transition: background-color 0.2s ease-in-out;
 }
 
 /* === Realtor Access Button Hover Effect (v22) === */
 .cta-sticky-button:hover {
-    background-color: #b4956b !important; /* darker beige hover for visibility */
-    color: white !important; /* text clearly visible on hover */
+    background-color: #b4956b !important;
+    color: white !important;
     transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 
@@ -221,9 +217,7 @@ a[href="realtor-exclusive.html"]:hover {
 }
 
 /* --- Consolidated from styles.css --- */
-#scarcity-line{text-align:center;color:white;font-family:'Exigent',sans-serif;font-size:18px;font-weight:500;text-shadow:2px 2px 6px rgba(0,0,0,0.9);margin-top:15px;} /* v2025-08-05 mobile spacing fix */
-
-/* Realtor Access button standard styling */
+#scarcity-line{text-align:center;color:white;font-family:'Exigent',sans-serif;font-size:18px;font-weight:500;text-shadow:2px 2px 6px rgba(0,0,0,0.9);margin-top:15px;}
 .realtor-btn {
     display:inline-block;
     font-size:0.9em;
@@ -239,8 +233,6 @@ a[href="realtor-exclusive.html"]:hover {
     color:white;
     transform:scale(1.05);
 }
-
-/* Realtor Access button corrected styling with full override */
 .realtor-btn {
     display:inline-block;
     font-size:0.9em;
