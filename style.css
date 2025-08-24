@@ -61,28 +61,28 @@ html, body {
 .menu li a{text-decoration:none;color:#333;}
 
 /* ======= Hero ======= */
-.hero{position:relative;}
-.hero img{width:100%;display:block;}
+.hero{ position:relative; }
+.hero img{ width:100%; display:block; }   /* main background image */
 
-/* Desktop hero CTA — restored */
-.hero-cta-container{
-  position:absolute;
-  left:50%;
-  bottom:60px;                 /* <- back to classic placement */
-  transform:translateX(-50%);
-  z-index:10;
+/* --- Desktop hero CTA (fixed size & anchor) --- */
+.hero .hero-cta-container{
+  position:absolute !important;
+  left:50% !important;
+  bottom:60px !important;                 /* classic placement */
+  transform:translateX(-50%) !important;
+  z-index:10 !important;
 }
-.img-cta-button{
-  display:block;
-  height:auto;
-  /* Use intrinsic look, but cap so it can't get silly-large on big screens */
-  max-width:560px;             /* tweak to taste if you want it a bit larger/smaller */
-  margin:0 auto;
+.hero .img-cta-button{
+  display:block !important;
+  width:480px !important;                 /* FIXED size on desktop */
+  max-width:none !important;              /* do not scale with hero */
+  height:auto !important;
+  margin:0 auto !important;
 }
 
-/* Hide desktop CTA on phones (mobile has its own layout) */
+/* Hide desktop CTA on small screens (mobile has its own layout) */
 @media (max-width:768px){
-  .hero-cta-container{ display:none !important; }
+  .hero .hero-cta-container{ display:none !important; }
 }
 
 /* ======= Sticky CTA ======= */
