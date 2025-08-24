@@ -44,10 +44,10 @@ html, body {
   text-align:center;
 }
 
-/* Guardrails so Chrome never fakes or swaps weight/style */
+/* Guardrails */
 * { font-synthesis-weight: none; font-synthesis-style: none; }
 
-/* Scope Font Awesome strictly to icon classes */
+/* Scope Font Awesome strictly to icons */
 .fa, .fas, .far, .fab,
 .fa-solid, .fa-regular, .fa-brands,
 [class^="fa-"], [class*=" fa-"] {
@@ -62,27 +62,27 @@ html, body {
 
 /* ======= Hero ======= */
 .hero{ position:relative; }
-.hero img{ width:100%; display:block; }   /* main background image */
+.hero img{ width:100%; display:block; }
 
-/* --- Desktop hero CTA (fixed size & anchor) --- */
-.hero .hero-cta-container{
-  position:absolute !important;
-  left:50% !important;
-  bottom:60px !important;                 /* classic placement */
-  transform:translateX(-50%) !important;
-  z-index:10 !important;
+/* === Legacy desktop CTA placement (restored exactly) === */
+.hero-cta-container{
+  position:absolute;
+  bottom:-83px;                 /* pull the CTA up over the image */
+  left:50%;
+  transform:translateX(-52%);   /* your original centering offset */
+  z-index:10;
 }
-.hero .img-cta-button{
-  display:block !important;
-  width:480px !important;                 /* FIXED size on desktop */
-  max-width:none !important;              /* do not scale with hero */
-  height:auto !important;
-  margin:0 auto !important;
+.img-cta-button{
+  max-width:1080px;
+  width:90%;
+  height:auto;
+  display:block;
+  margin:0 auto;
 }
 
-/* Hide desktop CTA on small screens (mobile has its own layout) */
-@media (max-width:768px){
-  .hero .hero-cta-container{ display:none !important; }
+/* Hide the desktop CTA on phones; desktop keeps legacy behavior */
+@media (max-width:600px){
+  .hero-cta-container{ display:none !important; }
 }
 
 /* ======= Sticky CTA ======= */
@@ -134,23 +134,23 @@ hr{margin:5px 0;}
 .realtor-btn{color:#1c1c1c !important;background-color:#e6dcc7 !important;text-decoration:none !important;}
 .realtor-btn:hover{background-color:#B9975B !important;color:#fff !important;text-decoration:none !important;}
 
-/* ======= Mobile adjustments ======= */
-@media (max-width:768px){
+/* ======= Mobile tweaks ======= */
+@media (max-width:600px){
   .testimonial-text{ text-align:center; }
   .testimonial-cite{ text-align:center; padding-bottom:20px; }
   .testimonial-quote{ font-size:1.25em; line-height:1.4; }
 }
 
-/* --- Hero visibility (single source of truth) --- */
+/* --- Hero visibility (single source of truth; breakpoint lowered to avoid zoom flips) --- */
 .hero-desktop { display:block !important; }
 .hero-mobile  { display:none  !important; }
 
-@media (max-width:768px){
-  .hero-desktop, .hero { display:none !important; } /* hide desktop hero on phones */
-  .hero-mobile { display:block !important; }        /* show mobile hero on phones */
+@media (max-width:600px){
+  .hero-desktop, .hero { display:none !important; } /* hide desktop hero on small screens */
+  .hero-mobile { display:block !important; }        /* show mobile hero on small screens */
 }
 
-@media (min-width:769px){
-  .hero-mobile { display:none !important; }         /* hide mobile hero on desktop */
+@media (min-width:601px){
+  .hero-mobile { display:none !important; }
   .hero-desktop { display:block !important; }
 }
