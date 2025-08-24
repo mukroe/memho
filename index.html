@@ -2,87 +2,136 @@
 <html lang="en">
 <head>
   <!-- PAGE: /index.html — Cormorant Garamond (WOFF2 primary + TTF fallback) -->
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>The Memory House – Handcrafted Watercolor Home Portraits</title>
   <meta name="description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes.">
   <link rel="canonical" href="https://thememoryhouse.art/index.html">
 
-  <!-- Preload the desktop hero actually used -->
+  <!-- Preload the desktop hero image actually used -->
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
-  <!-- PRELOAD self-hosted serif (WOFF2 only; TTF loads as fallback if needed) -->
+  <!-- Fonts (one time only) -->
   <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
 
-  <!-- Site CSS (cache-busted) -->
-  <link href="style.css?v=memho-cormorant-woff2-ttf-1" rel="stylesheet">
+  <!-- Site CSS (keep your file/version string) -->
+  <link rel="stylesheet" href="style.css?v=memho-cormorant-woff2-ttf-1">
 
-  <!-- Font Awesome (OPTIONAL). Scoped in style.css so it can’t hijack text. -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- Font Awesome (scoped in CSS so it can’t hijack body text) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- v25 locks (surgical overrides to prevent regressions) -->
+  <style>
+    /* ----- NAV: one menu per viewport ----- */
+    header > nav{display:block !important;}     /* desktop */
+    #mobile-nav-container{display:none !important;}
+    .hamburger{display:none !important;}
+
+    @media (max-width:600px){
+      header > nav{display:none !important;}    /* mobile */
+      #mobile-nav-container{display:block !important;}
+      .hamburger{display:block !important;}
+      #navMenu{display:none;}
+      #navMenu.active{display:block;}
+      #mobile-nav-container .menu{display:block; padding:10px 0; margin:0;}
+      #mobile-nav-container .menu li{margin:8px 0;}
+    }
+
+    /* ----- HERO: show only one; legacy CTA placement restored ----- */
+    .hero{position:relative;}
+    .hero-cta-container{
+      position:absolute;
+      bottom:-83px;         /* your original offset over the image */
+      left:50%;
+      transform:translateX(-52%);
+      z-index:10;
+    }
+    .img-cta-button{
+      max-width:1080px;
+      width:90%;
+      height:auto;
+      display:block;
+      margin:0 auto;
+    }
+    @media (max-width:600px){
+      .hero-cta-container{display:none !important;} /* desktop CTA hidden on phones */
+    }
+
+    .hero-desktop{display:block !important;}
+    .hero-mobile{display:none !important;}
+    @media (max-width:600px){
+      .hero-desktop, .hero{display:none !important;}
+      .hero-mobile{display:block !important;}
+    }
+    @media (min-width:601px){
+      .hero-mobile{display:none !important;}
+      .hero-desktop{display:block !important;}
+    }
+  </style>
 
   <!-- Meta Pixel Code (unchanged) -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '750632044348955');
-  fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','750632044348955'); fbq('track','PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"></noscript>
+    src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1" alt=""></noscript>
 </head>
+
 <body>
   <!-- Mobile Nav -->
   <div id="mobile-nav-container">
     <nav class="main-nav">
       <div class="nav-wrapper">
-        <div class="hamburger" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;"> ☰ </div>
+        <div class="hamburger" onclick="toggleMenu()" style="position:absolute; top:20px; right:20px;">☰</div>
       </div>
       <ul class="menu" id="navMenu">
-        <li><a href="index.html"> Home </a></li>
-        <li><a href="about.html"> About </a></li>
-        <li><a href="gallery.html"> Gallery </a></li>
-        <li><a href="order.html"> Order </a></li>
-        <li><a href="blog.html"> Blog </a></li>
-        <li><a href="contact.html"> Contact </a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </div>
 
   <script>
-    function toggleMenu() {
+    function toggleMenu(){
       var menu = document.getElementById('navMenu');
       menu.classList.toggle('active');
       document.body.classList.toggle('menu-open');
     }
   </script>
 
+  <!-- Header / Desktop Nav -->
   <header>
     <img src="logo5xJ.png" alt="The Memory House Logo" class="logo" loading="lazy">
-    <h1 class="site-title"> The Memory House </h1>
-    <nav style="font-size: 1.1em; letter-spacing: 0.03em;">
+    <h1 class="site-title">The Memory House</h1>
+
+    <nav style="font-size:1.1em; letter-spacing:.03em;">
       <ul class="menu">
         <li>
-          <a href="index.html" style="padding: 0 10px;"> Home </a> |
-          <a href="about.html" style="padding: 0 10px;"> About </a> |
-          <a href="gallery.html" style="padding: 0 10px;"> Gallery </a> |
-          <a href="order.html" style="padding: 0.4em 1em; font-size: 0.9em;"> Order </a> |
-          <a href="blog.html" style="padding: 0 10px;"> Blog </a> |
-          <a href="contact.html" style="padding: 0 10px;"> Contact </a>
+          <a href="index.html"  style="padding:0 10px;">Home</a> |
+          <a href="about.html"  style="padding:0 10px;">About</a> |
+          <a href="gallery.html"style="padding:0 10px;">Gallery</a> |
+          <a href="order.html"  style="padding:.4em 1em; font-size:.9em;">Order</a> |
+          <a href="blog.html"   style="padding:0 10px;">Blog</a> |
+          <a href="contact.html"style="padding:0 10px;">Contact</a>
         </li>
       </ul>
     </nav>
-    <div class="banner-line" style="background-color: #f5f0eb; text-align: center; padding: 28px 10px; font-size: 1.15em; font-weight: 500; font-style: italic; color: #3B2A28;">
+
+    <div class="banner-line" style="background-color:#f5f0eb; text-align:center; padding:28px 10px; font-size:1.15em; font-weight:500; font-style:italic; color:#3B2A28;">
       Custom, hand-painted house portraits — for the home you’ll never forget
     </div>
   </header>
@@ -90,7 +139,7 @@
   <main>
     <!-- Mobile Hero -->
     <div class="hero-mobile">
-      <img alt="Handcrafted house portrait" src="images/landing-cropped-3-mobile.jpg">
+      <img alt="Handcrafted house portrait" src="images/landing-cropped-3-mobile.jpg" loading="lazy">
     </div>
 
     <!-- Desktop Hero -->
@@ -105,7 +154,7 @@
 
     <!-- Testimonials / Gallery -->
     <section class="testimonial-section">
-      <h3 class="testimonial-title"> What our customers say... </h3>
+      <h3 class="testimonial-title">What our customers say...</h3>
       <div class="testimonial-box">
         <div class="testimonial-container">
           <div class="testimonial-flex">
@@ -114,83 +163,83 @@
             </div>
             <div class="testimonial-text">
               <blockquote class="testimonial-quote">
-                “The portrait holds 42 years of memories. It’s <strong> the most meaningful gift </strong> I’ve ever received.”
+                “The portrait holds 42 years of memories. It’s <strong>the most meaningful gift</strong> I’ve ever received.”
               </blockquote>
-              <cite class="testimonial-cite right-aligned"> — Sarah T., Virginia </cite>
+              <cite class="testimonial-cite right-aligned">— Sarah T., Virginia</cite>
             </div>
           </div>
         </div>
 
         <p class="trust-line">
-          <span style="font-weight: 600;">
+          <span style="font-weight:600;">
             Chosen again and again by families, realtors, and collectors across the country.
-            <div style="max-width: 640px; margin: 0 auto; text-align: center; padding-top: 20px; font-size: 1.1rem;">
-              <p><strong> Proof within 3 days. </strong></p>
+            <div style="max-width:640px; margin:0 auto; text-align:center; padding-top:20px; font-size:1.1rem;">
+              <p><strong>Proof within 3 days.</strong></p>
               <p>Once we’ve received your photos, we’ll send you a digital proof of your portrait within 3 business days. You’ll review and approve the artwork before we print and ship it.</p>
             </div>
           </span>
-          <div style="text-align:center; font-size:30px; margin: 30px 0;"> 🏠 🎨 🫶 🔑 </div>
+          <div style="text-align:center; font-size:30px; margin:30px 0;"> 🏠 🎨 🫶 🔑 </div>
         </p>
 
-        <hr style="width: 150px; margin: 20px auto; border: 0; border-top: 1px solid #ccc;">
+        <hr style="width:150px; margin:20px auto; border:0; border-top:1px solid #ccc;">
 
-        <h4 class="gallery-heading"> Here are 3 homes we’ve celebrated this month… </h4>
+        <h4 class="gallery-heading">Here are 3 homes we’ve celebrated this month…</h4>
         <div class="mini-gallery">
           <img class="mini-gallery-img" src="images/gallery_thumb_1.jpg" alt="Home Portrait 1" loading="lazy">
           <img class="mini-gallery-img" src="images/gallery_thumb_2.jpg" alt="Home Portrait 2" loading="lazy">
           <img class="mini-gallery-img" src="images/gallery_thumb_3.jpg" alt="Home Portrait 3" loading="lazy">
         </div>
 
-        <hr style="width: 150px; margin: 20px auto; border: 0; border-top: 1px solid #ccc;">
+        <hr style="width:150px; margin:20px auto; border:0; border-top:1px solid #ccc;">
       </div>
     </section>
 
     <!-- Video block -->
-    <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;">
-      <h2 style="font-family: inherit; font-size: 1.75em; font-weight: 700; margin-bottom: 10px;"> See the Art in Motion </h2>
-      <p style="font-family: inherit; font-style: italic; color: #333; font-size: 1.25em; line-height: 1.4; margin-bottom: 30px;">
+    <section id="see-the-art" style="background-color:#fdf6e9; padding:60px 0; text-align:center;">
+      <h2 style="font-family:inherit; font-size:1.75em; font-weight:700; margin-bottom:10px;">See the Art in Motion</h2>
+      <p style="font-family:inherit; font-style:italic; color:#333; font-size:1.25em; line-height:1.4; margin-bottom:30px;">
         A glimpse into the hand-painted process that captures the places where our most meaningful moments unfold.
       </p>
-      <video controls preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;">
+      <video controls preload="metadata" style="width:80%; max-width:700px; height:auto; border-radius:12px;">
         <source src="Memho vid 1.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </section>
 
     <!-- Studio button -->
-    <div class="studio-button-wrapper" style="text-align: center; margin: 60px auto;">
-      <a href="https://thememoryhouse.art/blog" style="text-decoration: none;">
-        <div style="background-color: #bcc8be; padding: 18px 32px; border-radius: 12px; display: inline-block; transition: background-color 0.3s ease;">
-          <div style="font-weight: 700; font-size: 20px; color: #1c1c1c;"> Visit the Studio </div>
-          <div style="font-style: italic; font-size: 16px; color: #6a4e35; margin-top: 6px;"> Stories, behind-the-scenes, and more </div>
+    <div class="studio-button-wrapper" style="text-align:center; margin:60px auto;">
+      <a href="https://thememoryhouse.art/blog" style="text-decoration:none;">
+        <div style="background-color:#bcc8be; padding:18px 32px; border-radius:12px; display:inline-block; transition:background-color .3s ease;">
+          <div style="font-weight:700; font-size:20px; color:#1c1c1c;">Visit the Studio</div>
+          <div style="font-style:italic; font-size:16px; color:#6a4e35; margin-top:6px;">Stories, behind-the-scenes, and more</div>
         </div>
       </a>
     </div>
 
     <!-- Sticky CTA -->
     <div class="sticky-cta">
-      <a class="cta-sticky-button" href="order.html"> ORDER MY PORTRAIT </a>
+      <a class="cta-sticky-button" href="order.html">ORDER MY PORTRAIT</a>
     </div>
   </main>
 
   <footer>
-    <p style="text-align:center; font-style:italic; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+    <p style="text-align:center; font-style:italic; color:#a67c52; font-size:1.8em; margin-bottom:10px;">
       Memories start with home — and end in .art
     </p>
-    <p style="text-align:center;"> © 2025 The Memory House </p>
+    <p style="text-align:center;">© 2025 The Memory House</p>
 
-    <div style="margin-top: 15px; text-align:center;">
+    <div style="margin-top:15px; text-align:center;">
       <a class="realtor-btn" href="realtor-exclusive.html">Realtor Access</a>
     </div>
 
-    <p style="text-align: center; margin-top: 40px; color: #333; line-height: 1.4;">
-      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+    <p style="text-align:center; margin-top:40px; color:#333; line-height:1.4;">
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin:0 10px;" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-facebook-f fa-lg"></i>
       </a>
-      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.instagram.com/thememoryhouse.art" style="margin:0 10px;" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-instagram fa-lg"></i>
       </a>
-      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com" style="margin:0 10px;" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-linkedin-in fa-lg"></i>
       </a>
     </p>
