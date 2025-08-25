@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- PAGE: /index.html — Cormorant Garamond (WOFF2 primary + TTF fallback) -->
+  <!-- PAGE: /index.html -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -12,43 +12,56 @@
   <!-- Preload the desktop hero actually used -->
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
-  <!-- Fonts (one time only) -->
+  <!-- Fonts -->
   <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
 
-  <!-- Site CSS (keep your version string) -->
+  <!-- Site CSS -->
   <link rel="stylesheet" href="style.css?v=memho-cormorant-woff2-ttf-1">
 
-  <!-- Font Awesome (scoped so it can’t hijack body text) -->
+  <!-- Font Awesome (scoped in CSS) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- v27 locks (mobile menu closed by default + hero/mobile rules) -->
+  <!-- v28 locks -->
   <style>
-    /* ----- Mobile menu: fail-safe defaults (applies before any media query) ----- */
-    #navMenu{display:none !important;}          /* CLOSED by default on first paint */
-    #navMenu.active{display:block !important;}  /* opens only after tap */
+    /* Fail-safe: mobile menu CLOSED by default on first paint */
+    #navMenu{display:none !important;}
+    #navMenu.active{display:block !important;}
 
-    /* ----- NAV: one menu per viewport ----- */
-    header > nav{display:block !important;}     /* desktop */
+    /* Desktop default: show header nav, hide mobile shell */
+    header > nav{display:block !important;}
     #mobile-nav-container{display:none !important;}
     .hamburger{display:none !important;}
 
-    @media (max-width:600px){
-      header > nav{display:none !important;}    /* mobile */
+    /* ----- MOBILE RULES (aggressive) ----- */
+    @media (max-width:820px){
+      /* Nuke desktop nav completely so it cannot flash open */
+      header nav,
+      header > nav,
+      header .menu,
+      header .menu *{
+        display:none !important;
+        visibility:hidden !important;
+      }
+      header > nav{ height:0 !important; padding:0 !important; margin:0 !important; overflow:hidden !important; }
+
+      /* Show mobile shell + burger */
       #mobile-nav-container{display:block !important;}
       .hamburger{display:block !important;}
-      #mobile-nav-container .menu{display:block; padding:10px 0; margin:0;}
-      #mobile-nav-container .menu li{margin:8px 0;}
+
+      /* Mobile list layout */
+      #mobile-nav-container .menu{display:block !important; padding:10px 0 !important; margin:0 !important;}
+      #mobile-nav-container .menu li{margin:8px 0 !important;}
     }
 
     /* ----- HERO visibility + legacy CTA placement ----- */
     .hero{position:relative;}
     .hero-cta-container{
       position:absolute;
-      bottom:-83px;         /* your original offset over the image */
+      bottom:-83px;           /* your original offset */
       left:50%;
       transform:translateX(-52%);
       z-index:10;
@@ -60,22 +73,22 @@
       display:block;
       margin:0 auto;
     }
-    @media (max-width:600px){
-      .hero-cta-container{display:none !important;} /* desktop CTA hidden on phones */
+    @media (max-width:820px){
+      .hero-cta-container{display:none !important;} /* hide desktop CTA on phones/tablets */
     }
 
     .hero-desktop{display:block !important;}
     .hero-mobile{display:none !important;}
-    @media (max-width:600px){
+    @media (max-width:820px){
       .hero-desktop, .hero{display:none !important;}
       .hero-mobile{display:block !important;}
     }
-    @media (min-width:601px){
+    @media (min-width:821px){
       .hero-mobile{display:none !important;}
       .hero-desktop{display:block !important;}
     }
 
-    /* ----- MOBILE HERO sizing ----- */
+    /* Mobile hero sizing */
     .hero-mobile{margin:0; padding:0; line-height:0;}
     .hero-mobile img{
       width:100% !important;
@@ -85,7 +98,7 @@
     }
   </style>
 
-  <!-- Meta Pixel Code (unchanged) -->
+  <!-- Meta Pixel (unchanged) -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
