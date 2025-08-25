@@ -22,46 +22,32 @@
   <!-- Site CSS -->
   <link rel="stylesheet" href="style.css?v=memho-cormorant-woff2-ttf-1">
 
-  <!-- Font Awesome (scoped in CSS) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- v28 locks -->
+  <!-- v30: lock mobile first; enable desktop nav only ≥981px -->
   <style>
-    /* Fail-safe: mobile menu CLOSED by default on first paint */
+    /* Mobile menu: closed by default */
     #navMenu{display:none !important;}
     #navMenu.active{display:block !important;}
 
-    /* Desktop default: show header nav, hide mobile shell */
-    header > nav{display:block !important;}
-    #mobile-nav-container{display:none !important;}
-    .hamburger{display:none !important;}
+    /* Mobile-first: show mobile shell; desktop nav stays hidden (also hidden inline in HTML) */
+    #mobile-nav-container{display:block !important;}
+    .hamburger{display:block !important;}
+    #desktop-nav{display:none !important;} /* reinforce the inline default */
 
-    /* ----- MOBILE RULES (aggressive) ----- */
-    @media (max-width:820px){
-      /* Nuke desktop nav completely so it cannot flash open */
-      header nav,
-      header > nav,
-      header .menu,
-      header .menu *{
-        display:none !important;
-        visibility:hidden !important;
-      }
-      header > nav{ height:0 !important; padding:0 !important; margin:0 !important; overflow:hidden !important; }
-
-      /* Show mobile shell + burger */
-      #mobile-nav-container{display:block !important;}
-      .hamburger{display:block !important;}
-
-      /* Mobile list layout */
-      #mobile-nav-container .menu{display:block !important; padding:10px 0 !important; margin:0 !important;}
-      #mobile-nav-container .menu li{margin:8px 0 !important;}
+    /* Enable desktop nav only on wider screens */
+    @media (min-width:981px){
+      #desktop-nav{display:block !important;}
+      #mobile-nav-container{display:none !important;}
+      .hamburger{display:none !important;}
     }
 
-    /* ----- HERO visibility + legacy CTA placement ----- */
+    /* HERO visibility + legacy CTA placement */
     .hero{position:relative;}
     .hero-cta-container{
       position:absolute;
-      bottom:-83px;           /* your original offset */
+      bottom:-83px;             /* your original offset */
       left:50%;
       transform:translateX(-52%);
       z-index:10;
@@ -73,17 +59,17 @@
       display:block;
       margin:0 auto;
     }
-    @media (max-width:820px){
+    @media (max-width:980px){
       .hero-cta-container{display:none !important;} /* hide desktop CTA on phones/tablets */
     }
 
     .hero-desktop{display:block !important;}
     .hero-mobile{display:none !important;}
-    @media (max-width:820px){
+    @media (max-width:980px){
       .hero-desktop, .hero{display:none !important;}
       .hero-mobile{display:block !important;}
     }
-    @media (min-width:821px){
+    @media (min-width:981px){
       .hero-mobile{display:none !important;}
       .hero-desktop{display:block !important;}
     }
@@ -137,12 +123,13 @@
     }
   </script>
 
-  <!-- Header / Desktop Nav -->
+  <!-- Header / Desktop Nav (HIDDEN BY DEFAULT) -->
   <header>
     <img src="logo5xJ.png" alt="The Memory House Logo" class="logo" loading="lazy">
     <h1 class="site-title">The Memory House</h1>
 
-    <nav style="font-size:1.1em; letter-spacing:.03em;">
+    <!-- Hidden by default; only enabled ≥981px by CSS -->
+    <nav id="desktop-nav" style="display:none">
       <ul class="menu">
         <li>
           <a href="index.html"  style="padding:0 10px;">Home</a> |
