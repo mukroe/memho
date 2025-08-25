@@ -1,163 +1,233 @@
-/* ===========================
-   MemHo Serif (Cormorant Garamond) — self-hosted
-   WOFF2 primary + TTF fallback
-   expects files in /assets/fonts/
-   =========================== */
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-Regular.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-Regular.ttf") format("truetype");
-  font-weight:400; font-style:normal; font-display:swap;
-}
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-Italic.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-Italic.ttf") format("truetype");
-  font-weight:400; font-style:italic; font-display:swap;
-}
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-Bold.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-Bold.ttf") format("truetype");
-  font-weight:700; font-style:normal; font-display:swap;
-}
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-BoldItalic.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-BoldItalic.ttf") format("truetype");
-  font-weight:700; font-style:italic; font-display:swap;
+/* ───────────────────────────────────────────────────────────────────────────
+   The Memory House – site stylesheet  (v-emoji-fix)
+   - Cormorant Garamond via /assets/fonts/memho-fonts.css (MemHoSerif)
+   - Emoji fallback so Chrome desktop renders 🏠 🎨 🫶 🔑 instead of tofu
+   - Mobile-first nav + legacy desktop CTA placement preserved
+   - Font Awesome scoped to icons only (never body text)
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ========== CSS variables ========== */
+:root{
+  /* Typography */
+  --serif: "MemHoSerif", Georgia, "Times New Roman", serif;
+  /* Explicit color-emoji stacks so Chrome desktop falls back correctly */
+  --emoji: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Segoe UI Symbol";
+
+  /* Palette */
+  --ink: #3B2A28;
+  --ink-soft: #6A7A89;
+  --cream: #fdf9f4;
+  --banner: #f5f0eb;
+  --brand: #B9975B;  /* gold-brown accents */
+  --btn-bg: #e6dcc7;
+  --btn-bg-hover: #b9975b;
 }
 
-/* Global base */
-:root { --serif: "MemHoSerif", Georgia, "Times New Roman", serif; }
-html,body{
-  font-family:var(--serif);
-  -webkit-text-size-adjust:100%;
-  text-rendering:optimizeLegibility;
-  font-kerning:normal;
-  font-variant-ligatures:common-ligatures;
-  line-height:1.45;
-  margin:0;
-  background:#fdf9f4;
-  color:#2C2C2C;
-  text-align:center;
+/* ========== Base / reset ========== */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--cream);
+  color: var(--ink);
+  /* 🔑 global stack: main serif + explicit emoji fallbacks */
+  font-family: var(--serif), var(--emoji) !important;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  line-height: 1.45;
 }
-/* Chrome guardrails */
-*{font-synthesis-weight:none;font-synthesis-style:none;}
-/* Scope FA to icons only */
-.fa,.fas,.far,.fab,.fa-solid,.fa-regular,.fa-brands,[class^="fa-"],[class*=" fa-"]{
-  font-family:"Font Awesome 6 Free","Font Awesome 6 Brands" !important;
+img { max-width: 100%; height: auto; display: block; }
+
+/* Prevent FA from leaking onto normal text */
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
+[class^="fa-"], [class*=" fa-"]{
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
 }
 
-/* ===========================
-   HEADER / NAV
-   =========================== */
-header{padding:10px 0;}
-.logo{width:80px;margin-top:15px;}
-.site-title{margin:10px 0 6px 0;font-size:28px;}
+/* Make sure headings, menu, and special lines also get emoji fallback */
+h1, h2, h3, h4, h5, h6,
+.menu, .banner-line, .trust-line, .testimonial-title,
+.testimonial-quote, .testimonial-cite, .emoji-row {
+  font-family: var(--serif), var(--emoji) !important;
+}
 
-header > nav{display:block;}              /* desktop nav by default */
-#mobile-nav-container{display:none;}      /* hide mobile nav by default */
-.hamburger{display:none;}                 /* burger only on mobile */
+/* ========== Header / top banner ========== */
+.logo { display:block; margin: 20px auto 10px; height: auto; }
+.site-title {
+  text-align: center;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
 
-.menu{list-style:none;margin:10px 0 20px;padding:0;display:flex;gap:22px;justify-content:center;}
-.menu a{text-decoration:none;color:#333}
-
-/* Banner line under the masthead */
+/* Top “tagline” strip */
 .banner-line{
-  background:#f5f0eb;
-  text-align:center;
-  padding:28px 10px;
-  font-weight:500;
-  font-style:italic;
-  color:#3B2A28;
+  background-color: var(--banner);
+  text-align: center;
+  padding: 28px 10px;
+  font-size: 1.15em;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--ink);
 }
 
-/* MOBILE NAV: visible only on small screens */
-@media (max-width:600px){
-  header > nav{display:none !important;}         /* hide desktop nav on phones */
-  #mobile-nav-container{display:block !important;}
-  .hamburger{display:block !important;}
-  /* collapsed by default; your JS toggles .active */
-  #navMenu{display:none;}
-  #navMenu.active{display:block;}
-  #mobile-nav-container .menu{
-    display:block; padding:10px 0; margin:0;
-  }
-  #mobile-nav-container .menu li{margin:8px 0;}
+/* ========== Navigation ========== */
+/* mobile-first: mobile visible, desktop nav off; index.html turns on desktop ≥981px */
+#mobile-nav-container { display:block; }
+.hamburger { display:block; cursor: pointer; user-select: none; }
+
+/* Mobile menu closed by default – opens only via .active */
+#navMenu{ display:none; list-style:none; padding:0; margin:10px 0 0; text-align:center; }
+#navMenu.active{ display:block; }
+#mobile-nav-container .menu li{ margin:8px 0; }
+#mobile-nav-container .menu a{
+  text-decoration:none;
+  color: var(--ink);
 }
 
-/* ===========================
-   HERO + CTA
-   =========================== */
-.hero{position:relative;}
-.hero img{width:100%;display:block;}
+/* Desktop nav (enabled from HTML/CSS at ≥981px) */
+#desktop-nav { display:none; } /* reinforced in HTML too */
+#desktop-nav .menu{ list-style:none; padding:0; margin:0; text-align:center; }
+#desktop-nav .menu a{ text-decoration:none; color: var(--ink); }
 
-/* Legacy desktop CTA (as before) */
+/* ========== Hero ========== */
+.hero { position: relative; line-height: 0; }
+.hero img { width:100%; height:auto; }
+
+/* Desktop CTA (legacy exact placement) */
 .hero-cta-container{
-  position:absolute;
-  bottom:-83px;
-  left:50%;
-  transform:translateX(-52%);
-  z-index:10;
+  position: absolute;
+  bottom: -83px;              /* your tuned offset */
+  left: 50%;
+  transform: translateX(-52%);
+  z-index: 10;
 }
 .img-cta-button{
-  max-width:1080px;
-  width:90%;
-  height:auto;
+  max-width: 1080px;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
   display:block;
-  margin:0 auto;
 }
 
-/* Hide desktop CTA on phones; mobile hero handles its own CTA/layout */
-@media (max-width:600px){
-  .hero-cta-container{display:none !important;}
+/* Mobile hero block */
+.hero-mobile{ margin:0; padding:0; line-height:0; }
+.hero-mobile img{
+  width:100% !important;
+  height:auto !important;
+  display:block !important;
 }
 
-/* Show only one hero at a time */
-.hero-desktop{display:block !important;}
-.hero-mobile{display:none !important;}
-@media (max-width:600px){
-  .hero-desktop,.hero{display:none !important;}
-  .hero-mobile{display:block !important;}
-}
-@media (min-width:601px){
-  .hero-mobile{display:none !important;}
-  .hero-desktop{display:block !important;}
+/* Visibility rules */
+.hero-desktop{ display:block; }
+.hero-mobile{ display:none; }
+
+/* ≤980px: mobile hero only, hide desktop CTA */
+@media (max-width: 980px){
+  .hero-desktop, .hero { display:none !important; }
+  .hero-mobile{ display:block !important; }
+  .hero-cta-container{ display:none !important; }
 }
 
-/* ===========================
-   CONTENT (kept light)
-   =========================== */
-footer p{margin:10px 0;}
-.sticky-cta{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;}
+/* ≥981px: desktop hero only */
+@media (min-width: 981px){
+  .hero-mobile{ display:none !important; }
+  .hero-desktop{ display:block !important; }
+  /* desktop nav on, mobile shell off – HTML also enforces this */
+  #desktop-nav{ display:block; }
+  #mobile-nav-container, .hamburger{ display:none; }
+}
+
+/* ========== “Sticky” CTA button (bottom bar) ========== */
+.sticky-cta{ text-align:center; margin:40px 0 0; }
 .cta-sticky-button{
-  background:#B89F69;color:#FAF4E8;border:1px solid #2C2C2C;
-  font-weight:bold;font-size:18px;font-family:var(--serif);
-  text-decoration:none;padding:10px 24px;border-radius:10px;
-  box-shadow:2px 2px 6px rgba(0,0,0,0.2);display:inline-block;
-  transition:background-color .25s,color .25s;
+  display:inline-block;
+  background-color: var(--btn-bg);
+  color: #1c1c1c;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing:.02em;
+  transition: background-color .2s ease, transform .2s ease;
 }
-.cta-sticky-button:hover{background:#b4956b;color:#fff;}
-
-.testimonial-section{background:#f8f5f0;padding:60px 20px;text-align:center;}
-.testimonial-container{max-width:800px;margin:0 auto;}
-.testimonial-flex{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center;text-align:left;}
-.testimonial-image{flex-shrink:0;}
-.testimonial-img{width:140px;height:140px;border-radius:50%;margin:0;}
-.testimonial-text{max-width:500px;}
-.testimonial-title{font-size:1.5rem;font-weight:600;margin-bottom:1rem;color:#4B2E2E;}
-.testimonial-quote{font-size:1.4em;font-style:italic;color:#333;margin:0 0 5px;}
-.testimonial-cite{display:block;font-weight:bold;color:#4B2E2E;margin:0;}
-@media (max-width:600px){
-  .testimonial-text,.testimonial-cite{text-align:center;}
+.cta-sticky-button:hover{
+  background-color: var(--btn-bg-hover);
+  color: #fff;
+  transform: scale(1.02);
 }
 
+/* ========== Testimonials ========== */
+.testimonial-section{ padding: 10px 0 0; }
+.testimonial-title{
+  text-align:center;
+  margin: 0 0 18px;
+  font-weight:700;
+  letter-spacing:.01em;
+  line-height:1.2;
+}
+.testimonial-box{ max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+.testimonial-container{ max-width: 880px; margin: 0 auto; }
+.testimonial-flex{
+  display:flex; gap:24px; align-items:center; justify-content:center; flex-wrap:wrap;
+}
+.testimonial-image{ flex:0 0 auto; }
+.testimonial-img{
+  width: 220px; height: 220px; border-radius:50%; object-fit:cover; display:block;
+}
+.testimonial-text{ flex: 1 1 360px; min-width: 280px; }
+.testimonial-quote{
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+.testimonial-cite{ display:block; font-weight:700; margin-top:6px; text-align:right; }
+
+/* Trust line + emoji row */
+.trust-line{ text-align:center; margin: 0; }
+.emoji-row{ text-align:center; font-size:30px; margin:30px 0; }
+
+/* ========== Mini gallery ========== */
+.gallery-heading{
+  text-align:center;
+  margin: 30px 0 10px;
+  font-weight:700;
+}
+.mini-gallery{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1240px;
+  margin: 0 auto 40px;
+  padding: 0 16px;
+}
+.mini-gallery-img{ width:100%; height:auto; border-radius:8px; }
+
+/* ========== Video section ========== */
+#see-the-art{ background-color:#fdf6e9; padding:60px 0; text-align:center; }
+
+/* ========== Footer ========== */
 .realtor-btn{
-  display:inline-block;font-size:.9em;color:#1c1c1c;background:#e6dcc7;
-  padding:8px 18px;border-radius:8px;text-decoration:none;
-  transition:background-color .3s,transform .2s,color .2s;
+  display:inline-block;
+  font-size: 0.9em;
+  color:#1c1c1c;
+  background-color: #e6dcc7;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color .3s ease, transform .2s ease, color .2s ease;
 }
-.realtor-btn:hover{background:#B9975B;color:#fff;transform:scale(1.05);}
-.realtor-btn{color:#1c1c1c !important;background:#e6dcc7 !important;text-decoration:none !important;}
-.realtor-btn:hover{background:#B9975B !important;color:#fff !important;text-decoration:none !important;}
+.realtor-btn:hover{
+  background-color: var(--brand);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ========== Small-screen refinements ========== */
+@media (max-width: 768px){
+  .mini-gallery{ grid-template-columns: 1fr; }
+  .testimonial-img{ width:200px; height:200px; margin: 0 auto; }
+  .testimonial-text{ text-align:center; }
+}
