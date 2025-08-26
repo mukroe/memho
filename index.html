@@ -25,25 +25,23 @@
   <!-- Font Awesome (icons only) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- v31: lock mobile first; enable desktop nav only ≥981px -->
+  <!-- v32: nav lock, hero rules, emoji block, and INDEX-ONLY sticky CTA -->
   <style>
-    /* Mobile menu: closed by default */
+    /* ----- Mobile menu: closed by default ----- */
     #navMenu{display:none !important;}
     #navMenu.active{display:block !important;}
-
-    /* Mobile shell visible; desktop nav hidden (also inline on the element) */
     #mobile-nav-container{display:block !important;}
     .hamburger{display:block !important;}
     #desktop-nav{display:none !important;}
 
-    /* Enable desktop nav only on wider screens */
+    /* Desktop nav only ≥981px */
     @media (min-width:981px){
       #desktop-nav{display:block !important;}
       #mobile-nav-container{display:none !important;}
       .hamburger{display:none !important;}
     }
 
-    /* Hero visibility + legacy CTA placement (mirrors style.css) */
+    /* ----- Hero visibility + legacy desktop CTA placement ----- */
     .hero{position:relative;}
     .hero-cta-container{position:absolute; bottom:-83px; left:50%; transform:translateX(-52%); z-index:10;}
     .img-cta-button{max-width:1080px; width:90%; height:auto; display:block; margin:0 auto;}
@@ -54,6 +52,41 @@
     @media (min-width:981px){ .hero-mobile{display:none !important;} .hero-desktop{display:block !important;} }
     .hero-mobile{margin:0; padding:0; line-height:0;}
     .hero-mobile img{width:100% !important; height:auto !important; display:block !important; max-width:100%;}
+
+    /* ===== INDEX-ONLY sticky CTA (scoped by ID so realtor pages are untouched) ===== */
+    #sticky-home{
+      position: fixed !important;
+      left: 0; right: 0;
+      bottom: 16px;
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+      pointer-events: none;      /* only the button is clickable */
+    }
+    @supports (padding: max(0px)) {
+      #sticky-home{ bottom: max(16px, env(safe-area-inset-bottom)); }
+    }
+    #sticky-home .cta-sticky-button{
+      pointer-events: auto;
+      display: inline-block;
+      background-color: #e6dcc7;
+      color: #1c1c1c;
+      padding: 14px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .02em;
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+      transition: background-color .2s ease, transform .2s ease;
+    }
+    #sticky-home .cta-sticky-button:hover{
+      background-color: #b9975b;
+      color: #fff;
+      transform: scale(1.02);
+    }
+    /* Keep content from hiding under the fixed bar on THIS page only */
+    body{ padding-bottom: 120px !important; }
   </style>
 
   <!-- Meta Pixel -->
@@ -201,18 +234,8 @@
       </video>
     </section>
 
-    <!-- Studio button -->
-    <div class="studio-button-wrapper" style="text-align:center; margin:60px auto;">
-      <a href="https://thememoryhouse.art/blog" style="text-decoration:none;">
-        <div style="background-color:#bcc8be; padding:18px 32px; border-radius:12px; display:inline-block; transition:background-color .3s ease;">
-          <div style="font-weight:700; font-size:20px; color:#1c1c1c;">Visit the Studio</div>
-          <div style="font-style:italic; font-size:16px; color:#6a4e35; margin-top:6px;">Stories, behind-the-scenes, and more</div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Sticky CTA -->
-    <div class="sticky-cta">
+    <!-- Sticky CTA (INDEX-ONLY) -->
+    <div id="sticky-home" class="sticky-cta">
       <a class="cta-sticky-button" href="order.html">ORDER MY PORTRAIT</a>
     </div>
   </main>
