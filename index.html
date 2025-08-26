@@ -9,32 +9,32 @@
   <meta name="description" content="We create bespoke, hand-painted watercolor home portraits that capture the soul of your home. Perfect for closing gifts, housewarmings, or lasting family keepsakes.">
   <link rel="canonical" href="https://thememoryhouse.art/index.html">
 
-  <!-- Preload the desktop hero actually used -->
+  <!-- Preload the desktop hero used -->
   <link rel="preload" as="image" href="landing.jpg" type="image/jpeg">
 
-  <!-- Fonts -->
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- MEMHO FONT PACK (Cormorant Garamond + emoji fallbacks) -->
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2"   as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2"      as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2"    as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2"as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
 
-  <!-- Site CSS -->
-  <link rel="stylesheet" href="style.css?v=memho-cormorant-woff2-ttf-1">
+  <!-- Site CSS (includes emoji fallback + logo sizing) -->
+  <link rel="stylesheet" href="style.css?v=emoji-fix-2">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome (icons only) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- v30: lock mobile first; enable desktop nav only ≥981px -->
+  <!-- v31: lock mobile first; enable desktop nav only ≥981px -->
   <style>
     /* Mobile menu: closed by default */
     #navMenu{display:none !important;}
     #navMenu.active{display:block !important;}
 
-    /* Mobile-first: show mobile shell; desktop nav stays hidden (also hidden inline in HTML) */
+    /* Mobile shell visible; desktop nav hidden (also inline on the element) */
     #mobile-nav-container{display:block !important;}
     .hamburger{display:block !important;}
-    #desktop-nav{display:none !important;} /* reinforce the inline default */
+    #desktop-nav{display:none !important;}
 
     /* Enable desktop nav only on wider screens */
     @media (min-width:981px){
@@ -43,48 +43,20 @@
       .hamburger{display:none !important;}
     }
 
-    /* HERO visibility + legacy CTA placement */
+    /* Hero visibility + legacy CTA placement (mirrors style.css) */
     .hero{position:relative;}
-    .hero-cta-container{
-      position:absolute;
-      bottom:-83px;             /* your original offset */
-      left:50%;
-      transform:translateX(-52%);
-      z-index:10;
-    }
-    .img-cta-button{
-      max-width:1080px;
-      width:90%;
-      height:auto;
-      display:block;
-      margin:0 auto;
-    }
-    @media (max-width:980px){
-      .hero-cta-container{display:none !important;} /* hide desktop CTA on phones/tablets */
-    }
-
+    .hero-cta-container{position:absolute; bottom:-83px; left:50%; transform:translateX(-52%); z-index:10;}
+    .img-cta-button{max-width:1080px; width:90%; height:auto; display:block; margin:0 auto;}
+    @media (max-width:980px){ .hero-cta-container{display:none !important;} }
     .hero-desktop{display:block !important;}
     .hero-mobile{display:none !important;}
-    @media (max-width:980px){
-      .hero-desktop, .hero{display:none !important;}
-      .hero-mobile{display:block !important;}
-    }
-    @media (min-width:981px){
-      .hero-mobile{display:none !important;}
-      .hero-desktop{display:block !important;}
-    }
-
-    /* Mobile hero sizing */
+    @media (max-width:980px){ .hero-desktop,.hero{display:none !important;} .hero-mobile{display:block !important;} }
+    @media (min-width:981px){ .hero-mobile{display:none !important;} .hero-desktop{display:block !important;} }
     .hero-mobile{margin:0; padding:0; line-height:0;}
-    .hero-mobile img{
-      width:100% !important;
-      height:auto !important;
-      display:block !important;
-      max-width:100%;
-    }
+    .hero-mobile img{width:100% !important; height:auto !important; display:block !important; max-width:100%;}
   </style>
 
-  <!-- Meta Pixel (unchanged) -->
+  <!-- Meta Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -123,12 +95,12 @@
     }
   </script>
 
-  <!-- Header / Desktop Nav (HIDDEN BY DEFAULT) -->
+  <!-- Header / Desktop Nav (hidden by default) -->
   <header>
     <img src="logo5xJ.png" alt="The Memory House Logo" class="logo" loading="lazy">
     <h1 class="site-title">The Memory House</h1>
 
-    <!-- Hidden by default; only enabled ≥981px by CSS -->
+    <!-- Hidden by default; enabled ≥981px by CSS -->
     <nav id="desktop-nav" style="display:none">
       <ul class="menu">
         <li>
@@ -142,7 +114,7 @@
       </ul>
     </nav>
 
-    <div class="banner-line" style="background-color:#f5f0eb; text-align:center; padding:28px 10px; font-size:1.15em; font-weight:500; font-style:italic; color:#3B2A28;">
+    <div class="banner-line">
       Custom, hand-painted house portraits — for the home you’ll never forget
     </div>
   </header>
@@ -166,6 +138,7 @@
     <!-- Testimonials / Gallery -->
     <section class="testimonial-section">
       <h3 class="testimonial-title">What our customers say...</h3>
+
       <div class="testimonial-box">
         <div class="testimonial-container">
           <div class="testimonial-flex">
@@ -184,13 +157,24 @@
         <p class="trust-line">
           <span style="font-weight:600;">
             Chosen again and again by families, realtors, and collectors across the country.
-            <div style="max-width:640px; margin:0 auto; text-align:center; padding-top:20px; font-size:1.1rem;">
-              <p><strong>Proof within 3 days.</strong></p>
-              <p>Once we’ve received your photos, we’ll send you a digital proof of your portrait within 3 business days. You’ll review and approve the artwork before we print and ship it.</p>
-            </div>
           </span>
-          <div style="text-align:center; font-size:30px; margin:30px 0;"> 🏠 🎨 🫶 🔑 </div>
         </p>
+
+        <div style="max-width:640px; margin:0 auto; text-align:center; padding-top:20px; font-size:1.1rem;">
+          <p><strong>Proof within 3 days.</strong></p>
+          <p>
+            Once we’ve received your photos, we’ll send you a digital proof of your portrait within 3
+            business days. You’ll review and approve the artwork before we print and ship it.
+          </p>
+        </div>
+
+        <!-- Emoji row: color-emoji fonts FIRST so Chrome can’t show tofu -->
+        <div
+          style="text-align:center; font-size:30px; margin:30px 0;
+                 font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Segoe UI Symbol',
+                              'MemHoSerif', Georgia, 'Times New Roman', serif;">
+          🏠 🎨 🫶 🔑
+        </div>
 
         <hr style="width:150px; margin:20px auto; border:0; border-top:1px solid #ccc;">
 

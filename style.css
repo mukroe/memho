@@ -1,36 +1,31 @@
 /* ───────────────────────────────────────────────────────────────────────────
-   The Memory House – site stylesheet  (v-emoji-fix)
+   The Memory House – site stylesheet  (v-emoji-fix-2)
    - Cormorant Garamond via /assets/fonts/memho-fonts.css (MemHoSerif)
-   - Emoji fallback so Chrome desktop renders 🏠 🎨 🫶 🔑 instead of tofu
+   - Emoji fallback (Chrome desktop) + dedicated .emoji-row using emoji first
+   - Header logo size locked to classic look
    - Mobile-first nav + legacy desktop CTA placement preserved
-   - Font Awesome scoped to icons only (never body text)
+   - Font Awesome scoped to icons only
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* ========== CSS variables ========== */
 :root{
-  /* Typography */
   --serif: "MemHoSerif", Georgia, "Times New Roman", serif;
-  /* Explicit color-emoji stacks so Chrome desktop falls back correctly */
   --emoji: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Segoe UI Symbol";
 
-  /* Palette */
   --ink: #3B2A28;
   --ink-soft: #6A7A89;
   --cream: #fdf9f4;
   --banner: #f5f0eb;
-  --brand: #B9975B;  /* gold-brown accents */
+  --brand: #B9975B;
   --btn-bg: #e6dcc7;
   --btn-bg-hover: #b9975b;
 }
 
-/* ========== Base / reset ========== */
 * { box-sizing: border-box; }
 html, body {
   margin: 0;
   padding: 0;
   background-color: var(--cream);
   color: var(--ink);
-  /* 🔑 global stack: main serif + explicit emoji fallbacks */
   font-family: var(--serif), var(--emoji) !important;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -40,28 +35,34 @@ html, body {
 }
 img { max-width: 100%; height: auto; display: block; }
 
-/* Prevent FA from leaking onto normal text */
+/* Prevent FA from leaking onto text */
 .fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
 [class^="fa-"], [class*=" fa-"]{
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
 }
 
-/* Make sure headings, menu, and special lines also get emoji fallback */
+/* Headings / key text also inherit emoji fallback */
 h1, h2, h3, h4, h5, h6,
 .menu, .banner-line, .trust-line, .testimonial-title,
-.testimonial-quote, .testimonial-cite, .emoji-row {
+.testimonial-quote, .testimonial-cite {
   font-family: var(--serif), var(--emoji) !important;
 }
 
-/* ========== Header / top banner ========== */
-.logo { display:block; margin: 20px auto 10px; height: auto; }
-.site-title {
-  text-align: center;
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.logo{
+  display:block;
+  margin: 18px auto 10px;
+  /* lock size so it matches the old look */
+  width: clamp(120px, 14vw, 180px);
+  height: auto;
+}
+.site-title{
+  text-align:center;
   margin: 0 0 10px;
   font-weight: 700;
 }
 
-/* Top “tagline” strip */
+/* Tagline bar */
 .banner-line{
   background-color: var(--banner);
   text-align: center;
@@ -72,33 +73,29 @@ h1, h2, h3, h4, h5, h6,
   color: var(--ink);
 }
 
-/* ========== Navigation ========== */
-/* mobile-first: mobile visible, desktop nav off; index.html turns on desktop ≥981px */
+/* ── Navigation ─────────────────────────────────────────────────────────── */
 #mobile-nav-container { display:block; }
 .hamburger { display:block; cursor: pointer; user-select: none; }
 
-/* Mobile menu closed by default – opens only via .active */
+/* Mobile menu closed by default */
 #navMenu{ display:none; list-style:none; padding:0; margin:10px 0 0; text-align:center; }
 #navMenu.active{ display:block; }
 #mobile-nav-container .menu li{ margin:8px 0; }
-#mobile-nav-container .menu a{
-  text-decoration:none;
-  color: var(--ink);
-}
+#mobile-nav-container .menu a{ text-decoration:none; color: var(--ink); }
 
-/* Desktop nav (enabled from HTML/CSS at ≥981px) */
-#desktop-nav { display:none; } /* reinforced in HTML too */
+/* Desktop nav (enabled ≥981px by HTML/CSS) */
+#desktop-nav { display:none; }
 #desktop-nav .menu{ list-style:none; padding:0; margin:0; text-align:center; }
 #desktop-nav .menu a{ text-decoration:none; color: var(--ink); }
 
-/* ========== Hero ========== */
+/* ── Hero ───────────────────────────────────────────────────────────────── */
 .hero { position: relative; line-height: 0; }
 .hero img { width:100%; height:auto; }
 
-/* Desktop CTA (legacy exact placement) */
+/* Legacy desktop CTA placement */
 .hero-cta-container{
   position: absolute;
-  bottom: -83px;              /* your tuned offset */
+  bottom: -83px;
   left: 50%;
   transform: translateX(-52%);
   z-index: 10;
@@ -111,7 +108,7 @@ h1, h2, h3, h4, h5, h6,
   display:block;
 }
 
-/* Mobile hero block */
+/* Mobile hero */
 .hero-mobile{ margin:0; padding:0; line-height:0; }
 .hero-mobile img{
   width:100% !important;
@@ -119,27 +116,24 @@ h1, h2, h3, h4, h5, h6,
   display:block !important;
 }
 
-/* Visibility rules */
+/* Visibility switches */
 .hero-desktop{ display:block; }
 .hero-mobile{ display:none; }
 
-/* ≤980px: mobile hero only, hide desktop CTA */
 @media (max-width: 980px){
   .hero-desktop, .hero { display:none !important; }
   .hero-mobile{ display:block !important; }
   .hero-cta-container{ display:none !important; }
 }
 
-/* ≥981px: desktop hero only */
 @media (min-width: 981px){
   .hero-mobile{ display:none !important; }
   .hero-desktop{ display:block !important; }
-  /* desktop nav on, mobile shell off – HTML also enforces this */
   #desktop-nav{ display:block; }
   #mobile-nav-container, .hamburger{ display:none; }
 }
 
-/* ========== “Sticky” CTA button (bottom bar) ========== */
+/* ── Sticky CTA ─────────────────────────────────────────────────────────── */
 .sticky-cta{ text-align:center; margin:40px 0 0; }
 .cta-sticky-button{
   display:inline-block;
@@ -158,7 +152,7 @@ h1, h2, h3, h4, h5, h6,
   transform: scale(1.02);
 }
 
-/* ========== Testimonials ========== */
+/* ── Testimonials ───────────────────────────────────────────────────────── */
 .testimonial-section{ padding: 10px 0 0; }
 .testimonial-title{
   text-align:center;
@@ -185,11 +179,18 @@ h1, h2, h3, h4, h5, h6,
 }
 .testimonial-cite{ display:block; font-weight:700; margin-top:6px; text-align:right; }
 
-/* Trust line + emoji row */
+/* Trust line */
 .trust-line{ text-align:center; margin: 0; }
-.emoji-row{ text-align:center; font-size:30px; margin:30px 0; }
 
-/* ========== Mini gallery ========== */
+/* 👇 Force emoji to use a color-emoji font FIRST (bulletproof for Chrome) */
+.emoji-row{
+  text-align:center;
+  font-size:30px;
+  margin:30px 0;
+  font-family: var(--emoji), var(--serif) !important;
+}
+
+/* ── Mini gallery ───────────────────────────────────────────────────────── */
 .gallery-heading{
   text-align:center;
   margin: 30px 0 10px;
@@ -205,10 +206,10 @@ h1, h2, h3, h4, h5, h6,
 }
 .mini-gallery-img{ width:100%; height:auto; border-radius:8px; }
 
-/* ========== Video section ========== */
+/* ── Video ──────────────────────────────────────────────────────────────── */
 #see-the-art{ background-color:#fdf6e9; padding:60px 0; text-align:center; }
 
-/* ========== Footer ========== */
+/* ── Footer ─────────────────────────────────────────────────────────────── */
 .realtor-btn{
   display:inline-block;
   font-size: 0.9em;
@@ -225,7 +226,7 @@ h1, h2, h3, h4, h5, h6,
   transform: scale(1.05);
 }
 
-/* ========== Small-screen refinements ========== */
+/* ── Small-screen refinements ───────────────────────────────────────────── */
 @media (max-width: 768px){
   .mini-gallery{ grid-template-columns: 1fr; }
   .testimonial-img{ width:200px; height:200px; margin: 0 auto; }
