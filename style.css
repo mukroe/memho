@@ -34,9 +34,6 @@ input, textarea, select {
 
 :root{
   /* Typography */
-  --serif: "MemHoSerif", Georgia, "Times New Roman", serif;
-  --emoji: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Segoe UI Symbol";
-
   /* Palette */
   --ink: #3B2A28;
   --ink-soft: #6A7A89;
@@ -54,7 +51,7 @@ html, body {
   padding: 0;
   background-color: var(--cream);
   color: var(--ink);
-  /* serif + emoji fallback (Chrome may still use serif for emoji) */
+  
   font-family: var(--serif), var(--emoji) !important;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
