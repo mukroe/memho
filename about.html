@@ -3,8 +3,18 @@
 <!-- Trigger rebuild for button behavior -->
 <html lang="en">
 <head>
-  <style id="emergency-override-fonts">*,*::before,*::after{font-family:Arial,Helvetica,sans-serif!important}</style>
-<style>
+  <meta charset="UTF-8" />
+
+  <!-- MEMHO FONT PACK (Cormorant Garamond + emoji fallbacks) -->
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2"   as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2"      as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2"    as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2"as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
+  <link rel="stylesheet" href="style.css?v=emoji-fix-2">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
   /* Hide mobile menu and hamburger by default */
   .hamburger, #navMenu {
     display: none;
@@ -62,7 +72,6 @@
     color: #2C2C2C;
 }
 </style>
-<meta charset="UTF-8">
 <style>
    body {
     font-family: Georgia, serif;
@@ -167,8 +176,7 @@ nav {
   margin-top: 0;
 }
   </style>
-<title>About The Memory House – Art with Meaning</title><meta content="Learn the story behind The Memory House and how we turn homes into heirloom-quality works of art." name="description"/><link href="https://thememoryhouse.art/about.html" rel="canonical"/><link href="style.css" rel="stylesheet"/>
-<style>
+<title>About The Memory House – Art with Meaning</title><meta content="Learn the story behind The Memory House and how we turn homes into heirloom-quality works of art." name="description"/><link href="https://thememoryhouse.art/about.html" rel="canonical"/><style>
   /* Sticky CTA: center reliably */
   .sticky-cta {
     position: fixed;
@@ -207,6 +215,72 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+  
+  <style>
+    /* Load CormorantGaramond directly on-page (Chrome-safe) */
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-BoldItalic.woff2') format('woff2');
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+    html, body {
+      font-family: 'CormorantGaramond', serif !important;
+    }
+  </style>
+
+
+  <style>
+    /* Force brand font on all key UI text; do NOT affect <i> icon elements */
+    html, body, header, nav, .banner-line, .realtor-btn, .cta-sticky-button, .menu a,
+    button, input, textarea, select,
+    h1, h2, h3, h4, h5, h6, p, blockquote, cite, li, dd, dt, small, span {
+      font-family: 'CormorantGaramond', serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+
+
+  <style>
+    .studio-cta-title {
+      font-family: 'CormorantGaramond', serif !important;
+      font-weight: 700;
+      font-size: 20px;
+      color: #1c1c1c;
+    }
+    .studio-cta-subtitle {
+      font-family: 'CormorantGaramond', serif !important;
+      font-style: italic;
+      font-size: 16px;
+      color: #6a4e35;
+      margin-top: 6px;
+    }
+  </style>
+
 </head>
 <body><div class="page-tag">About The Artist</div>
 <!-- Mobile Hamburger Navigation -->
@@ -273,10 +347,8 @@ src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
 </div>
 <div style="margin-top: 60px; text-align: center;"><a href="https://thememoryhouse.art/blog" style="text-decoration: none;">
 <div style="background-color: #bcc8be; padding: 18px 32px; border-radius: 12px; display: inline-block; transition: background-color 0.3s ease;">
-<div style="font-family: Georgia, serif; font-weight: bold; font-size: 20px; color: #1c1c1c;">Visit the Studio</div>
-<div style="font-family: Palatino, serif; font-style: italic; font-size: 16px; color: #6a4e35; margin-top: 6px;">
-      Stories, behind-the-scenes, and more
-    </div>
+<div class="studio-cta-title">Visit the Studio</div>
+<div class="studio-cta-subtitle">Stories, behind-the-scenes, and more</div>
 </div>
 </a></div><p style="margin-top: 6px;">Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.</p>
 <footer>
