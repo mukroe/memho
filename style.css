@@ -7,6 +7,31 @@
    - NOTE: sticky CTA here is NON-sticky (original behavior)
    ─────────────────────────────────────────────────────────────────────────── */
 
+/* === Brand Font Lock (site-wide, Chrome-safe) === */
+:root {
+  --brand-serif: 'CormorantGaramond', serif;
+}
+
+/* Apply CormorantGaramond to all text-bearing elements */
+html, body,
+header, nav, main, footer,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, cite, small, span, strong, em, b, i,
+a, li, ul, ol, dl, dt, dd,
+button, .button, .cta-sticky-button, .realtor-btn,
+input, textarea, select {
+  font-family: var(--brand-serif) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Explicitly preserve Font Awesome fonts for icons */
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands,
+[class^="fa-"], [class*=" fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+}
+
+
 :root{
   /* Typography */
   --serif: "MemHoSerif", Georgia, "Times New Roman", serif;

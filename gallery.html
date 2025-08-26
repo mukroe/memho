@@ -2,8 +2,8 @@
 
 <html lang="en">
 <head>
-  <style id="emergency-override-fonts">*,*::before,*::after{font-family:Arial,Helvetica,sans-serif!important}</style>
-<style>
+  <meta charset="UTF-8" />
+  <style>
    .hamburger, #navMenu {
     display: none;
   }
@@ -46,12 +46,7 @@
     transform: translateX(-50%);
     z-index: 999;
 }
-.cta-sticky-button {
-    background-color: #B89F69;
-    color: #FAF4E8;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: 'Georgia', serif;
+\1font-family: 'CormorantGaramond', serif;
     text-decoration: none;
     padding: 10px 24px;
     border-radius: 10px;
@@ -65,7 +60,7 @@
     color: #2C2C2C;
 }
   </style>
-<meta charset="UTF-8">
+
 
 <!-- ▼▼▼ SEO/Crawl: injected from source (only) ▼▼▼ -->
 <title>Gallery – The Memory House</title>
@@ -108,7 +103,7 @@
 
 <style>
    body {
-      font-family: Georgia, serif;
+      font-family: 'CormorantGaramond', serif;
       background-color: #fdfbf7;
       margin: 0;
       padding: 0;
@@ -375,6 +370,56 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+  <!-- MEMHO FONT PACK (Cormorant Garamond + emoji fallbacks) -->
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2"   as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2"      as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2"    as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2"as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
+  <link rel="stylesheet" href="style.css?v=emoji-fix-2">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Load & lock brand type */
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-BoldItalic.woff2') format('woff2');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    html, body {
+      font-family: 'CormorantGaramond', serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+
+
+  <style>
+    /* Force brand font on key UI text for Chrome */
+    html, body, header, nav, .nav-wrapper, .nav-wrapper a, .page-tag,
+    h1, h2, h3, h4, h5, h6, p, .caption, .testimonial, .testimonial p,
+    .cta-sticky-button, .realtor-btn, button, a, li, span, small {
+      font-family: 'CormorantGaramond', serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+
 </head>
 <body><div class="page-tag">Explore Our Gallery</div>
 <!-- Mobile Hamburger Navigation -->
@@ -522,7 +567,7 @@ src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
 </section>
 <div style="height: 60px;">
 </div>
-<h2 style="font-size: 2.25em; font-weight: bold; text-align: center; margin: 60px 0 30px 0; font-family: Georgia, serif;">
+<h2 style="font-size: 2.25em; font-weight: bold; text-align: center; margin: 60px 0 30px 0; font-family: 'CormorantGaramond', serif;">
    What Our Clients Are Saying
   </h2>
 <div class="testimonial-wrapper">
@@ -633,7 +678,7 @@ src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
    Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
   </p>
 <div style="text-align:center; padding-bottom: 80px;">
-<p style="font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+<p style="font-style:italic; font-family: 'CormorantGaramond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
     Memories start with home — and end in .art
    </p>
 <p style="margin-bottom: 10px;">
