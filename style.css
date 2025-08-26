@@ -133,24 +133,47 @@ h1, h2, h3, h4, h5, h6,
   #mobile-nav-container, .hamburger{ display:none; }
 }
 
-/* ── Sticky CTA ─────────────────────────────────────────────────────────── */
-.sticky-cta{ text-align:center; margin:40px 0 0; }
+/* ========== Sticky CTA (fixed on all screens) ========== */
+.sticky-cta{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 16px;                 /* base offset */
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  pointer-events: none;         /* only the button is clickable */
+}
+
+@supports (padding: max(0px)) {
+  /* iOS safe-area support */
+  .sticky-cta{ bottom: max(16px, env(safe-area-inset-bottom)); }
+}
+
 .cta-sticky-button{
-  display:inline-block;
+  pointer-events: auto;
+  display: inline-block;
   background-color: var(--btn-bg);
   color: #1c1c1c;
   padding: 14px 24px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 700;
-  letter-spacing:.02em;
+  letter-spacing: .02em;
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
   transition: background-color .2s ease, transform .2s ease;
 }
+
 .cta-sticky-button:hover{
   background-color: var(--btn-bg-hover);
   color: #fff;
   transform: scale(1.02);
 }
+
+/* Keep content from hiding under the fixed bar */
+body{ padding-bottom: 120px; }
+
 
 /* ── Testimonials ───────────────────────────────────────────────────────── */
 .testimonial-section{ padding: 10px 0 0; }
