@@ -248,3 +248,30 @@ h1, h2, h3, h4, h5, h6,
   .testimonial-img{ width:200px; height:200px; margin: 0 auto; }
   .testimonial-text{ text-align:center; }
 }
+/* Kill ghost box above footer */
+footer + div,
+footer + p,
+footer + section,
+footer + form,
+footer + aside,
+footer + hr {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  border: 0 !important;
+}
+
+/* Hide hidden fields or honeypots */
+[aria-hidden="true"],
+[role="presentation"],
+input[type="text"][tabindex="-1"],
+.hidden,
+.visually-hidden {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
