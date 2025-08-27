@@ -2,8 +2,7 @@
 
 <html>
 <head>
-  <style id="emergency-override-fonts">*,*::before,*::after{font-family:Arial,Helvetica,sans-serif!important}</style>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <style>
    .sticky-cta {
     position: fixed;
@@ -17,7 +16,7 @@
     color: #FAF4E8;
     font-weight: bold;
     font-size: 18px;
-    font-family: 'Georgia', serif;
+    font-family: 'CormorantGaramond', serif;
     text-decoration: none;
     padding: 10px 24px;
     border-radius: 10px;
@@ -32,9 +31,41 @@
 }
   </style>
 <meta charset="UTF-8">
+
+  <!-- MEMHO FONT PACK (CormorantGaramond) -->
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2"   as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2"      as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2"    as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2"as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-BoldItalic.woff2') format('woff2');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    html, body { font-family: 'CormorantGaramond', serif !important; }
+  </style>
 <style>
    body {
-    font-family: Georgia, serif;
+    font-family: 'CormorantGaramond', serif;
     background-color: #fdfbf7;
     margin: 0;
     padding: 0;
@@ -191,6 +222,31 @@ nav {
     text-decoration:none !important;
 }
 </style>
+
+  <style>
+    header img.logo, img.logo-header { max-height: 56px; height: auto; width: auto; }
+    @media (max-width:768px){ header img.logo, img.logo-header { max-height: 44px; } }
+  </style>
+
+
+<style id="blog-img-centering-v2">
+  /* Center images inside blog content blocks on this page */
+  .tight-block img {
+    display: block;
+    margin: 30px auto;
+    height: auto;
+    max-width: 90%;
+    border-radius: 12px;
+  }
+  /* Also cover any ad-hoc centered wrappers that lost inline centering */
+  div[style*="text-align: center"] > img {
+    display: inline-block;
+    margin: 0 auto;
+    height: auto;
+    max-width: 100%;
+  }
+</style>
+
 </head>
 <body><div class="page-tag">Visit the Studio</div>
 <!-- Mobile Hamburger Navigation -->
@@ -480,9 +536,9 @@ nav {
 </div>
 </div>
 <footer>
-<p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; margin-bottom: 10px;">
+<p style="text-align:center; font-style:italic; font-family: 'CormorantGaramond', serif; color:#a67c52; margin-bottom: 10px;">
 </p>
-<p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+<p style="text-align:center; font-style:italic; font-family: 'CormorantGaramond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
      Memories start with home — and end in .art
     </p>
     © 2025 The Memory House

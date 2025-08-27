@@ -19,6 +19,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta charset="UTF-8">
 
+
+  <!-- MEMHO FONT PACK (Cormorant Garamond + emoji fallbacks) -->
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2"   as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2"      as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2"    as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2"as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Regular.woff2') format('woff2');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'CormorantGaramond';
+      src: url('/assets/fonts/CormorantGaramond-BoldItalic.woff2') format('woff2');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    html, body { font-family: 'CormorantGaramond', serif !important; }
+  </style>
 <!-- ▼ SEO/Crawl injected from SOURCE (only these tags were added/updated) ▼ -->
 <title>Order Your Watercolor Home Portrait – The Memory House</title>
 <meta name="description" content="Reserve your bespoke watercolor house portrait today. Perfect as a timeless gift for homeowners, families, and realtors." />
@@ -51,7 +82,7 @@
 
 <style>
    body {
-      font-family: Georgia, serif;
+      font-family: 'CormorantGaramond', serif;
       background: #fdfbf7;
       text-align: center;
       margin: 0;
@@ -232,6 +263,38 @@ form input, form textarea, form select {
    }
    @media (min-width: 769px) { .mobile-pricing-cards { display: none; } }
 </style>
+
+<style>
+  img.logo-header { max-height:56px; height:auto; width:auto; }
+  @media (max-width:768px){ img.logo-header { max-height:44px; } }
+</style>
+
+
+<style id="order-image-centering">
+  /* Center content images on the order page */
+  .container img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Keep header/logo unaffected */
+  img.logo-header { display: block; margin-left: auto; margin-right: auto; }
+</style>
+
+
+<style id="footer-social-only">
+  /* Only show social icons inside the footer paragraph; hide legacy sidebars */
+  .social-fixed, .social-sidebar, .floating-social, .share-sidebar,
+  .social-left, .social-stick, .sharebar, .floating-share { display: none !important; }
+  /* In case any 'social' blocks use fixed positioning */
+  [class*="social"][style*="position:fixed"] { position: static !important; left:auto!important; top:auto!important; }
+</style>
+
+
+<style id="footer-social-inline-img">
+  p.footer-credits a img { display:inline-block; margin: 0 10px; }
+</style>
+
 </head>
 <body><div class="page-tag">Place Your Order</div>
 <!-- Mobile Hamburger Navigation -->
@@ -283,7 +346,7 @@ form input, form textarea, form select {
     document.body.classList.toggle('menu-open');
   }
   </script>
-<img 13px="" 7px="" 82px;="" auto="" auto;="" block;="" class="logo-header" display:="" loading="lazy" margin:="" src="images/logo5xJ.png" style="width:"/>
+<img class="logo-header" src="images/logo5xJ.png" loading="lazy" style="width:auto; height:56px; display:block; margin:13px auto 7px auto;" alt="The Memory House logo">
 <h1 0="" 0;="" 7px="" class="site-title" style="margin:">
    The Memory House
   </h1>
@@ -325,7 +388,7 @@ form input, form textarea, form select {
 </p>
 <div style="text-align: center; margin-top: 40px; margin-bottom: 40px;">
 <img alt="Happy couple holding house portrait" loading="lazy" src="images/happy-couple.webp" style="width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);"/>
-<p style="font-style: italic; color: #6b4f36; font-family: Georgia, serif; margin-top: 10px;">
+<p style="font-style: italic; color: #6b4f36; font-family: 'CormorantGaramond', serif; margin-top: 10px;">
      “It now hangs in the heart of our home. Quiet, beautiful, and full of meaning.”
      <br/>
      — Mark &amp; Alissa B., Asheville NC
@@ -530,7 +593,7 @@ form input, form textarea, form select {
      Free shipping within the continental U.S. • Local pickup in Burke, VA available
     </strong>
 </p>
-<img alt="Premium" gift="" loading="lazy" package="" src="images/PremiumGiftPackage_Final.jpg/"/>
+<img alt="Premium" gift="" loading="lazy" package="" src="images/PremiumGiftPackage_Final.jpg"/>
 <h2>
     Ready to Turn Your Home into a Piece of Heart?
    </h2>
@@ -578,7 +641,6 @@ form input, form textarea, form select {
      </strong>
 </label>
 <textarea id="notes" name="notes" placeholder="e.g., remove tree, include pet, change season, etc." rows="4"></textarea>
-<div id="card-element" style="margin:20px 0;"></div>
 <div id="card-errors" role="alert" style="color:red;"></div>
 <button type="submit">
      Submit Order
@@ -607,38 +669,24 @@ form input, form textarea, form select {
     </p>
 </div>
 </div>
-<div 10px;="" center;="" class="social-icons" margin-top:="" style="text-align:">
-<a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61576247801948" target="_blank">
-<img 10px;="" alt="Facebook" loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" style="width:24px;height:24px;margin:0"/>
-</a>
-<a aria-label="Instagram" href="https://www.instagram.com/thememoryhouse.art" target="_blank">
-<img 10px;="" alt="Instagram" loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" style="width:24px;height:24px;margin:0"/>
-</a>
-<a aria-label="LinkedIn" href="https://www.linkedin.com" target="_blank">
-<img 10px;="" alt="LinkedIn" loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" style="width:24px;height:24px;margin:0"/>
-</a>
-</div>
 <div style="height: 50px;">
 </div>
 <div style="height: 50px;">
 </div>
-<p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+<p style="text-align:center; font-style:italic; font-family: 'CormorantGaramond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
    Memories start with home — and end in .art
   </p>
-<p style="text-align:center;">
+<p class="footer-credits" style="text-align:center;">
    © 2025 The Memory House
    <br/>
 <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
-<i class="fab fa-facebook-f fa-lg">
-</i>
+<img alt="Facebook" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" style="width:22px;height:22px;vertical-align:middle;">
 </a>
 <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
-<i class="fab fa-instagram fa-lg">
-</i>
+<img alt="Instagram" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" style="width:22px;height:22px;vertical-align:middle;">
 </a>
 <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
-<i class="fab fa-linkedin-in fa-lg">
-</i>
+<img alt="LinkedIn" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" style="width:22px;height:22px;vertical-align:middle;">
 </a>
 </p>
 <!-- Stripe Integration with Dynamic Pricing -->

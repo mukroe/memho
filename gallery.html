@@ -46,7 +46,9 @@
     transform: translateX(-50%);
     z-index: 999;
 }
-\1font-family: 'CormorantGaramond', serif;
+}
+.cta-sticky-button {
+    font-family: 'CormorantGaramond', serif;
     text-decoration: none;
     padding: 10px 24px;
     border-radius: 10px;
@@ -420,6 +422,18 @@ src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
     }
   </style>
 
+
+<style id="hide-floating-social">
+  .social-fixed, .social-left, .floating-social, .social-sidebar, .sharebar, .floating-share {
+    display: none !important;
+  }
+  [class*="social"][style*="position:fixed"] {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+  }
+</style>
+
 </head>
 <body><div class="page-tag">Explore Our Gallery</div>
 <!-- Mobile Hamburger Navigation -->
@@ -644,23 +658,6 @@ src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
 </div>
 </div>
 <div style="margin-bottom: 80px;">
-</div>
-<div class="social-icons" style="text-align: center; margin-top: 10px;">
-<a aria-label="Facebook" data-fancybox="gallery" href="https://www.facebook.com/profile.php?id=61576247801948" target="_blank">
-<a data-fancybox="gallery" href="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg">
-<img alt="Facebook" loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" style="width:24px;height:24px;margin:0 10px;"/>
-</a>
-</a>
-<a aria-label="Instagram" data-fancybox="gallery" href="https://www.instagram.com/thememoryhouse.art" target="_blank">
-<a data-fancybox="gallery" href="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg">
-<img alt="Instagram" loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" style="width:24px;height:24px;margin:0 10px;"/>
-</a>
-</a>
-<a aria-label="LinkedIn" data-fancybox="gallery" href="https://www.linkedin.com" target="_blank">
-<a data-fancybox="gallery" href="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg">
-<img alt="LinkedIn" loading="lazy" src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" style="width:24px;height:24px;margin:0 10px;"/>
-</a>
-</a>
 </div>
 <div style="position:fixed; bottom:40px; left:50%; transform:translateX(-50%); z-index:1000;">
 </div>
