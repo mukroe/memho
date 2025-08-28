@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<!-- MEMHO fonts + Font Awesome -->
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Bold.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Italic.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/fonts/memho-fonts.css?v=1" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    /* Force the brand serif everywhere, keep your centering */
+    body{font-family:'Cormorant Garamond','CormorantGaramond','Times New Roman',Times,serif !important;}
+    /* Use color emoji where needed without affecting normal text */
+    .emoji, .uses-emoji{font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Twemoji Mozilla','Noto Emoji', sans-serif; font-size: 0.95em;}
+    /* Improve punctuation shaping */
+    html{font-kerning: normal; font-variant-ligatures: common-ligatures; text-rendering: optimizeLegibility;}
+  </style>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="style.css" rel="stylesheet"/>
+<!-- Fancybox v3 -->
+<link href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" rel="stylesheet"/>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script defer="True" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<title>Realtor Inner Circle | The Memory House</title>
+<style>
+.sr-only {
+  position:absolute !important;
+  width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,1px,1px); white-space:nowrap; border:0;
+}
+</style>
+<meta content="Join the Realtor Inner Circle for premium benefits and exclusive access to handcrafted house portrait gifts for your clients." name="description"/><link href="https://thememoryhouse.art/realtor-exclusive.html" rel="canonical"/><style>body { background-color: #FAF4E8; }</style></head>
+<body>
+<header>
+<div class="topnav" style="text-align: center; padding: 1rem 0 0;">
+<img alt="The Memory House Logo" class="logo" loading="lazy" src="images/logo5xJ.png" style="width: 120px;"/>
+<div class="brand-wordmark" style="text-align:center; margin:0; line-height:1;">
+  <img
+    src="data:image/png;base64,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L3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIGV4aWY6UGl4ZWxYRGltZW5zaW9uPSIxOTEyIiBleGlmOlBpeGVsWURpbWVuc2lvbj0iOTkwIiBleGlmOlVzZXJDb21tZW50PSJTY3JlZW5zaG90IiB4bXA6Q3JlYXRlRGF0ZT0iMjAyNS0wOC0yN1QxODo0NTozMy0wNDowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjUtMDgtMjdUMTk6MTc6NTYtMDQ6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjUtMDgtMjdUMTk6MTc6NTYtMDQ6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjY4OGExM2U1LWExMDYtNDA4ZC1hYjZjLWI4YWM1ZDQ1ZTVjYSIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjMwZjM2ZjUwLTczMTMtMWQ0NC05YmY3LTRhMTBiOWI5ODlhZCIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjYxNDA4NmViLWM3ZTgtNGEzYy1iMmM3LTk4MGZmZmE5NjI2NCI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjYxNDA4NmViLWM3ZTgtNGEzYy1iMmM3LTk4MGZmZmE5NjI2NCIgc3RFdnQ6d2hlbj0iMjAyNS0wOC0yN1QxOToxMzowNC0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI2LjExICgyMDI1MDgyNC5tLjMxOTMgM2MyNDI5OSkgIChNYWNp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"
+    alt="The Memory House"
+    width="600" height="88"
+    decoding="async"
+    style="display:block; margin:6px auto 26px auto; width:600px; height:auto; max-width:none;" />
+  <span class="sr-only">The Memory House</span>
+</div>
+</div>
+</header>
+<main class="page-content" style="max-width: 900px; margin: auto; padding: 2rem;">
+<h1 class="centered" style="; color: #2C2C2C;">🎁 The Perfect Realtor Closing Gift</h1>
+<p class="tagline centered" style="; color: #51606C;">Give your clients something they’ll never forget: a handcrafted portrait of the home they just bought or sold.</p>
+<p class="centered" style="margin-bottom: 40px;"><strong style="; color: #51606C;">Loved by clients. Remembered forever.</strong></p>
+<p class="centered" style="font-size: 0.95rem; font-weight: 400; color: #555; margin-bottom: 0;">
+  Limited availability each month to ensure quality — reserve early.
+</p>
+<div style="text-align:center; margin: 2rem 0; margin-top: 10px;">
+<a class="cta-sticky-button" href="realtor-order.html"><span title="Only takes 60 seconds to order">ORDER YOUR PORTRAIT</span></a>
+</div>
+<p class="centered" style="font-family: Garamond, serif; font-size: 1.45rem; font-weight: 400; color: #B89F69; margin: 2rem auto 60px auto;">
+  This page was created especially for real estate professionals who want to give a lasting, meaningful gift to clients.
+</p>
+<section>
+<h2 style="; color: #2C2C2C;">Why Generic Gifts Fall Flat — and What Actually Works</h2>
+<p style="; color: #51606C;">You’ve just helped your client make one of the biggest decisions of their life. The papers are signed. The keys have changed hands. What they take with them now… are memories.</p>
+<p style="; color: #51606C;">Our custom house portraits capture those memories in a way no bottle of wine, gift basket, or cutting board ever could. These aren’t just closing gifts — they’re emotional keepsakes that become part of the family’s story.</p>
+<blockquote style="; color: #51606C;">“My clients cry when they unwrap it. That’s the kind of gift that keeps you top of mind.”<br/><strong style="; color: #51606C;">— Lydia T., Realtor, Compass</strong></blockquote>
+</section>
+<section>
+<div style="margin-top: 30px;"></div>
+<h2 style="; color: #2C2C2C;">See What You’re Gifting</h2>
+<div class="gallery" style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+<div><a data-fancybox="gallery" href="images/img2.jpg"><img alt="Craftsman home portrait" loading="lazy" src="images/img2.jpg" style="max-width: 280px; display: block; margin: 0 auto;"/></a><figcaption><em>“Craftsman-style charm”</em></figcaption></div>
+<div><a data-fancybox="gallery" href="images/img3.jpg"><img alt="Colonial home portrait" loading="lazy" src="images/img3.jpg" style="max-width: 280px;"/></a><figcaption><em>“Classic family home”</em></figcaption></div>
+<div><a data-fancybox="gallery" href="images/img5.jpg"><img alt="Modern home portrait" loading="lazy" src="images/img5.jpg" style="max-width: 280px;"/></a><figcaption><em>“Contemporary elegance”</em></figcaption></div>
+</div>
+</section>
+<section>
+<div style="margin-top: 30px;"></div>
+<h2 class="centered" style="; color: #2C2C2C;">How It Works</h2>
+<div style="text-align: center; max-width: 700px; margin: auto;">
+<p>Takes less than 3 minutes to order — and makes you unforgettable.</p>
+<p><strong>Price:</strong> $440 — all-inclusive</p>
+<p>Includes an 18×24 hand-rendered portrait, satin ribbon wrap, handwritten gift card, framed Certificate of Memory, and ready-to-hang <strong>gallery-wrapped canvas</strong></p>
+<p><strong>Timeline:</strong> Rush turnaround available — delivered in <strong>7 days or less</strong></p>
+<p><strong>Shipping:</strong> Free within the continental U.S. | Local pickup available in Burke, VA</p>
+<p><strong>Effortless:</strong> Just send a clear photo or MLS link — we’ll handle the rest</p>
+</div>
+</section>
+<section>
+<section class="centered" style="margin-top: 2rem; margin-bottom: 2rem;">
+<img alt="Premium Gift Package Presentation" loading="lazy" src="images/PremiumGiftPackage_Final.jpg" style="max-width: 600px; width: 100%; border: 1px solid #ccc;"/>
+<div style="max-width: 500px; margin: 0 auto; text-align: center;">
+<p style="font-weight: bold; font-size: 1.1em;">
+      Every detail — from the bow to the hand-inscribed card — is designed to make you unforgettable.
+    </p>
+<p style="margin-top: 0.5rem;">
+      Our Premium Gift Package includes a gallery-wrapped canvas, satin ribbon, gift card, and framed Certificate of Memory.
+    </p>
+<p style="font-style: italic; margin-top: 0.3rem;">
+      Ready to give. Impossible to forget.
+    </p>
+</div>
+</section>
+<h2 class="centered" style="; color: #2C2C2C;">Gifting One Client — or All of Them</h2>
+<div style="text-align: center; max-width: 700px; margin: auto;">
+<p>Fast turnaround for tight closings</p>
+<p>Loyalty pricing available after 3 gifts/year</p>
+<p>Framed and delivered directly to your client</p>
+</div>
+</section>
+<section style="margin: 3rem auto; max-width: 960px;">
+<div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+<blockquote style="font-style: italic; font-size: 0.95em; color: #444; max-width: 500px; margin: 0 auto;">
+    “My clients cry when they unwrap it. That’s the kind of gift that keeps you top of mind.”<br/>
+<span style="font-weight: bold;">— Lydia T., Realtor, Compass</span>
+</blockquote>
+</div>
+<h2 class="centered" style="; color: #2C2C2C;">What Other Realtors Are Saying</h2>
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;"><div class="testimonial-vertical-wrapper" style="max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px;; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div class="testimonial-vertical-desktop" style="width: 100%;">
+<div style="flex: 0 0 auto; width: 280px; scroll-snap-align: start; background-color: #fdf9f4; padding: 1rem; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+<blockquote style="font-style: italic; font-size: 0.95em; color: #444;">
+        “Clients don’t just like it — they share it with friends. That leads to more listings.”
+      </blockquote>
+<p style="margin-top: 0.5rem; font-weight: bold;">— Jordan P., Compass</p>
+</div><div style="flex: 0 0 auto; width: 280px; scroll-snap-align: start; background-color: #fdf9f4; padding: 1rem; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+<blockquote style="font-style: italic; font-size: 0.95em; color: #444;">
+“It’s become part of my brand. Every detail reflects the care I bring to every client.”
+</blockquote>
+<p style="margin-top: 0.5rem; font-weight: bold;">— Rachel M., Coldwell Banker</p>
+</div><div style="flex: 0 0 auto; width: 280px; scroll-snap-align: start; background-color: #fdf9f4; padding: 1rem; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+<blockquote style="font-style: italic; font-size: 0.95em; color: #444;">
+        “This gift gets me more referrals than anything else I’ve ever tried.”
+      </blockquote>
+<p style="margin-top: 0.5rem; font-weight: bold;">— Devon L., eXp Realty</p>
+</div>
+</div>
+<div class="testimonial-vertical-hidden" style="display:none; width: 100%;">
+<div style="flex: 0 0 auto; width: 280px; scroll-snap-align: start; background-color: #fdf9f4; padding: 1rem; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+<blockquote style="font-style: italic; font-size: 0.95em; color: #444;">
+        “I had two clients ask for extra copies for family. That says everything.”
+      </blockquote>
+<p style="margin-top: 0.5rem; font-weight: bold;">— Haley T., RE/MAX</p>
+</div><div style="flex: 0 0 auto; width: 280px; scroll-snap-align: start; background-color: #fdf9f4; padding: 1rem; border-radius: 8px; box-shadow: 0 0 6px rgba(0,0,0,0.05);">
+<blockquote style="font-style: italic; font-size: 0.95em; color: #444;">
+        “Every single client tears up when they open it. This is now my go-to closing gift.”
+      </blockquote>
+<p style="margin-top: 0.5rem; font-weight: bold;">— Sophia K., Keller Williams</p>
+</div>
+</div>
+<button id="see-more-testimonials" onclick="toggleTestimonials()" style="margin-top: 1rem;">
+    See More
+  </button>
+</div></div>
+<script>
+function toggleTestimonials() {
+  var hidden = document.querySelector('.testimonial-vertical-hidden');
+  var btn = document.getElementById('see-more-testimonials');
+  if (hidden.style.display === 'none') {
+    hidden.style.display = 'block';
+    btn.innerText = 'See Less';
+  } else {
+    hidden.style.display = 'none';
+    btn.innerText = 'See More';
+  }
+}
+</script>
+<style>
+@media (min-width: 768px) {
+  .testimonial-vertical-wrapper {
+    display: flex !important;
+  }
+  .testimonial-carousel,
+  .scroll-box {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .testimonial-vertical-wrapper {
+    display: none !important;
+  }
+}
+</style>
+<div class="realtor-photo-block">
+</div>
+</section>
+<div class="testimonial-image" style="text-align:center; margin:3rem 0;"><img alt="Happy client receiving artwork from elite realtor" loading="lazy" src="images/upscale realtor giving portrait fancier client copy.jpg" style="max-width:100%; border-radius:8px;"/><p style="font-style: italic; font-family: Georgia, serif; font-size: 1.1rem; color: #5b3e1a; margin-top: 0.8rem;"><div style="margin-bottom: 20px;">“This wasn’t just a closing gift. It was the moment she knew I saw her story—and honored it.”</div></p></div><section class="centered" style="background-color: #fdf7ef; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; margin-bottom: 2rem;">
+<div style="background-color:#FAF4E8; border: 2px solid #A58B55; padding: 20px; margin-top: 40px; margin-bottom: 40px;">
+<h3 style="color:#2C2C2C; font-family: Georgia, serif; font-size: 1.5em; letter-spacing: 0.5px; margin-top: 0;">📦 The Memory House Promise</h3>
+<p style="color:#6A7A89; font-family: Palatino, serif; font-size: 1.1em; line-height: 1.5;">
+<strong>If you
+
+'re not thrilled, you don’t pay.</strong> It's that simple. We believe in our work — and in the joy it brings.
+  </p>
+<div style="background-color:#2C2C2C; border: 2px solid #D8A48F; padding: 16px; margin-top: 20px; margin-bottom: 10px;">
+<p style="color:#FAF4E8; font-family: Palatino, serif; font-style: italic; font-size: 1.05em; margin: 0;">
+    Your first order is 100% satisfaction guaranteed.
+  </p>
+</div>
+</div>
+<p style="font-family: Palatino, serif; font-style: italic; font-size: 1.40em; color: #6A7A89; margin: 24px 0 18px 0; text-align: center;">
+  Create a moment that gets you remembered.
+</p>
+<p>
+<div style="text-align: center; margin-top: 20px;">
+<style>
+    .realtor-cta-btn {
+      display: inline-block;
+      background-color: #B89F69;
+      color: #FAF4E8;
+      font-family: Georgia, serif;
+      font-size: 1.15em;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .realtor-cta-btn:hover {
+      background-color: #D8A48F;
+      color: #2C2C2C;
+    }
+  </style>
+<a class="realtor-cta-btn" href="realtor-order.html">
+    Reserve a Realtor Gift
+  </a>
+<p style="font-family: Palatino, serif; color: #6A7A89; font-size: 1em; margin-top: 16px;">
+    Prefer email? Reach out to us<br/><a href="mailto:info@thememoryhouse.art" style="color: #6A7A89;">info@thememoryhouse.art</a>
+</p>
+</div>
+</p></section>
+<footer style="text-align: center; margin-top: 3rem;">
+<p style="text-align: center; font-style: italic; font-family: Georgia, serif; margin: 0.6rem auto 4.2rem;">We respond personally to every order and make sure it's just right for your client.</p><p><em>Your clients will remember their home forever.<br/>Make sure they remember you, too.</em></p>
+</footer>
+</main>
+<section style="margin-top: 3rem; padding: 2rem; background-color: #f8f1de; border-radius: 10px;">
+<h3 style="text-align: center;">Who We Are</h3>
+<p style="text-align: center; max-width: 700px; margin: auto; font-size: 1.05rem;">
+    The Memory House is run by a small artist-led team in Virginia.<br/>
+    Every portrait is drawn by hand, printed locally, and wrapped with care — so your clients know they matter.
+  </p>
+</section>
+<p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+Memories start with home — and end in .art
+</p>
+<p style="text-align:center;">
+© 2025 The Memory House<br/>
+<a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
+<i class="fab fa-facebook-f fa-lg"></i></a>
+<a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
+<i class="fab fa-instagram fa-lg"></i></a>
+<a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
+<i class="fab fa-linkedin-in fa-lg"></i></a>
+</p>
+</body>
+</html>

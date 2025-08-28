@@ -1,46 +1,42 @@
-/* === MemHo Serif (Cormorant Garamond) — WOFF2 primary + TTF fallback === */
-/* Files must exist at /assets/fonts/… (names must match exactly) */
 
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-Regular.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-Regular.ttf") format("truetype");
-  font-weight:400; font-style:normal; font-display:swap;
-}
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-Italic.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-Italic.ttf") format("truetype");
-  font-weight:400; font-style:italic; font-display:swap;
-}
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-Bold.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-Bold.ttf") format("truetype");
-  font-weight:700; font-style:normal; font-display:swap;
-}
-@font-face{
-  font-family:"MemHoSerif";
-  src:url("/assets/fonts/CormorantGaramond-BoldItalic.woff2") format("woff2"),
-      url("/assets/fonts/CormorantGaramond-BoldItalic.ttf") format("truetype");
-  font-weight:700; font-style:italic; font-display:swap;
-}
-
-/* Single locked stack for the whole site */
-:root { --serif: "MemHoSerif", Georgia, "Times New Roman", serif; }
-
-/* Make pages default to the new face */
-html, body { font-family: var(--serif); }
-
-/* Prevent Chrome from faking weights/styles. Keep FA scoped to icons. */
-* { font-synthesis-weight: none; font-synthesis-style: none; }
-.fa, .fas, .far, .fab,
-.fa-solid, .fa-regular, .fa-brands,
-[class^="fa-"], [class*=" fa-"] {
-  font-family: "Font Awesome 6 Free","Font Awesome 6 Brands" !important;
-}
-
-/* Optional hard lock (uncomment if any page still refuses the font)
-body, p, li, a, nav, blockquote, button, input, textarea,
-h1,h2,h3,h4,h5,h6 { font-family: var(--serif) !important; }
+/* memho-fonts.css — minimal, stable @font-face set for Cormorant Garamond
+   - No local() sources (avoids mismatched system installs)
+   - Correct weight/style mapping only
+   - font-display: swap to prevent blank/tofu during load
+   - Does NOT change any selectors on your site — only registers fonts
 */
+
+@font-face{
+  font-family: "Cormorant Garamond";
+  src: url("/assets/fonts/CormorantGaramond-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Cormorant Garamond";
+  src: url("/assets/fonts/CormorantGaramond-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Cormorant Garamond";
+  src: url("/assets/fonts/CormorantGaramond-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face{
+  font-family: "Cormorant Garamond";
+  src: url("/assets/fonts/CormorantGaramond-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Safety: never force small-caps via features on headings */
+h1,h2,h3 { font-variant-caps: normal; font-feature-settings: "smcp" 0; }

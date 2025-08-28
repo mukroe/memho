@@ -275,3 +275,31 @@ input[type="text"][tabindex="-1"],
   border: 0 !important;
 }
 
+/* === Realtor-exclusive rendering restoration (scoped & safe) === */
+/* This restores the old build's centered presentation for this page only,
+   without re-introducing global body centering. */
+
+.centered { text-align: center; }
+
+/* Hero + tagline + any explicitly centered paragraphs */
+.page-content h1.centered,
+.page-content .tagline.centered,
+.page-content p.centered { text-align: center; }
+
+/* Intro line directly under hero */
+.page-content h1.centered + p,
+.page-content .tagline.centered + p { text-align: center; }
+
+/* Sections on this page expect centered content */
+.page-content section > h2,
+.page-content section > p,
+.page-content section > blockquote { text-align: center; }
+
+/* Image centering for sections that are intended to be centered
+   (new CSS sets img to block; text-align doesn't center blocks) */
+.page-content section.centered > img,
+.page-content .centered > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
