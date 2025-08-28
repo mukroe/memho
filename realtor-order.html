@@ -1,9 +1,23 @@
 <!DOCTYPE html>
 
 <html lang="en"><head>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/fonts/memho-fonts.css">
 
-  <meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Realtor Inner Circle Order Page – The Memory House</title><style>
+  <style>
+    html, body, h1, h2, h3, h4, h5, h6,
+    p, span, em, strong, a, li, ul, ol,
+    blockquote, input, textarea, select, button {
+      font-family: 'Cormorant Garamond', serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+
+  <style id="emergency-override-fonts">*,*::before,*::after{font-family:Arial,Helvetica,sans-serif!important}</style><meta charset="UTF-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Realtor Inner Circle Order Page – The Memory House</title><style>
     body {
       background-color: #FAF4E8;
       font-family: Georgia, serif;
@@ -278,7 +292,7 @@
              <strong>
               Rush Delivery (+$50)
              </strong></span></label><div style="font-size: 0.85rem; color: #6A7A89; margin-top: 0.4rem; text-align: center;">
-            Most portraits arrive in 10–14 days. Rush delivery guarantees within 5–7 days.
+            Most portraits arrive in 10-14 days. Rush delivery guarantees within 5-7 days.
            </div></div><script>
            const ctaButton = document.querySelector('button[type="submit"]');
         ctaButton.addEventListener('mouseover', function(){
