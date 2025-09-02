@@ -1,0 +1,21 @@
+/* Index-only layout restoration — no font changes */
+/* Pixel-aligned hero/CTA to match old reference */
+.hero{ position: relative !important; line-height: 0; }
+.hero-cta-container{
+  position: absolute !important;
+  bottom: 60px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+  white-space: nowrap;
+}
+.hero img{ width:100%; height:auto; display:block; }
+
+/* Match old behavior: hide CTA overlay on narrow screens to avoid crowding */
+@media (max-width: 768px){
+  .hero-cta-container{ display: none !important; }
+}
+
+/* Keep banner and footer spacing tame without touching fonts */
+.banner-line{ padding: 28px 10px; font-style: italic; }
+footer .copyright, .footer .copyright{ text-align:center; position: relative; z-index: 5; }
