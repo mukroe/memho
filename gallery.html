@@ -1,769 +1,225 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery – The Memory House</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-   .hamburger, #navMenu {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .hamburger {
-      display: block;
-      font-size: 28px;
-      cursor: pointer;
-      padding: 20px;
-      text-align: center;
-    }
-    #navMenu {
-      display: none;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-    }
-    #navMenu.active {
-      display: block;
-    }
-    #navMenu li {
-      margin: 12px 0;
-    }
-    #navMenu li::marker {
-      content: '';
-    }
-    nav.site-desktop {
-      display: none;
-    }
-  }
-  </style>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<style>
-   .sticky-cta {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-}
-}
-.cta-sticky-button {
-    font-family: 'CormorantGaramond', serif;
-    text-decoration: none;
-    padding: 10px 24px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-    display: inline-block;
-    border: 1px solid #2C2C2C;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-.cta-sticky-button:hover {
-    background-color: #D8A48F;
-    color: #2C2C2C;
-}
-  </style>
-
-
-<!-- ▼▼▼ SEO/Crawl: injected from source (only) ▼▼▼ -->
-<title>Gallery – The Memory House</title>
-<meta name="description" content="Explore our gallery of custom watercolor house portraits and client testimonials from across the country, each capturing the heart of a home." />
-<link rel="canonical" href="https://thememoryhouse.art/gallery.html" />
-
-<!-- Open Graph Meta -->
-<meta property="og:title" content="Gallery – The Memory House" />
-<meta property="og:description" content="Explore our gallery of custom watercolor house portraits and client testimonials from across the country, each capturing the heart of a home." />
-<meta property="og:image" content="https://thememoryhouse.art/images/gallery1.jpg" />
-<meta property="og:url" content="https://thememoryhouse.art/gallery.html" />
-<meta property="og:type" content="website" />
-
-<!-- Twitter Card Meta -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Gallery – The Memory House" />
-<meta name="twitter:description" content="Explore our gallery of custom watercolor house portraits and client testimonials from across the country, each capturing the heart of a home." />
-<meta name="twitter:image" content="https://thememoryhouse.art/images/gallery1.jpg" />
-
-<!-- Schema Markup: CollectionPage -->
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "url": "https://thememoryhouse.art/images/gallery1.jpg" },
-      { "@type": "ListItem", "position": 2, "url": "https://thememoryhouse.art/images/gallery2.jpg" }
-    ]
-  }
-}</script>
-
-<!-- Mobile footer spacing (as requested) -->
-<style>
-  @media (max-width: 768px) {
-    footer { margin-bottom: 80px; }
-  }
-</style>
-<!-- ▲▲▲ end SEO/Crawl injection ▲▲▲ -->
-
-<style>
-   body {
+    body {
       font-family: 'CormorantGaramond', serif;
       background-color: #fdfbf7;
       margin: 0;
       padding: 0;
       text-align: center;
     }
-    nav {
-      padding: 20px;
+
+    .logo-header {
+      width: 82px;
+      margin: 13px auto 7px auto;
+      display: block;
     }
-    nav a {
-      margin: 0 10px;
-      color: #333;
-      text-decoration: none;
+
+    .site-title {
+      margin: 0 0 7px 0;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      padding: 40px;
-      max-width: 1000px;
-      margin: auto;
+
+    .masonry-gallery {
+      column-count: 3;
+      column-gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 40px;
+    }
+
+    .masonry-gallery img {
+      width: 100%;
+      margin-bottom: 20px;
+      display: block;
+      break-inside: avoid;
+    }
+
+    @media (max-width: 768px) {
+      .masonry-gallery {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .masonry-gallery {
+        column-count: 1;
+      }
+    }
+
+    h2.section-title {
+      font-size: 2.25em;
+      font-weight: bold;
+      text-align: center;
+      margin: 60px 0 30px 0;
+    }
+
+    .testimonial-row {
       display: flex;
       flex-wrap: wrap;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 40px auto;
+    }
+
+    .testimonial-row.top-row {
+      justify-content: space-between;
+    }
+
+    .testimonial-row.bottom-row {
       justify-content: center;
-      gap: 20px;
-      padding: 40px;
     }
-    .gallery img {
-      width: 300px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      transition: transform 0.2s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-  
-.social-icons {
-  margin-top: 10px;
-  text-align: center;
-}
-  
-img.logo-header {
-  width: 82px;
-  margin: 10px auto 6px auto;
-  display: block;
-}
-h1.site-title {
-  margin: 0 0 10px 0;
-}
-nav {
-  margin-top: 0;
-}
-  
-img.logo-header {
-  width: 82px;
-  margin: 6px auto 2px auto;
-  display: block;
-}
-h1.site-title {
-  margin: 0 0 6px 0;
-}
-nav {
-  margin-top: 0;
-}
-  
-img.logo-header {
-  width: 82px;
-  margin: 6px auto 2px auto;
-  display: block;
-}
-h1.site-title {
-  margin: 0 0 6px 0;
-}
-nav {
-  margin-top: 0;
-}
-  
-.container {
-  padding-top: 0;
-  margin-top: 0;
-}
-nav {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-  
-img.logo-header {
-  width: 82px;
-  margin: 13px auto 7px auto;
-  display: block;
-}
-h1.site-title {
-  margin: 0 0 7px 0;
-}
-nav {
-  margin-top: 0;
-}
-  </style>
-<style>
-   .masonry-gallery {
-    column-count: 3;
-    column-gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 40px;
-}
-.masonry-gallery img {
-    width: 100%;
-    margin-bottom: 20px;
-    display: block;
-    break-inside: avoid;
-}
-@media (max-width: 768px) {
-    .masonry-gallery {
-        column-count: 2;
-    }
-}
-@media (max-width: 480px) {
-    .masonry-gallery {
-        column-count: 1;
-    }
-}
-  </style>
-<style>
-   .masonry-gallery {
-    column-count: 3;
-    column-gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 40px;
-}
-.masonry-gallery img {
-    width: 100%;
-    margin-bottom: 20px;
-    display: block;
-    break-inside: avoid;
-}
-@media (max-width: 768px) {
-    .masonry-gallery {
-        column-count: 2;
-    }
-}
-@media (max-width: 480px) {
-    .masonry-gallery {
-        column-count: 1;
-    }
-}
-  </style>
-<link href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" rel="stylesheet"/>
-<script defer="True" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script defer="True" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 
-<!-- (kept original) -->
-<title>Client Gallery – The Memory House</title>
-<meta name="description" content="Explore our gallery of custom watercolor house portraits and heartfelt testimonials from clients around the country."/>
-<link href="https://thememoryhouse.art/gallery.html" rel="canonical"/>
-
-<style>
-.realtor-btn {
-    display:inline-block;
-    font-size:0.9em;
-    color:#1c1c1c !important;
-    background-color:#e6dcc7 !important;
-    padding:8px 18px;
-    border-radius:8px;
-    text-decoration:none !important;
-    transition:background-color 0.3s ease, transform 0.2s ease, color 0.2s ease;
-}
-.realtor-btn:hover {
-    background-color:#B9975B !important;
-    color:white !important;
-    transform:scale(1.05);
-    text-decoration:none !important;
-}
-</style>
-<style>
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  justify-items: center;
-  margin: 40px auto;
-  max-width: 1100px;
-}
-.testimonial-grid .testimonial-item {
-  max-width: 320px;
-  text-align: center;
-}
-.testimonial-grid .testimonial-item img {
-  width: 100%;
-  border-radius: 8px;
-}
-@media (max-width: 900px) {
-  .testimonial-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 600px) {
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": [
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Brian C."
-      },
-      "reviewBody": "She cried when she saw it — this was the perfect closing gift.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Anita Patel"
-      },
-      "reviewBody": "Our family portrait is breathtaking. Everyone who visits comments on it.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Rachel N."
-      },
-      "reviewBody": "It brought tears to my eyes. The detail is beyond anything I expected.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
+    @media (max-width: 768px) {
+      .testimonial-row.top-row {
+        justify-content: center;
       }
     }
-  ]
-}</script>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '750632044348955');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=750632044348955&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    .testimonial-item {
+      max-width: 320px;
+      text-align: center;
+    }
 
-  <!-- MEMHO FONT PACK (Cormorant Garamond + emoji fallbacks) -->
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-Regular.woff2"   as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-Bold.woff2"      as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-Italic.woff2"    as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2"as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/fonts/memho-fonts.css?v=1">
-  <link rel="stylesheet" href="style.css?v=emoji-fix-2">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* Load & lock brand type */
-    @font-face {
-      font-family: 'CormorantGaramond';
-      src: url('/assets/fonts/CormorantGaramond-Regular.woff2') format('woff2');
-      font-weight: 400; font-style: normal; font-display: swap;
+    .testimonial-item img {
+      width: 100%;
+      border-radius: 8px;
     }
-    @font-face {
-      font-family: 'CormorantGaramond';
-      src: url('/assets/fonts/CormorantGaramond-Italic.woff2') format('woff2');
-      font-weight: 400; font-style: italic; font-display: swap;
+
+    .sticky-cta {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
     }
-    @font-face {
-      font-family: 'CormorantGaramond';
-      src: url('/assets/fonts/CormorantGaramond-Bold.woff2') format('woff2');
-      font-weight: 700; font-style: normal; font-display: swap;
+
+    .cta-sticky-button {
+      font-family: 'CormorantGaramond', serif;
+      text-decoration: none;
+      padding: 10px 24px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      display: inline-block;
+      border: 1px solid #2C2C2C;
+      background-color: #fdfbf7;
+      color: #2C2C2C;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
-    @font-face {
-      font-family: 'CormorantGaramond';
-      src: url('/assets/fonts/CormorantGaramond-BoldItalic.woff2') format('woff2');
-      font-weight: 700; font-style: italic; font-display: swap;
+
+    .cta-sticky-button:hover {
+      background-color: #D8A48F;
+      color: #2C2C2C;
     }
-    html, body {
-      font-family: 'CormorantGaramond', serif !important;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+
+    footer {
+      margin-bottom: 100px;
+      text-align: center;
+      padding-top: 30px;
     }
   </style>
-
-
-  <style>
-    /* Force brand font on key UI text for Chrome */
-    html, body, header, nav, .nav-wrapper, .nav-wrapper a, .page-tag,
-    h1, h2, h3, h4, h5, h6, p, .caption, .testimonial, .testimonial p,
-    .cta-sticky-button, .realtor-btn, button, a, li, span, small {
-      font-family: 'CormorantGaramond', serif !important;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  </style>
-
-
-<style id="hide-floating-social">
-  .social-fixed, .social-left, .floating-social, .social-sidebar, .sharebar, .floating-share {
-    display: none !important;
-  }
-  [class*="social"][style*="position:fixed"] {
-    position: static !important;
-    left: auto !important;
-    top: auto !important;
-  }
-</style>
-
 </head>
-<body><div class="page-tag">Explore Our Gallery</div>
-<!-- Mobile Hamburger Navigation -->
-<div id="mobile-nav-container">
-<nav class="main-nav">
-<div class="nav-wrapper">
-<div class="hamburger" onclick="toggleMenu()" style="position: absolute; top: 20px; right: 20px;">
-      ☰
-     </div>
-</div>
-<ul class="menu" id="navMenu">
-<li>
-<a href="index.html">
-       Home
-      </a>
-</li>
-<li>
-<a href="about.html">
-       About
-      </a>
-</li>
-<li>
-<a href="gallery.html">
-       Gallery
-      </a>
-</li>
-<li>
-<a href="order.html">
-       Order
-      </a>
-</li>
-<li>
-<a href="blog.html">
-       Blog
-      </a>
-</li>
-<li>
-<a href="contact.html">
-       Contact
-      </a>
-</li>
-</ul>
-</nav>
-</div>
-<script>
-   function toggleMenu() {
-    var menu = document.getElementById('navMenu');
-    menu.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-  }
-  </script>
-<style>
-   .masonry-gallery {
-    column-count: 3;
-    column-gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 40px;
-}
-.masonry-gallery img {
-    width: 100%;
-    margin-bottom: 20px;
-    display: block;
-    break-inside: avoid;
-}
-@media (max-width: 768px) {
-    .masonry-gallery {
-        column-count: 2;
-    }
-}
-@media (max-width: 480px) {
-    .masonry-gallery {
-        column-count: 1;
-    }
-}
-  </style>
-<a data-fancybox="gallery" href="images/logo5xJ.png">
-<img class="logo-header" loading="lazy" src="images/logo5xJ.png" style="width: 82px; margin: 13px auto 7px auto; display: block;"/>
-</a>
-<h1 class="site-title" style="margin: 0 0 7px 0;">
-   The Memory House
-  </h1>
-<nav class="site-desktop">
-<a href="index.html">
-    Home
-   </a>
-   |
-   <a href="about.html">
-    About
-   </a>
-   |
-   <a href="gallery.html">
-    Gallery
-   </a>
-   |
-   <a href="order.html">
-    Order
-   </a>
-   |
-   <a href="blog.html">
-    Studio
-   </a>
-   |
-   <a href="contact.html">
-    Contact
-   </a>
-</nav>
-<section class="masonry-gallery">
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img1.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img1.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img10.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img10.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img11.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img11.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img12.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img12.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img2.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img2.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img3.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img3.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img4.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img4.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img5.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img5.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img6.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img6.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img7.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img7.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img8.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img8.webp"/>
-</a>
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/img9.webp">
-<img alt="House Portrait" loading="lazy" src="assets/gallery/the 12 gallery/img9.webp"/>
-</a>
-</section>
-<div style="height: 60px;">
-</div>
-<h2 style="font-size: 2.25em; font-weight: bold; text-align: center; margin: 60px 0 30px 0; font-family: 'CormorantGaramond', serif;">
-   What Our Clients Are Saying
-  </h2>
-<div class="testimonial-wrapper">
-<div class="testimonial-row top-row" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 40px auto;">
-<div class="testimonial-item">
-<div style="max-width: 320px; text-align: center;">
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/brian-c-testimonial.jpg">
-<img alt="Brian C. holding a custom watercolor house portrait, gifted to his wife in Alexandria, VA." loading="lazy" src="assets/gallery/the 12 gallery/brian-house-portrait-alexandria-va.jpg" style="width: 100%; border-radius: 8px;"/>
-</a>
-<p style="margin-top: 10px; font-style: italic;">
-      “It was even better than I expected. The detail is amazing. My wife loved it as a birthday present.”
-     </p>
-<p style="font-weight: bold; margin-top: 4px;">
-      – Brian C., Alexandria, VA
-     </p>
-</div>
-</div>
-<div class="testimonial-item">
-<div style="max-width: 320px; text-align: center;">
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/elaine-r-testimonial.jpg">
-<img alt="Elaine R.'s childhood home painted as a watercolor portrait, located in Santa Rosa, CA." loading="lazy" src="assets/gallery/the 12 gallery/elaine-watercolor-home-santa-rosa-ca.jpg" style="width: 100%; border-radius: 8px;"/>
-</a>
-<p style="margin-top: 10px; font-style: italic;">
-      “That home held my entire childhood. I can still hear the screen door slam and feel the sun on the porch. 
-    To see it like this—beautiful, permanent—it feels like I’ve gotten a piece of my life back. It’s more than art. 
-    It’s home.”
-     </p>
-<p style="font-weight: bold; margin-top: 4px;">
-      – Elaine R., Santa Rosa, CA
-     </p>
-</div>
-</div>
-<div class="testimonial-item">
-<div style="max-width: 320px; text-align: center;">
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/cliff-k-testimonial.jpg">
-<img alt="Cliff K.'s anniversary gift: a watercolor house portrait, treasured by his wife." loading="lazy" src="assets/gallery/the 12 gallery/cliff-anniversary-house-gift.jpg" style="width: 100%; border-radius: 8px;"/>
-</a>
-<p style="margin-top: 10px; font-style: italic;">
-      “My wife and I celebrated our anniversary and I gave her this as a gift. She loves it so much that she's already ordered one for her friends in New York who are leaving their house. Everyone loves them.”
-     </p>
-<p style="font-weight: bold; margin-top: 4px;">
-      – Cliff K.
-     </p>
-</div>
-</div>
-</div>
-<div class="testimonial-row bottom-row" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 40px auto;">
-<div class="testimonial-item">
-<div style="max-width: 320px; text-align: center;">
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/testimonial_anita.jpg">
-<img alt="Anita Patel and her family of eight pictured with their watercolor house portrait in Baton Rouge, LA." loading="lazy" src="assets/gallery/the 12 gallery/anita-family-portrait-baton-rouge.jpg" style="width: 100%; border-radius: 8px;"/>
-</a>
-<p style="margin-top: 10px; font-style: italic;">
-      “All eight of us each had one made. Growing up, that house was the center of everything. And although we now thrive in areas all over the country—this artwork feels like a common point of unity, support, and strength in each of our lives.”
-     </p>
-<p style="font-weight: bold; margin-top: 4px;">
-      – Anita Patel, Baton Rouge, LA
-     </p>
-</div>
-</div>
-<div class="testimonial-item">
-<div style="max-width: 320px; text-align: center;">
-<a data-fancybox="gallery" href="assets/gallery/the 12 gallery/testimonial_rachel.webp">
-<img alt="Rachel N. gifted this custom house portrait to her elderly parents after they moved from their long-time home in Evanston, IL." loading="lazy" src="assets/gallery/the 12 gallery/rachel-elderly-parents-home-evanston-il.webp" style="width: 100%; border-radius: 8px;"/>
-</a>
-<p style="margin-top: 10px; font-style: italic;">
-      “They left the house they built, but I brought it back to them in this portrait. My mom cried. My dad just stared for the longest time.”
-     </p>
-<p style="font-weight: bold; margin-top: 4px;">
-      – Rachel N., Evanston, IL
-     </p>
-</div>
-</div>
-</div>
-</div>
-<div style="margin-bottom: 80px;">
-</div>
-<div style="position:fixed; bottom:40px; left:50%; transform:translateX(-50%); z-index:1000;">
-</div>
-<script>
-   $(document).ready(function() {
-  $('[data-fancybox="gallery"]').fancybox({
-    buttons: ["zoom", "slideShow", "thumbs", "close"],
-    loop: true,
-    protect: true,
-    keyboard: true
-  });
-});
-  </script>
-<p style="margin-top: 6px;">
-   Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
-  </p>
-<div style="text-align:center; padding-bottom: 80px;">
-<p style="font-style:italic; font-family: 'CormorantGaramond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
-    Memories start with home — and end in .art
-   </p>
-<p style="margin-bottom: 10px;">
-    © 2025 The Memory House
-   </p>
-<div style="margin-top: 15px; text-align:center;">
-<a class="realtor-btn" href="realtor-exclusive.html">
-    Realtor Access
-  </a>
-</div>
-<p>
-<a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
-<i class="fab fa-facebook-f fa-lg">
-</i>
-</a>
-<a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
-<i class="fab fa-instagram fa-lg">
-</i>
-</a>
-<a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
-<i class="fab fa-linkedin-in fa-lg">
-</i>
-</a>
-</p>
-</div>
-<div class="sticky-cta">
-<a class="cta-sticky-button" href="order.html">
-    ORDER MY PORTRAIT
-   </a>
-</div>
-<script type="application/ld+json">
-   {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Custom Watercolor House Portrait",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "6"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "author": "Brian C.",
-      "reviewBody": "It was even better than I expected. The detail is amazing. My wife loved it as a birthday present.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": "Elaine R.",
-      "reviewBody": "That home held my entire childhood. To see it like this\u2014it feels like I\u2019ve gotten a piece of my life back. It\u2019s home.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": "Cliff K.",
-      "reviewBody": "My wife and I celebrated our anniversary and I gave her this as a gift. Everyone loves them.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": "Anita Patel",
-      "reviewBody": "All eight of us each had one made. This artwork feels like a common point of unity and strength.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      }
-    },
-    {
-      "@type": "Review",
-      "author": "Rachel N.",
-      "reviewBody": "They left the house they built, but I brought it back to them in this portrait. My mom cried.",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5"
-      }
-    }
-  ]
-}
-  </script>
+<body>
+
+  <a href="index.html"><img class="logo-header" src="images/logo5xJ.png" alt="Logo" /></a>
+  <h1 class="site-title">The Memory House</h1>
+
+  <div class="page-tag">Explore Our Gallery</div>
+
+  <!-- GALLERY -->
+  <section class="masonry-gallery">
+    <!-- Example images -->
+    <a href="assets/gallery/the 12 gallery/img1.webp"><img src="assets/gallery/the 12 gallery/img1.webp" alt="House Portrait" /></a>
+    <a href="assets/gallery/the 12 gallery/img2.webp"><img src="assets/gallery/the 12 gallery/img2.webp" alt="House Portrait" /></a>
+    <a href="assets/gallery/the 12 gallery/img3.webp"><img src="assets/gallery/the 12 gallery/img3.webp" alt="House Portrait" /></a>
+    <!-- Add more as needed -->
+  </section>
+
+  <!-- TESTIMONIAL SECTION -->
+  <h2 class="section-title">What Our Clients Are Saying</h2>
+
+  <div class="testimonial-wrapper">
+
+    <!-- TOP ROW -->
+    <div class="testimonial-row top-row">
+      <div class="testimonial-item">
+        <a href="assets/gallery/the 12 gallery/brian-c-testimonial.jpg">
+          <img src="assets/gallery/the 12 gallery/brian-house-portrait-alexandria-va.jpg" alt="Brian C. Testimonial" />
+        </a>
+        <p style="margin-top:10px; font-style:italic;">
+          “It was even better than I expected. The detail is amazing. My wife loved it as a birthday present.”
+        </p>
+        <p style="font-weight:bold;">– Brian C., Alexandria, VA</p>
+      </div>
+
+      <div class="testimonial-item">
+        <a href="assets/gallery/the 12 gallery/elaine-r-testimonial.jpg">
+          <img src="assets/gallery/the 12 gallery/elaine-watercolor-home-santa-rosa-ca.jpg" alt="Elaine R. Testimonial" />
+        </a>
+        <p style="margin-top:10px; font-style:italic;">
+          “That home held my entire childhood... it feels like I’ve gotten a piece of my life back. It’s more than art. It’s home.”
+        </p>
+        <p style="font-weight:bold;">– Elaine R., Santa Rosa, CA</p>
+      </div>
+
+      <div class="testimonial-item">
+        <a href="assets/gallery/the 12 gallery/cliff-k-testimonial.jpg">
+          <img src="assets/gallery/the 12 gallery/cliff-anniversary-house-gift.jpg" alt="Cliff K. Testimonial" />
+        </a>
+        <p style="margin-top:10px; font-style:italic;">
+          “My wife and I celebrated our anniversary... Everyone loves them.”
+        </p>
+        <p style="font-weight:bold;">– Cliff K.</p>
+      </div>
+    </div>
+
+    <!-- BOTTOM ROW -->
+    <div class="testimonial-row bottom-row">
+      <div class="testimonial-item">
+        <a href="assets/gallery/the 12 gallery/testimonial_anita.jpg">
+          <img src="assets/gallery/the 12 gallery/anita-family-portrait-baton-rouge.jpg" alt="Anita Patel Testimonial" />
+        </a>
+        <p style="margin-top:10px; font-style:italic;">
+          “All eight of us each had one made... this artwork feels like a common point of unity and strength.”
+        </p>
+        <p style="font-weight:bold;">– Anita Patel, Baton Rouge, LA</p>
+      </div>
+
+      <div class="testimonial-item">
+        <a href="assets/gallery/the 12 gallery/testimonial_rachel.webp">
+          <img src="assets/gallery/the 12 gallery/rachel-elderly-parents-home-evanston-il.webp" alt="Rachel N. Testimonial" />
+        </a>
+        <p style="margin-top:10px; font-style:italic;">
+          “They left the house they built, but I brought it back to them in this portrait. My mom cried.”
+        </p>
+        <p style="font-weight:bold;">– Rachel N., Evanston, IL</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STICKY CTA -->
+  <div class="sticky-cta">
+    <a class="cta-sticky-button" href="order.html">ORDER MY PORTRAIT</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="font-style:italic; color:#a67c52; font-size: 1.8em;">
+      Memories start with home — and end in .art
+    </p>
+    <p>© 2025 The Memory House</p>
+    <p>
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
+      <a href="https://www.instagram.com/thememoryhouse.art" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+      <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in fa-lg"></i></a>
+    </p>
+  </footer>
+
 </body>
 </html>
