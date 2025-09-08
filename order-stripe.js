@@ -1,50 +1,128 @@
-// Stripe Order Script - Live Mode
-const stripe = Stripe("pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ"); // <-- Replace with your actual live publishable key
-const form = document.querySelector("form");
+// order-stripe.js — Unified Stripe Elements checkout + Meta Pixel tracking
+// All logic moved here so order.html requires no edits beyond loading this file.
 
-if (form) {
-  form.addEventListener("submit", function(e) {
-    // Allow form to submit (emails you first)
-    setTimeout(async () => {
-      try {
-        let amount = 1000; // Default $10
-        const sizeElement = document.getElementById('size');
-        if (sizeElement && sizeElement.value) {
-          const priceMap = { small: 1000, medium: 2000, large: 3000 };
-          amount = priceMap[sizeElement.value.toLowerCase()] || 1000;
-        }
+(function () {
+  const STRIPE_PK = 'pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ';
 
-        const response = await fetch('/.netlify/functions/create-payment-intent', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount })
-        });
+  // Map portrait sizes to prices in cents
+  const PRICE_MAP = {
+    "Premium Gift Package": 44000,
+    "18×24": 39000,
+    "12×18": 29000,
+    "8×10": 19000
+  };
 
-        const { clientSecret, error } = await response.json();
-        if (error) {
-          alert("Payment error: " + error);
-          return;
-        }
+  // Guard against multiple loads
+  if (window.__MEMHO_STRIPE_ATTACHED__) return;
+  window.__MEMHO_STRIPE_ATTACHED__ = true;
 
-        const result = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: {
-              number: document.querySelector('input[name="cardnumber"]').value,
-              exp_month: document.querySelector('input[name="exp-month"]').value,
-              exp_year: document.querySelector('input[name="exp-year"]').value,
-              cvc: document.querySelector('input[name="cvc"]').value
-            }
-          }
-        });
+  // Initialize Stripe Elements
+  const stripe = Stripe(STRIPE_PK);
+  const elements = stripe.elements();
+  const card = elements.create('card');
 
-        if (result.error) {
-          alert("Payment failed: " + result.error.message);
-        } else if (result.paymentIntent && result.paymentIntent.status === "succeeded") {
-          alert("Payment successful! Thank you for your order.");
-        }
-      } catch (err) {
-        alert("Payment error: " + err.message);
-      }
-    }, 500); // Ensures your email form submits first
+  // Safe query helpers
+  const form = document.getElementById('payment-form');
+  const cardContainer = document.getElementById('card-element');
+  const cardErrors = document.getElementById('card-errors');
+
+  if (!form || !cardContainer) {
+    console.warn('[MemHo] Stripe: missing #payment-form or #card-element');
+    return;
+  }
+
+  card.mount('#card-element');
+
+  card.on('change', function (event) {
+    if (cardErrors) {
+      cardErrors.textContent = event.error ? event.error.message : '';
+    }
   });
-}
+
+  // Meta Pixel helper
+  function trackFb(event, payload) {
+    try {
+      if (typeof fbq === 'function') fbq('track', event, payload || {});
+    } catch (_) {
+      // never block checkout
+    }
+  }
+
+  // Handle form submission
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const sizeEl = document.getElementById('size');
+    const size = sizeEl ? sizeEl.value : null;
+    const amount = size ? PRICE_MAP[size] : null;
+
+    if (!amount) {
+      alert('Please choose a portrait size.');
+      return;
+    }
+
+    // Track start of checkout
+    trackFb('InitiateCheckout', {
+      value: amount / 100,
+      currency: 'USD',
+      contents: [{ id: size, quantity: 1 }],
+      content_type: 'product'
+    });
+
+    try {
+      // Create PaymentIntent via Netlify function
+      const resp = await fetch('/.netlify/functions/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ amount })
+      });
+
+      const data = await resp.json();
+      const clientSecret = data.clientSecret || data.client_secret;
+      if (!clientSecret) {
+        alert('Payment error: Missing client secret.');
+        return;
+      }
+
+      // Confirm card payment
+      const result = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: { card }
+      });
+
+      if (result.error) {
+        if (cardErrors) cardErrors.textContent = result.error.message || '';
+        alert('Payment failed: ' + (result.error.message || 'Unknown error'));
+        return;
+      }
+
+      if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+        // Track purchase before redirect
+        trackFb('Purchase', {
+          value: amount / 100,
+          currency: 'USD',
+          contents: [{ id: size, quantity: 1 }],
+          content_type: 'product'
+        });
+
+        alert('Payment successful! Your order has been submitted.');
+        e.target.submit(); // proceed with FormSubmit email
+      } else {
+        alert('Payment did not complete. Please try again.');
+      }
+    } catch (err) {
+      alert('Payment error: ' + (err && err.message ? err.message : String(err)));
+    }
+  });
+
+  // Optional: debug log on size change
+  const sizeSelect = document.getElementById('size');
+  if (sizeSelect) {
+    sizeSelect.addEventListener('change', function () {
+      const sel = this.value;
+      if (PRICE_MAP[sel]) {
+        console.log('[MemHo] Selected:', sel, 'Price:', PRICE_MAP[sel] / 100);
+      }
+    });
+  }
+})();
+
