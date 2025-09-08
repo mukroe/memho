@@ -1,10 +1,10 @@
-// order-stripe.js — Unified Stripe Elements checkout + Meta Pixel tracking
-// All logic moved here so order.html requires no edits beyond loading this file.
+// order-stripe.js — Stripe Elements checkout + Meta Pixel tracking
+// Redirects to success.html after confirmed payment
 
 (function () {
   const STRIPE_PK = 'pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ';
 
-  // Map portrait sizes to prices in cents
+  // Prices in cents
   const PRICE_MAP = {
     "Premium Gift Package": 44000,
     "18×24": 39000,
@@ -12,22 +12,18 @@
     "8×10": 19000
   };
 
-  // Guard against multiple loads
   if (window.__MEMHO_STRIPE_ATTACHED__) return;
   window.__MEMHO_STRIPE_ATTACHED__ = true;
 
-  // Initialize Stripe Elements
   const stripe = Stripe(STRIPE_PK);
   const elements = stripe.elements();
   const card = elements.create('card');
-
-  // Safe query helpers
   const form = document.getElementById('payment-form');
   const cardContainer = document.getElementById('card-element');
   const cardErrors = document.getElementById('card-errors');
 
   if (!form || !cardContainer) {
-    console.warn('[MemHo] Stripe: missing #payment-form or #card-element');
+    console.warn('[MemHo] Stripe: form or #card-element missing');
     return;
   }
 
@@ -39,16 +35,12 @@
     }
   });
 
-  // Meta Pixel helper
   function trackFb(event, payload) {
     try {
       if (typeof fbq === 'function') fbq('track', event, payload || {});
-    } catch (_) {
-      // never block checkout
-    }
+    } catch (_) {}
   }
 
-  // Handle form submission
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
@@ -70,7 +62,6 @@
     });
 
     try {
-      // Create PaymentIntent via Netlify function
       const resp = await fetch('/.netlify/functions/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -84,7 +75,6 @@
         return;
       }
 
-      // Confirm card payment
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: { card }
       });
@@ -96,7 +86,7 @@
       }
 
       if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-        // Track purchase before redirect
+        // Track purchase
         trackFb('Purchase', {
           value: amount / 100,
           currency: 'USD',
@@ -104,25 +94,13 @@
           content_type: 'product'
         });
 
-        alert('Payment successful! Your order has been submitted.');
-        e.target.submit(); // proceed with FormSubmit email
+        // Redirect to thank-you page
+        window.location.href = '/success.html';
       } else {
         alert('Payment did not complete. Please try again.');
       }
     } catch (err) {
-      alert('Payment error: ' + (err && err.message ? err.message : String(err)));
+      alert('Payment error: ' + (err?.message || String(err)));
     }
   });
-
-  // Optional: debug log on size change
-  const sizeSelect = document.getElementById('size');
-  if (sizeSelect) {
-    sizeSelect.addEventListener('change', function () {
-      const sel = this.value;
-      if (PRICE_MAP[sel]) {
-        console.log('[MemHo] Selected:', sel, 'Price:', PRICE_MAP[sel] / 100);
-      }
-    });
-  }
 })();
-
