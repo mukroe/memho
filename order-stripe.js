@@ -1,10 +1,9 @@
 // order-stripe.js — Stripe Elements checkout + Meta Pixel tracking
-// Redirects to success.html after confirmed payment
+// Clean version: only InitiateCheckout here. Purchase fires on success.html
 
 (function () {
   const STRIPE_PK = 'pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ';
 
-  // Prices in cents
   const PRICE_MAP = {
     "Premium Gift Package": 44000,
     "18×24": 39000,
@@ -86,14 +85,6 @@
       }
 
       if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
-        // Track purchase
-        trackFb('Purchase', {
-          value: amount / 100,
-          currency: 'USD',
-          contents: [{ id: size, quantity: 1 }],
-          content_type: 'product'
-        });
-
         // Redirect to thank-you page
         window.location.href = '/success.html';
       } else {
