@@ -668,7 +668,56 @@ form input, form textarea, form select {
      After receiving your photos, we’ll send you a digital proof of your artwork within 3 business days. You can request changes or approve the final version before anything is printed or shipped.
     </p>
 </div>
+
+<!-- 🔽🔽🔽 LIGHT BRIDGE (hidden by default; shows for Meta visitors) -->
+<div id="mh-bridge" style="display:none; margin-top:24px; padding:16px; border:1px solid #e3d9cc; background:#fbf9f4; font-family: Georgia, serif;">
+  <p style="margin:0 0 8px 0;"><em>Not ready to place the order today?</em></p>
+  <p style="margin:0 0 12px 0;">Request a <strong>complimentary Preview Proof</strong> to see how your home will look as a painting.</p>
+  <form id="mh-bridge-form" action="https://formsubmit.co/info@thememoryhouse.art" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="source" value="meta-bridge">
+    <label>First name<br><input name="first_name" required style="width:100%;padding:10px;border:1px solid #c9b9a4;"></label><br><br>
+    <label>Email<br><input type="email" name="email" required style="width:100%;padding:10px;border:1px solid #c9b9a4;"></label><br><br>
+    <label>Upload a photo of your home (optional)<br><input type="file" name="photo"></label><br><br>
+    <button type="submit" style="padding:10px 16px;border:1px solid #6b4f36;background:#6b4f36;color:#fff;cursor:pointer;">Request Preview Proof</button>
+    <p style="font-size:.9em;color:#6b4f36;margin-top:8px;">No obligation. We’ll email a small, watermarked preview within 2–3 days.</p>
+  </form>
 </div>
+<!-- 🔼🔼🔼 END LIGHT BRIDGE -->
+
+</div>
+<script>
+// Show only for Meta traffic & remember with a cookie
+(function(){
+  var p = new URLSearchParams(window.location.search);
+  var fromMeta =
+    p.has('fbclid') ||
+    (p.get('utm_source')||'').toLowerCase()==='meta' ||
+    (document.referrer||'').match(/facebook\.com|instagram\.com/i);
+
+  var cookie = document.cookie.match(/(?:^|;\s*)mh_meta=1/);
+  var box = document.getElementById('mh-bridge');
+
+  function showBridge(){
+    if (!box) return;
+    box.style.display = 'block';
+    document.cookie = "mh_meta=1; max-age=" + (60*60*24*30) + "; path=/";
+    // Track a view of the bridge (custom event)
+    if (window.fbq) fbq('trackCustom', 'PreviewBridgeViewed');
+  }
+
+  if (fromMeta || cookie) showBridge();
+})();
+</script>
+
+<script>
+// Track form submission as a Lead (and optional custom)
+document.getElementById('mh-bridge-form')?.addEventListener('submit', function(){
+  if (window.fbq){
+    fbq('track', 'Lead', {source: 'meta-bridge'});
+    fbq('trackCustom', 'PreviewRequested', {source: 'meta-bridge'});
+  }
+});
+</script>
 <div style="height: 50px;">
 </div>
 <div style="height: 50px;">
@@ -741,4 +790,5 @@ form input, form textarea, form select {
 </script>
 
 <script src="order-stripe.js"></script>
+
 </body></html>

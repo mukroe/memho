@@ -63,5 +63,15 @@
   <footer>
     © 2025 The Memory House
   </footer>
+  <!-- Meta Pixel Purchase Event -->
+<script>
+  if (typeof fbq === 'function') {
+    fbq('track', 'Purchase', {
+      value: 0.00,   // You can leave 0 if amount isn't known here
+      currency: 'USD'
+    });
+  }
+</script>
+
 </body>
 </html>
