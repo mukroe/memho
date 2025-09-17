@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Order Test – The Memory House (Light-Bridge)</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body{font-family:Georgia,serif;background:#fdfbf7;color:#222;margin:24px;}
+    .wrap{max-width:760px;margin:0 auto;}
+    header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e3d9cc;padding-bottom:12px;margin-bottom:20px}
+    h1{color:#6b4f36;margin:6px 0}
+    .card{background:#fff;border:1px solid #e3d9cc;padding:16px;border-radius:6px}
+    label{display:block;margin-top:10px;font-weight:600}
+    input[type=text],input[type=email]{width:100%;padding:10px;border:1px solid #e3d9cc;border-radius:4px}
+    button{background:#6b4f36;color:#fff;border:none;padding:10px 14px;border-radius:5px;cursor:pointer;margin-top:12px}
+    .muted{opacity:.9;font-size:.95rem}
+    /* Light-Bridge default hidden */
+    #mhLB_bridge{display:none;margin-top:18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div style="font-weight:700">The Memory House</div>
+        <div class="muted">Test — Light-Bridge only (safe)</div>
+      </div>
+      <div><a href="/" style="color:#6b4f36;text-decoration:none">Return home</a></div>
+    </header>
+
+    <main>
+      <section class="card">
+        <h1>Order (TEST)</h1>
+        <p class="muted">This is an isolated test page. It will not touch Stripe or your live order flow.</p>
+
+        <div style="margin-top:12px;">
+          <strong>Proof within 3 days</strong>
+          <p class="muted">This is a sample proof box. The Light-Bridge should appear below this when triggered.</p>
+        </div>
+
+        <!-- LIGHT-BRIDGE (hidden by default) -->
+        <div id="mhLB_bridge" class="card" aria-live="polite">
+          <h3 style="margin-top:0;color:#6b4f36">Request a Complimentary Preview Proof</h3>
+          <p class="muted">Visiting from Facebook or Instagram? See a watermarked preview before you commit.</p>
+
+          <form id="mhLB_form" action="https://formsubmit.co/info@thememoryhouse.art" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://thememoryhouse.art/thank-you.html">
+
+            <input type="hidden" name="utm_source" value="">
+            <input type="hidden" name="utm_medium" value="">
+            <input type="hidden" name="utm_campaign" value="">
+            <input type="hidden" name="utm_content" value="">
+
+            <label for="mhLB_name">Your Name</label>
+            <input id="mhLB_name" name="name" type="text" required placeholder="Jane Smith">
+
+            <label for="mhLB_email">Email</label>
+            <input id="mhLB_email" name="email" type="email" required placeholder="you@example.com">
+
+            <button type="submit">Request Preview</button>
+            <div class="muted" style="margin-top:8px">We'll email a watermarked proof within 2–3 business days.</div>
+          </form>
+        </div>
+        <!-- end Light-Bridge -->
+
+        <div style="margin-top:18px;font-size:.9rem;color:#666">
+          <strong>Notes for testing:</strong>
+          <ul>
+            <li>Do not use this page for real orders — it's a test harness only.</li>
+            <li>When done, delete the file to remove the test page from your site.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Light-Bridge script (self-contained) -->
+  <script>
+  (function(){
+    var BRIDGE_ID = 'mhLB_bridge';
+    var FORM_ID   = 'mhLB_form';
+    var COOKIE    = 'mh_meta_test';
+    var COOKIE_DAYS = 30;
+    var FB_REFS = ['facebook.com','instagram.com'];
+
+    var bridge = document.getElementById(BRIDGE_ID);
+    var form   = document.getElementById(FORM_ID);
+    if(!bridge || !form){ console.warn('[LT] missing elements'); return; }
+
+    function setCookie(n,v,d){var x=new Date();x.setTime(x.getTime()+d*24*60*60*1000);document.cookie=n+"="+encodeURIComponent(v)+";expires="+x.toUTCString()+";path=/;SameSite=Lax";}
+    function getCookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?decodeURIComponent(m.pop()):null;}
+
+    function showBridge(){ bridge.style.display='block'; try{ if(window.fbq) fbq('trackCustom','PreviewBridgeViewed'); }catch(e){console.log('fbq missing or error',e);} }
+
+    var url = new URL(location.href);
+    var hasFbclid = url.searchParams.has('fbclid');
+    var utmSource = (url.searchParams.get('utm_source')||'').toLowerCase();
+    var ref = (document.referrer||'').toLowerCase();
+    var refIsFB = FB_REFS.some(function(d){return ref.indexOf(d)!==-1;});
+
+    if(hasFbclid || utmSource==='meta' || refIsFB || getCookie(COOKIE)==='1'){
+      setCookie(COOKIE,'1',COOKIE_DAYS);
+      showBridge();
+    }
+
+    // fill UTM fields
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){
+      var v = url.searchParams.get(k);
+      if(v){ var el = form.querySelector('input[name="'+k+'"]'); if(el) el.value = v; }
+    });
+
+    // submit handler: fire pixel events, then allow FormSubmit POST to proceed
+    form.addEventListener('submit', function(){
+      try{ if(window.fbq){ fbq('track','Lead'); fbq('trackCustom','PreviewRequested'); } }catch(e){ console.log('fbq fire error',e); }
+      // small visual feedback (optional)
+      var btn = form.querySelector('button[type="submit"]'); if(btn){ btn.disabled=true; btn.innerText='Sending…'; }
+    });
+
+    console.log('[LT] ready — show condition:', {hasFbclid:hasFbclid, utmSource:utmSource, refIsFB:refIsFB, cookie:getCookie(COOKIE)});
+  })();
+  </script>
+</body>
+</html>
