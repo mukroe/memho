@@ -670,17 +670,22 @@ form input, form textarea, form select {
 </div>
 
 <!-- 🔽🔽🔽 LIGHT BRIDGE (hidden by default; shows for Meta visitors) -->
-<div id="mh-bridge" style="display:none; margin-top:24px; padding:16px; border:1px solid #e3d9cc; background:#fbf9f4; font-family: Georgia, serif;">
-  <p style="margin:0 0 8px 0;"><em>Want to be sure before you order?</em></p>
-  <p style="margin:0 0 12px 0;">Request a complimentary <strong>Preview Proof</strong> to see how your home will look as a high quality watercolor painting.</p>
-  <form id="mh-bridge-form" action="https://formsubmit.co/info@thememoryhouse.art" method="POST" enctype="multipart/form-data">
-    <input type="hidden" name="source" value="meta-bridge">
-    <label>Your Name<br><input name="first_name" required style="width:100%;padding:10px;border:1px solid #c9b9a4;"></label><br><br>
-    <label>Your Email<br><input type="email" name="email" required style="width:100%;padding:10px;border:1px solid #c9b9a4;"></label><br><br>
-    <label>Upload a photo (optional)<br><input type="file" name="photo"></label><br><br>
-    <button type="submit" style="padding:10px 16px;border:1px solid #6b4f36;background:#6b4f36;color:#fff;cursor:pointer;">Reserve Preview — No Payment</button>
-    <p style="font-size:.9em;color:#6b4f36;margin-top:8px;">You’ll receive a watermarked preview by email within 2–3 business days. No obligation, no payment required.</p>
-  </form>
+<div id="mh-bridge" class="mhb">
+  <div class="mhb-ribbon">Complimentary Preview</div>
+
+  <h3 class="mhb-title">See Your Home as a Hand-Painted Portrait — Free Preview</h3>
+
+  <p class="mhb-quote">“She cried when she saw it.” <span class="mhb-attr">– Brian C., Alexandria, VA</span></p>
+
+  <ul class="mhb-points">
+    <li>No payment. No commitment. Just a complimentary preview so you can decide.</li>
+    <li>Hand-painted, gallery-grade canvas. Crafted with care.</li>
+    <li>Most previews delivered within 2–3 business days.</li>
+  </ul>
+
+  <a href="#preview-form" class="mhb-cta">Reserve Preview — No Payment</a>
+
+  <p class="mhb-fineprint">Limited monthly preview slots. If we’re full, we’ll confirm the next available date.</p>
 </div>
 
 <!-- 🔼🔼🔼 END LIGHT BRIDGE -->
