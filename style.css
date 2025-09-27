@@ -311,4 +311,109 @@ body a {
   font-size: 18px !important;   /* adjust: 17px for subtle, 18px for bigger */
   line-height: 1.6 !important;  /* adds breathing room */
 }
+/* LIGHT BRIDGE (scoped) */
+#mh-bridge.mhb {
+  --mh-gold: #B89F69;           /* your brand gold */
+  --mh-ivory: #fbf9f4;          /* soft paper bg */
+  --mh-ink: #2a2a2a;
+
+  position: relative;
+  background: linear-gradient(180deg, #fff, var(--mh-ivory));
+  border: 2px solid var(--mh-gold);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin: 28px 0 10px 0;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08), 0 6px 18px rgba(0,0,0,0.06);
+  font-family: Georgia, serif;
+  color: var(--mh-ink);
+}
+
+/* Gold top ribbon */
+#mh-bridge .mhb-ribbon {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background: var(--mh-gold);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  border-radius: 6px;
+  box-shadow: 0 6px 14px rgba(184,159,105,0.45);
+}
+
+/* Headline */
+#mh-bridge .mhb-title {
+  margin: 6px 0 10px 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  line-height: 1.25;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Testimonial line */
+#mh-bridge .mhb-quote {
+  margin: 8px auto 14px auto;
+  max-width: 720px;
+  font-style: italic;
+  text-align: center;
+  font-size: 1.05rem;
+}
+#mh-bridge .mhb-attr {
+  font-style: normal;
+  opacity: 0.85;
+}
+
+/* Bullet points */
+#mh-bridge .mhb-points {
+  margin: 0 auto 16px auto;
+  max-width: 760px;
+  padding-left: 18px;
+}
+#mh-bridge .mhb-points li {
+  margin: 6px 0;
+  line-height: 1.35;
+}
+
+/* CTA button */
+#mh-bridge .mhb-cta {
+  display: inline-block;
+  margin: 8px auto 6px auto;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: var(--mh-gold);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 22px rgba(184,159,105,0.35), 0 4px 10px rgba(0,0,0,0.06);
+  transition: transform 0.08s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  text-align: center;
+}
+#mh-bridge .mhb-cta:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+  box-shadow: 0 12px 26px rgba(184,159,105,0.45), 0 6px 14px rgba(0,0,0,0.08);
+}
+#mh-bridge .mhb-cta:active {
+  transform: translateY(0);
+}
+
+/* Fine print */
+#mh-bridge .mhb-fineprint {
+  margin: 8px 0 0 0;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.78;
+}
+
+/* Center everything nicely */
+#mh-bridge { text-align: center; }
+
+/* Mobile polish */
+@media (max-width: 640px) {
+  #mh-bridge.mhb { padding: 22px 18px; border-radius: 14px; }
+  #mh-bridge .mhb-ribbon { left: 18px; font-size: 0.85rem; }
+  #mh-bridge .mhb-cta { width: 100%; }
+}
 
