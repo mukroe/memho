@@ -750,10 +750,11 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
 <!-- ✅ Stripe Integration: Clean, DOM-safe version -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-document.addEventListener('DOMContentLoaded', async function() {
+<script src="https://js.stripe.com/v3/"></script>
+<script>
   const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
   const elements = stripe.elements();
-  const card = elements.create('card');
+  const card = elements.create('card', { hidePostalCode: true, style: { base: { fontSize: '16px', color: '#32325d' } }});
   card.mount('#card-element');
 
   const priceMap = {
@@ -764,36 +765,29 @@ document.addEventListener('DOMContentLoaded', async function() {
   };
 
   const form = document.getElementById('payment-form');
-  form.addEventListener('submit', async function(e) {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
     const size = document.getElementById('size').value;
     const amount = priceMap[size];
+    const res = await fetch('/.netlify/functions/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount })
+    });
+    const data = await res.json();
+    if (!data.clientSecret) {
+      document.getElementById('card-errors').textContent = 'Server error – could not initialize payment.';
+      return;
+    }
 
-    try {
-      const response = await fetch(`/.netlify/functions/create-payment-intent?amount=${amount}`);
-      const data = await response.json();
-
-      if (!data.clientSecret) {
-        alert('Payment initialization failed. Please try again.');
-        console.error(data);
-        return;
-      }
-
-      const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
-        payment_method: { card: card }
-      });
-
-      if (error) {
-        alert(error.message);
-      } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-        alert('Payment successful! Your order has been submitted.');
-        form.submit();
-      }
-    } catch (err) {
-      console.error(err);
-      alert('An error occurred. Please refresh and try again.');
+    const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, { payment_method: { card } });
+    if (error) {
+      document.getElementById('card-errors').textContent = error.message;
+    } else if (paymentIntent.status === 'succeeded') {
+      alert('Payment successful! Your order has been submitted.');
+      form.submit();
     }
   });
-});
 </script>
+
+    
