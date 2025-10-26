@@ -295,6 +295,7 @@ form input, form textarea, form select {
   p.footer-credits a img { display:inline-block; margin: 0 10px; }
 </style>
 
+<style>#mh-bridge { display: none; }</style>
 </head>
 <body><div class="page-tag">Place Your Order</div>
 <!-- Mobile Hamburger Navigation -->
@@ -641,6 +642,7 @@ form input, form textarea, form select {
      </strong>
 </label>
 <textarea id="notes" name="notes" placeholder="e.g., remove tree, include pet, change season, etc." rows="4"></textarea>
+<div id="card-element" style="min-height:56px;"></div>
 <div id="card-errors" role="alert" style="color:red;"></div>
 <button type="submit">
      Submit Order
@@ -797,5 +799,33 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
 
 <script src="order-stripe.js"></script>
 
+
+
+<script>
+// ---- Minimal diagnostics to surface mount issues without changing layout ----
+(function(){
+  const el = document.getElementById('card-element');
+  // If the Stripe global is missing, show a visible message
+  if (!window.Stripe) {
+    if (el) el.innerHTML = '<div style="padding:10px;border:1px solid #c00;background:#fee;">Payment field failed to load (Stripe library not available). This usually happens on local file previews or non-HTTPS pages.</div>';
+    return;
+  }
+  // After 2 seconds, if no iframe appeared inside #card-element, show a visible diagnostic
+  setTimeout(function(){
+    const iframe = el && el.querySelector('iframe');
+    if (!iframe) {
+      el.innerHTML = '<div style="padding:10px;border:1px solid #c00;background:#fee;">Payment field could not render. Check browser console for errors (HTTPS required; Netlify/Checkout config).</div>';
+    }
+  }, 2000);
+
+  // Pipe window errors into #card-errors so you see them without DevTools
+  window.addEventListener('error', function(e){
+    var errBox = document.getElementById('card-errors');
+    if (errBox) {
+      errBox.textContent = 'Error: ' + (e && e.message ? e.message : 'Unknown script error');
+    }
+  });
+})();
+</script>
 
 </body></html>
