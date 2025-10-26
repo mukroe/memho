@@ -747,10 +747,10 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
 </a>
 </p>
 <!-- Stripe Integration with Dynamic Pricing -->
+<!-- ✅ Stripe Integration: Clean, DOM-safe version -->
 <script src="https://js.stripe.com/v3/"></script>
-<<script src="https://js.stripe.com/v3/"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function() {
   const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
   const elements = stripe.elements();
   const card = elements.create('card');
@@ -766,66 +766,34 @@ document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('payment-form');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+
     const size = document.getElementById('size').value;
     const amount = priceMap[size];
 
-    const response = await fetch(`/.netlify/functions/create-payment-intent?amount=${amount}`);
+    try {
+      const response = await fetch(`/.netlify/functions/create-payment-intent?amount=${amount}`);
+      const data = await response.json();
 
-    const { clientSecret, error: serverError } = await resp.json();
-    if (serverError || !clientSecret) {
-      alert('Server error: ' + (serverError || 'Unable to process payment'));
-      return;
+      if (!data.clientSecret) {
+        alert('Payment initialization failed. Please try again.');
+        console.error(data);
+        return;
+      }
+
+      const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
+        payment_method: { card: card }
+      });
+
+      if (error) {
+        alert(error.message);
+      } else if (paymentIntent && paymentIntent.status === 'succeeded') {
+        alert('Payment successful! Your order has been submitted.');
+        form.submit();
+      }
+    } catch (err) {
+      console.error(err);
+      alert('An error occurred. Please refresh and try again.');
     }
-
-    const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: { card }
-    });
-
-    if (error) {
-      alert(error.message);
-    } else if (paymentIntent.status === 'succeeded') {
-      alert('Payment successful! Your order has been submitted.');
-      form.submit();
-    }
-  });
-
-  document.getElementById('size').addEventListener('change', function () {
-    const selected = this.value;
-    console.log('Selected size:', selected, 'Price:', priceMap[selected] / 100);
   });
 });
 </script>
-
-
-<script src="order-stripe.js"></script>
-
-
-
-<script>
-// ---- Minimal diagnostics to surface mount issues without changing layout ----
-(function(){
-  const el = document.getElementById('card-element');
-  // If the Stripe global is missing, show a visible message
-  if (!window.Stripe) {
-    if (el) el.innerHTML = '<div style="padding:10px;border:1px solid #c00;background:#fee;">Payment field failed to load (Stripe library not available). This usually happens on local file previews or non-HTTPS pages.</div>';
-    return;
-  }
-  // After 2 seconds, if no iframe appeared inside #card-element, show a visible diagnostic
-  setTimeout(function(){
-    const iframe = el && el.querySelector('iframe');
-    if (!iframe) {
-      el.innerHTML = '<div style="padding:10px;border:1px solid #c00;background:#fee;">Payment field could not render. Check browser console for errors (HTTPS required; Netlify/Checkout config).</div>';
-    }
-  }, 2000);
-
-  // Pipe window errors into #card-errors so you see them without DevTools
-  window.addEventListener('error', function(e){
-    var errBox = document.getElementById('card-errors');
-    if (errBox) {
-      errBox.textContent = 'Error: ' + (e && e.message ? e.message : 'Unknown script error');
-    }
-  });
-})();
-</script>
-
-</body></html>
