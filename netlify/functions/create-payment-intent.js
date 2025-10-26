@@ -1,29 +1,45 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
+  // ✅ Allow CORS from your live domain
+  const headers = {
+    'Access-Control-Allow-Origin': 'https://thememoryhouse.art',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  };
+
+  // ✅ Handle CORS preflight requests
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ message: 'CORS preflight success' }),
+    };
+  }
+
   try {
+    // ✅ Parse amount from body
     const { amount } = JSON.parse(event.body);
 
-    // Guardrails
-    if (!amount || !Number.isInteger(amount)) {
-      return { statusCode: 400, body: JSON.stringify({ error: 'Missing or invalid amount' }) };
-    }
-
-    // (Optional) whitelist allowed amounts to avoid tampering
-    const allowed = new Set([44000, 39000, 29000, 19000]);
-    if (!allowed.has(amount)) {
-      return { statusCode: 400, body: JSON.stringify({ error: 'Amount not allowed' }) };
-    }
-
-    const pi = await stripe.paymentIntents.create({
-      amount,
+    // ✅ Create a PaymentIntent
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: amount,
       currency: 'usd',
       automatic_payment_methods: { enabled: true },
     });
 
-    return { statusCode: 200, body: JSON.stringify({ clientSecret: pi.client_secret }) };
-  } catch (err) {
-    console.error(err);
-    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
+    // ✅ Return client secret for Stripe.js to confirm
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
+    };
+  } catch (error) {
+    // ❌ Handle Stripe or parsing errors
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({ error: error.message }),
+    };
   }
 };
