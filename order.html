@@ -748,14 +748,14 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
 </p>
 <!-- Stripe Integration with Dynamic Pricing -->
 <script src="https://js.stripe.com/v3/"></script>
+<<script src="https://js.stripe.com/v3/"></script>
 <script>
-  const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ'); // Replace with your live publishable key
+document.addEventListener('DOMContentLoaded', function () {
+  const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
   const elements = stripe.elements();
-  
   const card = elements.create('card');
   card.mount('#card-element');
 
-  // Map portrait sizes to prices in cents
   const priceMap = {
     "Premium Gift Package": 44000,
     "18×24": 39000,
@@ -763,39 +763,42 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
     "8×10": 19000
   };
 
-  document.getElementById('payment-form').addEventListener('submit', async function(e) {
+  const form = document.getElementById('payment-form');
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
-
     const size = document.getElementById('size').value;
     const amount = priceMap[size];
 
-    // Create PaymentIntent via Netlify Function with dynamic amount
-    const response = await fetch('/.netlify/functions/create-payment-intent', {
+    const resp = await fetch('/.netlify/functions/create-payment-intent', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: amount })
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ amount })
     });
-
-    const { clientSecret } = await response.json();
+    const { clientSecret, error: serverError } = await resp.json();
+    if (serverError || !clientSecret) {
+      alert('Server error: ' + (serverError || 'Unable to process payment'));
+      return;
+    }
 
     const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: { card: card }
+      payment_method: { card }
     });
 
     if (error) {
       alert(error.message);
     } else if (paymentIntent.status === 'succeeded') {
       alert('Payment successful! Your order has been submitted.');
-      e.target.submit(); // Submit form to FormSubmit after successful payment
+      form.submit();
     }
   });
 
-  // Optional: Update a displayed price dynamically on the page if needed
-  document.getElementById('size').addEventListener('change', function() {
+  document.getElementById('size').addEventListener('change', function () {
     const selected = this.value;
-    console.log('Selected size:', selected, 'Price:', priceMap[selected]/100);
+    console.log('Selected size:', selected, 'Price:', priceMap[selected] / 100);
   });
+});
 </script>
+
 
 <script src="order-stripe.js"></script>
 
