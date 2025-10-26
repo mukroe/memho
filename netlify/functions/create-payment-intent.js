@@ -1,45 +1,48 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const Stripe = require("stripe");
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
-  // ✅ Allow CORS from your live domain
-  const headers = {
-    'Access-Control-Allow-Origin': 'https://thememoryhouse.art',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  };
-
-  // ✅ Handle CORS preflight requests
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ message: 'CORS preflight success' }),
-    };
-  }
-
   try {
-    // ✅ Parse amount from body
-    const { amount } = JSON.parse(event.body);
+    // Handle both GET and POST requests safely
+    let amount = 0;
 
-    // ✅ Create a PaymentIntent
+    // Try POST body first
+    if (event.body) {
+      try {
+        const data = JSON.parse(event.body);
+        amount = data.amount || 0;
+      } catch {
+        console.warn("Could not parse body JSON");
+      }
+    }
+
+    // Fallback: look for query string (works even if body missing)
+    if (!amount && event.queryStringParameters && event.queryStringParameters.amount) {
+      amount = parseInt(event.queryStringParameters.amount);
+    }
+
+    if (!amount) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "Missing amount" }),
+      };
+    }
+
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount,
-      currency: 'usd',
+      amount,
+      currency: "usd",
       automatic_payment_methods: { enabled: true },
     });
 
-    // ✅ Return client secret for Stripe.js to confirm
     return {
       statusCode: 200,
-      headers,
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
     };
-  } catch (error) {
-    // ❌ Handle Stripe or parsing errors
+  } catch (err) {
     return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ error: error.message }),
+      statusCode: 500,
+      body: JSON.stringify({ error: err.message }),
     };
   }
 };
