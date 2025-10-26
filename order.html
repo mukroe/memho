@@ -769,11 +769,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const size = document.getElementById('size').value;
     const amount = priceMap[size];
 
-    const resp = await fetch('/.netlify/functions/create-payment-intent', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ amount })
-    });
+    const response = await fetch(`/.netlify/functions/create-payment-intent?amount=${amount}`);
+
     const { clientSecret, error: serverError } = await resp.json();
     if (serverError || !clientSecret) {
       alert('Server error: ' + (serverError || 'Unable to process payment'));

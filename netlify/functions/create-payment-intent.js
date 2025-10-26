@@ -3,28 +3,27 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
   try {
-    // Handle both GET and POST requests safely
     let amount = 0;
 
-    // Try POST body first
+    // Try reading from POST body
     if (event.body) {
       try {
         const data = JSON.parse(event.body);
         amount = data.amount || 0;
-      } catch {
-        console.warn("Could not parse body JSON");
+      } catch (err) {
+        console.warn("Body parse failed:", err);
       }
     }
 
-    // Fallback: look for query string (works even if body missing)
-    if (!amount && event.queryStringParameters && event.queryStringParameters.amount) {
+    // Fallback to query param (GET)
+    if (!amount && event.queryStringParameters?.amount) {
       amount = parseInt(event.queryStringParameters.amount);
     }
 
-    if (!amount) {
+    if (!amount || isNaN(amount)) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: "Missing amount" }),
+        body: JSON.stringify({ error: "Missing or invalid amount" }),
       };
     }
 
@@ -39,10 +38,11 @@ exports.handler = async (event) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
     };
-  } catch (err) {
+  } catch (error) {
+    console.error("Stripe error:", error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: err.message }),
+      body: JSON.stringify({ error: error.message }),
     };
   }
 };
