@@ -1,43 +1,29 @@
-// netlify/functions/create-payment-intent.js
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_LIVE);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
   try {
-    const { product } = JSON.parse(event.body);
+    const { amount } = JSON.parse(event.body);
 
-    // Domestic pricing map in cents
-    const priceMap = {
-      "8x10": 12000,   // $120
-      "12x18": 20000,  // $200
-      "18x24": 30000,  // $300
-      "18x24_rush": 35000  // Example rush if you offer it
-    };
-
-    const amount = priceMap[product];
-    if (!amount) {
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ error: 'Invalid product selection' }),
-      };
+    // Guardrails
+    if (!amount || !Number.isInteger(amount)) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Missing or invalid amount' }) };
     }
 
-    // Create the PaymentIntent (Stripe automatically supports Apple Pay/Google Pay/Venmo)
-    const paymentIntent = await stripe.paymentIntents.create({
+    // (Optional) whitelist allowed amounts to avoid tampering
+    const allowed = new Set([44000, 39000, 29000, 19000]);
+    if (!allowed.has(amount)) {
+      return { statusCode: 400, body: JSON.stringify({ error: 'Amount not allowed' }) };
+    }
+
+    const pi = await stripe.paymentIntents.create({
       amount,
       currency: 'usd',
-      payment_method_types: ['card'], // Wallets work through this type
+      automatic_payment_methods: { enabled: true },
     });
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
-    };
-
-  } catch (error) {
-    console.error(error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message }),
-    };
+    return { statusCode: 200, body: JSON.stringify({ clientSecret: pi.client_secret }) };
+  } catch (err) {
+    console.error(err);
+    return { statusCode: 500, body: JSON.stringify({ error: err.message }) };
   }
 };
