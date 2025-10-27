@@ -809,3 +809,24 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 });
 </script>
+
+<style>
+/* Force the Stripe card field iframe to be visible */
+#card-element iframe {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: 100% !important;
+  height: 56px !important;
+  background: white !important;
+  border: none !important;
+  color: #000 !important;
+  pointer-events: auto !important;
+  z-index: 10 !important;
+}
+</style>
+
+
+</body>
+</html>
+
