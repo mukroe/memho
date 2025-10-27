@@ -694,7 +694,6 @@ form input, form textarea, form select {
 
 </div>
 <script>
-// Show only for Meta traffic & remember with a cookie
 (function(){
   var p = new URLSearchParams(window.location.search);
   var fromMeta =
@@ -709,11 +708,14 @@ form input, form textarea, form select {
     if (!box) return;
     box.style.display = 'block';
     document.cookie = "mh_meta=1; max-age=" + (60*60*24*30) + "; path=/";
-    // Track a view of the bridge (custom event)
     if (window.fbq) fbq('trackCustom', 'PreviewBridgeViewed');
   }
 
-  if (fromMeta || cookie) showBridge();
+  if (fromMeta || cookie) {
+    showBridge();
+  } else {
+    if (box) box.style.display = 'none';
+  }
 })();
 </script>
 
@@ -750,11 +752,19 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
 <!-- ✅ Stripe Integration: Clean, DOM-safe version -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-<script src="https://js.stripe.com/v3/"></script>
-<script>
   const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
   const elements = stripe.elements();
-  const card = elements.create('card', { hidePostalCode: true, style: { base: { fontSize: '16px', color: '#32325d' } }});
+  const card = elements.create('card', {
+    hidePostalCode: true,
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        '::placeholder': { color: '#aab7c4' }
+      },
+      invalid: { color: '#fa755a' }
+    }
+  });
   card.mount('#card-element');
 
   const priceMap = {
@@ -769,18 +779,23 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
     e.preventDefault();
     const size = document.getElementById('size').value;
     const amount = priceMap[size];
+
     const res = await fetch('/.netlify/functions/create-payment-intent', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ amount })
     });
+
     const data = await res.json();
     if (!data.clientSecret) {
       document.getElementById('card-errors').textContent = 'Server error – could not initialize payment.';
       return;
     }
 
-    const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, { payment_method: { card } });
+    const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
+      payment_method: { card }
+    });
+
     if (error) {
       document.getElementById('card-errors').textContent = error.message;
     } else if (paymentIntent.status === 'succeeded') {
@@ -790,4 +805,4 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
   });
 </script>
 
-    
+
