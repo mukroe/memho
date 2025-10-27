@@ -751,75 +751,58 @@ document.getElementById('mh-bridge-form')?.addEventListener('submit', function()
 <!-- Stripe Integration -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
-    const elements = stripe.elements();
-    const card = elements.create('card', {
-      hidePostalCode: true,
-      style: {
-        base: {
-          fontSize: '16px',
-          color: '#32325d',
-          '::placeholder': { color: '#aab7c4' }
-        },
-        invalid: { color: '#fa755a' }
-      }
-    });
-
-    // Mount the card input field
-    card.mount('#card-element');
-
-    const priceMap = {
-      "Premium Gift Package": 44000,
-      "18×24": 39000,
-      "12×18": 29000,
-      "8×10": 19000
-    };
-
-    const form = document.getElementById('payment-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const size = document.getElementById('size').value;
-      const amount = priceMap[size];
-
-      const res = await fetch('/.netlify/functions/create-payment-intent', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ amount })
-      });
-
-      const data = await res.json();
-      if (!data.clientSecret) {
-        document.getElementById('card-errors').textContent = 'Server error – could not initialize payment.';
-        return;
-      }
-
-      const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
-        payment_method: { card }
-      });
-
-      if (error) {
-        document.getElementById('card-errors').textContent = error.message;
-      } else if (paymentIntent.status === 'succeeded') {
-        alert('Payment successful! Your order has been submitted.');
-        form.submit();
-      }
-    });
+document.addEventListener("DOMContentLoaded", async function () {
+  const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
+  const elements = stripe.elements();
+  const card = elements.create('card', {
+    hidePostalCode: true,
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#32325d',
+        '::placeholder': { color: '#aab7c4' }
+      },
+      invalid: { color: '#fa755a' }
+    }
   });
+
+  card.mount('#card-element');
+
+  const priceMap = {
+    "Premium Gift Package": 44000,
+    "18×24": 39000,
+    "12×18": 29000,
+    "8×10": 19000
+  };
+
+  const form = document.getElementById('payment-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const size = document.getElementById('size').value;
+    const amount = priceMap[size];
+
+    const res = await fetch('/.netlify/functions/create-payment-intent', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ amount })
+    });
+
+    const data = await res.json();
+    if (!data.clientSecret) {
+      document.getElementById('card-errors').textContent = 'Server error – could not initialize payment.';
+      return;
+    }
+
+    const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, {
+      payment_method: { card }
+    });
+
+    if (error) {
+      document.getElementById('card-errors').textContent = error.message;
+    } else if (paymentIntent.status === 'succeeded') {
+      alert('Payment successful! Your order has been submitted.');
+      form.submit();
+    }
+  });
+});
 </script>
-
-<!-- Style Fix to Ensure Card Field Visibility -->
-<style>
-  #card-element {
-    border: 1px solid #ccc;
-    padding: 12px;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 400px;
-    background: white;
-    margin-top: 10px;
-    min-height: 56px;
-  }
-</style>
-
-
