@@ -94,48 +94,30 @@
   </div>
 
   <script src="https://js.stripe.com/v3/"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async () => {
-      const stripe = Stripe("pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ");
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const stripe = Stripe("pk_test_51Ric5sAyeIzuGSz8nUZmXU1UmEJAcQqomOZhAVo3IpwtjIEz8rDRR2e6nQZPWht4v5B0EAw4wNwDJybTJDu4VdCk00VvmcZm5H"); // Use test key
 
-      const elements = stripe.elements();
-      const card = elements.create("card");
-      card.mount("#card-element");
+  const elements = stripe.elements();
+  const card = elements.create("card");
+  card.mount("#card-element");
 
-      const priceMap = {
-        "Premium Gift Package": 44000,
-        "18×24": 39000,
-        "12×18": 29000,
-        "8×10": 19000
-      };
-
-      const form = document.getElementById("payment-form");
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const size = document.getElementById("size").value;
-        const amount = priceMap[size];
-
-        const res = await fetch("/.netlify/functions/create-payment-intent", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount })
-        });
-
-        const data = await res.json();
-        if (!data.clientSecret) {
-          document.getElementById("card-errors").textContent = "Server error – could not initialize payment.";
-          return;
-        }
-
-        const { error, paymentIntent } = await stripe.confirmCardPayment(data.clientSecret, { payment_method: { card } });
-        if (error) {
-          document.getElementById("card-errors").textContent = error.message;
-        } else if (paymentIntent.status === "succeeded") {
-          alert("Payment successful! Your order has been submitted.");
-          form.submit();
-        }
-      });
+  document.getElementById("payment-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: card,
     });
-  </script>
+
+    if (error) {
+      document.getElementById("card-errors").textContent = error.message;
+    } else {
+      console.log("Test PaymentMethod created:", paymentMethod);
+      document.getElementById("card-errors").textContent = "✅ Card field works. You can now restore live payment.";
+    }
+  });
+});
+</script>
+
 </body>
 </html>
