@@ -755,16 +755,19 @@ document.addEventListener("DOMContentLoaded", async function () {
   const stripe = Stripe('pk_live_51Ric5sAyeIzuGSz82jAzY5GAGschIxgwdRuf5vWHpL5sLYv3c5jIlTIOgpjNgkNMIAf40eSJKATw7J2MfknvqD6G00shdDdHnZ');
   const elements = stripe.elements();
   const card = elements.create('card', {
-    hidePostalCode: true,
-    style: {
-      base: {
-        fontSize: '16px',
-        color: '#32325d',
-        '::placeholder': { color: '#aab7c4' }
-      },
-      invalid: { color: '#fa755a' }
+  hidePostalCode: true,
+  style: {
+    base: {
+      fontSize: '16px',
+      color: '#333', // ✅ Set a visible text color
+      '::placeholder': { color: '#aaa' }
+    },
+    invalid: {
+      color: '#e5424d'
     }
-  });
+  }
+});
+
 
   card.mount('#card-element');
 
