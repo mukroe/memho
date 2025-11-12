@@ -5,3 +5,5 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions."process-order"]
+  external_node_modules = ["@sendgrid/mail"]
