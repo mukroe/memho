@@ -1,41 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <style id="emergency-override-fonts">*,*::before,*::after{font-family:Arial,Helvetica,sans-serif!important}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thank You – The Memory House</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     body {
-      font-family: Georgia, serif;
       background: #fdfbf7;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      padding: 40px 20px;
+      color: #333;
     }
-    img.logo-header {
+    .thankyou-wrapper {
+      max-width: 600px;
+      padding: 20px;
+    }
+    .logo-header {
       width: 120px;
       margin-bottom: 20px;
     }
     h1 {
-      font-size: 1.8em;
       color: #6b4f36;
+      font-size: 1.8em;
       margin-bottom: 20px;
     }
     p {
       font-size: 1.1em;
-      color: #333;
-      max-width: 500px;
-      margin: 10px auto;
-      line-height: 1.5;
+      margin: 10px 0;
+      line-height: 1.6;
     }
     .social-icons {
-      margin-top: 40px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
-    .social-icons img {
-      width: 24px;
-      height: 24px;
-      margin: 0 10px;
+    .social-icons a img {
+      width: 26px;
+      height: 26px;
+      filter: brightness(0.4);
+      transition: filter 0.2s ease;
+    }
+    .social-icons a img:hover {
+      filter: brightness(0.1);
     }
     footer {
       margin-top: 40px;
@@ -45,33 +57,32 @@
   </style>
 </head>
 <body>
-  <img src="images/logo5xJ.png" alt="The Memory House" class="logo-header">
-  <h1>Your home will soon become a work of Heart.</h1>
-  <p>Please reply to your confirmation email with 1–3 clear photos of your home to complete your order.</p>
-  <p>We’ll review and follow up with your digital proof within 3 business days.</p>
-  <div class="social-icons">
-    <a href="https://www.facebook.com/profile.php?id=61576247801948" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" alt="Facebook">
-    </a>
-    <a href="https://www.instagram.com/thememoryhouse.art" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" alt="Instagram">
-    </a>
-    <a href="https://www.linkedin.com" target="_blank">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn">
-    </a>
-  </div>
-  <footer>
-    © 2025 The Memory House
-  </footer>
-  <!-- Meta Pixel Purchase Event -->
-<script>
-  if (typeof fbq === 'function') {
-    fbq('track', 'Purchase', {
-      value: 0.00,   // You can leave 0 if amount isn't known here
-      currency: 'USD'
-    });
-  }
-</script>
+  <div class="thankyou-wrapper">
+    <img src="images/logo5xJ.png" alt="The Memory House" class="logo-header">
+    <h1>Your home will soon become a work of Heart.</h1>
+    <p>Please reply to your confirmation email with 1–3 clear photos of your home to complete your order.</p>
+    <p>We’ll review and follow up with your digital proof within 3 business days.</p>
 
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/facebook.svg" alt="Facebook">
+      </a>
+      <a href="https://www.instagram.com/thememoryhouse.art" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/linkedin.svg" alt="LinkedIn">
+      </a>
+    </div>
+
+    <footer>© 2025 The Memory House</footer>
+  </div>
+
+  <!-- Meta Pixel Purchase Event -->
+  <script>
+    if (typeof fbq === 'function') {
+      fbq('track', 'Purchase', { value: 0.00, currency: 'USD' });
+    }
+  </script>
 </body>
 </html>
