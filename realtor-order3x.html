@@ -50,7 +50,7 @@
       box-sizing: border-box;
     }
 
-    /* Stripe Payment Section Mobile Optimization (unused now, but harmless) */
+    /* Stripe Payment Section Mobile Optimization (harmless if unused, left in place) */
     #payment-request-button, #card-element {
       width: 100%;
       max-width: 100%;
@@ -92,6 +92,7 @@
       touch-action: manipulation;
     }
 
+    /* Stripe Payment Section Mobile Optimization (legacy, safe) */
     #payment-request-button, #card-element {
       width: 100%;
       max-width: 100%;
@@ -307,7 +308,7 @@
             No tracking. No codes. Just consistent care. We keep record of every gift you send — and we’ll reach out personally as you level up.
           </div>
 
-          <section class="order-form-section" id="realtor-order-form">
+          <section class="order-form-section" id="realtor-order-form-section">
             <h2>
               Turn Gratitude Into Growth
             </h2>
@@ -344,7 +345,7 @@
               </p>
             </div>
 
-            <div style="background-color: #fefaf3; padding: 40px 20px; border-radius: 8px;">
+            <div id="realtor-form-container" style="background-color: #fefaf3; padding: 40px 20px; border-radius: 8px;">
               <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
                 <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
 
@@ -354,236 +355,211 @@
                   </p>
 
                   <!-- Form section -->
-                  <div id="realtor-order-wrapper">
-                    <form id="realtor-order-form-inner"
-                          action="https://formsubmit.co/el/cosogi"
-                          method="POST"
-                          enctype="multipart/form-data">
+                  <form id="realtor-order-form"
+                        action="https://formsubmit.co/el/cosogi"
+                        method="POST"
+                        enctype="multipart/form-data">
 
-                      <!-- FormSubmit configuration -->
-                      <input type="hidden" name="_subject" value="New Realtor Inner Circle Order" />
-                      <input type="hidden" name="_template" value="table" />
-                      <input type="hidden" name="_captcha" value="false" />
-                      <input type="hidden" name="_next" value="https://thememoryhouse.art/realtor-order?submitted=true" />
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New Realtor Inner Circle Order – The Memory House">
+                    <input type="hidden" name="_template" value="box">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_replyto" value="">
+                    <input type="hidden" name="_autoresponse" value="Thank you for your Realtor Inner Circle order from The Memory House. Your 18×24 hand-painted house portrait is now in motion, crafted with artistry and keen attention to detail. It will be elegantly packaged with satin ribbon, a handwritten gift card, and a framed Certificate of Memory — everything ready for a stunning reveal. Within 24 hours you’ll receive a personal review email from Michael confirming your details and sending your secure payment link. With gratitude, The Memory House.">
 
-                      <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">
-                        🧑‍💼 Realtor Info
-                      </h3>
+                    <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;">
+                      🧑‍💼 Realtor Info
+                    </h3>
 
-                      <label>
-                        Realtor’s Full Name:
-                        <br/>
-                        <input name="agent_name" type="text" required />
-                      </label>
+                    <label>
+                      Realtor’s Full Name:
                       <br/>
+                      <input name="agent_name" type="text" required />
+                    </label>
+                    <br/>
 
-                      <label>
-                        Your Email Address:
-                        <br/>
-                        <input name="agent_email" required type="email" />
-                      </label>
+                    <label>
+                      Your Email Address:
                       <br/>
+                      <input name="agent_email" required type="email" />
+                    </label>
+                    <br/>
 
-                      <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
-                        🏡 Client &amp; Delivery Details
-                      </h3>
+                    <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
+                      🏡 Client &amp; Delivery Details
+                    </h3>
 
-                      <label>
-                        Client’s Full Name:
-                        <br/>
-                        <input name="client_name" required type="text" />
-                      </label>
+                    <label>
+                      Client’s Full Name:
                       <br/>
+                      <input name="client_name" required type="text" />
+                    </label>
+                    <br/>
 
-                      <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
-                        🎁 Portrait Customization
-                      </h3>
-
-                      <label>
-                        Client’s Address (optional):
-                        <br/>
-                        <input name="client_address" type="text" />
-                      </label>
+                    <label>
+                      Client’s Address (optional):
                       <br/>
+                      <input name="client_address" type="text" />
+                    </label>
+                    <br/>
 
-                      <p><strong>Delivery Preference:</strong></p>
-                      <label>
-                        <input name="delivery" required type="radio" value="to_client" />
-                        Send directly to client
-                      </label>
+                    <p><strong>Delivery Preference:</strong></p>
+                    <label>
+                      <input name="delivery" required type="radio" value="to_client" />
+                      Send directly to client
+                    </label>
+                    <br/>
+                    <label>
+                      <input name="delivery" type="radio" value="to_agent" />
+                      Send to me for in-person gifting
+                    </label>
+                    <br/>
+
+                    <h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
+                      🎁 Portrait Customization
+                    </h3>
+
+                    <p><strong>Choose Your Gift Style:</strong></p>
+                    <label>
+                      <input name="gift_type" required type="radio" value="full" />
+                      Full Gift Package
+                    </label>
+                    <br/>
+                    <label>
+                      <input name="gift_type" type="radio" value="artwork_only" />
+                      Artwork Only
+                    </label>
+                    <br/>
+
+                    <p><strong>Home Reference:</strong></p>
+                    <label>
+                      <input name="reference_type" required type="radio" value="upload" />
+                      Upload a photo of the home
+                    </label>
+                    <br/>
+                    <label>
+                      <input name="reference_type" type="radio" value="mls" />
+                      Paste MLS link below
+                    </label>
+                    <br/>
+
+                    <label>
+                      Upload Home Photo:
                       <br/>
-                      <label>
-                        <input name="delivery" type="radio" value="to_agent" />
-                        Send to me for in-person gifting
-                      </label>
+                      <input accept="image/*" name="home_photo" type="file" />
+                    </label>
+                    <br/>
+
+                    <label>
+                      MLS Link:
                       <br/>
+                      <input name="mls_link" type="url" />
+                    </label>
+                    <br/>
 
-                      <p><strong>Choose Your Gift Style:</strong></p>
-                      <label>
-                        <input name="gift_type" required type="radio" value="full" />
-                        Full Gift Package
-                      </label>
+                    <label>
+                      Your Message to the Client:
                       <br/>
-                      <label>
-                        <input name="gift_type" type="radio" value="artwork_only" />
-                        Artwork Only
-                      </label>
+                      <textarea maxlength="250" name="custom_message" placeholder="Your message will be printed with the portrait." rows="4"></textarea>
+                    </label>
+                    <br/>
+
+                    <label>
+                      Special Instructions:
                       <br/>
+                      <textarea name="special_notes" rows="3"></textarea>
+                    </label>
+                    <br/>
 
-                      <p><strong>Home Reference:</strong></p>
-                      <label>
-                        <input name="reference_type" required type="radio" value="upload" />
-                        Upload a photo of the home
-                      </label>
-                      <br/>
-                      <label>
-                        <input name="reference_type" type="radio" value="mls" />
-                        Paste MLS link below
-                      </label>
-                      <br/>
-
-                      <label>
-                        Upload Home Photo:
-                        <br/>
-                        <input accept="image/*" name="home_photo" type="file" />
-                      </label>
-                      <br/>
-
-                      <label>
-                        MLS Link:
-                        <br/>
-                        <input name="mls_link" type="url" />
-                      </label>
-                      <br/>
-
-                      <label>
-                        Your Message to the Client:
-                        <br/>
-                        <textarea maxlength="250" name="custom_message" placeholder="Your message will be printed with the portrait." rows="4"></textarea>
-                      </label>
-                      <br/>
-
-                      <label>
-                        Special Instructions:
-                        <br/>
-                        <textarea name="special_notes" rows="3"></textarea>
-                      </label>
-                      <br/>
-
-                      <div style="
-                        margin-top: 1.5rem; 
-                        margin-bottom: 1.5rem; 
-                        padding: 0.75rem 1rem;
-                        background: #f9f9f6;
-                        border: 1px solid #e0dacd;
-                        border-radius: 6px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        font-family: Georgia, serif;
-                      ">
-                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; justify-content: center;">
-                          <input id="rush-delivery" name="rush_delivery"
-                            style="width: 18px; height: 18px; accent-color: #B89F69; cursor: pointer;"
-                            type="checkbox" value="rush" />
-                          <span style="font-size: 1.05rem; color: #333; text-align: center;">
-                            ⏱ Need it faster?
-                            <strong>Rush Delivery (+$50)</strong>
-                          </span>
-                        </label>
-                        <div style="font-size: 0.85rem; color: #6A7A89; margin-top: 0.4rem; text-align: center;">
-                          Most portraits arrive in 10–14 days. Rush delivery guarantees within 5–7 days.
-                        </div>
-                      </div>
-
-                      <p><small>
-                        You’ll be billed only after we review and confirm your order.
-                      </small></p>
-
-                      <button style="
-                        width: 90%;
-                        max-width: 400px;
-                        display: block;
-                        margin: 1.2rem auto 0 auto;
-                        padding: 0.9rem 1.5rem;
-                        font-size: 1.15rem;
-                        font-family: Georgia, serif;
-                        color: white;
-                        background: linear-gradient(180deg, #c8a45d, #b0894f);
-                        border: none;
-                        border-radius: 6px;
-                        cursor: pointer;
-                        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                      " type="submit">
-                        Place Order
-                      </button>
-                    </form>
-
-                    <!-- Success message (shown after redirect from FormSubmit) -->
-                    <div id="realtor-order-success" style="
-                      display: none;
-                      text-align: center;
-                      padding: 2.5rem 1.5rem;
-                      max-width: 640px;
-                      margin: 0 auto;
+                    <!-- Rush delivery inside the form -->
+                    <div style="
+                      margin-top: 1.5rem; 
+                      margin-bottom: 1.5rem; 
+                      padding: 0.75rem 1rem;
+                      background: #f9f9f6;
+                      border: 1px solid #e0dacd;
+                      border-radius: 6px;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
                       font-family: Georgia, serif;
                     ">
-                      <img src="images/logo5xJ.png"
-                           alt="The Memory House logo"
-                           style="width: 90px; margin-bottom: 1rem;" />
-                      <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem; color: #b98986;">
-                        Order Received
-                      </h2>
-                      <p style="font-size: 1.05rem; margin-bottom: 0.75rem;">
-                        Thank you — your 18×24 hand-painted house portrait is now in motion,
-                        crafted with artistry and keen attention to detail.
-                      </p>
-                      <p style="font-size: 1.0rem; margin-bottom: 0.75rem;">
-                        We’ll review the details within 24 hours and email you with next steps —
-                        including your secure payment link.
-                      </p>
-                      <p style="font-size: 0.98rem;">
-                        We’ll also confirm delivery preference and timing so everything feels seamless for you —
-                        and unforgettable for your clients.
-                      </p>
+                      <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; justify-content: center;">
+                        <input id="rush-delivery" name="rush_delivery"
+                          style="width: 18px; height: 18px; accent-color: #B89F69; cursor: pointer;"
+                          type="checkbox" value="rush" />
+                        <span style="font-size: 1.05rem; color: #333; text-align: center;">
+                          ⏱ Need it faster?
+                          <strong>Rush Delivery (+$50)</strong>
+                        </span>
+                      </label>
+                      <div style="font-size: 0.85rem; color: #6A7A89; margin-top: 0.4rem; text-align: center;">
+                        Most portraits arrive in 10–14 days. Rush delivery targets 5–7 days.
+                      </div>
                     </div>
-                  </div>
 
-                  <script>
-                  (function() {
-                    // Swap form for thank-you message if redirected after submission
-                    try {
-                      var params = new URLSearchParams(window.location.search);
-                      if (params.get('submitted') === 'true') {
-                        var form = document.getElementById('realtor-order-form-inner');
-                        var success = document.getElementById('realtor-order-success');
-                        if (form && success) {
-                          form.style.display = 'none';
-                          success.style.display = 'block';
-                        }
-                      }
-                    } catch (e) {
-                      // fail safe: do nothing
-                    }
+                    <p style="text-align:center; font-size:0.9rem; margin-top:0.5rem; margin-bottom:0.5rem;">
+                      <small>You’ll be billed only after we review and confirm your order details.</small>
+                    </p>
 
-                    // CTA hover effect
-                    var ctaButton = document.querySelector('#realtor-order-form-inner button[type="submit"]');
-                    if (ctaButton) {
-                      ctaButton.addEventListener('mouseover', function(){
-                        this.style.transform = 'translateY(-2px)';
-                        this.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
-                      });
-                      ctaButton.addEventListener('mouseout', function(){
-                        this.style.transform = 'translateY(0)';
-                        this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
-                      });
-                    }
-                  })();
-                  </script>
+                    <!-- Primary CTA: single luxury gold button -->
+                    <button style="
+                      width: 90%;
+                      max-width: 400px;
+                      display: block;
+                      margin: 1.2rem auto 0 auto;
+                      padding: 0.9rem 1.5rem;
+                      font-size: 1.15rem;
+                      font-family: Georgia, serif;
+                      color: white;
+                      background: linear-gradient(180deg, #c8a45d, #b0894f);
+                      border: none;
+                      border-radius: 6px;
+                      cursor: pointer;
+                      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                    " type="submit">
+                      Place Order
+                    </button>
 
+                  </form>
                 </div>
               </div>
             </div>
+
+            <!-- Inline success message (hidden by default) -->
+            <div id="realtor-success-message" style="
+              display:none;
+              max-width: 640px;
+              margin: 2rem auto;
+              padding: 2rem 2.5rem;
+              background:#fefbf7;
+              border:2px solid #c59b9b;
+              border-radius:12px;
+              text-align:center;
+              box-shadow:0 4px 14px rgba(0,0,0,0.06);
+            ">
+              <img
+                src="images/logo5xJ.png"
+                alt="The Memory House logo"
+                style="width:80px; height:auto; margin-bottom:1rem;"
+              />
+              <h2 style="font-size:1.6rem; margin-bottom:0.5rem;">
+                Thank you — your order has been received.
+              </h2>
+              <p style="font-size:1.05rem; margin-bottom:0.75rem;">
+                Your 18×24 hand-painted house portrait is now in motion, crafted with artistry and keen attention to detail.
+              </p>
+              <p style="font-size:1.0rem; margin-bottom:0.75rem;">
+                It will be elegantly packaged with satin ribbon, a handwritten gift card, and a framed Certificate of Memory — everything ready for a stunning reveal.
+              </p>
+              <p style="font-size:0.98rem; font-style:italic; color:#b47b7f; margin-bottom:0.75rem;">
+                Within 24 hours, Michael will personally review your submission and confirm every detail by email.
+              </p>
+              <p style="font-size:0.98rem; font-weight:500;">
+                We’ll be in touch shortly with next steps — including your secure payment link.
+              </p>
+            </div>
+
           </section>
 
         </div>
@@ -602,6 +578,7 @@
         </video>
       </section>
 
+      <!-- UPDATED BLOCK STARTS HERE -->
       <h3 style="text-align:center; font-size:1.8em; font-weight:bold;">
         What Happens After You Order
       </h3>
@@ -622,7 +599,9 @@
         <h3 style="font-size: 1.35rem; font-weight: bold; text-align: center;">
           You’ll look like a hero. And they’ll never forget it.
         </h3>
+        <p></p>
       </div>
+      <!-- UPDATED BLOCK ENDS HERE -->
 
     </div>
 
@@ -646,5 +625,65 @@
       </a>
     </p>
   </div>
+
+  <!-- Stripe scripts removed on purpose -->
+
+  <script>
+    // Gentle hover for the main CTA
+    (function(){
+      const ctaButton = document.querySelector('#realtor-order-form button[type="submit"]');
+      if (!ctaButton) return;
+
+      ctaButton.addEventListener('mouseover', function(){
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+      });
+      ctaButton.addEventListener('mouseout', function(){
+        this.style.transform = 'translateY(0)';
+        this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+      });
+    })();
+  </script>
+
+  <script>
+    // AJAX submit to FormSubmit + inline success message
+    (function() {
+      const form = document.getElementById('realtor-order-form');
+      const formContainer = document.getElementById('realtor-form-container');
+      const successBox = document.getElementById('realtor-success-message');
+
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(function(response) {
+          if (response.ok) {
+            if (formContainer) formContainer.style.display = 'none';
+            if (successBox) successBox.style.display = 'block';
+
+            if (successBox && successBox.offsetTop) {
+              window.scrollTo({
+                top: successBox.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          } else {
+            alert('Thank you — your order was submitted, but there was an issue confirming it here. If you do not receive a confirmation email within a few minutes, please contact info@thememoryhouse.art.');
+          }
+        }).catch(function() {
+          alert('There was a problem submitting the form. Please try again, or email info@thememoryhouse.art with your order details.');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
