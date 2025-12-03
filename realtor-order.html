@@ -16,6 +16,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
   </style>
+
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Realtor Inner Circle Order Page – The Memory House</title>
@@ -593,7 +594,88 @@
                     }
                   })();
                   </script>
-                  <script>
+        
+
+<script>
+// === Auto-scroll to success message when ?submitted=true ===
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("submitted") === "true") {
+    const successSection = document.getElementById("realtor-order-success");
+    if (successSection) {
+      successSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+});
+</script>
+
+
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+      <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;">
+        <h2 style="font-family: Georgia, serif; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+          Painted by Hand. Remembered for a Lifetime.
+        </h2>
+        <p style="font-family: Garamond, serif; font-style: italic; color: #6a4e35; font-size: 1.15em; margin-bottom: 30px;">
+          Watch how each one-of-a-kind portrait is lovingly created — the kind of closing gift your clients will never forget.
+        </p>
+        <video controls preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;">
+          <source src="Memho vid 1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <h3 style="text-align:center; font-size:1.8em; font-weight:bold;">
+        What Happens After You Order
+      </h3>
+      <div style="text-align:center;">
+        <p style="text-align:center;">
+          You’ll receive two confirmations:
+          <br/>
+          An immediate email the moment your order is submitted.
+          <br/>
+          A personal review message within 24 hours once we’ve looked over the details.
+        </p>
+        <p style="margin-top: 6px;text-align:center;">
+          From there, your portrait begins — hand-painted with style, wrapped with finesse, and shipped professionally.
+        </p>
+        <p style="margin-top: 6px;text-align:center;">
+          Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
+        </p>
+        <h3 style="font-size: 1.35rem; font-weight: bold; text-align: center;">
+          You’ll look like a hero. And they’ll never forget it.
+        </h3>
+      </div>
+
+    </div>
+
+    <section class="loyalty-section" id="realtor-loyalty-program" style="margin-top: 4rem;"></section>
+
+    <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+      Memories start with home — and end in .art
+    </p>
+
+    <p style="text-align:center;">
+      © 2025 The Memory House
+      <br/>
+      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
+        <i class="fab fa-facebook-f fa-lg"></i>
+      </a>
+      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
+        <i class="fab fa-instagram fa-lg"></i>
+      </a>
+      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
+        <i class="fab fa-linkedin-in fa-lg"></i>
+      </a>
+    </p>
+  </div>
+            <script>
 // === Universal Image Compression for Realtor Uploads ===
 // Accept any image format → Output high-quality JPEG under 10MB
 document.addEventListener("DOMContentLoaded", function () {
@@ -676,85 +758,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script>   <!-- END OF COMPRESSION SCRIPT -->
-
-<script>
-// === Auto-scroll to success message when ?submitted=true ===
-document.addEventListener("DOMContentLoaded", function () {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("submitted") === "true") {
-    const successSection = document.getElementById("realtor-order-success");
-    if (successSection) {
-      successSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-});
-</script>
-
-
-                </div>
-              </div>
-            </div>
-          </section>
-
-        </div>
-      </div>
-
-      <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;">
-        <h2 style="font-family: Georgia, serif; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
-          Painted by Hand. Remembered for a Lifetime.
-        </h2>
-        <p style="font-family: Garamond, serif; font-style: italic; color: #6a4e35; font-size: 1.15em; margin-bottom: 30px;">
-          Watch how each one-of-a-kind portrait is lovingly created — the kind of closing gift your clients will never forget.
-        </p>
-        <video controls preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;">
-          <source src="Memho vid 1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </section>
-
-      <h3 style="text-align:center; font-size:1.8em; font-weight:bold;">
-        What Happens After You Order
-      </h3>
-      <div style="text-align:center;">
-        <p style="text-align:center;">
-          You’ll receive two confirmations:
-          <br/>
-          An immediate email the moment your order is submitted.
-          <br/>
-          A personal review message within 24 hours once we’ve looked over the details.
-        </p>
-        <p style="margin-top: 6px;text-align:center;">
-          From there, your portrait begins — hand-painted with style, wrapped with finesse, and shipped professionally.
-        </p>
-        <p style="margin-top: 6px;text-align:center;">
-          Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
-        </p>
-        <h3 style="font-size: 1.35rem; font-weight: bold; text-align: center;">
-          You’ll look like a hero. And they’ll never forget it.
-        </h3>
-      </div>
-
-    </div>
-
-    <section class="loyalty-section" id="realtor-loyalty-program" style="margin-top: 4rem;"></section>
-
-    <p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
-      Memories start with home — and end in .art
-    </p>
-
-    <p style="text-align:center;">
-      © 2025 The Memory House
-      <br/>
-      <a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
-        <i class="fab fa-facebook-f fa-lg"></i>
-      </a>
-      <a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
-        <i class="fab fa-instagram fa-lg"></i>
-      </a>
-      <a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
-        <i class="fab fa-linkedin-in fa-lg"></i>
-      </a>
-    </p>
-  </div>
 </body>
 </html>
