@@ -531,9 +531,23 @@
                       <img src="images/logo5xJ.png"
                            alt="The Memory House logo"
                            style="width: 90px; margin-bottom: 1rem;" />
-                      <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem; color: #b98986;">
-                        Order Received
-                      </h2>
+                      <h2 id="success-headline"
+    style="
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #c8a45d;
+      padding: 1.1rem 1.6rem;
+      border-radius: 12px;
+      margin-bottom: 1.2rem;
+      text-shadow: 
+        0 0 2px rgba(0,0,0,0.4),
+        0 0 3px rgba(0,0,0,0.2);
+      display: inline-block;
+    ">
+  We’ve Started Creating Your Client’s Heirloom
+</h2>
+
                       <p style="font-size: 1.05rem; margin-bottom: 0.75rem;">
                         Thank you — your 18×24 hand-painted house portrait is now in motion,
                         crafted with artistry and keen attention to detail.
@@ -580,6 +594,98 @@
                     }
                   })();
                   </script>
+                  <script>
+// === Image Compression for Home Photo Upload (Max 3000px) ===
+document.addEventListener("DOMContentLoaded", function () {
+  const fileInput = document.querySelector('input[name="home_photo"]');
+  if (!fileInput) return;
+
+  fileInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    // Only handle images
+    if (!file.type.startsWith("image/")) return;
+
+    const maxDim = 3000;
+    const reader = new FileReader();
+    const img = new Image();
+
+    reader.onload = function (e) {
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    img.onload = function () {
+      let width = img.width;
+      let height = img.height;
+
+      // Skip if already small enough and under ~9MB
+      if (width <= maxDim && height <= maxDim && file.size < 9000000) {
+        return;
+      }
+
+      // Resize keeping aspect ratio
+      if (width > height) {
+        if (width > maxDim) {
+          height = height * (maxDim / width);
+          width = maxDim;
+        }
+      } else {
+        if (height > maxDim) {
+          width = width * (maxDim / height);
+          height = maxDim;
+        }
+      }
+
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, width, height);
+
+      canvas.toBlob(function (blob) {
+        if (!blob) {
+          console.error("Compression failed.");
+          return;
+        }
+
+        // Hard safety check for FormSubmit 10MB limit
+        if (blob.size > 10000000) {
+          alert("Image is too large even after compression. Please choose a smaller image.");
+          fileInput.value = "";
+          return;
+        }
+
+        const compressedFile = new File(
+          [blob],
+          file.name.replace(/\.\w+$/, ".jpg"),
+          { type: "image/jpeg", lastModified: Date.now() }
+        );
+
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(compressedFile);
+        fileInput.files = dataTransfer.files;
+      }, "image/jpeg", 0.90);
+    };
+  });
+});
+</script>   <!-- END OF COMPRESSION SCRIPT -->
+
+<script>
+// === Auto-scroll to success message when ?submitted=true ===
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("submitted") === "true") {
+    const successSection = document.getElementById("realtor-order-success");
+    if (successSection) {
+      successSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+});
+</script>
+
 
                 </div>
               </div>
