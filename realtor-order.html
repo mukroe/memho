@@ -347,11 +347,7 @@
               <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
                 <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
 
-                  <!-- Friction-reducing line -->
-                  <p style="font-family: Georgia, serif; font-size: 1rem; color: #333; margin-bottom: 20px;">
-                    Just fill in a few details below — we’ll take care of everything else.
-                  </p>
-
+        
                   <!-- Form section -->
                   <div id="realtor-order-wrapper">
                     <form id="realtor-order-form-inner"
@@ -519,48 +515,78 @@
                       </button>
                     </form>
 
-                    <!-- Success message (shown after redirect from FormSubmit) -->
-                    <div id="realtor-order-success" style="
-                      display: none;
-                      text-align: center;
-                      padding: 2.5rem 1.5rem;
-                      max-width: 640px;
-                      margin: 0 auto;
-                      font-family: Georgia, serif;
-                    ">
-                      <img src="images/logo5xJ.png"
-                           alt="The Memory House logo"
-                           style="width: 90px; margin-bottom: 1rem;" />
-                      <h2 id="success-headline"
-    style="
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #ffffff;
-      background: #c8a45d;
-      padding: 1.1rem 1.6rem;
-      border-radius: 12px;
-      margin-bottom: 1.2rem;
-      text-shadow: 
-        0 0 2px rgba(0,0,0,0.4),
-        0 0 3px rgba(0,0,0,0.2);
-      display: inline-block;
-    ">
-  We’ve Started Creating Your Client’s Heirloom
-</h2>
+<!-- Success message (shown after redirect from FormSubmit) -->
+<div id="realtor-order-success" style="
+  display: none;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: Georgia, serif;
+">
 
-                      <p style="font-size: 1.05rem; margin-bottom: 0.75rem;">
-                        Thank you — your 18×24 hand-painted house portrait is now in motion,
-                        crafted with artistry and keen attention to detail.
-                      </p>
-                      <p style="font-size: 1.0rem; margin-bottom: 0.75rem;">
-                        We’ll review the details within 24 hours and email you with next steps —
-                        including your secure payment link.
-                      </p>
-                      <p style="font-size: 0.98rem;">
-                        We’ll also confirm delivery preference and timing so everything feels seamless for you —
-                        and unforgettable for your clients.
-                      </p>
-                    </div>
+  <!-- Logo -->
+  <img src="images/logo5xJ.png"
+       alt="The Memory House logo"
+       style="width: 90px; margin-bottom: 1rem;" />
+
+  <!-- Gold Box Headline -->
+  <h2 id="success-headline"
+      style="
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: #c8a45d;
+        padding: 1.1rem 1.6rem;
+        border-radius: 12px;
+        margin-bottom: 1.8rem;
+        text-shadow:
+          0 0 2px rgba(0,0,0,0.4),
+          0 0 3px rgba(0,0,0,0.2);
+        display: inline-block;
+      ">
+    We’ve Started Creating Your Client’s Heirloom
+  </h2>
+
+  <!-- Dual-Border Luxury White Box -->
+  <div style="
+    background: #ffffff;
+    border: 3px solid #c8a45d;            /* Gold outer border */
+    padding: 2.2rem 1.8rem;               /* Increased padding */
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    margin-bottom: 1rem;
+    position: relative;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #333;
+  ">
+    <!-- Inner dusty rose border -->
+    <div style="
+      border: 2px solid #b58a8a;          /* Dusty rose inner border */
+      border-radius: 10px;
+      padding: 1.6rem;
+    ">
+      <p style="margin-bottom: 1.2rem;">
+        Thank you — your 18×24 hand-painted house portrait is now in motion,
+        crafted with artistry and keen attention to detail.
+      </p>
+
+      <p style="margin-bottom: 1.2rem;">
+        We’ll review the details within 24 hours and email you with next steps —
+        including your secure payment link.
+      </p>
+
+      <p>
+        We’ll also confirm delivery preference and timing so everything feels seamless for you —
+        and unforgettable for your clients.
+      </p>
+    </div>
+  </div>
+
+</div>
+
                   </div>
 
                   <script>
