@@ -23,10 +23,7 @@
 
   <style>
     body {
-      background-color: #EAD7BC;
-      background-image: linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06)), linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06));
-      background-size: 4px 4px;
-      background-position: 0 0, 2px 2px;
+      background-color: #FAF4E8;
       font-family: Georgia, serif;
       margin: 0;
       padding: 0;
@@ -73,15 +70,6 @@
       background-color: #fff;
       box-sizing: border-box;
     }
-    .content-card {
-      background-color: #ffffff;
-      border-radius: 14px;
-      padding: 2.5rem 2rem;
-      margin: 2.5rem auto;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-      border: 1px solid rgba(200,164,93,0.35);
-    }
-
   </style>
 
   <style>
@@ -135,19 +123,14 @@
       color: #2c2c2c;
     }
     .loyalty-box {
-  max-width: 50ch;
-  margin: 2rem auto;
-  padding: 2.2rem;
-  background: #C9A8A8;
-  border: 4px solid #C8A45D;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15),
-              inset 0 0 18px rgba(255,255,255,0.25);
-  color: #FFFFFF;
-  text-align: center;
-  line-height: 1.75;
-  font-size: 1.12rem;
-}
+      max-width: 50ch;
+      margin: 0 auto;
+      padding: 2rem;
+      border: 3px solid #a98b5d;
+      border-radius: 12px;
+      background: #fefbf7;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
     h2 {
       text-align: center;
       font-size: 1.8rem;
@@ -176,20 +159,7 @@
 
     /* Visibility rules */
     @media (max-width: 767.98px){
-      .loyalty-box {
-  max-width: 90%;
-  margin: 1.5rem auto;
-  padding: 1.6rem;
-  background: #C9A8A8;
-  border: 3px solid #C8A45D;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.12),
-              inset 0 0 14px rgba(255,255,255,0.22);
-  color: #FFFFFF;
-  text-align: center;
-  line-height: 1.55;
-  font-size: 1.05rem;
-}
+      .loyalty-box{ display:none !important; }
       .loyalty-text-mobile{ display:block !important; }
     }
     @media (min-width: 768px){
@@ -282,51 +252,13 @@
     }
   }
   </script>
-
-  <style>
-    .brand-header {
-      text-align: center;
-      margin-bottom: 1.75rem;
-    }
-    .brand-logo {
-      width: 80px;
-      display: block;
-      margin: 0 auto 0.5rem auto;
-    }
-    .brand-name {
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #3b2a23;
-    }
-    .brand-tagline {
-      margin-top: 0.45rem;
-      font-size: 0.98rem;
-      font-weight: 500;
-      color: #3b2a23;
-    }
-    .brand-divider {
-      width: 120px;
-      height: 1px;
-      background-color: #c8a45d;
-      margin: 0.9rem auto 0;
-    }
-  </style>
 </head>
 
 <body>
   <div class="page-wrapper">
-    <div class="main-content content-card">
+    <div class="main-content">
       <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
         <div class="main-content" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
-          <div class="brand-header">
-            <img src="images/logo5xJ.png" alt="The Memory House logo" class="brand-logo" />
-            <div class="brand-name">The Memory House</div>
-            <div class="brand-tagline">Make Your Clients Feel Seen. Make Yourself Unforgettable.</div>
-            <div class="brand-divider"></div>
-          </div>
-
-
 
           <h1 style="text-align: center;">
             Welcome to the Realtor Inner Circle
@@ -337,7 +269,7 @@
           </p>
 
           <div class="loyalty-box" style="padding: 1em 1em; border-radius: 8px;">
-            <h3 style="font-size: 1.7em; font-family: Georgia, serif; color: #ffffff; font-weight: bold; text-align:center;">
+            <h3 style="font-size: 1.5em; font-family: Georgia, serif;">
               The Loyalty Tiers
             </h3>
             <p>
@@ -411,9 +343,9 @@
               </p>
             </div>
 
-            <div style="background-color: #fefaf3; padding: 40px 20px; border-radius: 8px;">
-              <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
-                <div style="background-color:#fefaf3; padding:20px 20px; border-radius: 8px;">
+            <div style="background-color: #fefaf3; padding: 20px 16px; border-radius: 8px;">
+              <div style="background-color:#fefaf3; padding:12px 16px; border-radius: 8px;">
+                <div style="background-color:#fefaf3; padding:12px 16px; border-radius: 8px;">
 
         
                   <!-- Form section -->
@@ -587,7 +519,7 @@
 <div id="realtor-order-success" style="
   display: none;
   text-align: center;
-  padding: 2.5rem 1.5rem;
+  padding: 1.8rem 1.4rem;
   max-width: 640px;
   margin: 0 auto;
   font-family: Georgia, serif;
@@ -712,10 +644,20 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </div>
 
-      
+      <section id="see-the-art" style="background-color: #fdf6e9; padding: 60px 0; text-align: center;">
+        <h2 style="font-family: Georgia, serif; font-size: 2em; font-weight: bold; margin-bottom: 10px;">
+          Painted by Hand. Remembered for a Lifetime.
+        </h2>
+        <p style="font-family: Garamond, serif; font-style: italic; color: #6a4e35; font-size: 1.15em; margin-bottom: 30px;">
+          Watch how each one-of-a-kind portrait is lovingly created — the kind of closing gift your clients will never forget.
+        </p>
+        <video controls preload="metadata" style="width: 80%; max-width: 700px; height: auto; border-radius: 12px;">
+          <source src="Memho vid 1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </section>
 
-      <div class="content-card" style="text-align:center;">
-<h3 style="text-align:center; font-size:1.8em; font-weight:bold;">
+      <h3 style="text-align:center; font-size:1.8em; font-weight:bold;">
         What Happens After You Order
       </h3>
       <div style="text-align:center;">
@@ -736,7 +678,6 @@ document.addEventListener("DOMContentLoaded", function () {
           You’ll look like a hero. And they’ll never forget it.
         </h3>
       </div>
-</div>
 
     </div>
 
