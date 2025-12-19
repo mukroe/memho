@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Regular.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Bold.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Italic.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-BoldItalic.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/fonts/memho-fonts.css" rel="stylesheet"/>
+<style>
+    html, body, h1, h2, h3, h4, h5, h6,
+    p, span, em, strong, a, li, ul, ol,
+    blockquote, input, textarea, select, button {
+      font-family: 'Cormorant Garamond', serif !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  
+
+/* --- Exclusive-match: center + dusty pink trim + top spacing (forced) --- */
+.page-wrapper{
+  padding: 2.5rem 1rem 3rem !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.content-card{
+  width: min(980px, calc(100% - 2rem)) !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+
+  background: #ffffff !important;
+  border: 5px solid #D8A48F !important;   /* dusty pink */
+  border-radius: 18px !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.06) !important;
+
+  padding: 2.5rem 2.2rem !important;
+}
+
+
+.dash-bold{font-weight:700;}
+
+/* --- Jump to Order Form CTA (luxury, unobtrusive) --- */
+.jump-to-form-wrap{
+  display:flex;
+  justify-content:center;
+  margin: 14px 0 10px 0;
+}
+a.jump-to-form-btn{
+  display:inline-block;
+  padding: 12px 22px;
+  border: 2px solid #c8b08a;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  background: #fbf7f1;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+a.jump-to-form-btn:hover{
+  background: #f4ede3;
+  transform: translateY(-1px);
+}
+
+.jump-link-subtle{
+  text-align:center;
+  margin: 6px 0 18px 0;
+  font-size: 0.95rem;
+}
+.jump-link-subtle a{
+  color:#9f7474;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  text-decoration-color: rgba(159,116,116,0.45);
+}
+.jump-link-subtle a:hover{
+  color:#875c5c;
+  text-decoration-color: rgba(135,92,92,0.60);
+}
+
+</style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Realtor Inner Circle Order Page – The Memory House</title>
+<style>
+    body {
+      background-color: #EAD7BC;
+      background-image: linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06)), linear-gradient(45deg, rgba(255,255,255,0.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.06) 75%, rgba(255,255,255,0.06));
+      background-size: 4px 4px;
+      background-position: 0 0, 2px 2px;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+    }
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    .main-content {
+      width: 100%;
+      max-width: 800px;
+    }
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+    form {
+      width: 100%;
+    }
+    .loyalty-box, .order-form-section, .main-content div {
+      box-sizing: border-box;
+    }
+
+    /* Stripe Payment Section Mobile Optimization (unused now, but harmless) */
+    #payment-request-button, #card-element {
+      width: 100%;
+      max-width: 100%;
+    }
+    #card-errors {
+      font-size: 0.9rem;
+      color: red;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .stripe-payment-wrapper {
+      width: 100%;
+      max-width: 380px;
+      margin: 1rem auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+    .content-card {
+      background-color: #ffffff;
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      margin: 2.5rem auto;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      border: 1px solid rgba(200,164,93,0.35);
+    }
+
+  </style>
+<style>
+    input[type=text], input[type=email], input[type=url], input[type=file], textarea {
+      width: 100%;
+      max-width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    input[type=radio], input[type=checkbox] {
+      width: 18px;
+      height: 18px;
+    }
+    button {
+      touch-action: manipulation;
+    }
+
+    #payment-request-button, #card-element {
+      width: 100%;
+      max-width: 100%;
+    }
+    #card-errors {
+      font-size: 0.9rem;
+      color: red;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .stripe-payment-wrapper {
+      width: 100%;
+      max-width: 380px;
+      margin: 1rem auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1rem;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+  </style>
+<meta content="Special pricing for our Realtor Inner Circle. Order a custom portrait as a client-closing gift that’s truly unforgettable." name="description"/>
+<style id="loyalty-box-merge">
+    body {
+      background: #fdf8ee;
+      font-family: 'Georgia', serif;
+      margin: 3rem;
+      color: #2c2c2c;
+    }
+    .loyalty-box {
+  max-width: 50ch;
+  margin: 2rem auto;
+  padding: 2.2rem;
+  background: #C9A8A8;
+  border: 4px solid #C8A45D;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15),
+              inset 0 0 18px rgba(255,255,255,0.25);
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1.75;
+  font-size: 1.12rem;
+}
+    h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 0.3em;
+    }
+    .subtitle {
+      
+      text-align: center;
+      font-family: 'Palatino Linotype', Palatino, serif;
+      font-size: 1rem;
+      margin-bottom: 1.5em;
+    }
+    .tier {
+      margin-bottom: 1.5rem;
+    }
+    .separator {
+      border-bottom: 1px solid #d2b48c;
+      width: 60%;
+      margin: 1rem auto;
+    }
+    .tier-title {
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      margin-bottom: 0.2em;
+    }
+
+    /* Visibility rules */
+    @media (max-width: 767.98px){
+      .loyalty-box {
+  max-width: 90%;
+  margin: 1.5rem auto;
+  padding: 1.6rem;
+  background: #C9A8A8;
+  border: 3px solid #C8A45D;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12),
+              inset 0 0 14px rgba(255,255,255,0.22);
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 1.55;
+  font-size: 1.05rem;
+}
+      .loyalty-text-mobile{ display:block !important; }
+    }
+    @media (min-width: 768px){
+      .loyalty-text-mobile{ display:none !important; }
+    }
+  </style>
+<style>
+    @media (max-width: 767.98px) {
+      .page-wrapper,
+      .main-content,
+      .loyalty-text-mobile,
+      .content,
+      [class*="content"] {
+        max-width: none !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+      .main-content > *:first-child { margin-top: 0; }
+    }
+  </style>
+<meta content="index,follow" name="robots"/>
+<link href="https://thememoryhouse.art/realtor-order.html" rel="canonical">
+<meta content="Realtor Inner Circle Order Page – The Memory House" property="og:title"/>
+<meta content="Special pricing for our Realtor Inner Circle. Order a custom portrait as a client-closing gift that’s truly unforgettable." property="og:description"/>
+<meta content="https://thememoryhouse.art/images/happy-couple-with-house-painting.webp" property="og:image"/>
+<meta content="https://thememoryhouse.art/realtor-order.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="The Memory House" property="og:site_name"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Realtor Inner Circle Order Page – The Memory House" name="twitter:title"/>
+<meta content="Special pricing for our Realtor Inner Circle. Order a custom portrait as a client-closing gift that’s truly unforgettable." name="twitter:description"/>
+<meta content="https://thememoryhouse.art/images/happy-couple-with-house-painting.webp" name="twitter:image"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Realtor Inner Circle Order Page",
+    "description": "Special pricing for our Realtor Inner Circle. Order a custom portrait as a client-closing gift that’s truly unforgettable.",
+    "url": "https://thememoryhouse.art/realtor-order.html"
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The Memory House",
+    "image": "https://thememoryhouse.art/images/logo5xJ.png",
+    "url": "https://thememoryhouse.art",
+    "email": "info@thememoryhouse.art",
+    "telephone": "+1-571-365-6041",
+    "description": "Bespoke watercolor portraits of homes – handmade from your photos. Perfect as heartfelt gifts or realtor closing gifts.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6352 Silas Burke St",
+      "addressLocality": "Burke",
+      "addressRegion": "VA",
+      "postalCode": "22015",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "sameAs": [
+      "https://www.facebook.com/thememoryhouseart",
+      "https://www.instagram.com/thememoryhouse.art",
+      "https://www.linkedin.com/company/thememoryhouseart"
+    ]
+  }
+  </script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://thememoryhouse.art",
+    "name": "The Memory House",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://thememoryhouse.art/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+<style>
+    .brand-header {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+    .brand-logo {
+      width: 80px;
+      display: block;
+      margin: 0 auto 0.5rem auto;
+    }
+    .brand-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #3b2a23;
+    }
+    .brand-tagline {
+      margin-top: 0.45rem;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: #3b2a23;
+    }
+    .brand-divider {
+      width: 120px;
+      height: 1px;
+      background-color: #c8a45d;
+      margin: 0.9rem auto 0;
+    }
+  </style>
+</link></meta>
+    <style>
+      .gold-divider {
+        width: 64px;
+        height: 3px;
+        background-color: #c9a24d;
+        margin: 1.5rem auto 2.5rem auto;
+        border-radius: 2px;
+      }
+    </style>
+    
+
+<style id="form-field-visibility-tweak">
+  /* readability: make fields pop slightly more on white */
+  input[type="text"], input[type="email"], input[type="url"], input[type="tel"],
+  input[type="number"], textarea, select, input[type="file"] {
+    border: 1.5px solid #D8A48F !important;
+  }
+  input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="tel"]:focus,
+  input[type="number"]:focus, textarea:focus, select:focus, input[type="file"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(216, 164, 143, 0.25);
+  }
+</style>
+
+
+<style id="decision-panel-style">
+  .decision-panel {
+    background: #fbf6ee;
+    border: 1px solid rgba(68, 70, 75, 0.55);
+    border-radius: 16px;
+    padding: 18px 16px 16px 16px;
+    margin: 16px auto 28px auto;
+    max-width: min(340px, calc(100% - 48px));
+    width: min(340px, calc(100% - 48px));
+    position: relative;
+  }
+  /* ensure headings inside don't add extra top space */
+  .decision-panel h4, .decision-panel .section-title {
+    margin-top: 10px !important;
+  }
+
+  @media (max-width: min(340px, calc(100% - 48px));
+      width: min(340px, calc(100% - 48px));
+      padding: 14px 16px 12px 16px;
+    }
+  }
+
+  /* Keepsake Certificate Branding (co-branded) */
+  .decision-panel .cert-branding-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 6px auto 0 auto;
+    width: min(340px, calc(100% - 48px));
+    text-align: left;
+  }
+  .decision-panel .cert-branding-fields{
+    display: none;
+    width: min(420px, calc(100% - 48px));
+    margin: 12px auto 0 auto;
+    text-align: left;
+  }
+  .decision-panel .cert-branding-fields label{
+    display: block;
+    margin: 0 0 12px 0;
+  }
+  .decision-panel .cert-branding-fields input[type="text"],
+  .decision-panel .cert-branding-fields input[type="url"]{
+    width: 100%;
+  }
+  .decision-panel .cert-rights{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 0 0;
+  }
+  .decision-panel .cert-note{
+    margin: 10px 0 0 0;
+    font-size: 0.95rem;
+    color: rgba(68, 70, 75, 0.85);
+  }
+  .cert-subline{
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    color: rgba(68, 70, 75, 0.78);
+  }
+
+</style>
+
+
+<style id="decision-panel-radio-neutral">
+  /* Decision panel: make radios unmistakably interactive (scoped) */
+  .decision-panel input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #44464b;
+    border-radius: 50%;
+    background: #ffffff;
+    display: inline-grid;
+    place-content: center;
+    margin-right: 0;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  .decision-panel input[type="radio"]::before{
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 120ms ease-in-out;
+    background: #44464b;
+  }
+  .decision-panel input[type="radio"]:checked::before{
+    transform: scale(1);
+  }
+  .decision-panel input[type="radio"]:focus-visible{
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(216, 164, 143, 0.25);
+  }
+  /* Slightly strengthen option text for readability in the panel */
+  .decision-panel label{
+    color: #202124;
+  }
+</style>
+
+
+
+
+<style id="decision-panel-radio-alignment">
+  /* Align radio options in a clean vertical column (panel headings can stay centered) */
+  .decision-panel{ text-align: center; }
+  .decision-panel label{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    /* Slightly narrower + inset so radios don't hug the left edge and the panel feels more "luxury" */
+    width: min(280px, 100%);
+    padding-left: 10px;
+    margin: 10px auto;
+    text-align: left;
+    line-height: 1.35;
+  }
+  .decision-panel .home-ref-hint{
+    margin: 2px auto 10px auto;
+    font-size: 0.95em;
+    color: #6b6f76;
+    font-family: Georgia, serif;
+    text-align: center;
+  }
+
+  /* Remove extra blank lines caused by <br> tags inside the panel */
+  .decision-panel br{ display:none; }
+</style>
+
+<style id="subtle-gold-bar-style">
+  .subtle-gold-bar{
+    width: 120px;
+    height: 3px;
+    background: #c7a25a;
+    border-radius: 2px;
+    margin: 18px auto 18px auto;
+    opacity: 0.85;
+  }
+</style>
+
+</head>
+<body>
+<div class="page-wrapper">
+<div class="main-content content-card">
+<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+<div class="main-content" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
+<div class="topnav" style="text-align: center; padding: 1rem 0 0;">
+<img alt="The Memory House Logo" class="logo" loading="lazy" src="images/logo5xJ.png" style="width: 120px;"/>
+<div class="brand-wordmark" style="text-align:center; margin:0; line-height:1;"><h1 class="brand-title" style="font-family:\'Cormorant Garamond\',\'CormorantGaramond\',serif;font-weight:700;font-size:3rem;line-height:1.1;margin:8px 0 18px 0;color:#51606C;text-align:center;">The Memory House</h1></div>
+<p class="tagline" style="font-family:'Garamond', serif; font-size:1.1rem; color:#2C2C2C; text-align:center; margin:0.75rem 0 1.5rem 0;">
+Make Your Clients Feel Seen<span style="color:#D8A48F; padding:0 18px; font-size:22px; line-height:1; display:inline-block; transform:scale(3); transform-origin:center; vertical-align:middle;">★</span>Make Yourself Unforgettable
+</p>
+</div>
+
+<div class="jump-to-form-wrap">
+  <a class="jump-to-form-btn" href="#order-form">Go to Order Form</a>
+</div>
+
+<h1 style="text-align: center;">
+            Welcome to the Realtor Inner Circle
+          </h1>
+<p style="text-align: center; ">
+            You're not just ordering a portrait<br><span class=\"dash-bold\">—</span> you're joining a loyalty program built to reward you<br>every step of the way.
+          </p>
+<div class="loyalty-box" style="padding: 1em 1em; ">
+<h3 style="font-size: 1.7em; font-family: Georgia, serif; color: #ffffff; font-weight: bold; text-align:center;">
+              The Loyalty Tiers
+            </h3>
+<p>
+               <strong>Bronze: First Order</strong><br/>
+              Enjoy $75 off your first portrait — our welcome gift to new realtors. Co-branded certificate available on request.
+            </p>
+<p>
+               <strong>Silver: 3–5 Orders</strong><br/>
+              Receive upgraded gift packaging, seasonal portrait options, and early access to promotions. Co-branded certificate included.
+            </p>
+<p>
+               <strong>Gold: 6+ Orders</strong><br/>
+              We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait. Co-branded certificate included.
+            </p>
+</div>
+<section aria-labelledby="loyalty-mobile-title" class="loyalty-text-mobile">
+<h3 id="loyalty-mobile-title">The Loyalty Tiers</h3>
+<p>
+               Bronze: First Order<br/>
+              Enjoy $75 off your first portrait — our welcome gift to new realtors. Co-branded certificate available on request.
+            </p>
+<p>
+               Silver: 3–5 Orders<br/>
+              Receive upgraded gift packaging, seasonal portrait options, and early access to promotions. Co-branded certificate included.
+            </p>
+<p>
+               Gold: 6+ Orders<br/>
+              We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait. Co-branded certificate included.
+            </p>
+</section>
+<div style="padding: 1em; margin-top: 1.5em; font-size: 0.95em; color: #666;  max-width: 680px; margin-left: auto; margin-right: auto;">
+            No tracking. No codes. Just consistent care.<br>We keep record of every gift you send — and we’ll reach out personally as you level up.
+          </div>
+<section class="order-form-section" id="realtor-order-form">
+
+<p class="jump-link-subtle"><a href="#order-form">Already decided? Go to the order form →</a></p>
+
+<h2>
+              Turn Gratitude Into Growth
+            </h2>
+<p style=" font-size: 1.05rem; margin-bottom: 0.25rem;">
+              “Our clients were blown away. They’ve already referred us to two new buyers.”
+            </p>
+<p style="font-size: 0.95rem; font-weight: 500; color: #444; margin-bottom: 1.5rem;">
+              — Amanda S., Compass</p>
+<div class="subtle-gold-bar"></div>
+<div style="height:18px;"></div>
+<p style="font-size: 1.1rem; font-weight: 600; color: #2f2f2f;; margin-top: 6px; margin-bottom: 18px;">
+              Start your client’s portrait order below — and start your next referral chain.
+              <br/>
+<span style="font-size: 0.95rem; font-weight: 400;">
+                Every order includes your personalized message, carefully packaged to impress.
+              </span>
+</p>
+<div style="text-align: center; margin: 2rem 0;">
+<img alt="Happy couple with house painting" loading="lazy" src="images/happy-couple-with-house-painting.webp" style="width: 80%; max-width: 600px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"/>
+<p style="text-align: center;  font-size: 1.05rem; margin-top: 0.5em;">
+                This is the moment they’ll remember — and share.<br>You made their day. They’ll tell someone.
+              </p>
+</div>
+<div style="padding: 10px 20px 0 20px;">
+<div style="padding: 0 20px;">
+<div style="padding: 0 20px;">
+<!-- Form section -->
+<div id="realtor-order-wrapper">
+<form action="https://formsubmit.co/info@thememoryhouse.art" enctype="multipart/form-data" id="realtor-order-form-inner" method="POST">
+<!-- FormSubmit configuration -->
+<input name="_subject" type="hidden" value="New Realtor Inner Circle Order"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_next" type="hidden" value="https://thememoryhouse.art/realtor-order.html?submitted=true"/>
+<h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin-bottom: 10px;" id="order-form">
+                         Realtor Info
+                      </h3>
+<label>
+                        Realtor’s Full Name:
+                        <br/>
+<input name="agent_name" required="" type="text"/>
+</label>
+<br/>
+<label>
+                        Your Email Address:
+                        <br/>
+<input name="agent_email" required="" type="email"/>
+</label>
+<br/>
+<h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
+                         Client &amp; Delivery Details
+                      </h3>
+<label>
+                        Client’s Full Name:
+                        <br/>
+<input name="client_name" required="" type="text"/>
+</label>
+<br/>
+<h3 style="font-family: Georgia, serif; font-weight: bold; font-size: 1.3rem; margin: 30px 0 10px 0;">
+                         Portrait Customization
+                      </h3>
+<label>
+                        Client’s Address (optional):
+                        <br/>
+<input name="client_address" type="text"/>
+</label>
+<br/>
+<p><strong><div class="decision-panel">
+Delivery Preference:</strong></p>
+<label>
+<input name="delivery" required="" type="radio" value="to_client"/>
+                        Send directly to client
+                      </label>
+<br/>
+<label>
+<input name="delivery" type="radio" value="to_agent"/>
+                        Send to me for in-person gifting
+                      </label>
+<br/>
+<p><strong>Choose Your Gift Style:</strong></p>
+<label>
+<input name="gift_type" required="" type="radio" value="full"/>
+                        Full Gift Package
+                      </label>
+<br/>
+<label>
+<input name="gift_type" type="radio" value="artwork_only"/>
+                        Artwork Only
+                      </label>
+<br/>
+<p><strong>Keepsake Certificate Branding (optional):</strong><br/>
+<span class="cert-subline">An Inner Circle courtesy for returning clients. Available on request.</span></p>
+<label class="cert-branding-toggle">
+  <input id="certBrandingToggle" name="cert_branding" type="checkbox" value="yes"/>
+  Add my branding to the certificate
+</label>
+<div aria-hidden="true" class="cert-branding-fields" id="certBrandingFields">
+  <label>
+    Realtor / Team Name:
+    <br/>
+    <input name="cert_realtor_name" type="text"/>
+  </label>
+  <label>
+    Logo link (PNG preferred):
+    <br/>
+    <input name="cert_logo_link" placeholder="https://…" type="url"/>
+  </label>
+  <label>
+    Website or Phone (optional):
+    <br/>
+    <input name="cert_contact" type="text"/>
+  </label>
+  <label class="cert-rights">
+    <input name="cert_logo_rights" type="checkbox" value="confirmed"/>
+    I confirm I have permission to use this logo.
+  </label>
+  <p class="cert-note">We’ll place your branding tastefully alongside The Memory House. No added production time in most cases. Proof available on request.</p>
+</div>
+<br/>
+<p><strong>Home Reference:</strong></p>
+<p class="home-ref-hint">Choose one:</p>
+<label>
+<input name="reference_type" required="" type="radio" value="upload"/>
+                        Upload a photo of the home (preferred)
+                      </label>
+<br/>
+<label>
+<input name="reference_type" type="radio" value="mls"/>
+                        OR paste MLS link below
+                      </label>
+<br/>
+<label>
+                        
+</div>
+Upload Home Photo:
+                        <br/>
+<input accept="image/*" name="home_photo" type="file"/>
+</label>
+<br/>
+<label>
+                        MLS Link:
+                        <br/>
+<input name="mls_link" type="url"/>
+</label>
+<br/>
+<label>
+                        Your Message to the Client:
+                        <br/>
+<textarea maxlength="250" name="custom_message" placeholder="Your message will be printed with the portrait." rows="4"></textarea>
+</label>
+<br/>
+<label>
+                        Special Instructions:
+                        <br/>
+<textarea name="special_notes" rows="3"></textarea>
+</label>
+<br/>
+<div style="
+                        margin-top: 1.5rem; 
+                        margin-bottom: 1.5rem; 
+                        padding: 0.75rem 1rem;
+                        background: #ffffff;
+                        border: 1px solid #c8b08a;
+                        border-radius: 6px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-family: Georgia, serif;
+                      ">
+<label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; justify-content: center;">
+<input id="rush-delivery" name="rush_delivery" style="width: 18px; height: 18px; accent-color: #B89F69; cursor: pointer;" type="checkbox" value="rush"/>
+<span style="font-size: 1.05rem; color: #1a1a1a; font-weight: 600; text-align: center;">
+                            ⏱ Need it faster?
+                            <strong>Rush Delivery (+$50)</strong>
+</span>
+</label>
+<div style="font-size: 0.85rem; color: #1f1f1f; font-weight: 500; margin-top: 0.4rem; text-align: center;">
+                          Most portraits arrive in 10–14 days. Rush delivery guarantees within 5–7 days.
+                        </div>
+</div>
+<p><small>
+                        You’ll be billed only after we review and confirm your order.
+                      </small></p>
+<button style="
+                        width: 90%;
+                        max-width: 400px;
+                        display: block;
+                        margin: 1.2rem auto 0 auto;
+                        padding: 0.9rem 1.5rem;
+                        font-size: 1.15rem;
+                        font-family: Georgia, serif;
+                        color: white;
+                        background: linear-gradient(180deg, #c8a45d, #b0894f);
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                      " type="submit">
+                        Place Order
+                      </button>
+</form>
+<!-- Success message (shown after redirect from FormSubmit) -->
+<div id="realtor-order-success" style="
+  display: none;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: Georgia, serif;
+">
+<!-- Logo -->
+<img alt="The Memory House logo" src="images/logo5xJ.png" style="width: 90px; margin-bottom: 1rem;"/>
+<!-- Gold Box Headline -->
+<h2 id="success-headline" style="
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        background: #c8a45d;
+        padding: 1.1rem 1.6rem;
+        border-radius: 12px;
+        margin-bottom: 1.8rem;
+        text-shadow:
+          0 0 2px rgba(0,0,0,0.4),
+          0 0 3px rgba(0,0,0,0.2);
+        display: inline-block;
+      ">
+    We’ve Started Creating Your Client’s Heirloom
+  </h2>
+<!-- Dual-Border Luxury White Box -->
+<div style="
+    background: #ffffff;
+    border: 3px solid #c8a45d;            /* Gold outer border */
+    padding: 2.2rem 1.8rem;               /* Increased padding */
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+    margin-bottom: 1rem;
+    position: relative;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #333;
+  ">
+<!-- Inner dusty rose border -->
+<div style="
+      border: 2px solid #b58a8a;          /* Dusty rose inner border */
+      border-radius: 10px;
+      padding: 1.6rem;
+    ">
+<p style="margin-bottom: 1.2rem;">
+        Thank you — your 18×24 hand-painted house portrait is now in motion,
+        crafted with artistry and keen attention to detail.
+      </p>
+<p style="margin-bottom: 1.2rem;">
+        We’ll review the details within 24 hours and email you with next steps —
+        including your secure payment link.
+      </p>
+<p>
+        We’ll also confirm delivery preference and timing so everything feels seamless for you —
+        and unforgettable for your clients.
+      </p>
+</div>
+</div>
+</div>
+</div>
+<script>
+                  (function() {
+                    // Swap form for thank-you message if redirected after submission
+                    try {
+                      var params = new URLSearchParams(window.location.search);
+                      if (params.get('submitted') === 'true') {
+                        var form = document.getElementById('realtor-order-form-inner');
+                        var success = document.getElementById('realtor-order-success');
+                        if (form && success) {
+                          form.style.display = 'none';
+                          success.style.display = 'block';
+                        }
+                      }
+                    } catch (e) {
+                      // fail safe: do nothing
+                    }
+
+                    // CTA hover effect
+                    var ctaButton = document.querySelector('#realtor-order-form-inner button[type="submit"]');
+                    if (ctaButton) {
+                      ctaButton.addEventListener('mouseover', function(){
+                        this.style.transform = 'translateY(-2px)';
+                        this.style.boxShadow = '0 6px 16px rgba(0,0,0,0.25)';
+                      });
+                      ctaButton.addEventListener('mouseout', function(){
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+                      });
+                    }
+                  })();
+                  </script>
+<script>
+// === Auto-scroll to success message when ?submitted=true ===
+document.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("submitted") === "true") {
+    const successSection = document.getElementById("realtor-order-success");
+    if (successSection) {
+      successSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+});
+</script>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<div class="content-card" style="text-align:center;">
+<h3 style="text-align:center; font-size:1.8em; font-weight:bold;">
+        What Happens After You Order
+      </h3>
+<div style="text-align:center;">
+<p style="text-align:center;">
+          You’ll receive two confirmations:
+          <br/>
+          An immediate email the moment your order is submitted.
+          <br/>
+          A personal review message within 24 hours once we’ve looked over the details.
+        </p>
+<p>Each portrait is printed on gallery-grade canvas, ready to hang and built to last.</p>
+<p style="margin-top: 6px;text-align:center;">
+          From there, your portrait begins — hand-painted with style, wrapped with finesse, and shipped professionally.
+        </p>
+<p style="margin-top: 6px;text-align:center;">
+          Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
+        </p>
+<h3 style="font-size: 1.35rem; font-weight: bold; text-align: center;">
+          You’ll look like a hero. And they’ll never forget it.
+        </h3>
+</div>
+</div>
+</div>
+<section class="loyalty-section" id="realtor-loyalty-program" style="margin-top: 4rem;"></section>
+<p style="text-align:center; font-style:italic; font-family:'Garamond', serif; color:#a67c52; font-size: 1.8em; margin-bottom: 10px;">
+      Memories start with home — and end in .art
+    </p>
+<p style="text-align:center;">
+      © 2025 The Memory House
+      <br/>
+<a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
+<i class="fab fa-facebook-f fa-lg"></i>
+</a>
+<a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
+<i class="fab fa-instagram fa-lg"></i>
+</a>
+<a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
+<i class="fab fa-linkedin-in fa-lg"></i>
+</a>
+</p>
+</div>
+<script>
+// === Universal Image Compression for Realtor Uploads ===
+// Accept any image format → Output high-quality JPEG under 10MB
+document.addEventListener("DOMContentLoaded", function () {
+  const fileInput = document.querySelector('input[name="home_photo"]');
+  if (!fileInput) return;
+
+  fileInput.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    // Only images should be processed
+    if (!file.type.startsWith("image/")) return;
+
+    const reader = new FileReader();
+    const img = new Image();
+    const maxDim = 3000; // Maximum width/height
+
+    reader.onload = function (e) {
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    img.onload = function () {
+      let width = img.width;
+      let height = img.height;
+
+      // Resize to max dimension (longest side = 3000px)
+      if (width > height) {
+        if (width > maxDim) {
+          height = Math.round(height * (maxDim / width));
+          width = maxDim;
+        }
+      } else {
+        if (height > maxDim) {
+          width = Math.round(width * (maxDim / height));
+          height = maxDim;
+        }
+      }
+
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, width, height);
+
+      canvas.toBlob(
+        function (blob) {
+          if (!blob) {
+            alert("There was an issue prepping your image. Please try another file.");
+            fileInput.value = "";
+            return;
+          }
+
+          // Hard fail-safe: FormSubmit rejects files over ~10MB
+          if (blob.size > 10000000) {
+            alert(
+              "This image is extremely large, even after processing. Please upload a smaller version."
+            );
+            fileInput.value = "";
+            return;
+          }
+
+          // Replace original file with compressed JPEG
+          const compressedFile = new File(
+            [blob],
+            file.name.replace(/\.\w+$/, ".jpg"),
+            { type: "image/jpeg", lastModified: Date.now() }
+          );
+
+          const dt = new DataTransfer();
+          dt.items.add(compressedFile);
+          fileInput.files = dt.files;
+        },
+        "image/jpeg",
+        0.90 // Quality level: 0.90 = visually perfect
+      );
+    };
+  });
+});
+
+</script> <!-- END OF COMPRESSION SCRIPT -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("certBrandingToggle");
+  const fields = document.getElementById("certBrandingFields");
+  if (!toggle || !fields) return;
+
+  function syncBrandingFields() {
+    const on = toggle.checked;
+    fields.style.display = on ? "block" : "none";
+    fields.setAttribute("aria-hidden", on ? "false" : "true");
+  }
+
+  toggle.addEventListener("change", syncBrandingFields);
+  syncBrandingFields();
+});
+</script>
+
+
+</body>
+</html>
