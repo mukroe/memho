@@ -413,6 +413,49 @@ a.jump-to-form-btn:hover{
       padding: 14px 16px 12px 16px;
     }
   }
+
+  /* Keepsake Certificate Branding (co-branded) */
+  .decision-panel .cert-branding-toggle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 6px auto 0 auto;
+    width: min(340px, calc(100% - 48px));
+    text-align: left;
+  }
+  .decision-panel .cert-branding-fields{
+    display: none;
+    width: min(420px, calc(100% - 48px));
+    margin: 12px auto 0 auto;
+    text-align: left;
+  }
+  .decision-panel .cert-branding-fields label{
+    display: block;
+    margin: 0 0 12px 0;
+  }
+  .decision-panel .cert-branding-fields input[type="text"],
+  .decision-panel .cert-branding-fields input[type="url"]{
+    width: 100%;
+  }
+  .decision-panel .cert-rights{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 0 0;
+  }
+  .decision-panel .cert-note{
+    margin: 10px 0 0 0;
+    font-size: 0.95rem;
+    color: rgba(68, 70, 75, 0.85);
+  }
+  .cert-subline{
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    color: rgba(68, 70, 75, 0.78);
+  }
+
 </style>
 
 
@@ -516,43 +559,41 @@ Make Your Clients Feel Seen<span style="color:#D8A48F; padding:0 18px; font-size
 <h1 style="text-align: center;">
             Welcome to the Realtor Inner Circle
           </h1>
-<p style="text-align: center; ">
-            You're not just ordering a portrait<br><span class=\"dash-bold\">—</span> you're joining a loyalty program built to reward you<br>every step of the way.
-          </p>
+<p style="text-align: center;">You’re joining a loyalty program built for busy agents — details below.</p>
 <div class="loyalty-box" style="padding: 1em 1em; ">
 <h3 style="font-size: 1.7em; font-family: Georgia, serif; color: #ffffff; font-weight: bold; text-align:center;">
               The Loyalty Tiers
             </h3>
 <p>
                <strong>Bronze: First Order</strong><br/>
-              Enjoy $75 off your first portrait — our welcome gift to new realtors.
+              Enjoy $75 off your first portrait — our welcome gift to new realtors. Co-branded certificate available on request.
             </p>
 <p>
                <strong>Silver: 3–5 Orders</strong><br/>
-              Receive upgraded gift packaging, seasonal portrait options, and early access to promotions.
+              Receive upgraded gift packaging, seasonal portrait options, and early access to promotions. Co-branded certificate included.
             </p>
 <p>
                <strong>Gold: 6+ Orders</strong><br/>
-              We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait.
+              We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait. Co-branded certificate included.
             </p>
 </div>
 <section aria-labelledby="loyalty-mobile-title" class="loyalty-text-mobile">
 <h3 id="loyalty-mobile-title">The Loyalty Tiers</h3>
 <p>
                Bronze: First Order<br/>
-              Enjoy $75 off your first portrait — our welcome gift to new realtors.
+              Enjoy $75 off your first portrait — our welcome gift to new realtors. Co-branded certificate available on request.
             </p>
 <p>
                Silver: 3–5 Orders<br/>
-              Receive upgraded gift packaging, seasonal portrait options, and early access to promotions.
+              Receive upgraded gift packaging, seasonal portrait options, and early access to promotions. Co-branded certificate included.
             </p>
 <p>
                Gold: 6+ Orders<br/>
-              We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait.
+              We’ll contact you personally for premium customization — and include a handwritten note from you with every portrait. Co-branded certificate included.
             </p>
 </section>
 <div style="padding: 1em; margin-top: 1.5em; font-size: 0.95em; color: #666;  max-width: 680px; margin-left: auto; margin-right: auto;">
-            No tracking. No codes. Just consistent care.<br>We keep record of every gift you send — and we’ll reach out personally as you level up.
+            No tracking. No codes. Just consistent care.<br>Every order is automatically tracked — and we’ll reach out as your tier status levels up.
           </div>
 <section class="order-form-section" id="realtor-order-form">
 
@@ -647,6 +688,35 @@ Delivery Preference:</strong></p>
 <input name="gift_type" type="radio" value="artwork_only"/>
                         Artwork Only
                       </label>
+<br/>
+<p><strong>Keepsake Certificate Branding (optional):</strong><br/>
+<span class="cert-subline">An Inner Circle courtesy for returning clients. Available on request.</span></p>
+<label class="cert-branding-toggle">
+  <input id="certBrandingToggle" name="cert_branding" type="checkbox" value="yes"/>
+  Add my branding to the certificate
+</label>
+<div aria-hidden="true" class="cert-branding-fields" id="certBrandingFields">
+  <label>
+    Realtor / Team Name:
+    <br/>
+    <input name="cert_realtor_name" type="text"/>
+  </label>
+  <label>
+    Logo link (PNG preferred):
+    <br/>
+    <input name="cert_logo_link" placeholder="https://…" type="url"/>
+  </label>
+  <label>
+    Website or Phone (optional):
+    <br/>
+    <input name="cert_contact" type="text"/>
+  </label>
+  <label class="cert-rights">
+    <input name="cert_logo_rights" type="checkbox" value="confirmed"/>
+    I confirm I have permission to use this logo.
+  </label>
+  <p class="cert-note">We’ll place your branding tastefully alongside The Memory House. No added production time in most cases. Proof available on request.</p>
+</div>
 <br/>
 <p><strong>Home Reference:</strong></p>
 <p class="home-ref-hint">Choose one:</p>
@@ -968,5 +1038,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 </script> <!-- END OF COMPRESSION SCRIPT -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const toggle = document.getElementById("certBrandingToggle");
+  const fields = document.getElementById("certBrandingFields");
+  if (!toggle || !fields) return;
+
+  function syncBrandingFields() {
+    const on = toggle.checked;
+    fields.style.display = on ? "block" : "none";
+    fields.setAttribute("aria-hidden", on ? "false" : "true");
+  }
+
+  toggle.addEventListener("change", syncBrandingFields);
+  syncBrandingFields();
+});
+</script>
+
+
 </body>
 </html>
