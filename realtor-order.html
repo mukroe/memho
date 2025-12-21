@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!-- LOCKED BASE: realtor-order__JankRiskFixes_v2.html | content_sha256:615661156dc48e39 | 2025-12-21 -->
 <html lang="en">
 <head>
 <link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Regular.woff2" rel="preload" type="font/woff2"/>
@@ -416,7 +417,7 @@ margin-bottom: 12px;
       margin: 0.9rem auto 0;
     }
   </style>
-</link></meta>
+
     <style>
       .gold-divider {
         width: 64px;
@@ -458,11 +459,13 @@ margin-bottom: 12px;
     margin-top: 10px !important;
   }
 
-  @media (max-width: min(340px, calc(100% - 48px));
-      width: min(340px, calc(100% - 48px));
-      padding: 14px 16px 12px 16px;
-    }
+  @media (max-width: 420px) {
+  .decision-panel {
+    width: calc(100% - 48px);
+    max-width: 340px;
+    padding: 14px 16px 12px 16px;
   }
+}
 
   /* Keepsake Certificate Branding (co-branded) */
   .decision-panel .cert-branding-toggle{
@@ -604,6 +607,14 @@ margin-bottom: 12px;
     opacity: 0.85;
   }
 </style>
+
+
+  <style id="jank-safety">
+    /* Jank safety: prevent width surprises + media overflow */
+    *, *::before, *::after { box-sizing: border-box; }
+    img, video, canvas { max-width: 100%; height: auto; }
+    body { overflow-x: hidden; }
+  </style>
 
 </head>
 <body>
@@ -840,7 +851,7 @@ Make Your Clients Feel Seen<span style="color:#D8A48F; padding:0 18px; font-size
 </span>
 </label>
 <div style="font-size: 0.85rem; color: #1f1f1f; font-weight: 500; margin-top: 0.4rem; text-align: center;">
-                          Most portraits arrive in 10–14 days. Rush delivery guarantees within 5–7 days.
+                          Standard timeline: 2–3 weeks (most ~2 weeks). Rush: 7 days.
                         </div>
 </div>
 <p><small>
@@ -988,9 +999,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <br/>
           A personal review message within 24 hours once we’ve looked over the details.
         </p>
-<p>Each portrait is printed on gallery-grade canvas, ready to hang and built to last.</p>
 <p style="margin-top: 6px;text-align:center;">
-          From there, your portrait begins — hand-painted with style, wrapped with finesse, and shipped professionally.
+          From there, your portrait begins — hand-painted with style, wrapped with finesse,<br/>
+          and shipped professionally.
         </p>
 <p style="margin-top: 6px;text-align:center;">
           Each portrait is printed on gallery-grade wrap-around canvas, ready to hang and built to last.
