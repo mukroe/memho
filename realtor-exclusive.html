@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<!-- BUILD: EXCLUSIVE mobile-tagline-tight-v5 -->
 <!-- MEMHO fonts + Font Awesome -->
 <link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Regular.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/CormorantGaramond-Bold.woff2" rel="preload" type="font/woff2"/>
@@ -74,26 +75,53 @@
 
 
 
-/* Mobile-only tagline layout (keeps desktop tagline unchanged) */
-.tagline--mobile { 
-  display: none;
-  font-family: 'Garamond', serif;
-  font-size: 1.05rem;
-  color: #2C2C2C;
-  text-align: center;
+/* Mobile-only tagline layout (keeps desktop tagline unchanged)
+   BUILD: EXCLUSIVE mobile-tagline-tight-v5
+   Rules are MOBILE-SCOPED ONLY. Desktop markup + styling untouched. */
+.tagline--mobile{
+  display:none;
+  font-family:'Garamond', serif;
+  font-size:1.02rem;
+  color:#2C2C2C;
+  text-align:center;
+  margin:0;
+  padding:0;
 }
-.tagline--mobile .tagline-line { display: block; line-height: 1.08; margin: 0; padding: 0; }
-.tagline--mobile .tagline-star { display: block; line-height: 1; margin: 3px 0; font-size: 16px; color: #D8A48F; }
+.tagline--mobile .tagline-line{
+  display:block;
+  line-height:1.02;
+  margin:0 !important;
+  padding:0 !important;
+}
+.tagline--mobile .tagline-star{
+  display:block;
+  line-height:1;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:12px;
+  color:#D8A48F;
+}
 
-@media (max-width: 768px) {
-  .tagline--desktop { display: none !important; }
-  .tagline--mobile { 
-    display: block !important;
-    margin:  4px auto 2px;
+/* Tightest premium stack (MOBILE ONLY) */
+@media (max-width: 768px){
+  .tagline--desktop{ display:none !important; }
+
+  .tagline--mobile{
+    display:block !important;
+    margin:0 auto 0 !important;
+    padding:0 !important;
   }
-  .tagline--mobile .tagline-line { line-height: 1.03; }
-  .tagline--mobile .tagline-star { font-size: 14px; margin: 2px 0; }
+
+  .tagline--mobile .tagline-line{
+    line-height:1.0 !important;
+  }
+
+  .tagline--mobile .tagline-star{
+    font-size:10px !important;
+    margin:0 !important;    /* zero gap above/below the star */
+  }
 }
+
 </style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="style.css" rel="stylesheet"/>
