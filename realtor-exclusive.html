@@ -70,6 +70,30 @@
     .how-it-works > h2{
         margin-top: 0; /* keep the line + heading tightly coupled */
     }
+
+
+
+
+/* Mobile-only tagline layout (keeps desktop tagline unchanged) */
+.tagline--mobile { 
+  display: none;
+  font-family: 'Garamond', serif;
+  font-size: 1.05rem;
+  color: #2C2C2C;
+  text-align: center;
+}
+.tagline--mobile .tagline-line { display: block; line-height: 1.08; margin: 0; padding: 0; }
+.tagline--mobile .tagline-star { display: block; line-height: 1; margin: 4px 0; font-size: 18px; color: #D8A48F; }
+
+@media (max-width: 768px) {
+  .tagline--desktop { display: none !important; }
+  .tagline--mobile { 
+    display: block !important;
+    margin: 8px auto 6px;
+  }
+  .tagline--mobile .tagline-line { line-height: 1.06; }
+  .tagline--mobile .tagline-star { font-size: 16px; margin: 3px 0; }
+}
 </style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="style.css" rel="stylesheet"/>
@@ -171,43 +195,6 @@ body {
     body { overflow-x: hidden; }
   </style>
 
-
-  <!-- Mobile tagline star stack (Option A) -->
-  <style id="mobile-tagline-star-stack">
-    /* Desktop: preserve existing look */
-    .tagline-star{
-      color:#D8A48F;
-      padding:0 1.6rem;
-      font-size:2.3em;
-      line-height:1;
-      display:inline-block;
-      transform: scale(3);
-      vertical-align: middle;
-    }
-
-    /* Mobile: star on its own centered line, smaller */
-    @media (max-width: 640px){
-      .tagline{
-        display:flex !important;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        gap:0.16rem;
-        font-size:1.35em !important;
-        line-height:1.12 !important;
-        margin-top:-6px !important;
-        margin-bottom:12px !important;
-      }
-      .tagline-left, .tagline-right{ display:block; margin:0 !important; }
-      .tagline-star{
-        padding:0 !important;
-        transform:none !important;
-        font-size:1.55em !important;
-        margin:0.02rem 0 0.02rem 0;
-      }
-    }
-  </style>
-
 </head>
 <body>
 <div class="page-wrapper">
@@ -217,11 +204,15 @@ body {
 <div class="topnav" style="text-align: center; padding: 1rem 0 0;">
 <img alt="The Memory House Logo" class="logo" loading="lazy" src="images/logo5xJ.png" style="width: 120px;"/>
 <div class="brand-wordmark" style="text-align:center; margin:0; line-height:1;"><h1 class="brand-title" style="font-family:\'Cormorant Garamond\',\'CormorantGaramond\',serif;font-weight:700;font-size:3rem;line-height:1.1;margin:8px 0 18px 0;color:#51606C;text-align:center;">The Memory House</h1></div>
-<p class="tagline" style="font-family:'Garamond', serif; font-size:1.5em; margin-top:-10px; margin-bottom:20px; text-align:center;">
-        <span class="tagline-left">Make Your Clients Feel Seen</span>
-        <span class="tagline-star">★</span>
-        <span class="tagline-right">Make Yourself Unforgettable</span>
-      </p>
+<p class="tagline tagline--desktop" style="font-family:'Garamond', serif; font-size:1.1rem; color:#2C2C2C; text-align:center; margin:0.75rem 0 1.5rem 0;">
+Make Your Clients Feel Seen<span style="color:#D8A48F; padding:0 1.6rem; font-size:2.3em; line-height:1; display:inline-block; transform:scale(3); transform-origin:center; vertical-align:middle;">★</span>Make Yourself Unforgettable
+</p>
+
+        <p class="tagline tagline--mobile" aria-hidden="true">
+          <span class="tagline-line">Make Your Clients Feel Seen</span>
+          <span class="tagline-star" aria-hidden="true">★</span>
+          <span class="tagline-line">Make Yourself Unforgettable</span>
+        </p>
 <div style="height:3px; background:#c8a45d; width:140px; margin:0 auto; border-radius:999px; box-shadow:0 2px 6px rgba(0,0,0,0.18);"></div>
 </div>
 </header>
