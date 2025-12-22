@@ -614,7 +614,35 @@ margin-bottom: 12px;
     *, *::before, *::after { box-sizing: border-box; }
     img, video, canvas { max-width: 100%; height: auto; }
     body { overflow-x: hidden; }
-  </style>
+  
+
+/* Mobile-only: stack tagline lines with a smaller centered star (realtor order page) */
+@media (max-width: 640px) {
+  .tagline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .tagline .tagline-line {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 1.15;
+  }
+  .tagline .tagline-star {
+    display: block !important;
+    margin: 2px 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+}
+
+</style>
 
 </head>
 <body>
@@ -625,9 +653,7 @@ margin-bottom: 12px;
 <div class="topnav" style="text-align: center; padding: 1rem 0 0;">
 <img alt="The Memory House Logo" class="logo" loading="lazy" src="images/logo5xJ.png" style="width: 120px;"/>
 <div class="brand-wordmark" style="text-align:center; margin:0; line-height:1;"><h1 class="brand-title" style="font-family:\'Cormorant Garamond\',\'CormorantGaramond\',serif;font-weight:700;font-size:3rem;line-height:1.1;margin:8px 0 18px 0;color:#51606C;text-align:center;">The Memory House</h1></div>
-<p class="tagline" style="font-family:'Garamond', serif; font-size:1.1rem; color:#2C2C2C; text-align:center; margin:0.75rem 0 1.5rem 0;">
-Make Your Clients Feel Seen<span style="color:#D8A48F; padding:0 18px; font-size:22px; line-height:1; display:inline-block; transform:scale(3); transform-origin:center; vertical-align:middle;">★</span>Make Yourself Unforgettable
-</p>
+<p class="tagline" style="font-family:'Garamond', serif; font-size:1.1rem; color:#2C2C2C; text-align:center; margin:0.75rem 0 1.5rem 0;"><span class="tagline-line tagline-line-1">Make Your Clients Feel Seen</span><span class="tagline-star" style="color:#D8A48F; padding:0 18px; font-size:22px; line-height:1; display:inline-block; transform:scale(3); transform-origin:center; vertical-align:middle;">★</span><span class="tagline-line tagline-line-2">Make Yourself Unforgettable</span></p>
 </div>
 
 <div class="jump-to-form-wrap">
@@ -1017,15 +1043,15 @@ document.addEventListener("DOMContentLoaded", function () {
       Memories start with home — and end in .art
     </p>
 <p style="text-align:center;">
-      © 2025 The Memory House
+      © 2026 The Memory House
       <br/>
-<a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+<a href="https://www.facebook.com/profile.php?id=61576247801948" style="margin: 0 10px;" target="_blank">
 <i class="fab fa-facebook-f fa-lg"></i>
 </a>
-<a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+<a href="https://www.instagram.com/thememoryhouse.art" style="margin: 0 10px;" target="_blank">
 <i class="fab fa-instagram fa-lg"></i>
 </a>
-<a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank" rel="noopener noreferrer">
+<a href="https://www.linkedin.com" style="margin: 0 10px;" target="_blank">
 <i class="fab fa-linkedin-in fa-lg"></i>
 </a>
 </p>
