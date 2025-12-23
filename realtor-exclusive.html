@@ -128,6 +128,81 @@
     }
   }
 </style>
+
+<!-- Mobile-only: Comparison box (two-column framed layout) -->
+<style>
+@media (max-width: 640px){
+  /* Turn the existing flex wrapper into a single framed box */
+  .compare-frame{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+    width: calc(100% - 48px) !important;
+    margin: 0 auto 26px auto !important;
+    padding: 26px 18px 22px 18px !important;
+    border: 2px solid rgba(180, 140, 90, 0.65) !important;
+    border-radius: 22px !important;
+    background: rgba(255,255,255,0.72) !important;
+    box-sizing: border-box !important;
+  }
+
+  .compare-col{
+    width: auto !important;
+    text-align: center !important;
+  }
+
+  /* vertical divider */
+  .compare-col.right{
+    border-left: 2px solid rgba(180, 140, 90, 0.45) !important;
+    padding-left: 16px !important;
+  }
+  .compare-col.left{
+    padding-right: 16px !important;
+  }
+
+  .compare-title{
+    font-size: 1.45em !important;
+    line-height: 1.05 !important;
+    margin: 0 0 10px 0 !important;
+    letter-spacing: 0.01em !important;
+  }
+
+  .compare-col.right .compare-title{
+    color: #8b5a5a !important;
+  }
+
+  .compare-list{
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    font-size: 1.05em !important;
+    line-height: 1.35 !important;
+  }
+
+  .compare-list li{
+    margin: 0 0 16px 0 !important;
+  }
+
+  /* Right column styling to match mockup */
+  .compare-col.right .compare-list li{
+    color: #8b5a5a !important;
+    font-style: italic !important;
+    position: relative !important;
+    padding-left: 14px !important;
+  }
+
+  /* The dash that sits on the divider */
+  .compare-col.right .compare-list li::before{
+    content: "—";
+    position: absolute;
+    left: -24px;
+    top: 0.02em;
+    color: rgba(120,120,120,0.9);
+    font-style: normal;
+  }
+}
+</style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="style.css" rel="stylesheet"/>
 <!-- Fancybox v3 -->
