@@ -103,6 +103,30 @@
   }
 }
 
+
+  /* Mobile: keep the two-column comparison box, but tighten type + spacing */
+  @media (max-width: 560px){
+    .compare-frame{
+      padding: 14px 10px;
+      border-radius: 18px;
+    }
+    .compare-frame .compare-col{
+      padding: 0 10px;
+    }
+    .compare-frame h3{
+      font-size: 1.15rem;
+      line-height: 1.1;
+      margin: 0 0 10px 0;
+    }
+    .compare-frame ul li{
+      font-size: 0.96rem;
+      line-height: 1.35;
+      margin: 12px 0;
+    }
+    .compare-frame .compare-col.right ul li{
+      padding-left: 16px;
+    }
+  }
 </style>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="style.css" rel="stylesheet"/>
@@ -303,19 +327,17 @@ For Licensed Real Estate Professionals
 <div class="compare-col left" style="flex: 1 1 260px; max-width: 360px;">
 <h3 style="text-align: center; margin-bottom: 0.75rem;">Handmade House Portraits</h3>
 <ul style="list-style: none; padding: 0; margin: 0;">
-<li style="margin-bottom: 0.75rem;">Stays on the wall for years.</li>
-<li style="margin-bottom: 0.75rem;">Made by The Memory House. Truly handcrafted.</li>
-<li style="margin-bottom: 0.75rem;">Becomes a story they tell.</li>
-<li style="margin-bottom: 0;">Shows up in photos and posts.</li>
+<li>Stays on the wall for years.</li>
+<li>Becomes a story they tell.</li>
+<li>Shows up in photos and posts.</li>
 </ul>
 </div>
 <div class="compare-col right" style="flex: 1 1 260px; max-width: 360px;">
 <h3 style="text-align: center; margin-bottom: 0.75rem;">Standard Closing Gifts</h3>
 <ul style="list-style: none; padding: 0; margin: 0;">
-<li style="margin-bottom: 0.75rem;">Used up fast. Or set aside.</li>
-<li style="margin-bottom: 0.75rem;">Feels expected.</li>
-<li style="margin-bottom: 0.75rem;">Forgotten quickly.</li>
-<li style="margin-bottom: 0;">Rarely shared.</li>
+<li>Used up fast. Or set aside.</li>
+<li>Forgotten quickly.</li>
+<li>Rarely shared.</li>
 </ul>
 </div>
 </div>
