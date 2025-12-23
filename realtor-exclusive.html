@@ -403,6 +403,7 @@ For Licensed Real Estate Professionals
 <h3 style="text-align: center; margin-bottom: 0.75rem;">Handmade House Portraits</h3>
 <ul style="list-style: none; padding: 0; margin: 0;">
 <li>Stays on the wall for years.</li>
+<li>Made by The Memory House. Truly handcrafted.</li>
 <li>Becomes a story they tell.</li>
 <li>Shows up in photos and posts.</li>
 </ul>
@@ -411,6 +412,7 @@ For Licensed Real Estate Professionals
 <h3 style="text-align: center; margin-bottom: 0.75rem;">Standard Closing Gifts</h3>
 <ul style="list-style: none; padding: 0; margin: 0;">
 <li>Used up fast. Or set aside.</li>
+<li>Feels expected.</li>
 <li>Forgotten quickly.</li>
 <li>Rarely shared.</li>
 </ul>
@@ -569,5 +571,136 @@ Memories start with home — and end in .art
 </div>
 </div>
 </div>
+
+<style>
+/* Mobile-only: keep desktop untouched */
+@media (max-width: 768px){
+  /* Target the existing comparison block */
+  .compare-frame{
+    max-width: 520px !important;
+    margin: 26px auto 10px auto !important;
+    padding: 0 !important;
+    border: 2px solid #c9b58f !important;
+    border-radius: 28px !important;
+    overflow: hidden !important;
+    background: transparent !important;
+  }
+  .compare-frame .compare-columns{
+    display: flex !important;
+    gap: 0 !important;
+    padding: 18px 16px 18px 16px !important;
+  }
+  .compare-frame .compare-col{
+    width: 50% !important;
+    padding: 0 14px 0 14px !important;
+  }
+  .compare-frame .compare-col.left{
+    border-right: 2px solid rgba(201,181,143,0.65) !important;
+  }
+  .compare-frame .compare-title{
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0.2px !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+  }
+  .compare-frame .compare-divider{
+    height: 2px !important;
+    background: rgba(201,181,143,0.55) !important;
+    width: 100% !important;
+    margin: 12px 0 14px 0 !important;
+  }
+  .compare-frame ul{
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .compare-frame li{
+    font-size: 22px !important;
+    line-height: 1.55 !important;
+    margin: 0 0 16px 0 !important;
+  }
+  /* Right side: subtle accent + em-dash */
+  .compare-frame .compare-col.right li{
+    color: #8f6b6b !important;
+    font-style: italic !important;
+    padding-left: 22px !important;
+    position: relative !important;
+  }
+  .compare-frame .compare-col.right li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #8f6b6b;
+  }
+  /* Prevent weird wrapping at tiny widths */
+  .compare-frame .compare-col.right li{ word-break: normal !important; }
+}
+</style>
+
+
+<style>
+@media (max-width: 768px){
+  .compare-frame{
+    border: 2px solid #c9b58f !important;
+    border-radius: 28px !important;
+    padding: 18px 16px !important;
+    max-width: 520px !important;
+    margin: 26px auto 10px auto !important;
+    gap: 0 !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    box-sizing: border-box !important;
+  }
+  .compare-frame .compare-col{
+    flex: 1 1 0 !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+  .compare-frame .compare-col.left{
+    padding-right: 14px !important;
+    border-right: 2px solid rgba(201,181,143,0.65) !important;
+  }
+  .compare-frame .compare-col.right{
+    padding-left: 14px !important;
+  }
+  .compare-frame .compare-col h3{
+    font-size: 28px !important;
+    line-height: 1.05 !important;
+    margin: 0 0 12px 0 !important;
+    text-align: center !important;
+    padding-bottom: 12px !important;
+    border-bottom: 2px solid rgba(201,181,143,0.55) !important;
+  }
+  .compare-frame .compare-col.right h3{
+    color: #8f6b6b !important;
+  }
+  .compare-frame ul{
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .compare-frame li{
+    font-size: 22px !important;
+    line-height: 1.55 !important;
+    margin: 0 0 16px 0 !important;
+  }
+  .compare-frame .compare-col.right li{
+    color: #8f6b6b !important;
+    font-style: italic !important;
+    padding-left: 22px !important;
+    position: relative !important;
+  }
+  .compare-frame .compare-col.right li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #8f6b6b;
+  }
+}
+</style>
+
 </body>
 </html>
