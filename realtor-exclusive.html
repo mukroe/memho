@@ -57,79 +57,49 @@
     }
 /* Mobile: keep the "Handmade vs Standard" comparison as one framed, two-column box */
 @media (max-width: 700px){
-  /* MOBILE: comparison box stays as a single two-column frame (matches approved mockup) */
   .compare-frame{
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    border: 2px solid #BFA15C;
+    border-radius: 18px;
+    padding: 18px 14px;
     gap: 0 !important;
-    width: 100% !important;
-    max-width: 520px !important;
-    margin: 0 auto !important;
-    padding: 22px 16px 20px !important;
-    box-sizing: border-box !important;
-    border: 2px solid #B89F69 !important;
-    border-radius: 28px !important;
-    overflow: hidden !important;
-    background: transparent !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
   }
-
-  .compare-col{
-    flex: unset !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 12px !important;
-    box-sizing: border-box !important;
+  .compare-frame .compare-col{
+    width: auto !important;
+    flex: 1 1 0;
+    padding: 0 12px;
   }
-  .compare-col.left{
-    padding-right: 16px !important;
-    border-right: 2px solid rgba(184,159,105,0.45) !important;
+  .compare-frame .compare-col.left{ padding-left: 6px; }
+  .compare-frame .compare-col.right{
+    padding-right: 6px;
+    border-left: 1px solid rgba(191,161,92,0.55);
   }
-  .compare-col.right{
-    padding-left: 16px !important;
-    color: #7a5b5b !important;
+  .compare-frame h3{
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    line-height: 1.15;
   }
-
-  .compare-col h3{
-    font-size: 1.55rem !important;
-    line-height: 1.12 !important;
-    margin: 0 0 12px 0 !important;
-    text-align: center !important;
+  .compare-frame ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-
-  .compare-col ul{
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
+  .compare-frame ul li{
+    margin: 12px 0;
+    font-size: 1.02rem;
+    line-height: 1.35;
   }
-
-  .compare-col li{
-    font-size: 1.12rem !important;
-    line-height: 1.35 !important;
-    margin: 0 0 18px 0 !important;
-    text-align: left !important;
-    word-break: normal !important;
-    overflow-wrap: break-word !important;
+  .compare-frame .compare-col.right ul li{
+    position: relative;
+    padding-left: 18px;
   }
-  .compare-col li:last-child{ margin-bottom: 0 !important; }
-
-  /* Right side gets the em-dash marker near the divider, and italic tone */
-  .compare-col.right li{
-    position: relative !important;
-    padding-left: 14px !important;
-    font-style: italic !important;
-  }
-  .compare-col.right li::before{
-    content: "—" !important;
-    position: absolute !important;
-    left: -10px !important;
-    top: 0 !important;
-    color: #B89F69 !important;
-    font-style: normal !important;
-  }
-
-  /* Ensure nothing can slide outside the viewport */
-  .compare-frame, .compare-col, .compare-col *{
-    max-width: 100% !important;
+  .compare-frame .compare-col.right ul li::before{
+    content: "—";
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.7;
   }
 }
 
@@ -325,6 +295,68 @@ body {
       box-shadow: 0 10px 24px rgba(0,0,0,0.25);
     }
   </style>
+
+<!-- BUILD: MobileComparison_Fix_v7 -->
+<meta name="memho-build" content="MobileComparison_Fix_v7">
+<style id="memho-mobile-compare-fix-v7">
+@media (max-width: 700px){
+  /* Force the comparison box to stay inside the viewport on mobile */
+  .compare-frame{
+    width: min(92vw, 520px) !important;
+    max-width: 92vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 22px 16px 18px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+  .compare-frame::before{
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 50%;
+    width: 2px;
+    background: rgba(180, 160, 130, 0.55);
+    transform: translateX(-1px);
+    pointer-events: none;
+  }
+  .compare-frame .compare-col{
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+  }
+  .compare-frame .compare-col h3{
+    font-size: 1.35em !important;
+    line-height: 1.1 !important;
+    margin: 0 0 16px 0 !important;
+    word-break: keep-all;
+  }
+  .compare-frame .compare-col ul{
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+  .compare-frame .compare-col ul li{
+    margin: 0 0 18px 0 !important;
+    line-height: 1.35 !important;
+  }
+  /* Right column: keep the luxury italic look and add the dash */
+  .compare-frame .compare-col.right ul li{
+    font-style: italic !important;
+  }
+  .compare-frame .compare-col.right ul li::before{
+    content: "— ";
+    font-style: normal;
+  }
+}
+</style>
 </head>
 <body>
 <!-- BUILD: mobile-tagline-fix-v6 -->
