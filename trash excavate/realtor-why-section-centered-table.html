@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Memory House – Realtor Comparison Section (Centered Table)</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 60px 16px;
+      background: #f8f1e6;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: #2C2C2C;
+    }
+    .page-frame {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #fcf7ee;
+      border: 1px solid #e0c9aa;
+      border-radius: 18px;
+      padding: 60px 60px 80px 60px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 768px) {
+      .page-frame {
+        padding: 40px 22px 56px 22px;
+      }
+    }
+    table.comparison-table {
+      margin: 0 auto;
+      border-collapse: separate;
+      border-spacing: 60px 14px; /* wider gap, still compact */
+      max-width: 720px;          /* keeps the whole block in the visual center */
+    }
+    table.comparison-table th {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: 1.25rem;
+      text-align: center;
+      font-weight: 600;
+      padding-bottom: 6px;
+    }
+    table.comparison-table td {
+      vertical-align: top;
+      font-size: 1rem;
+      line-height: 1.7;
+      text-align: left;
+      white-space: nowrap;
+    }
+    @media (max-width: 720px) {
+      table.comparison-table,
+      table.comparison-table tbody,
+      table.comparison-table tr,
+      table.comparison-table td,
+      table.comparison-table th {
+        display: block;
+        max-width: 100%;
+        white-space: normal;
+      }
+      table.comparison-table {
+        border-spacing: 0 10px;
+      }
+      table.comparison-table th {
+        padding-top: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-frame">
+    <section>
+      <h2 style="color: #2C2C2C; text-align: center; font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-size: 2rem; margin: 0 0 1.25rem 0;">
+        Why Portraits Work When Generic Gifts Don’t
+      </h2>
+      <p style="text-align: center; margin: 0 0 1.75rem 0; font-size: 1.05rem;">
+        Most closing gifts disappear in a week. This one quietly works for you for years.
+      </p>
+      <table class="comparison-table" aria-label="Comparison of generic gifts and hand-painted house portraits">
+        <thead>
+          <tr>
+            <th>Generic Gifts</th>
+            <th>Hand-Painted House Portraits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Get consumed and disappear.</td>
+            <td>Stay on the wall for years.</td>
+          </tr>
+          <tr>
+            <td>Feel common and interchangeable.</td>
+            <td>Feel like a personal honor.</td>
+          </tr>
+          <tr>
+            <td>Are forgotten once they’re gone.</td>
+            <td>Keep your name in the room.</td>
+          </tr>
+          <tr>
+            <td>Rarely get talked about or shared.</td>
+            <td>Reappear in photos and social posts.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin: 1.75rem 0 0 0; text-align: center; font-size: 1.02rem;">
+        <em>That’s the difference between a nice gesture they forget… and a once-in-a-lifetime gift they keep talking about.</em>
+      </p>
+    </section>
+  </div>
+</body>
+</html>

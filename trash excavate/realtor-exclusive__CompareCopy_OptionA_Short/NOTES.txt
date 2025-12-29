@@ -1,0 +1,12 @@
+CHANGES (Realtor Exclusive page)
+- Updated only the comparison section titled “Why House Portraits Surpass Generic Gifts”.
+  - Subhead replaced with: “Most closing gifts disappear in a week. This one keeps your name bringing referrals for years.”
+  - Columns reordered so the positive option appears first.
+  - Column headers changed to “Handmade House Portraits” and “Standard Closing Gifts”.
+  - Bullet text shortened.
+
+NOTES
+- This ZIP does NOT include your existing images/videos/fonts. It preserves all original file paths, so it will work once placed into your existing site folder with assets intact.
+- To deploy, either:
+  (A) rename realtor-exclusive__CompareCopy_OptionA_Short.html to realtor-exclusive.html and replace the old file, OR
+  (B) keep both and update your nav/link to point to the new filename.
